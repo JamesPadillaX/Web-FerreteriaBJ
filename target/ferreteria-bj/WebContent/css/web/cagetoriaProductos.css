@@ -1,0 +1,150 @@
+/* ----------- GENERAL ----------- */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* ----------- CONTENEDOR ----------- */
+.pagina-productos .contenedor-principal {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ----------- GRID DE PRODUCTOS ----------- */
+.pagina-productos .grid-productos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem;
+}
+
+/* ----------- TARJETA DE PRODUCTO ----------- */
+.pagina-productos .card-producto {
+  background: white;
+  width: 250px;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  height: 100%;
+  min-height: 400px; /* ajusta según lo que necesites */
+}
+
+.pagina-productos .card-producto .contenido {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ----------- IMAGEN ----------- */
+.pagina-productos .imagen-producto {
+  width: 100%;
+  height: 180px;
+  padding: 10px;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.pagina-productos .imagen-producto img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+}
+
+/* ----------- TEXTO ----------- */
+.pagina-productos .card-producto h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0.5rem 0 0.25rem;
+  padding-left: 0.25rem;
+}
+
+.pagina-productos .card-producto p {
+  font-size: 0.95rem;
+  color: #555;
+  margin: 0.25rem 0;
+  padding-left: 0.25rem;
+}
+
+.pagina-productos .card-producto p strong {
+  color: #222;
+}
+
+/* ----------- BOTÓN AGREGAR ----------- */
+.pagina-productos .btn-agregar {
+  background-color: #f1c40f;
+  color: #000;
+  border: none;
+  padding: 0.5rem 1rem;
+  margin-top: 10px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  transform: translateY(0);
+}
+
+.pagina-productos .btn-agregar:hover {
+  background-color: #e1b900;
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* ----------- FILTRO ----------- */
+.pagina-productos .form-filtro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #fff;
+  padding: 1rem 2rem;
+  margin: 2rem auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  max-width: 600px;
+  flex-wrap: wrap;
+  font-size: 1rem;
+}
+
+.pagina-productos .form-filtro select {
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.pagina-productos .form-filtro label {
+  font-weight: 600;
+}  
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+}
+
+main {
+  flex: 1; /* Esto empuja el footer hacia abajo */
+}

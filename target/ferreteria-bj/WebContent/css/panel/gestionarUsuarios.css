@@ -1,0 +1,110 @@
+
+.main-content {
+    margin-left: 250px; 
+    padding: 30px;
+    background-color: #f1f5f8;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+.main-content h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+
+.btn-agregar {
+    background-color: #ffaa00;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background-color 0.3s;
+}
+
+.btn-agregar:hover {
+    background-color: #ffae00;
+}
+
+/* Contenedor de la tabla */
+.table-container {
+    overflow-x: auto;
+}
+
+/* Tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+thead {
+    background-color: #34495e;
+    color: white;
+}
+
+th, td {
+    padding: 12px 16px;
+    text-align: center;
+    border-bottom: 1px solid #ecf0f1;
+    font-size: 15px;
+}
+
+tbody tr:hover {
+    background-color: #f2f7fb;
+}
+
+/* Botones de acción */
+.action-btn {
+    background-color: #2980b9;
+    color: white;
+    border: none;
+    padding: 6px 14px;
+    margin: 2px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.action-btn i {
+    margin-right: 6px;
+}
+
+/* Botón eliminar */
+.action-btn.delete {
+    background-color: #e74c3c;
+}
+
+/* Efecto hover para ambos botones */
+.action-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    opacity: 1;
+}
+.btn-exportar {
+    display: inline-block;
+    background-color: #00ff2a;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-exportar:hover {
+    background-color: #06af41;
+}

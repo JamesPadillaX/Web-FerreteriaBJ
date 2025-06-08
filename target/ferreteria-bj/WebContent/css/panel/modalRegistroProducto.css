@@ -1,0 +1,155 @@
+/* Modal oculto por defecto */
+.modal {
+  display: none; /* oculto inicialmente */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+
+  /* Flex para centrar contenido */
+  justify-content: center;
+  align-items: center;
+
+  /* transición suave */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.modal.show {
+  display: flex;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Contenido del modal */
+.modal-content {
+  background: #1e1e1e; /* fondo oscuro */
+  padding: 30px 35px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 480px;
+  box-shadow: 0 8px 30px rgba(255, 223, 0, 0.4);
+  position: relative;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #fff;
+  transform: translateY(-20px);
+  transition: transform 0.3s ease;
+}
+
+.modal.show .modal-content {
+  transform: translateY(0);
+}
+
+/* Cerrar modal (X) */
+.modal-content .close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 32px;
+  font-weight: 900;
+  color: #ffdd00; /* amarillo vibrante */
+  cursor: pointer;
+  transition: color 0.3s ease;
+  user-select: none;
+}
+
+.modal-content .close:hover {
+  color: #ffc300; /* amarillo más claro al hover */
+}
+
+/* Etiquetas y campos */
+.modal-content label {
+  display: block;
+  margin-top: 18px;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #ffdd00; /* amarillo vibrante */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  user-select: none;
+}
+
+/* Inputs y selects */
+.modal-content input[type="text"],
+.modal-content input[type="number"],
+.modal-content textarea,
+.modal-content select {
+  width: 100%;
+  padding: 12px 15px;
+  margin-top: 8px;
+  border: 2px solid #555;
+  border-radius: 8px;
+  font-size: 1.05rem;
+  font-family: inherit;
+  background-color: #2a2a2a;
+  color: #eee;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
+}
+
+.modal-content input[type="text"]:focus,
+.modal-content input[type="number"]:focus,
+.modal-content textarea:focus,
+.modal-content select:focus {
+  border-color: #ffdd00;
+  background-color: #3a3a3a;
+  outline: none;
+  box-shadow: 0 0 8px #ffdd00;
+}
+
+/* Textarea */
+.modal-content textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+/* Botones en línea a la derecha */
+.botones {
+  margin-top: 30px;
+  text-align: right;
+}
+
+/* Botón guardar */
+.botones .btn-guardar {
+  background-color: #ffdd00; /* amarillo vibrante */
+  color: #1e1e1e;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 900;
+  font-size: 1.1rem;
+  letter-spacing: 1.5px;
+  box-shadow: 0 6px 10px rgba(255, 221, 0, 0.5);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+}
+
+.botones .btn-guardar:hover {
+  background-color: #ffea3d;
+  box-shadow: 0 10px 20px rgba(255, 234, 61, 0.8);
+}
+
+/* Botón cancelar */
+.botones .btn-cancelar {
+  background-color: #102a54; /* azul marino oscuro */
+  color: #ffdd00; /* amarillo vibrante */
+  border: 2px solid #ffdd00;
+  padding: 10px 26px;
+  margin-left: 18px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1.05rem;
+  border-radius: 30px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  user-select: none;
+}
+
+.botones .btn-cancelar:hover {
+  background-color: #ffdd00; /* amarillo */
+  color: #102a54; /* azul marino */
+}

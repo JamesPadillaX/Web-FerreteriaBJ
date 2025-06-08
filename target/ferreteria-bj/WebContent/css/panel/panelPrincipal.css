@@ -1,0 +1,148 @@
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9fafb;
+    color: #0b1f40;
+}
+
+
+.container {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f9fafb;
+}
+
+
+.sidebar {
+    background-color: #0b1f40; /* Azul marino */
+    width: 260px;
+    min-width: 260px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    transition: width 0.3s ease;
+}
+
+/* Encabezado del sidebar */
+.sidebar-header {
+    padding: 20px;
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    letter-spacing: 2px;
+}
+
+/* Lista del menú */
+.menu {
+    list-style: none;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+/* Elementos del menú */
+.menu li a {
+    display: block;
+    padding: 15px 30px;
+    font-weight: 600;
+    text-decoration: none;
+    color: #cbd5e1; /* gris claro */
+    border-left: 4px solid transparent;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Estado hover y activo */
+.menu li a:hover,
+.menu li a.active {
+    background-color: #ffc107; /* amarillo */
+    color: #0b1f40;
+    border-left-color: #ffc107;
+}
+
+/* Contenido principal */
+.content {
+    flex-grow: 1;
+    padding: 40px;
+    background-color: #fff;
+    overflow-y: auto;
+    box-shadow: inset 0 0 15px rgb(0 0 0 / 0.05);
+    border-radius: 0 8px 8px 0;
+}
+
+/* Títulos */
+.content h1 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+/* Responsive: Sidebar horizontal en pantallas chicas */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    .sidebar {
+        width: 100%;
+        height: 60px;
+        flex-direction: row;
+        align-items: center;
+        box-shadow: none;
+        border-radius: 0 0 8px 8px;
+        overflow-x: auto;
+    }
+    .sidebar-header {
+        display: none;
+    }
+    .menu {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        overflow-x: auto;
+        scrollbar-width: none; /* Firefox */
+    }
+    .menu::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera */
+    }
+    .menu li a {
+        padding: 10px 15px;
+        border-left: none;
+        border-bottom: 3px solid transparent;
+        font-size: 14px;
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+    .menu li a:hover,
+    .menu li a.active {
+        border-bottom-color: #ffc107;
+        background-color: transparent;
+        color: #ffc107;
+    }
+    .content {
+        padding: 20px 15px;
+        border-radius: 0;
+    }
+}
+.menu li a i {
+    margin-right: 12px;  /* espacio entre icono y texto */
+    width: 18px;         /* ancho fijo para alinear */
+    text-align: center;  /* centrar icono */
+    font-size: 18px;     /* tamaño adecuado */
+    vertical-align: middle;
+}
+
+/* Opcional: para que el texto quede verticalmente centrado junto al icono */
+.menu li a {
+    display: flex;
+    align-items: center;
+}

@@ -1,0 +1,213 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  background: #f4f4f4;
+  color: #333;
+}
+
+.main-header, .main-footer {
+  background: #001f3f;
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main-header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.main-header h1 span {
+  color: #f1c40f;
+}
+
+.nav-bar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.nav-bar a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+}
+
+.user-actions a {
+  margin-left: 1rem;
+  color: #f1c40f;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.hero {
+  background: linear-gradient(to right, #001f3f, #003366);
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+}
+
+section {
+  padding: 2rem;
+}
+
+.producto {
+  background: white;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  display: inline-block;
+  width: 200px;
+}
+
+.producto img {
+  max-width: 100%;
+  height: auto;
+}
+
+.categorias ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.categorias li {
+  background: #f1c40f;
+  color: #001f3f;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.main-footer {
+  text-align: center;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .main-header, .main-footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .nav-bar ul {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .user-actions {
+    margin-top: 1rem;
+  }
+}html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f4f4;
+}
+
+.contenedor-principal {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+  padding: 2rem;
+}
+
+/* Ya tienes esto */
+.main-footer {
+  text-align: center;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  background: #001f3f;
+  color: white;
+}
+.user-name {
+  cursor: pointer;
+  color: white;
+  margin-right: 10px;
+}
+
+.carrito-icon {
+  margin-left: 15px;
+  font-size: 1.4rem;
+  text-decoration: none;
+  color: white;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: absolute;
+  top: 60px;
+  right: 10px;
+  background-color: white;
+  padding: 15px 20px;
+  border: 1px solid #ccc;
+  z-index: 1000;
+  border-radius: 10px;
+  width: 200px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.modal-content ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.modal-content li {
+  margin: 10px 0;
+}
+
+.modal-content a {
+  text-decoration: none;
+  color: #333;
+}
+
+.modal-content .close {
+  float: right;
+  cursor: pointer;
+  font-weight: bold;
+}
+html, body {
+  height: 100%;
+}
+
+.contenedor-principal {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+.productos-contenedor {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 1rem;
+}

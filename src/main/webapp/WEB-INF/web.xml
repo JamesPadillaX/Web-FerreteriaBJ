@@ -1,0 +1,58 @@
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+         http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+
+         <servlet>
+            <servlet-name>ListarRolesServlet</servlet-name>
+            <servlet-class>controlador.ListarRolesServlet</servlet-class>
+        </servlet>
+        <servlet-mapping>
+            <servlet-name>ListarRolesServlet</servlet-name>
+            <url-pattern>/ListarRolesServlet</url-pattern>
+        </servlet-mapping>
+
+         <servlet>
+            <servlet-name>ListarCategoriasServlet</servlet-name>
+            <servlet-class>controlador.ListarCategoriasServlet</servlet-class>
+        </servlet>
+        <servlet-mapping>
+            <servlet-name>ListarCategoriasServlet</servlet-name>
+            <url-pattern>/ListarCategoriasServlet</url-pattern>
+        </servlet-mapping>
+
+         <servlet>
+            <servlet-name>ListarProductosServlet</servlet-name>
+            <servlet-class>controlador.ListarProductosServlet</servlet-class>
+        </servlet>
+        <servlet-mapping>
+            <servlet-name>ListarProductosServlet</servlet-name>
+            <url-pattern>/ListarProductosServlet</url-pattern>
+        </servlet-mapping>
+
+         <servlet>
+            <servlet-name>LoginUsuarioServlet</servlet-name>
+            <servlet-class>controlador.LoginUsuarioServlet</servlet-class>
+        </servlet>
+        <servlet-mapping>
+            <servlet-name>LoginUsuarioServlet</servlet-name>
+            <url-pattern>/LoginUsuarioServlet</url-pattern>
+        </servlet-mapping>
+
+         <servlet>
+            <servlet-name>ListarProductosPorCategoriaServlet</servlet-name>
+            <servlet-class>controlador.ListarProductosPorCategoriaServlet</servlet-class>
+        </servlet>
+
+        <servlet-mapping>
+            <servlet-name>ListarProductosPorCategoriaServlet</servlet-name>
+            <url-pattern>/ListarProductosPorCategoriaServlet</url-pattern>
+        </servlet-mapping>
+
+       
+        
+
+        
+
+</web-app>
