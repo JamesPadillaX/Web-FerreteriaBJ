@@ -74,6 +74,7 @@
             </div>
             <form action="AgregarAlCarritoServlet" method="post">
               <input type="hidden" name="idProducto" value="<%= prod.getIdProducto() %>"> 
+              <input type="hidden" name="cantidad" value="1"> 
               <button type="submit" class="btn-agregar">Agregar 🛒</button>
             </form>
           </div>

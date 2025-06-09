@@ -1,0 +1,94 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f4f6f8;
+  color: #333;
+}
+
+.contenedor-principal {
+  padding: 0 20px;
+}
+
+.banner-ayuda {
+  background-color: #002b5c; /* azul marino */
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+  margin-top: 20px;
+  border-radius: 8px;
+  animation: fadeInDown 0.8s ease-out;
+}
+
+.banner-ayuda h1 {
+  font-size: 36px;
+  margin: 0;
+  font-weight: 600;
+}
+
+.banner-ayuda p {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.ayuda-contenedor {
+  background-color: #ffffff;
+  margin: 40px auto;
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 700px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.ayuda-contenedor h2 {
+  text-align: center;
+  color: #003366;
+  margin-bottom: 20px;
+}
+
+.ayuda-info p {
+  font-size: 16px;
+  margin: 15px 0;
+  line-height: 1.6;
+}
+
+/* Animación */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* WhatsApp botón */
+.whatsapp-contacto {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.whatsapp-contacto a {
+  display: inline-flex;
+  align-items: center;
+  background-color: #002b5c; /* azul marino */
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.whatsapp-contacto a:hover {
+  background-color: #001f47;
+}
+
+.whatsapp-contacto img {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  filter: brightness(0) invert(1); /* hace el ícono blanco */
+}
