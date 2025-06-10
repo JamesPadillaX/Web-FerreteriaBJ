@@ -53,12 +53,12 @@ public class AgregarCarritoServlet extends HttpServlet {
                 // manejar error si quieres
             }
         }
-
         String referer = request.getHeader("Referer");
         if (referer != null) {
-            response.sendRedirect(referer);
+            String redireccion = referer.contains("?") ? referer + "&msg=agregado" : referer + "?msg=agregado";
+            response.sendRedirect(redireccion);
         } else {
-            response.sendRedirect("ListarProductosPorCategoriaServlet");
+            response.sendRedirect("ListarProductosPorCategoriaServlet?msg=agregado");
         }
     }
 }

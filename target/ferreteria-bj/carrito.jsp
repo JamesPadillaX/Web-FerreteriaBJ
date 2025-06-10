@@ -4,6 +4,7 @@
 <%@ page import="modelo.Cliente" %>
 <%@ page import="dao.CarritoDAO" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%
     Cliente cliente = (Cliente) session.getAttribute("clienteLogueado");
@@ -86,8 +87,11 @@
         </div>
     </main>
 
-    <%@ include file="footer.jsp" %>
+    <c:if test="${param.msg == 'eliminado'}">
+        <jsp:include page="WebContent/componentes/alertaEliminadoCarrito.jsp" />
+    </c:if>
 
+    <%@ include file="footer.jsp" %>
 </div>
 </body>
 </html>

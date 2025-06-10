@@ -2,6 +2,7 @@
 <%@ page import="dao.ProductoDAO" %>
 <%@ page import="modelo.Producto" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -85,6 +86,9 @@
       %>
     </div>
   </main>
+  <c:if test="${param.msg == 'agregado'}">
+    <jsp:include page="WebContent/componentes/alertaAgregadoCarrito.jsp" />
+  </c:if>
   <%@ include file="footer.jsp" %>
 </div>
 </body>

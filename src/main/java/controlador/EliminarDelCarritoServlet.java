@@ -48,6 +48,6 @@ public class EliminarDelCarritoServlet extends HttpServlet {
             }
         }
 
-        response.sendRedirect("carrito.jsp");
+        response.sendRedirect("carrito.jsp?msg=eliminado");
     }
 }
