@@ -83,3 +83,35 @@ main {
     font-size: 1.5rem;
   }
 }
+.error-msg {
+  color: red;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.success-msg {
+  color: green;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.link-login {
+  text-align: center;
+  margin-top: 1rem;
+}
+.campo-password {
+  position: relative;
+}
+
+.campo-password input {
+  padding-right: 2.5rem;
+}
+
+.campo-password i.toggle-password {
+  position: absolute;
+  top: 50%;
+  right: 0.8rem;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #555;
+}

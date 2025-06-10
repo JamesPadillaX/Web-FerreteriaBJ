@@ -6,6 +6,7 @@
   <title>Registro - Ferretería BJ</title>
   <link rel="stylesheet" href="WebContent/css/web/styles.css">
   <link rel="stylesheet" href="WebContent/css/web/registro.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
   <div class="contenedor-principal">
@@ -13,50 +14,56 @@
 
     <main>
       <section>
-        <form action="RegistrarServlet" method="post" class="formulario">
+        <form action="RegistrarServlet" method="post" class="formulario" id="formRegistroCliente">
           <h2>Crear Cuenta</h2>
 
           <% 
             String msg = request.getParameter("msg");
             if ("errorDni".equals(msg)) {
           %>
-              <p style="color: red;">El DNI ya está registrado.</p>
+              <p class="error-msg">El DNI ya está registrado.</p>
           <% } else if ("errorTelefono".equals(msg)) { %>
-              <p style="color: red;">El teléfono ya está registrado.</p>
+              <p class="error-msg">El teléfono ya está registrado.</p>
           <% } else if ("errorCorreo".equals(msg)) { %>
-              <p style="color: red;">El correo ya está registrado.</p>
+              <p class="error-msg">El correo ya está registrado.</p>
           <% } else if ("errorPassword".equals(msg)) { %>
-              <p style="color: red;">Las contraseñas no coinciden.</p>
+              <p class="error-msg">Las contraseñas no coinciden.</p>
           <% } else if ("error".equals(msg)) { %>
-              <p style="color: red;">Ocurrió un error al registrar. Inténtalo nuevamente.</p>
+              <p class="error-msg">Ocurrió un error al registrar. Inténtalo nuevamente.</p>
           <% } else if ("exito".equals(msg)) { %>
-              <p style="color: green;">¡Registro exitoso! Ahora puedes iniciar sesión.</p>
+              <p class="success-msg">¡Registro exitoso! Ahora puedes iniciar sesión.</p>
           <% } %>
 
           <label for="nombre">Nombre</label>
-          <input type="text" id="nombre" name="nombre" required>
+          <input type="text" id="nombre" name="nombre" required pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ ]+" title="Solo letras y espacios">
 
           <label for="apellidos">Apellidos</label>
-          <input type="text" id="apellidos" name="apellidos" required>
+          <input type="text" id="apellidos" name="apellidos" required pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ ]+" title="Solo letras y espacios">
 
           <label for="dni">DNI</label>
-          <input type="text" id="dni" name="dni" required pattern="[0-9]{8,15}" title="Debe contener entre 8 y 15 dígitos">
+          <input type="text" id="dni" name="dni" required pattern="[0-9]{8}" maxlength="8" title="Debe contener exactamente 8 dígitos numéricos">
 
           <label for="telefono">Teléfono</label>
-          <input type="tel" id="telefono" name="telefono" required pattern="[0-9+ -]{7,20}" title="Número válido entre 7 y 20 caracteres">
+          <input type="text" id="telefono" name="telefono" required pattern="[0-9]{9}" maxlength="9" title="Debe contener exactamente 9 dígitos numéricos">
 
           <label for="correo">Correo Electrónico</label>
           <input type="email" id="correo" name="correo" required>
 
           <label for="password">Contraseña</label>
-          <input type="password" id="password" name="password" required minlength="6">
+          <div class="campo-password">
+            <input type="password" id="password" name="password" required minlength="6">
+            <i class="fa-solid fa-eye-slash toggle-password" onclick="togglePassword('password', this)" title="Mostrar/Ocultar contraseña"></i>
+          </div>
 
           <label for="confirmar">Confirmar Contraseña</label>
-          <input type="password" id="confirmar" name="confirmar" required minlength="6">
+          <div class="campo-password">
+            <input type="password" id="confirmar" name="confirmar" required minlength="6">
+            <i class="fa-solid fa-eye-slash toggle-password" onclick="togglePassword('confirmar', this)" title="Mostrar/Ocultar contraseña"></i>
+          </div>
 
           <button type="submit">Registrarse</button>
 
-          <p style="text-align: center; margin-top: 1rem;">
+          <p class="link-login">
             ¿Ya tienes una cuenta? <a href="login.jsp">Inicia sesión</a>
           </p>
         </form>
@@ -65,5 +72,6 @@
 
     <jsp:include page="footer.jsp" />
   </div>
+  <script src="WebContent/js/web/validarRegistroCliente.js"></script>
 </body>
 </html>

@@ -10,7 +10,7 @@
         <span class="close" id="cerrarModalRegistro">&times;</span>
         <h2>Registrar Nuevo Usuario</h2>
 
-        <form action="AgregarUsuarioServlet" method="post">
+        <form action="AgregarUsuarioServlet" method="post" id="formRegistroUsuario">
             <input type="hidden" name="idUsuario" value="">
 
             <label>Nombre:</label>
@@ -20,10 +20,18 @@
             <input type="text" name="apellidos" required>
 
             <label>DNI:</label>
-            <input type="text" name="dni" required>
+            <input type="text" name="dni" required 
+                   pattern="\\d{8}" 
+                   minlength="8" maxlength="8" 
+                   inputmode="numeric"
+                   title="Debe contener exactamente 8 números">
 
             <label>Teléfono:</label>
-            <input type="text" name="telefono" required>
+            <input type="text" name="telefono" required 
+                   pattern="\\d{9}" 
+                   minlength="9" maxlength="9" 
+                   inputmode="numeric"
+                   title="Debe contener exactamente 9 números">
 
             <label>Usuario:</label>
             <input type="text" name="username" required>
@@ -52,3 +60,49 @@
         </form>
     </div>
 </div>
+
+<!-- JavaScript de validación -->
+<script>
+    // Limita a solo números con longitud máxima
+    function limitarNumeros(input, maxLength) {
+        input.addEventListener('keypress', function (e) {
+            const key = e.key;
+            if (!/^\d$/.test(key) || input.value.length >= maxLength) {
+                e.preventDefault();
+            }
+        });
+
+        input.addEventListener('input', function () {
+            input.value = input.value.replace(/\D/g, '');
+            if (input.value.length > maxLength) {
+                input.value = input.value.slice(0, maxLength);
+            }
+        });
+    }
+
+    // Limita a solo letras y espacios
+    function limitarLetras(input) {
+        input.addEventListener('keypress', function (e) {
+            const key = e.key;
+            if (!/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]$/.test(key)) {
+                e.preventDefault();
+            }
+        });
+
+        input.addEventListener('input', function () {
+            input.value = input.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, '');
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const dniInput = document.querySelector('input[name="dni"]');
+        const telefonoInput = document.querySelector('input[name="telefono"]');
+        const nombreInput = document.querySelector('input[name="nombre"]');
+        const apellidosInput = document.querySelector('input[name="apellidos"]');
+
+        if (dniInput) limitarNumeros(dniInput, 8);
+        if (telefonoInput) limitarNumeros(telefonoInput, 9);
+        if (nombreInput) limitarLetras(nombreInput);
+        if (apellidosInput) limitarLetras(apellidosInput);
+    });
+</script>

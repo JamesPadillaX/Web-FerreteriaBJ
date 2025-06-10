@@ -4,8 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <title>Iniciar Sesión - Ferretería BJ</title>
-  <link rel="stylesheet" href="WebContent/css/web/styles.css">
   <link rel="stylesheet" href="WebContent/css/web/login.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
   <div class="contenedor-principal">
@@ -20,7 +21,11 @@
           value="<%= request.getParameter("correo") != null ? request.getParameter("correo") : "" %>" required>
 
         <label for="contrasena">Contraseña</label>
-        <input type="password" id="contrasena" name="password" required>
+        <div class="input-contrasena">
+          <input type="password" id="contrasena" name="password" required>
+          <i class="fa-solid fa-eye-slash toggle-password"></i>
+        </div>
+
 
         <button type="submit">Ingresar</button>
 
@@ -29,7 +34,7 @@
         </p>
       </form>
 
-      <%-- Incluye el JSP de alerta solo si hay error=1 --%>
+      <%-- Mostrar alerta si hay error --%>
       <%
         String error = request.getParameter("error");
         if ("1".equals(error)) {
@@ -38,12 +43,12 @@
       <%
         }
       %>
-
     </main>
 
     <jsp:include page="footer.jsp" />
   </div>
 
-  <script src="WebContent/js/login.js"></script>
+
+  <script src="WebContent/js/web/login.js"></script>
 </body>
 </html>

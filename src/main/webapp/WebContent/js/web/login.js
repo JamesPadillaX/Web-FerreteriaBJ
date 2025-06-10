@@ -9,3 +9,20 @@ window.addEventListener('load', () => {
     }
   }
 });
+
+// Funcionalidad del ícono para mostrar/ocultar contraseña
+document.addEventListener("DOMContentLoaded", function () {
+  const toggleIcons = document.querySelectorAll(".toggle-password");
+
+  toggleIcons.forEach(icon => {
+    icon.addEventListener("click", function () {
+      const input = this.closest('.input-contrasena').querySelector('input');
+      const isPassword = input.type === "password";
+      input.type = isPassword ? "text" : "password";
+
+      this.classList.toggle("fa-eye");
+      this.classList.toggle("fa-eye-slash");
+    });
+  });
+});
+

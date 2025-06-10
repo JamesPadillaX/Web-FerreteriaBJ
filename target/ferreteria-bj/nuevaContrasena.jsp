@@ -3,8 +3,9 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Actualizar Contraseña - Ferretería BJ</title>
-  <link rel="stylesheet" href="WebContent/css/web/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="WebContent/css/web/login.css">
 </head>
 <body>
@@ -16,7 +17,11 @@
         <h2>Actualizar Contraseña</h2>
 
         <label for="nuevaPassword">Nueva Contraseña:</label>
-        <input type="password" id="nuevaPassword" name="nuevaPassword" required>
+        <div class="input-contrasena">
+          <input type="password" id="nuevaPassword" name="nuevaPassword" required>
+          <i class="fa-solid fa-eye-slash toggle-password" title="Mostrar/Ocultar contraseña"></i>
+        </div>
+
 
         <button type="submit">Guardar Contraseña</button>
 
@@ -47,8 +52,8 @@
         </p>
       </form>
     </main>
-
     <jsp:include page="footer.jsp" />
   </div>
+  <script src="WebContent/js/web/login.js"></script>
 </body>
 </html>

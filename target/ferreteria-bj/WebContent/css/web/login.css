@@ -49,7 +49,45 @@ main {
   color: #333;
 }
 
-.formulario input {
+/* Campo de contraseña con ojito */
+.input-contrasena {
+  position: relative;
+}
+
+.input-contrasena input {
+  width: 100%;
+  padding: 0.75rem;
+  padding-right: 3.2rem; 
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+
+.input-contrasena input:focus {
+  outline: none;
+  border-color: #001f3f;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: auto;
+  background: white; 
+  padding-left: 0.25rem;
+  font-size: 1.1rem;
+}
+
+
+.toggle-password:hover {
+  color: #001f3f;
+}
+
+.formulario input:not([type="password"]) {
   padding: 0.75rem;
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -94,10 +132,30 @@ main {
   color: #f1c40f;
 }
 
+/* RESPONSIVE */
 @media (max-width: 600px) {
   .formulario {
     padding: 1.5rem;
     border-radius: 12px;
   }
-}
 
+  .formulario h2 {
+    font-size: 1.5rem;
+  }
+
+  .formulario input,
+  .formulario button {
+    font-size: 0.95rem;
+  }
+
+  .toggle-password {
+    font-size: 1rem;
+  }
+}
+.input-contrasena {
+  overflow: hidden;
+}
+.toggle-password {
+  font-size: 1rem; /* o incluso 0.9rem */
+  line-height: 1;
+}
