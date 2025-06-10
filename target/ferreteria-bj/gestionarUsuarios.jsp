@@ -26,14 +26,15 @@
 
         <div class="content">
             <h1>Gestión de Usuarios</h1>
+
             <div class="export-buttons" style="margin-bottom: 15px;">
-    <a href="ExportarUsuariosPdfServlet" class="btn-exportar" style="margin-right: 10px;">
-        <i class="fas fa-file-pdf"></i> Exportar PDF
-    </a>
-    <a href="ExportarUsuariosExcelServlet" class="btn-exportar">
-        <i class="fas fa-file-excel"></i> Exportar Excel
-    </a>
-</div>
+                <a href="ExportarUsuariosPdfServlet" class="btn-exportar btn-pdf" style="margin-right: 10px;">
+                    <i class="fas fa-file-pdf"></i> Exportar PDF
+                </a>
+                <a href="ExportarUsuariosExcelServlet" class="btn-exportar btn-excel">
+                    <i class="fas fa-file-excel"></i> Exportar Excel
+                </a>
+            </div>
 
 
             <button id="btnAbrirModal" class="btn-agregar">+ Agregar Nuevo Usuario</button>

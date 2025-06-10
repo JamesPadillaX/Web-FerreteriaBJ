@@ -7,6 +7,7 @@ import util.Conexion;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import com.google.common.base.Preconditions;
 
 public class UsuarioDAO {
 
@@ -52,16 +53,23 @@ public class UsuarioDAO {
         return lista;
     }
 
+
     public boolean guardarUsuario(Usuario u) {
+        Preconditions.checkNotNull(u, "El objeto Usuario no debe ser null");
+        Preconditions.checkArgument(!u.getNombre().isEmpty(), "El nombre es obligatorio");
+        Preconditions.checkArgument(!u.getApellidos().isEmpty(), "Los apellidos son obligatorios");
+        Preconditions.checkArgument(!u.getDni().isEmpty(), "El DNI es obligatorio");
+        Preconditions.checkArgument(!u.getUsername().isEmpty(), "El username es obligatorio");
+        Preconditions.checkArgument(!u.getPassword().isEmpty(), "La contraseña es obligatoria");
         String sql = "INSERT INTO usuarios(nombre, apellidos, dni, telefono, username, password, estado, idRol) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         try (PreparedStatement ps = con.prepareStatement(sql)) {
             ps.setString(1, u.getNombre());
-            ps.setString(2, u.getApellidos());
+            ps.setString(2, u.getApellidos());  
             ps.setString(3, u.getDni());
             ps.setString(4, u.getTelefono());
             ps.setString(5, u.getUsername());
             ps.setString(6, u.getPassword());
-            ps.setInt(7, 1); // ACTIVO por defecto
+            ps.setInt(7, 1); 
             ps.setInt(8, u.getIdRol());
             return ps.executeUpdate() > 0;
         } catch (SQLException e) {
@@ -69,6 +77,7 @@ public class UsuarioDAO {
         }
         return false;
     }
+
 
     public boolean modificarUsuario(Usuario u) {
         String sql = "UPDATE usuarios SET nombre = ?, apellidos = ?, dni = ?, telefono = ?, username = ?, password = ?, estado = ?, idRol = ? WHERE idUsuario = ?";
@@ -231,6 +240,4 @@ public Usuario obtenerUsuarioPorUsernameEstado(int estado, String username) {
     }
     return u;
 }
-
-
 }

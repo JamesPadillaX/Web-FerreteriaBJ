@@ -94,17 +94,32 @@ tbody tr:hover {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     opacity: 1;
 }
+/* Estilo base para ambos botones */
 .btn-exportar {
     display: inline-block;
-    background-color: #00ff2a;
-    color: white;
     padding: 8px 12px;
     border-radius: 5px;
     text-decoration: none;
     font-size: 14px;
     transition: background-color 0.3s ease;
+    color: white;
+    font-weight: bold;
 }
 
-.btn-exportar:hover {
-    background-color: #06af41;
+/* Estilo específico para PDF */
+.btn-pdf {
+    background-color: #e74c3c; /* rojo */
+}
+
+.btn-pdf:hover {
+    background-color: #c0392b;
+}
+
+/* Estilo específico para Excel */
+.btn-excel {
+    background-color: #2ecc71; /* verde */
+}
+
+.btn-excel:hover {
+    background-color: #27ae60;
 }
