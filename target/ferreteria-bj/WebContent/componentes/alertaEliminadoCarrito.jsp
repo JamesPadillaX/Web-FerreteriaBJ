@@ -1,5 +1,4 @@
 <style>
-  /* Fondo overlay */
   #overlay-eliminado {
     position: fixed;
     top: 0;
@@ -13,7 +12,6 @@
     z-index: 9999;
   }
 
-  /* Contenedor del mensaje */
   #toast-eliminado {
     background: #e74c3c; /* rojo alerta */
     color: white;

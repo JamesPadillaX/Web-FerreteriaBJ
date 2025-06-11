@@ -1,5 +1,4 @@
 <style>
-  /* Fondo oscuro con overlay */
   #overlay-agregado {
     position: fixed;
     top: 0;
@@ -13,7 +12,6 @@
     z-index: 9999;
   }
 
-  /* Contenedor del toast */
   #toast-agregado {
     background: #2ecc71; /* verde éxito */
     color: white;
@@ -50,7 +48,6 @@
   }
 </style>
 
-<!-- Contenedor de alerta -->
 <div id="overlay-agregado">
   <div id="toast-agregado" role="alert" aria-live="assertive" aria-atomic="true">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -61,7 +58,6 @@
 </div>
 
 <script>
-  // Ocultar automáticamente
   setTimeout(() => {
     const overlay = document.getElementById('overlay-agregado');
     overlay.style.opacity = '0';

@@ -1,21 +1,22 @@
 package controlador;
 
-import dao.UsuarioDAO;
+
 import modelo.Usuario;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
+import service.UsuarioService;
 
 @WebServlet("/EditarUsuarioServlet")
 public class EditarUsuarioServlet extends HttpServlet {
 
-    private UsuarioDAO usuarioDAO;
+    private UsuarioService usuarioService;
 
     @Override
     public void init() {
-        usuarioDAO = new UsuarioDAO();
+        usuarioService = new UsuarioService();
     }
 
     @Override
@@ -31,25 +32,17 @@ public class EditarUsuarioServlet extends HttpServlet {
         int idRol = Integer.parseInt(request.getParameter("idRol"));
         int estado = Integer.parseInt(request.getParameter("estado"));
 
-        // Obtener el usuario original desde la BD
-        Usuario usuarioOriginal = usuarioDAO.obtenerUsuarioPorId(idUsuario);
+        // Obtener el usuario original
+        Usuario usuarioOriginal = usuarioService.obtenerUsuarioPorId(idUsuario);
 
-        // Validar si el usuario es administrador
         if (usuarioOriginal != null && usuarioOriginal.getIdRol() == 1) {
-            // No permitir inactivar administradores
-            if (estado == 0) {
-                response.sendRedirect("ListarUsuariosServlet?msg=errorAdmin");
-                return;
-            }
-
-            // (Opcional) No permitir cambiar el rol del admin
-            if (idRol != 1) {
+            if (estado == 0 || idRol != 1) {
                 response.sendRedirect("ListarUsuariosServlet?msg=errorAdmin");
                 return;
             }
         }
 
-        // Crear objeto con datos actualizados
+        // Crear objeto actualizado
         Usuario usuario = new Usuario();
         usuario.setIdUsuario(idUsuario);
         usuario.setNombre(nombre);
@@ -61,12 +54,22 @@ public class EditarUsuarioServlet extends HttpServlet {
         usuario.setIdRol(idRol);
         usuario.setEstado(estado);
 
-        boolean actualizado = usuarioDAO.modificarUsuario(usuario);
+        // Validar duplicados desde el servicio
+        String validacion = usuarioService.validarDuplicados(usuario);
+        if ("dni".equals(validacion)) {
+            response.sendRedirect("WebContent/componentes/modalEditarUsuario.jsp");
+            return;
+        }
+        if ("username".equals(validacion)) {
+            response.sendRedirect("WebContent/componentes/modalEditarUsuario.jsp");
+            return;
+        }
 
+        boolean actualizado = usuarioService.actualizarUsuario(usuario);
         if (actualizado) {
             response.sendRedirect(request.getContextPath() + "/ListarUsuariosServlet?msg=editado");
         } else {
-            response.sendRedirect("gestionarUsuarios.jsp?msg=error");
+            response.sendRedirect("ListarUsuariosServlet?msg=error");
         }
     }
 }

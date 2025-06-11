@@ -21,14 +21,14 @@
 
             <label>DNI:</label>
             <input type="text" name="dni" required 
-                   pattern="\\d{8}" 
+                   pattern="\d{8}" 
                    minlength="8" maxlength="8" 
                    inputmode="numeric"
                    title="Debe contener exactamente 8 números">
 
             <label>Teléfono:</label>
             <input type="text" name="telefono" required 
-                   pattern="\\d{9}" 
+                   pattern="\d{9}" 
                    minlength="9" maxlength="9" 
                    inputmode="numeric"
                    title="Debe contener exactamente 9 números">

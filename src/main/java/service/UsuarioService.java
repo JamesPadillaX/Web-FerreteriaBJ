@@ -21,4 +21,22 @@ public class UsuarioService {
         }
         return Optional.absent(); 
     }
+
+    public String validarDuplicados(Usuario usuario) {
+        if (usuarioDAO.existeDniExceptoId(usuario.getDni(), usuario.getIdUsuario())) {
+            return "dni";
+        }
+        if (usuarioDAO.existeUsernameExceptoId(usuario.getUsername(), usuario.getIdUsuario())) {
+            return "username";
+        }
+        return ""; 
+    }
+
+    public boolean actualizarUsuario(Usuario usuario) {
+        return usuarioDAO.modificarUsuario(usuario);
+    }
+
+    public Usuario obtenerUsuarioPorId(int id) {
+        return usuarioDAO.obtenerUsuarioPorId(id);
+    }
 }

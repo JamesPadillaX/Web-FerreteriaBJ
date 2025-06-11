@@ -3,12 +3,15 @@ package dao;
 import modelo.Cliente;
 import util.Conexion;
 import util.Seguridad;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ClienteDAO {
+    private static final Logger logger = LoggerFactory.getLogger(ClienteDAO.class);
     private Connection con;
 
     public ClienteDAO() {
@@ -23,10 +26,10 @@ public class ClienteDAO {
             ps.setString(3, c.getDni());
             ps.setString(4, c.getTelefono());
             ps.setString(5, c.getCorreo());
-            ps.setString(6, c.getPassword()); 
+            ps.setString(6, c.getPassword());
             return ps.executeUpdate() > 0;
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error("Error al registrar cliente", e);
         }
         return false;
     }
@@ -39,7 +42,7 @@ public class ClienteDAO {
                 if (rs.next()) {
                     String hashGuardado = rs.getString("password");
                     String hashIngresado = Seguridad.hashSHA256(passwordPlano);
-                    if (hashGuardado.equals(hashIngresado)) { 
+                    if (hashGuardado.equals(hashIngresado)) {
                         Cliente c = new Cliente();
                         c.setIdCliente(rs.getInt("idCliente"));
                         c.setNombre(rs.getString("nombre"));
@@ -52,7 +55,7 @@ public class ClienteDAO {
                 }
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error("Error al validar login", e);
         }
         return null;
     }
@@ -74,7 +77,7 @@ public class ClienteDAO {
                 lista.add(c);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error("Error al listar clientes", e);
         }
         return lista;
     }
@@ -91,7 +94,7 @@ public class ClienteDAO {
             ps.setInt(7, c.getIdCliente());
             return ps.executeUpdate() > 0;
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error("Error al actualizar cliente", e);
         }
         return false;
     }
@@ -114,7 +117,30 @@ public class ClienteDAO {
                 }
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error("Error al obtener cliente por ID", e);
+        }
+        return null;
+    }
+
+    public Cliente obtenerClientePorCorreo(String correo) {
+        String sql = "SELECT * FROM clientes WHERE correo = ?";
+        try (PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setString(1, correo);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    Cliente c = new Cliente();
+                    c.setIdCliente(rs.getInt("idCliente"));
+                    c.setNombre(rs.getString("nombre"));
+                    c.setApellidos(rs.getString("apellidos"));
+                    c.setDni(rs.getString("dni"));
+                    c.setTelefono(rs.getString("telefono"));
+                    c.setCorreo(rs.getString("correo"));
+                    c.setPassword(rs.getString("password"));
+                    return c;
+                }
+            }
+        } catch (SQLException e) {
+            logger.error("Error al obtener cliente por correo", e);
         }
         return null;
     }
@@ -127,11 +153,10 @@ public class ClienteDAO {
                 if (rs.next()) return rs.getInt(1) > 0;
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error("Error al verificar existencia de DNI", e);
         }
         return false;
     }
-
 
     public boolean existeCorreo(String correo) {
         String sql = "SELECT COUNT(*) FROM clientes WHERE correo = ?";
@@ -141,11 +166,10 @@ public class ClienteDAO {
                 if (rs.next()) return rs.getInt(1) > 0;
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error("Error al verificar existencia de correo", e);
         }
         return false;
     }
-
 
     public boolean existeTelefono(String telefono) {
         String sql = "SELECT COUNT(*) FROM clientes WHERE telefono = ?";
@@ -155,32 +179,8 @@ public class ClienteDAO {
                 if (rs.next()) return rs.getInt(1) > 0;
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error("Error al verificar existencia de teléfono", e);
         }
         return false;
     }
-    
-    public Cliente obtenerClientePorCorreo(String correo) {
-    String sql = "SELECT * FROM clientes WHERE correo = ?";
-    try (PreparedStatement ps = con.prepareStatement(sql)) {
-        ps.setString(1, correo);
-        try (ResultSet rs = ps.executeQuery()) {
-            if (rs.next()) {
-                Cliente c = new Cliente();
-                c.setIdCliente(rs.getInt("idCliente"));
-                c.setNombre(rs.getString("nombre"));
-                c.setApellidos(rs.getString("apellidos"));
-                c.setDni(rs.getString("dni"));
-                c.setTelefono(rs.getString("telefono"));
-                c.setCorreo(rs.getString("correo"));
-                c.setPassword(rs.getString("password"));
-                return c;
-            }
-        }
-    } catch (SQLException e) {
-        e.printStackTrace();
-    }
-    return null;
-}
-
 }

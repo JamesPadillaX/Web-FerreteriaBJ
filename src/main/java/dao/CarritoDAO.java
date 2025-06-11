@@ -3,6 +3,8 @@ package dao;
 import modelo.DetalleCarrito;
 import modelo.Producto;
 import util.Conexion;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -10,6 +12,7 @@ import java.util.List;
 
 public class CarritoDAO {
 
+    private static final Logger logger = LoggerFactory.getLogger(CarritoDAO.class);
     private Connection con;
 
     public CarritoDAO() {
@@ -28,7 +31,7 @@ public class CarritoDAO {
             ResultSet rs = ps.getGeneratedKeys();
             if (rs.next()) return rs.getInt(1);
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error("Error al crear carrito para cliente {}: {}", idCliente, e.getMessage(), e);
         }
         return -1;
     }
@@ -41,21 +44,19 @@ public class CarritoDAO {
             ResultSet rs = ps.executeQuery();
             if (rs.next()) return rs.getInt("idCarrito");
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error("Error al obtener carrito activo del cliente {}: {}", idCliente, e.getMessage(), e);
         }
         return -1;
     }
 
     // 3. Agregar producto al carrito
     public boolean agregarProductoAlCarrito(int idCarrito, int idProducto, int cantidad) {
-        // Verificamos si ya existe ese producto en el carrito
         String verificar = "SELECT cantidad FROM detalle_carrito WHERE idCarrito = ? AND idProducto = ?";
         try (PreparedStatement ps = con.prepareStatement(verificar)) {
             ps.setInt(1, idCarrito);
             ps.setInt(2, idProducto);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                // Ya existe → actualizar cantidad
                 int nuevaCantidad = rs.getInt("cantidad") + cantidad;
                 String actualizar = "UPDATE detalle_carrito SET cantidad = ? WHERE idCarrito = ? AND idProducto = ?";
                 try (PreparedStatement ps2 = con.prepareStatement(actualizar)) {
@@ -65,7 +66,6 @@ public class CarritoDAO {
                     return ps2.executeUpdate() > 0;
                 }
             } else {
-                // No existe → insertar nuevo
                 String insertar = "INSERT INTO detalle_carrito (idCarrito, idProducto, cantidad) VALUES (?, ?, ?)";
                 try (PreparedStatement ps2 = con.prepareStatement(insertar)) {
                     ps2.setInt(1, idCarrito);
@@ -75,7 +75,7 @@ public class CarritoDAO {
                 }
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error("Error al agregar producto {} al carrito {}: {}", idProducto, idCarrito, e.getMessage(), e);
         }
         return false;
     }
@@ -84,9 +84,9 @@ public class CarritoDAO {
     public List<DetalleCarrito> listarDetallePorCarrito(int idCarrito) {
         List<DetalleCarrito> lista = new ArrayList<>();
         String sql = "SELECT d.idDetalleCarrito, d.idCarrito, d.idProducto, d.cantidad, " +
-             "p.nombre, p.imagen, p.precio FROM detalle_carrito d " +
-             "JOIN productos p ON d.idProducto = p.idProducto " +
-             "WHERE d.idCarrito = ?";
+                     "p.nombre, p.imagen, p.precio FROM detalle_carrito d " +
+                     "JOIN productos p ON d.idProducto = p.idProducto " +
+                     "WHERE d.idCarrito = ?";
 
         try (PreparedStatement ps = con.prepareStatement(sql)) {
             ps.setInt(1, idCarrito);
@@ -101,15 +101,14 @@ public class CarritoDAO {
                 Producto prod = new Producto();
                 prod.setIdProducto(rs.getInt("idProducto"));
                 prod.setNombre(rs.getString("nombre"));
-                prod.setPrecio(rs.getDouble("precio")); 
+                prod.setPrecio(rs.getDouble("precio"));
                 prod.setImagen(rs.getString("imagen"));
 
                 dc.setProducto(prod);
-
                 lista.add(dc);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error("Error al listar productos del carrito {}: {}", idCarrito, e.getMessage(), e);
         }
         return lista;
     }
@@ -122,7 +121,7 @@ public class CarritoDAO {
             ps.setInt(2, idProducto);
             return ps.executeUpdate() > 0;
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error("Error al eliminar producto {} del carrito {}: {}", idProducto, idCarrito, e.getMessage(), e);
             return false;
         }
     }
@@ -134,7 +133,7 @@ public class CarritoDAO {
             ps.setInt(1, idCarrito);
             return ps.executeUpdate() > 0;
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error("Error al vaciar el carrito {}: {}", idCarrito, e.getMessage(), e);
             return false;
         }
     }
@@ -146,7 +145,7 @@ public class CarritoDAO {
             ps.setInt(1, idCarrito);
             return ps.executeUpdate() > 0;
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error("Error al finalizar el carrito {}: {}", idCarrito, e.getMessage(), e);
             return false;
         }
     }

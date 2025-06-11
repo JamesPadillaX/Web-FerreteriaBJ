@@ -2,6 +2,8 @@ package dao;
 
 import modelo.Categoria;
 import util.Conexion;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -9,12 +11,12 @@ import java.util.List;
 
 public class CategoriaDAO {
 
+    private static final Logger logger = LoggerFactory.getLogger(CategoriaDAO.class);
     private Connection con;
 
     public CategoriaDAO() {
         con = Conexion.getInstancia().getConexion();
     }
-
 
     public List<Categoria> listarCategorias() {
         List<Categoria> lista = new ArrayList<>();
@@ -31,7 +33,7 @@ public class CategoriaDAO {
                 lista.add(categoria);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error("Error al listar las categorías", e);
         }
         return lista;
     }
@@ -40,15 +42,14 @@ public class CategoriaDAO {
         String sql = "INSERT INTO categorias(nombre, estado) VALUES (?, ?)";
         try (PreparedStatement ps = con.prepareStatement(sql)) {
             ps.setString(1, categoria.getNombre());
-            ps.setInt(2, 1); 
+            ps.setInt(2, 1); // estado activo por defecto
             int filas = ps.executeUpdate();
             return filas > 0;
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error("Error al guardar la categoría", e);
         }
         return false;
     }
-
 
     public Categoria obtenerCategoriaPorId(int idCategoria) {
         Categoria categoria = null;
@@ -65,11 +66,10 @@ public class CategoriaDAO {
                 }
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error("Error al obtener la categoría por ID", e);
         }
         return categoria;
     }
-
 
     public boolean modificarCategoria(Categoria categoria) {
         String sql = "UPDATE categorias SET nombre = ?, estado = ? WHERE idCategoria = ?";
@@ -80,11 +80,10 @@ public class CategoriaDAO {
             int filas = ps.executeUpdate();
             return filas > 0;
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error("Error al modificar la categoría", e);
         }
         return false;
     }
-
 
     public boolean cambiarEstadoCategoria(int idCategoria, int nuevoEstado) {
         String sql = "UPDATE categorias SET estado = ? WHERE idCategoria = ?";
@@ -94,16 +93,14 @@ public class CategoriaDAO {
             int filas = ps.executeUpdate();
             return filas > 0;
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error("Error al cambiar estado de la categoría", e);
         }
         return false;
     }
 
-
     public boolean eliminarCategoria(int idCategoria) {
         return cambiarEstadoCategoria(idCategoria, 2);
     }
-
 
     public List<Categoria> listarCategoriasActivas() {
         List<Categoria> lista = new ArrayList<>();
@@ -120,8 +117,23 @@ public class CategoriaDAO {
                 lista.add(categoria);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error("Error al listar las categorías activas", e);
         }
         return lista;
+    }
+
+    public boolean existeCategoriaPorNombre(String nombre) {
+        String sql = "SELECT COUNT(*) FROM categorias WHERE nombre = ? AND estado <> 2";
+        try (PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setString(1, nombre);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt(1) > 0;
+                }
+            }
+        } catch (SQLException e) {
+            logger.error("Error al verificar existencia de categoría por nombre", e);
+        }
+        return false;
     }
 }

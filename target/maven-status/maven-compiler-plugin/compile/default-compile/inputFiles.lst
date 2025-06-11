@@ -7,6 +7,7 @@ C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\util\Conexion.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\AgregarProductoServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\dao\UsuarioDAO.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\AsignarPermisosServlet.java
+C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\LoggerTestServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\ListarUsuariosServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\ActualizarContrasenaServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\dao\RolDAO.java
@@ -22,6 +23,7 @@ C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\modelo\Categoria.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\util\CorreoUtil.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\EliminarRolServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\service\ClienteService.java
+C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\service\RolService.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\VerificarCodigoServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\EnviarCodigoServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\EditarRolServlet.java
@@ -29,6 +31,7 @@ C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\ExportarUsuariosPd
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\EliminarDelCarritoServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\modelo\Usuario.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\EditarUsuarioServlet.java
+C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\util\TestLog.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\AgregarUsuarioServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\EliminarCategoriaServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\modelo\Modulo.java
@@ -37,6 +40,7 @@ C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\modelo\Carrito.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\RegistrarServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\EditarCategoriaServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\LogoutServlet.java
+C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\service\CategoriaService.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\LogoutUsuarioServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\AgregarCarritoServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\EliminarUsuarioServlet.java

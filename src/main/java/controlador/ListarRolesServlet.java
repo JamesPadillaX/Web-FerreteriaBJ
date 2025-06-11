@@ -1,6 +1,7 @@
 package controlador;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
 import java.util.List;
@@ -8,6 +9,8 @@ import java.util.List;
 import dao.RolDAO;
 import modelo.Rol;
 
+
+@WebServlet("/ListarRolesServlet")
 public class ListarRolesServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 

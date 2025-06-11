@@ -1,7 +1,6 @@
 package controlador;
 
-import dao.RolDAO;
-import modelo.Rol;
+import service.RolService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,23 +13,22 @@ public class AgregarRolServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        request.setCharacterEncoding("UTF-8"); 
+        request.setCharacterEncoding("UTF-8");
         String nombre = request.getParameter("nombre");
 
+        RolService servicio = new RolService();
 
-        Rol rol = new Rol();
-        rol.setNombre(nombre);
-        rol.setEstado(1); 
+        if (servicio.rolExiste(nombre)) {
+            response.sendRedirect("gestionarRoles.jsp?error=existente");
+            return;
+        }
 
-        // Guardar rol usando DAO
-        RolDAO rolDAO = new RolDAO();
-        boolean guardado = rolDAO.guardarRol(rol);
+        boolean guardado = servicio.registrarRol(nombre);
 
-        // Redirigir según resultado
         if (guardado) {
             response.sendRedirect("ListarRolesServlet?msg=exito");
         } else {
-            response.sendRedirect("gestionarRoles.jsp?error=1");
+            response.sendRedirect("ListarRolesServlet?error=guardar");
         }
     }
 }

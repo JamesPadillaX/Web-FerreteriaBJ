@@ -5,15 +5,6 @@
          version="3.1">
 
          <servlet>
-            <servlet-name>ListarRolesServlet</servlet-name>
-            <servlet-class>controlador.ListarRolesServlet</servlet-class>
-        </servlet>
-        <servlet-mapping>
-            <servlet-name>ListarRolesServlet</servlet-name>
-            <url-pattern>/ListarRolesServlet</url-pattern>
-        </servlet-mapping>
-
-         <servlet>
             <servlet-name>ListarCategoriasServlet</servlet-name>
             <servlet-class>controlador.ListarCategoriasServlet</servlet-class>
         </servlet>

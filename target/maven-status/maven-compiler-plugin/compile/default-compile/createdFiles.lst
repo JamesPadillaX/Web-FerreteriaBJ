@@ -18,6 +18,7 @@ controlador\EditarRolServlet.class
 modelo\Categoria.class
 controlador\LogoutUsuarioServlet.class
 controlador\AgregarCategoriaServlet.class
+service\CategoriaService.class
 controlador\EliminarProductoServlet.class
 controlador\EliminarCategoriaServlet.class
 modelo\Usuario.class
@@ -32,6 +33,7 @@ controlador\CargarPermisosRolServlet.class
 controlador\RegistrarServlet.class
 util\CorreoUtil.class
 controlador\AgregarProductoServlet.class
+service\RolService.class
 dao\UsuarioDAO.class
 modelo\Carrito.class
 controlador\ListarProductosServlet.class
@@ -39,8 +41,10 @@ modelo\Modulo.class
 modelo\Rol.class
 controlador\AgregarRolServlet.class
 controlador\AgregarUsuarioServlet.class
+util\TestLog.class
 controlador\ListarUsuariosServlet.class
 controlador\EliminarUsuarioServlet.class
+controlador\LoggerTestServlet.class
 dao\CategoriaDAO.class
 dao\PermisoDAO.class
 modelo\DetalleCarrito.class
