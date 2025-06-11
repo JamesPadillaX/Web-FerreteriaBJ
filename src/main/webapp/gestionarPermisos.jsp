@@ -68,6 +68,9 @@
         </div>
     </div>
 
+    <c:if test="${param.msg == 'permisosEditados'}">
+        <jsp:include page="WebContent/componentes/permisosActualizados.jsp" />
+    </c:if>
  
     <div id="modalPermisos" class="modal"></div>
 

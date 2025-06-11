@@ -15,7 +15,6 @@ public class PermisoDAO {
 
     public PermisoDAO() {
         con = Conexion.getInstancia().getConexion();
-        LOGGER.info("Conexión establecida con la base de datos.");
     }
 
     // Listar todos los permisos con su módulo
@@ -35,7 +34,6 @@ public class PermisoDAO {
                 p.setIdModulo(rs.getInt("idModulo"));
                 lista.add(p);
             }
-            LOGGER.info("Permisos listados correctamente. Total: " + lista.size());
         } catch (SQLException e) {
             LOGGER.log(Level.SEVERE, "Error al listar permisos", e);
         }
@@ -53,7 +51,6 @@ public class PermisoDAO {
                     listaIds.add(rs.getInt("idPermiso"));
                 }
             }
-            LOGGER.info("Permisos del rol ID " + idRol + " listados. Total: " + listaIds.size());
         } catch (SQLException e) {
             LOGGER.log(Level.SEVERE, "Error al listar permisos por rol ID: " + idRol, e);
         }
@@ -65,8 +62,7 @@ public class PermisoDAO {
         String sql = "DELETE FROM rol_permiso WHERE idRol = ?";
         try (PreparedStatement ps = con.prepareStatement(sql)) {
             ps.setInt(1, idRol);
-            int filas = ps.executeUpdate();
-            LOGGER.info("Permisos eliminados del rol ID " + idRol + ". Total eliminados: " + filas);
+            ps.executeUpdate();
             return true;
         } catch (SQLException e) {
             LOGGER.log(Level.SEVERE, "Error al eliminar permisos del rol ID: " + idRol, e);
@@ -81,7 +77,6 @@ public class PermisoDAO {
             ps.setInt(1, idRol);
             ps.setInt(2, idPermiso);
             ps.executeUpdate();
-            LOGGER.info("Permiso ID " + idPermiso + " asignado al rol ID " + idRol);
             return true;
         } catch (SQLException e) {
             LOGGER.log(Level.SEVERE, "Error al asignar permiso ID " + idPermiso + " al rol ID " + idRol, e);
@@ -104,7 +99,6 @@ public class PermisoDAO {
                     modulos.add(rs.getString("nombre"));
                 }
             }
-            LOGGER.info("Módulos permitidos obtenidos para el rol ID " + idRol + ": " + modulos);
         } catch (SQLException e) {
             LOGGER.log(Level.SEVERE, "Error al obtener módulos permitidos para el rol ID: " + idRol, e);
         }
@@ -120,9 +114,6 @@ public class PermisoDAO {
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
                     nombre = rs.getString("nombre");
-                    LOGGER.info("Nombre del rol ID " + idRol + ": " + nombre);
-                } else {
-                    LOGGER.warning("No se encontró el nombre del rol ID " + idRol);
                 }
             }
         } catch (SQLException e) {

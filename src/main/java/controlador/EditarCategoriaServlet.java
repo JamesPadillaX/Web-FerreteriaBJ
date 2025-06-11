@@ -31,7 +31,7 @@ public class EditarCategoriaServlet extends HttpServlet {
             if (modificado) {
                 response.sendRedirect("ListarCategoriasServlet?msg=editado");
             } else {
-                response.sendRedirect("gestionarCategorias.jsp?error=1");
+                response.sendRedirect("ListarCategoriasServlet?msg=categoriaDuplicada");
             }
         } catch (NumberFormatException e) {
             e.printStackTrace();

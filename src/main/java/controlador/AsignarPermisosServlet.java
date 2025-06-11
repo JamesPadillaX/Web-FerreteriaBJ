@@ -21,24 +21,27 @@ public class AsignarPermisosServlet extends HttpServlet {
         String idRolStr = request.getParameter("idRol");
         String[] permisos = request.getParameterValues("permisos");
 
-        if (idRolStr == null) {
+        if (idRolStr == null || idRolStr.isEmpty()) {
             response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Falta idRol");
             return;
         }
 
-        int idRol = Integer.parseInt(idRolStr);
+        try {
+            int idRol = Integer.parseInt(idRolStr);
 
-        // Elimina permisos actuales
-        permisoDAO.eliminarPermisosDeRol(idRol);
+            permisoDAO.eliminarPermisosDeRol(idRol);
 
-        // Asigna los permisos recibidos
-        if (permisos != null) {
-            for (String p : permisos) {
-                int idPermiso = Integer.parseInt(p);
-                permisoDAO.asignarPermisoRol(idRol, idPermiso);
+            if (permisos != null) {
+                for (String p : permisos) {
+                    int idPermiso = Integer.parseInt(p);
+                    permisoDAO.asignarPermisoRol(idRol, idPermiso);
+                }
             }
-        }
 
-        response.getWriter().write("OK");
+            response.sendRedirect("ListarRoles?msg=permisosEditados");
+
+        } catch (NumberFormatException e) {
+            response.sendError(HttpServletResponse.SC_BAD_REQUEST, "ID inválido");
+        }
     }
 }

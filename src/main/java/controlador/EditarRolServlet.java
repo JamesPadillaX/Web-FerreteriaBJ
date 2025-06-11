@@ -19,27 +19,30 @@ public class EditarRolServlet extends HttpServlet {
             String nombre = request.getParameter("nombre");
             int estado = Integer.parseInt(request.getParameter("estado"));
 
+            RolDAO rolDAO = new RolDAO();
+
+            Rol rolExistente = rolDAO.obtenerRolPorNombre(nombre);
+
+            if (rolExistente != null && rolExistente.getIdRol() != idRol) {
+                response.sendRedirect("ListarRolesServlet?msg=rolDuplicado");
+                return;
+            }
 
             Rol rol = new Rol();
             rol.setIdRol(idRol);
             rol.setNombre(nombre);
             rol.setEstado(estado);
 
-
-            RolDAO rolDAO = new RolDAO();
             boolean modificado = rolDAO.modificarRol(rol);
 
             if (modificado) {
-                // Redirigir a la lista de roles después de modificar
-                response.sendRedirect("ListarRolesServlet");
+                response.sendRedirect("ListarRolesServlet?msg=editado");
             } else {
-                // Redirigir con error
-                response.sendRedirect("gestionarRoles.jsp?error=2");
+                response.sendRedirect("ListarRolesServlet?error=modificar");
             }
         } catch (NumberFormatException e) {
-            // Manejo de error en parámetros
             e.printStackTrace();
-            response.sendRedirect("gestionarRoles.jsp?error=3");
+            response.sendRedirect("ListarRolesServlet?error=3");
         }
     }
 }

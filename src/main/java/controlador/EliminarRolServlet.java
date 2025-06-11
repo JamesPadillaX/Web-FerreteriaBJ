@@ -19,7 +19,7 @@ public class EliminarRolServlet extends HttpServlet {
         boolean eliminado = rolDAO.eliminarRol(idRol);
 
         if (eliminado) {
-            response.sendRedirect("ListarRolesServlet");
+            response.sendRedirect("ListarRolesServlet?msg=eliminado");
         } else {
             response.sendRedirect("gestionarRoles.jsp?error=1");
         }

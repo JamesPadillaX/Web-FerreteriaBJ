@@ -17,7 +17,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="stylesheet" href="WebContent/css/panel/gestionarUsuarios.css">
     <link rel="stylesheet" href="WebContent/css/panel/modalUsuario.css">
-    <link rel="stylesheet" href="css/panel/modalEditarUsuario.css">
 </head>
 
 <body>
@@ -121,7 +120,14 @@
     <c:if test="${param.msg == 'errorAdmin'}">
         <jsp:include page="WebContent/componentes/alertaAdmin.jsp" />
     </c:if>
+    
+    <c:if test="${param.msg == 'errorDuplicadoDni'}">
+        <jsp:include page="WebContent/componentes/errorDNI.jsp" />
+    </c:if>
 
+    <c:if test="${param.msg == 'errorDuplicadoUsername'}">
+        <jsp:include page="WebContent/componentes/errorUsername.jsp" />
+    </c:if>
 
 
     <jsp:include page="WebContent/componentes/modalRegistroUsuario.jsp" />

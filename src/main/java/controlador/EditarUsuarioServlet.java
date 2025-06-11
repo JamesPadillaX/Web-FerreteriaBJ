@@ -1,6 +1,5 @@
 package controlador;
 
-
 import modelo.Usuario;
 
 import javax.servlet.ServletException;
@@ -37,7 +36,7 @@ public class EditarUsuarioServlet extends HttpServlet {
 
         if (usuarioOriginal != null && usuarioOriginal.getIdRol() == 1) {
             if (estado == 0 || idRol != 1) {
-                response.sendRedirect("ListarUsuariosServlet?msg=errorAdmin");
+                response.sendRedirect(request.getContextPath() + "/ListarUsuariosServlet?msg=errorAdmin");
                 return;
             }
         }
@@ -57,11 +56,11 @@ public class EditarUsuarioServlet extends HttpServlet {
         // Validar duplicados desde el servicio
         String validacion = usuarioService.validarDuplicados(usuario);
         if ("dni".equals(validacion)) {
-            response.sendRedirect("WebContent/componentes/modalEditarUsuario.jsp");
+            response.sendRedirect(request.getContextPath() + "/ListarUsuariosServlet?msg=errorDuplicadoDni");
             return;
         }
         if ("username".equals(validacion)) {
-            response.sendRedirect("WebContent/componentes/modalEditarUsuario.jsp");
+            response.sendRedirect(request.getContextPath() + "/ListarUsuariosServlet?msg=errorDuplicadoUsername");
             return;
         }
 
@@ -69,7 +68,7 @@ public class EditarUsuarioServlet extends HttpServlet {
         if (actualizado) {
             response.sendRedirect(request.getContextPath() + "/ListarUsuariosServlet?msg=editado");
         } else {
-            response.sendRedirect("ListarUsuariosServlet?msg=error");
+            response.sendRedirect(request.getContextPath() + "/ListarUsuariosServlet?msg=errorGeneral");
         }
     }
 }

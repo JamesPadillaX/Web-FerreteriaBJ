@@ -19,7 +19,7 @@ public class AgregarRolServlet extends HttpServlet {
         RolService servicio = new RolService();
 
         if (servicio.rolExiste(nombre)) {
-            response.sendRedirect("gestionarRoles.jsp?error=existente");
+            response.sendRedirect("ListarRolesServlet?msg=rolDuplicado");
             return;
         }
 

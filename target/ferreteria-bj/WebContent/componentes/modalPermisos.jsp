@@ -5,8 +5,10 @@
     <span class="close" onclick="cerrarModal()">&times;</span>
     <h2>Permisos: <strong>${nombreRol}</strong> (ID: ${idRol})</h2>
 
-    <form id="formPermisos" method="post" action="AsignarPermisosServlet" onsubmit="return enviarPermisos(event)">
+    <form id="formPermisos" method="post" action="AsignarPermisosServlet">
+        <!-- El input hidden estará siempre presente -->
         <input type="hidden" name="idRol" value="${idRol}" />
+
         <c:forEach var="permiso" items="${todosPermisos}">
             <div class="permiso-item">
                 <input type="checkbox" 
@@ -18,6 +20,7 @@
                 <label for="permiso${permiso.idPermiso}">${permiso.nombre}</label>
             </div>
         </c:forEach>
+
         <button type="submit">Guardar Permisos</button>
     </form>
 </div>

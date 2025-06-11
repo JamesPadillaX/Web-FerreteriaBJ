@@ -31,13 +31,12 @@ public class CargarPermisosRolServlet extends HttpServlet {
         // Obtener permisos y nombre del rol
         List<Permiso> todosPermisos = permisoDAO.listarPermisos();
         List<Integer> permisosAsignados = permisoDAO.listarPermisosPorRol(idRol);
-        String nombreRol = permisoDAO.obtenerNombreRolPorId(idRol); // NUEVO
-
+        String nombreRol = permisoDAO.obtenerNombreRolPorId(idRol); 
         // Enviar datos al JSP
+        request.setAttribute("idRol", idRol); 
+        request.setAttribute("nombreRol", nombreRol); 
         request.setAttribute("todosPermisos", todosPermisos);
         request.setAttribute("permisosAsignados", permisosAsignados);
-        request.setAttribute("idRol", idRol); 
-        request.setAttribute("nombreRol", nombreRol); // NUEVO
 
         request.getRequestDispatcher("WebContent/componentes/modalPermisos.jsp").forward(request, response);
     }

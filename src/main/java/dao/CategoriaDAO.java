@@ -80,7 +80,7 @@ public class CategoriaDAO {
             int filas = ps.executeUpdate();
             return filas > 0;
         } catch (SQLException e) {
-            logger.error("Error al modificar la categoría", e);
+            logger.error("Error al modificar la categoria", e);
         }
         return false;
     }

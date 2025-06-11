@@ -17,7 +17,8 @@ public class CategoriaService {
     public boolean registrarCategoria(String nombre) {
         Categoria categoria = new Categoria();
         categoria.setNombre(nombre);
-        categoria.setEstado(1); // Activa por defecto
+        categoria.setEstado(1); 
         return categoriaDAO.guardarCategoria(categoria);
     }
+
 }

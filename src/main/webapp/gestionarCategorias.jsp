@@ -85,6 +85,9 @@
     <c:if test="${param.msg == 'editado'}">
         <jsp:include page="WebContent/componentes/alertaEditado.jsp" />
     </c:if>
+    <c:if test="${param.msg == 'categoriaDuplicada'}">
+        <jsp:include page="WebContent/componentes/errorCategoria.jsp" />
+    </c:if>
 
     <jsp:include page="WebContent/componentes/modalRegistroCategoria.jsp" />
     <jsp:include page="WebContent/componentes/modalEditarCategoria.jsp" />

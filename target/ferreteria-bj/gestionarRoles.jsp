@@ -80,7 +80,23 @@
     <c:if test="${param.msg == 'exito'}">
         <jsp:include page="WebContent/componentes/alerta.jsp" />
     </c:if>
+
+    <c:if test="${param.msg == 'eliminado'}">
+        <jsp:include page="WebContent/componentes/alertaEliminado.jsp" />
+    </c:if>
+
+    <c:if test="${param.msg == 'editado'}">
+        <jsp:include page="WebContent/componentes/alertaEditado.jsp" />
+    </c:if>
+
+    <c:if test="${param.msg == 'rolDuplicado'}">
+        <jsp:include page="WebContent/componentes/errorRol.jsp" />
+    </c:if>
+
+
     
+
+
     <jsp:include page="WebContent/componentes/modalRegistroRol.jsp" />
     <jsp:include page="WebContent/componentes/modalEditarRol.jsp" />
 

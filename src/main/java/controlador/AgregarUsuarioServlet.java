@@ -61,13 +61,12 @@ public class AgregarUsuarioServlet extends HttpServlet {
         nuevoUsuario.setEstado(estado);
         nuevoUsuario.setIdRol(rolId);
 
-        if (usuarioDAO.existeUsername(username)) {
-            response.sendRedirect(request.getContextPath() + "/ListarUsuariosServlet?msg=errorDuplicadoUsername");
-            return;
-        }
-
         if (usuarioDAO.existeDni(dni)) {
             response.sendRedirect(request.getContextPath() + "/ListarUsuariosServlet?msg=errorDuplicadoDni");
+            return;
+        }
+        if (usuarioDAO.existeUsername(username)) {
+            response.sendRedirect(request.getContextPath() + "/ListarUsuariosServlet?msg=errorDuplicadoUsername");
             return;
         }
 

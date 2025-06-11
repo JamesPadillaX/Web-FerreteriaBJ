@@ -137,4 +137,25 @@ public class RolDAO {
         return false;
     }
 
+    public Rol obtenerRolPorNombre(String nombre) {
+        Rol rol = null;
+        String sql = "SELECT * FROM roles WHERE nombre = ? AND estado <> 2";
+        try (PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setString(1, nombre);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    rol = new Rol();
+                    rol.setIdRol(rs.getInt("idRol"));
+                    rol.setNombre(rs.getString("nombre"));
+                    rol.setEstado(rs.getInt("estado"));
+                }  
+            }
+        } catch (SQLException e) {
+            logger.error("Error al obtener rol por nombre", e);
+        }
+    
+        return rol;
+    }
+    
+
 }
