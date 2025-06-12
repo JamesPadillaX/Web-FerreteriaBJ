@@ -24,20 +24,47 @@
             <h1 class="dashboard-title">Dashboard</h1>
 
             <div class="card-grid">
-                <div class="stat-card purple">
-                    <h2>Productos Activos</h2>
-                </div>
-                <div class="stat-card indigo">
-                    <h2>Usuarios Activos</h2>
-                    <p>${totalUsuariosActivos}</p>
-                </div>
-                <div class="stat-card violet">
-                    <h2>Categorías Activas</h2>
-                </div>
-                <div class="stat-card emerald">
-                    <h2>Ganancias Mensuales</h2>
+                <div class="card-grid">
+    
+                    <a href="ListarProductosServlet" class="stat-card purple">
+                        <i class="fas fa-boxes fa-2x"></i> 
+                        <h2>Productos Activos</h2>
+                        <p>${totalProductosActivos}</p>
+                    </a>
+
+                    <a href="ListarUsuariosServlet" class="stat-card indigo">
+                        <i class="fas fa-users fa-2x"></i> 
+                        <h2>Usuarios Activos</h2>
+                        <p>${totalUsuariosActivos}</p>
+                    </a>
+                    <a href="ListarCategoriasServlet" class="stat-card violet">
+                        <i class="fas fa-tags fa-2x"></i> 
+                        <h2>Categorías Activas</h2>
+                        <p>${totalCategoriasActivas}</p>
+                    </a>
+
+                    <div class="stat-card emerald">
+                        <i class="fas fa-dollar-sign fa-2x"></i> 
+                        <h2>Ganancias Mensuales</h2>
+                        <p>${gananciasMensuales}</p>
+                    </div>
+
+                    <div class="card bajo-stock">
+                        <h2><i class="fas fa-triangle-exclamation"></i> Productos con Bajo Stock</h2>
+                        <ul>
+                            <c:forEach var="producto" items="${productosBajoStock}">
+                            <li>
+                                <strong>${producto.nombre}</strong> - Stock: <span style="color: red">${producto.cantidad}</span>
+                            </li>
+                        </c:forEach>
+                        <c:if test="${empty productosBajoStock}">
+                        <li>Todos los productos tienen stock suficiente</li>
+                    </c:if>
+                </ul>
+            </div>
                 </div>
             </div>
+        </div>
+    </div>
 </body>
 </html>
-

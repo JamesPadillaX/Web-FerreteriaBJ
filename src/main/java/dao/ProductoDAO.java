@@ -173,4 +173,39 @@ public class ProductoDAO {
         }
         return p;
     }
+
+    public int contarProductosActivos() {
+        String sql = "SELECT COUNT(*) FROM productos WHERE estado = 1";
+        try (PreparedStatement ps = con.prepareStatement(sql);
+        ResultSet rs = ps.executeQuery()) {
+            if (rs.next()) {
+                return rs.getInt(1);
+            }
+        } catch (SQLException e) {
+            logger.log(Level.SEVERE, "Error al contar productos activos", e);
+        }
+        return 0;
+    }
+
+    public List<Producto> listarProductosBajoStock() {
+        List<Producto> lista = new ArrayList<>();
+        String sql = "SELECT p.idProducto, p.nombre, p.cantidad, c.nombre AS categoria " +
+                 "FROM productos p " +
+                 "LEFT JOIN categorias c ON p.idCategoria = c.idCategoria " +
+                 "WHERE p.cantidad < 10 AND p.estado = 1";
+                 try (PreparedStatement ps = con.prepareStatement(sql);
+                 ResultSet rs = ps.executeQuery()) {
+                    while (rs.next()) {
+                        Producto p = new Producto();
+                        p.setIdProducto(rs.getInt("idProducto"));
+                        p.setNombre(rs.getString("nombre"));
+                        p.setCantidad(rs.getInt("cantidad"));
+                        p.setCategoria(rs.getString("categoria"));
+                        lista.add(p);
+                    }
+                } catch (SQLException e) {
+                    logger.log(Level.SEVERE, "Error al listar productos con bajo stock", e);
+                }
+                return lista;
+            }
 }

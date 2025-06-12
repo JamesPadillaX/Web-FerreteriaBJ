@@ -136,4 +136,18 @@ public class CategoriaDAO {
         }
         return false;
     }
+
+    public int contarCategoriasActivas() {
+        String sql = "SELECT COUNT(*) FROM categorias WHERE estado = 1";
+        try (PreparedStatement ps = con.prepareStatement(sql);
+        ResultSet rs = ps.executeQuery()) {
+            if (rs.next()) {
+                return rs.getInt(1);
+            }
+        } catch (SQLException e) {
+            logger.error("Error al contar las categorías activas", e);
+        }
+        return 0;
+    }
+
 }
