@@ -1,4 +1,7 @@
-
+* {
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
 
 .modal {
     display: none;
@@ -6,56 +9,114 @@
     z-index: 1000;
     left: 0; top: 0;
     width: 100%; height: 100%;
-    background-color: rgba(0,0,0,0.6);
+    background-color: rgba(0, 0, 0, 0.6);
     justify-content: center;
     align-items: center;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 .modal-content {
     background: #fff;
-    padding: 30px;
-    border-radius: 8px;
-    width: 400px;
+    padding: 20px;
+    border-radius: 10px;
+    width: 350px;
     max-width: 90%;
     position: relative;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    animation: slideDown 0.3s ease-out;
+    color: #333;
+    font-size: 13px;
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
 }
 
 .modal-content h2 {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     text-align: center;
+    color: #7e7e7e;
+    font-size: 20px;
+    font-weight: 600;
 }
 
-.modal-content input, .modal-content select {
+.modal-content label {
+    font-weight: 500;
+    margin-bottom: 4px;
+    display: block;
+    color: #444;
+    font-size: 13px;
+}
+
+.modal-content input,
+.modal-content select {
     width: 100%;
-    padding: 8px;
-    margin-bottom: 15px;
+    padding: 8px 10px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+    font-size: 13px;
+}
+
+.modal-content input:focus,
+.modal-content select:focus {
+    border-color: #ffc107;
+    outline: none;
 }
 
 .modal-content .botones {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
+    margin-top: 8px;
+    gap: 8px;
+}
+
+.btn-guardar, .btn-cancelar {
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 13px;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    cursor: pointer;
 }
 
 .btn-guardar {
-    background-color: #28a745;
+    background-color: #fd7e14;
     color: white;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
+    border-color: #fd7e14;
 }
 
 .btn-cancelar {
-    background-color: #dc3545;
+    background-color: #007bff;
     color: white;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
+    border-color: #007bff;
+}
+
+.btn-guardar:hover, .btn-cancelar:hover {
+    background-color: transparent;
+    color: #000;
+    transform: scale(1.05);
 }
 
 .close {
     position: absolute;
-    right: 15px;
-    top: 10px;
-    font-size: 24px;
+    right: 12px;
+    top: 8px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #666;
     cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close:hover {
+    color: #007bff;
 }

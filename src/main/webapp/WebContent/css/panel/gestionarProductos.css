@@ -1,232 +1,225 @@
-.main-content {
-    margin-left: 250px; 
-    padding: 30px;
-    background-color: #f1f5f8;
-    min-height: 100vh;
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.main-content h1 {
+.container {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f1f5f8;
+}
+
+/* Contenido principal */
+.content {
+    flex: 1;
+    padding: 30px;
+    background-color: #f1f5f8;
+}
+
+.content h1 {
     font-size: 2rem;
     margin-bottom: 20px;
     color: #2c3e50;
 }
 
-/* Botón agregar */
+/* Botón Agregar */
 .btn-agregar {
-    background-color: #ffaa00; /* Amarillo cálido */
+    background-color: #6c63ff;
     color: white;
     border: none;
     padding: 10px 20px;
-    font-weight: 700;
-    font-size: 16px;
-    border-radius: 5px;
+    font-weight: 600;
+    font-size: 15px;
+    border-radius: 8px;
     cursor: pointer;
-    margin-bottom: 30px;
-    transition: background-color 0.3s ease;
-    box-shadow: 0 3px 6px rgba(255, 170, 0, 0.4);
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-agregar i {
+    font-size: 16px;
 }
 
 .btn-agregar:hover {
-    background-color: #ffbf33;
+    background-color: #574fd6;
+    transform: scale(1.05);
 }
 
-/* Contenedor tabla */
-.table-container {
-    overflow-x: auto;
-    margin-top: 25px; /* separa tabla del formulario */
+/* Filtros */
+.filtros-container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 16px;
+    margin-bottom: 20px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
 }
+
+.form-filtro {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+}
+
+.form-filtro label {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.form-filtro select,
+.form-filtro button,
+.form-filtro a {
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.form-filtro select {
+    border: 1px solid #ccc;
+    background-color: white;
+}
+
+.btn-filtrar {
+    background-color: #6c63ff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-filtrar:hover {
+    background-color: #574fd6;
+}
+
+.btn-limpiar {
+    background-color: #ff4d4f;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-limpiar:hover {
+    background-color: #d9363e;
+}
+
 
 /* Tabla */
 table {
     width: 100%;
     border-collapse: collapse;
-    background-color: white;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.07);
+    font-size: 11px;
+    color: #4a4a4a;
 }
 
 thead {
-    background-color: #2c3e50; /* azul marino oscuro */
-    color: white;
-    font-weight: 600;
+    background-color: #f8f9fa;
+    color: #495057;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0.5px;
 }
 
-th, td {
-    padding: 14px 18px;
+th {
+    padding: 12px 20px;
     text-align: center;
-    border-bottom: 1px solid #ecf0f1;
-    font-size: 15px;
+    border-bottom: 1px solid #dee2e6;
 }
 
-tbody tr:hover {
-    background-color: #eaf3fb; /* celeste muy claro */
+td {
+    padding: 11px 20px;
+    border-bottom: 1px solid #f1f3f5;
+    vertical-align: middle;
+    background-color: #ffffff;
+    transition: background-color 0.2s ease-in-out;
+    text-align: center;
 }
 
-/* Botones de acción */
+/* Zebra striping */
+tbody tr:nth-child(even) td {
+    background-color: #f9f9fb;
+}
+
+/* Hover en filas */
+tbody tr:hover td {
+    background-color: #eef2f7;
+}
+
+table td img {
+    max-width: 100%;
+    max-height: 80px;
+    width: auto;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    object-fit: contain; 
+    border-radius: 6px;
+}
+
+
 .action-btn {
-    background-color: #2980b9; /* azul medio */
+    background-color: #6c63ff;
     color: white;
     border: none;
-    padding: 7px 14px;
-    margin: 3px 4px;
-    border-radius: 6px;
+    padding: 8px 12px;
+    margin: 0 3px;
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 13px;
     display: inline-flex;
     align-items: center;
-    justify-content: center;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 2px 4px rgba(41, 128, 185, 0.5);
-}
-
-.action-btn i {
-    margin-right: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .action-btn:hover {
-    background-color: #1f618d;
-    box-shadow: 0 4px 8px rgba(31, 97, 141, 0.6);
+    transform: scale(1.05); /* ⭐ animación */
+}
+
+
+.action-btn i {
+    margin-right: 6px;
+}
+
+/* Botón editar */
+.btnEditarProducto {
+    background-color: #6c63ff;
+    color: white;
+}
+
+.btnEditarProducto:hover {
+    background-color: #6c63ff;
 }
 
 /* Botón eliminar */
 .action-btn.delete {
-    background-color: #e74c3c; /* rojo intenso */
-    box-shadow: 0 2px 4px rgba(231, 76, 60, 0.5);
+    background-color: #ff4d4f;
 }
 
 .action-btn.delete:hover {
-    background-color: #c0392b;
-    box-shadow: 0 4px 8px rgba(192, 57, 43, 0.6);
+    background-color: #d9363e;
 }
 
-/* Ocultar botón filtrar (ya que el filtro es automático) */
-.btn-filtrar {
-    display: none;
-}
+/* Responsivo */
+@media screen and (max-width: 768px) {
+    .form-filtro {
+        flex-direction: column;
+        align-items: stretch;
+    }
 
-/* Botón limpiar */
-.btn-limpiar {
-    background-color: #3498db; /* celeste brillante */
-    color: white;
-    text-decoration: none;
-    padding: 8px 16px;
-    border-radius: 8px;
-    border: 1.5px solid #2980b9;
-    font-size: 15px;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
-    box-shadow: 0 3px 6px rgba(52, 152, 219, 0.5);
-    margin-left: 15px;
-    display: inline-block;
-}
+    .btn-agregar {
+        width: 100%;
+        text-align: center;
+    }
 
-.btn-limpiar:hover {
-    background-color: #2980b9;
-    border-color: #1f618d;
-    box-shadow: 0 5px 10px rgba(31, 97, 141, 0.7);
-    color: white;
-}
-
-
-.form-filtro {
-    display: flex;
-    align-items: center;
-    gap: 20px; 
-    margin-bottom: 20px;
-    flex-wrap: wrap;
-}
-
-
-.form-filtro label {
-    font-weight: 600;
-    color: #34495e; 
-    min-width: 70px;
-}
-
-/* Selects con mejor estilo */
-.form-filtro select {
-    padding: 8px 14px;
-    border-radius: 8px;
-    border: 1.8px solid #ccc;
-    font-size: 15px;
-    cursor: pointer;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    min-width: 180px;
-    background-color: white;
-}
-
-.form-filtro select:hover,
-.form-filtro select:focus {
-    border-color: #ffaa00; /* amarillo */
-    outline: none;
-    box-shadow: 0 0 8px rgba(255, 170, 0, 0.5);
-}
-
-/*Para lo de filtrar*/
-.filtros-container {
-    margin: 30px 0;
-    padding: 20px 25px;
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
-
-.form-filtro {
-    display: flex;
-    align-items: center;
-    gap: 25px;
-    flex-wrap: wrap;
-}
-
-.filtro-item {
-    display: flex;
-    flex-direction: column;
-}
-
-.filtro-item label {
-    font-weight: 600;
-    font-size: 15px;
-    color: #333;
-    margin-bottom: 6px;
-}
-
-.filtro-item select {
-    padding: 10px 14px;
-    border-radius: 8px;
-    border: 1.5px solid #ccc;
-    font-size: 15px;
-    background-color: #fff;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.filtro-item select:hover,
-.filtro-item select:focus {
-    border-color: #ffaa00;
-    box-shadow: 0 0 8px rgba(255, 170, 0, 0.3);
-    outline: none;
-}
-
-.btn-filtrar {
-    background-color: #17a2b8;
-    color: #fff;
-    font-weight: bold;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 8px;
-    font-size: 15px;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    box-shadow: 0 4px 10px rgba(23, 162, 184, 0.4);
-    transition: background-color 0.3s ease;
-}
-
-.btn-filtrar i {
-    font-size: 16px;
-}
-
-.btn-filtrar:hover {
-    background-color: #138496;
+    table th, table td {
+        font-size: 12px;
+        padding: 10px;
+    }
 }

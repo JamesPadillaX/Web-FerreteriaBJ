@@ -122,8 +122,8 @@
 /* Botón guardar */
 .modal-content .btn-guardar {
   padding: 10px 20px;
-  background-color: #facc15;
-  color: #1f2937;
+  background-color: #4f51de;
+  color: #ffffff;
   border: none;
   border-radius: 8px;
   font-weight: 600;
@@ -131,7 +131,7 @@
   transition: background-color 0.2s ease;
 }
 .modal-content .btn-guardar:hover {
-  background-color: #eab308;
+  background-color: #7476e3;
 }
 
 /* Botón cancelar */

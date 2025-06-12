@@ -1,12 +1,11 @@
-
 .main-content {
-    margin-left: 250px; 
+    margin-left: 250px;
     padding: 30px;
     background-color: #f1f5f8;
     min-height: 100vh;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: auto;
 }
-
 
 .main-content h1 {
     font-size: 2rem;
@@ -14,112 +13,156 @@
     color: #2c3e50;
 }
 
-
+/* Botón Agregar */
 .btn-agregar {
-    background-color: #ffaa00;
+    background-color: #6c63ff;
     color: white;
     border: none;
     padding: 10px 20px;
-    font-weight: bold;
-    font-size: 16px;
-    border-radius: 5px;
+    font-weight: 600;
+    font-size: 15px;
+    border-radius: 8px;
     cursor: pointer;
     margin-bottom: 20px;
-    transition: background-color 0.3s;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-agregar i {
+    font-size: 16px;
 }
 
 .btn-agregar:hover {
-    background-color: #ffae00;
+    background-color: #574fd6;
+    transform: scale(1.05);
 }
-
-/* Contenedor de la tabla */
-.table-container {
-    overflow-x: auto;
-}
-
 /* Tabla */
 table {
     width: 100%;
     border-collapse: collapse;
-    background-color: white;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    font-size: 12px;
+    color: #4a4a4a;
+    table-layout: auto;
 }
 
+/* Cabecera */
 thead {
-    background-color: #34495e;
-    color: white;
+    background-color: #f8f9fa;
+    color: #495057;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.5px;
 }
 
 th, td {
-    padding: 12px 16px;
+    padding: 11px 14px;
+    white-space: nowrap;
     text-align: center;
-    border-bottom: 1px solid #ecf0f1;
-    font-size: 15px;
+    border-bottom: 1px solid #f1f3f5;
+    vertical-align: middle;
 }
 
-tbody tr:hover {
-    background-color: #f2f7fb;
+/* Zebra striping */
+tbody tr:nth-child(even) td {
+    background-color: #f9f9fb;
+}
+
+/* Hover en filas */
+tbody tr:hover td {
+    background-color: #eef2f7;
 }
 
 /* Botones de acción */
 .action-btn {
-    background-color: #2980b9;
+    background-color: #6c63ff;
     color: white;
     border: none;
-    padding: 6px 14px;
-    margin: 2px;
-    border-radius: 6px;
+    padding: 6px 10px;
+    margin: 0 2px;
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 12px;
     display: inline-flex;
     align-items: center;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .action-btn i {
-    margin-right: 6px;
+    margin-right: 4px;
+}
+
+/* Animación al pasar el mouse */
+.action-btn:hover {
+    background-color: #574fd6;
+    transform: scale(1.05);
 }
 
 /* Botón eliminar */
 .action-btn.delete {
-    background-color: #e74c3c;
+    background-color: #ff4d4f;
 }
 
-/* Efecto hover para ambos botones */
-.action-btn:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    opacity: 1;
+.action-btn.delete:hover {
+    background-color: #d9363e;
 }
-/* Estilo base para ambos botones */
+
+/* Responsivo */
+@media screen and (max-width: 768px) {
+    .btn-agregar {
+        width: 100%;
+        justify-content: center;
+    }
+
+    table {
+        font-size: 11px;
+    }
+
+    th, td {
+        padding: 8px 10px;
+    }
+
+    .action-btn {
+        padding: 5px 8px;
+        font-size: 11px;
+    }
+}
+/* Estilo común para botones de exportar */
 .btn-exportar {
-    display: inline-block;
-    padding: 8px 12px;
-    border-radius: 5px;
-    text-decoration: none;
+    border: none;
+    padding: 10px 16px;
+    font-weight: 600;
     font-size: 14px;
-    transition: background-color 0.3s ease;
+    border-radius: 8px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
     color: white;
-    font-weight: bold;
 }
 
-/* Estilo específico para PDF */
+/* Botón PDF: rojo claro combinando con morado */
 .btn-pdf {
-    background-color: #e74c3c; /* rojo */
+    background-color: #ff6b81; /* rojo claro con tono rosado */
 }
 
 .btn-pdf:hover {
-    background-color: #c0392b;
+    background-color: #e2556c;
+    transform: scale(1.05);
 }
 
-/* Estilo específico para Excel */
+/* Botón Excel: verde claro suave */
 .btn-excel {
-    background-color: #2ecc71; /* verde */
+    background-color: #63d471; /* verde claro pastel */
 }
 
 .btn-excel:hover {
-    background-color: #27ae60;
+    background-color: #4cbc5d;
+    transform: scale(1.05);
 }

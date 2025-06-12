@@ -72,7 +72,13 @@
         <jsp:include page="WebContent/componentes/permisosActualizados.jsp" />
     </c:if>
  
-    <div id="modalPermisos" class="modal"></div>
+<!-- Modal vacío. El contenido se cargará dinámicamente con JavaScript -->
+<div id="modalPermisos" class="modal">
+    <div class="modal-content">
+        <!-- Aquí se insertará el HTML desde el servlet -->
+    </div>
+</div>
+
 
     <script src="WebContent/js/panel/gestionarPermisos.js"></script>
 </body>
