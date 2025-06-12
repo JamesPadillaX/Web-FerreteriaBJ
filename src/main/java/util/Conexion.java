@@ -3,15 +3,19 @@ package util;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Conexion {
     private static Conexion instancia;
     private Connection conexion;
 
-
     private final String URL = "jdbc:mysql://localhost:3306/FerreteriaBJ?useSSL=false&serverTimezone=UTC";
     private final String USER = "root";
     private final String PASSWORD = "Zercopadilla17";
+
+    // Logger
+    private static final Logger logger = Logger.getLogger(Conexion.class.getName());
 
     private Conexion() {
         conectar();
@@ -21,13 +25,11 @@ public class Conexion {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             conexion = DriverManager.getConnection(URL, USER, PASSWORD);
-            System.out.println("Conexión exitosa a la base de datos.");
+            logger.info("✅ Conexión exitosa a la base de datos.");
         } catch (ClassNotFoundException e) {
-            System.err.println("Error: No se encontró el driver JDBC de MySQL.");
-            e.printStackTrace();
+            logger.log(Level.SEVERE, "Error: No se encontró el driver JDBC de MySQL.", e);
         } catch (SQLException e) {
-            System.err.println("Error al conectar con la base de datos. Verifica que MySQL esté corriendo.");
-            e.printStackTrace();
+            logger.log(Level.SEVERE, "Error al conectar con la base de datos. Verifica que MySQL esté corriendo.", e);
         }
     }
 
@@ -35,6 +37,7 @@ public class Conexion {
         if (instancia == null) {
             synchronized (Conexion.class) {
                 if (instancia == null) {
+                    logger.info("🆕 Creando nueva instancia de conexión...");
                     instancia = new Conexion();
                 }
             }
@@ -45,18 +48,18 @@ public class Conexion {
     public Connection getConexion() {
         try {
             if (conexion == null || conexion.isClosed()) {
-                System.out.println("🔄 La conexión estaba cerrada o nula. Intentando reconectar...");
+                logger.warning("🔄 La conexión estaba cerrada o nula. Intentando reconectar...");
                 conectar();
             }
         } catch (SQLException e) {
-            System.err.println("Error al verificar el estado de la conexión.");
-            e.printStackTrace();
+            logger.log(Level.SEVERE, "Error al verificar el estado de la conexión.", e);
         }
 
         if (conexion == null) {
-            System.err.println("Advertencia: la conexión sigue en null. Revisa el servidor MySQL.");
+            logger.warning("Advertencia: la conexión sigue en null. Revisa el servidor MySQL.");
         }
 
         return conexion;
     }
 }
+

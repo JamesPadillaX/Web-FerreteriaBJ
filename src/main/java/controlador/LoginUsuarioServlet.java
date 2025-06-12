@@ -39,8 +39,10 @@ public class LoginUsuarioServlet extends HttpServlet {
             }
 
         } else {
-            request.setAttribute("errorLogin", "Usuario o contraseña incorrectos");
-            request.getRequestDispatcher("/loginUsuario.jsp").forward(request, response);
+
+            HttpSession session = request.getSession();
+            session.setAttribute("errorLogin", "Usuario o contraseña incorrectos");
+            response.sendRedirect(request.getContextPath() + "/loginUsuario.jsp");
         }
     }
 

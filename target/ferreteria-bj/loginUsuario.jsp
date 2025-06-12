@@ -18,16 +18,22 @@
             <label for="password">Contraseña</label>
             <input type="password" name="password" id="password" required>
 
-            <%-- Mensaje de error si el login falla --%>
+
             <%
-                String error = (String) request.getAttribute("errorLogin");
-                if (error != null) {
-            %>
+            String error = (String) session.getAttribute("errorLogin");
+            if (error != null) {
+
+                %>
                 <div class="error-msg"><%= error %></div>
-            <% } %>
+                <%
+        session.removeAttribute("errorLogin");
+    }
+%>
+
 
             <button type="submit">Ingresar</button>
         </form>
     </div>
+    <script src="WebContent/js/panel/loginUsuario.js"></script>
 </body>
 </html>
