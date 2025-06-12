@@ -38,6 +38,13 @@
         <div class="content">
             <h1>Gestión de Productos</h1>
 
+            <div class="export-buttons" style="margin-bottom: 15px;">
+                <a href="ExportarProductosPdfServlet?idCategoria=${param.idCategoria}" 
+                class="btn-exportar btn-pdf" style="margin-right: 10px;">
+                
+                <i class="fas fa-file-pdf"></i> Exportar PDF
+            </a>
+            </div>
             <button id="btnAbrirModalProducto" class="btn-agregar">
                 <i class="fas fa-plus"></i> Agregar Nuevo Producto
             </button>

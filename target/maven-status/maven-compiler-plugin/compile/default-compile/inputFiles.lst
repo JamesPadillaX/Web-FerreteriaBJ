@@ -17,6 +17,7 @@ C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\dao\CategoriaDAO.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\dao\PermisoDAO.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\modelo\Rol.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\ListarProductosServlet.java
+C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\ExportarProductosPdfServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\ListarCategoriasServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\EliminarProductoServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\CarritoServlet.java

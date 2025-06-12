@@ -29,6 +29,7 @@ controlador\AgregarCarritoServlet.class
 dao\RolDAO.class
 modelo\Permiso.class
 controlador\EditarProductoServlet.class
+controlador\ExportarProductosPdfServlet.class
 controlador\LogoutServlet.class
 controlador\CargarPermisosRolServlet.class
 controlador\RegistrarServlet.class
