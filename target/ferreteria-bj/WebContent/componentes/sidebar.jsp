@@ -29,7 +29,9 @@
                         modulosPermitidos = java.util.Collections.emptyList();
                     }
                 %>
-
+                <% if (modulosPermitidos.contains("Dashboard")) { %>
+                <li><a href="dashboard"><i class="fas fa-chart-line"></i> Dashboard</a></li>
+                <% } %>
                 <li><a href="perfilUsuario.jsp"><i class="fas fa-user"></i> Perfil</a></li>
 
                 <% if (modulosPermitidos.contains("Usuarios")) { %>

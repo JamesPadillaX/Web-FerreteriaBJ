@@ -256,7 +256,6 @@ public class UsuarioDAO {
     }
     return false;
 }
-
 public boolean existeUsernameExceptoId(String username, int idUsuario) {
     String sql = "SELECT COUNT(*) FROM usuarios WHERE username = ? AND idUsuario <> ? AND estado <> 2";
     try (PreparedStatement ps = con.prepareStatement(sql)) {
@@ -273,4 +272,25 @@ public boolean existeUsernameExceptoId(String username, int idUsuario) {
     return false;
 }
 
+    public int contarUsuariosActivos() {
+        String sql = "SELECT COUNT(*) FROM usuarios WHERE estado = 1";
+        try (PreparedStatement ps = con.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
+            if (rs.next()) return rs.getInt(1);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    public int contarUsuariosInactivos() {
+        String sql = "SELECT COUNT(*) FROM usuarios WHERE estado = 0";
+        try (PreparedStatement ps = con.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
+            if (rs.next()) return rs.getInt(1);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
 }

@@ -1,0 +1,68 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    background-color: #f9fafb;
+}
+
+.container {
+    display: flex;
+}
+
+.content {
+    flex: 1;
+    padding: 40px;
+}
+
+.dashboard-title {
+    color: #7c3aed;
+    font-size: 32px;
+    margin-bottom: 30px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 2 por fila en pantallas medias */
+    gap: 25px;
+    margin-bottom: 40px;
+    justify-content: center;
+}
+
+.stat-card {
+    border-radius: 20px;
+    padding: 25px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    transform: translateY(0);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, rotate 0.3s ease;
+    animation: slideUp 0.8s ease forwards;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.stat-card p {
+    font-size: 32px;
+    margin: 10px 0 0;
+}
+
+.stat-card:hover {
+    transform: translateY(-10px) scale(1.03) rotate(-1deg);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+}
+
+.stat-card.purple { background-color: #7c3aed; }
+.stat-card.indigo { background-color: #6d28d9; }
+.stat-card.violet { background-color: #5b21b6; }
+.stat-card.emerald { background-color: #10b981; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
