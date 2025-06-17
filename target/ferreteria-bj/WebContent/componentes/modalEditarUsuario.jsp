@@ -14,24 +14,45 @@
 
             <input type="hidden" name="idUsuario" id="editarIdUsuario" value="">
 
+            <!-- Nombre -->
             <label>Nombre:</label>
-            <input type="text" name="nombre" id="editarNombre" required>
+            <input type="text" name="nombre" id="editarNombre" required 
+                   pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+" 
+                   title="Solo letras" 
+                   maxlength="50">
 
+            <!-- Apellidos -->
             <label>Apellidos:</label>
-            <input type="text" name="apellidos" id="editarApellidos" required>
+            <input type="text" name="apellidos" id="editarApellidos" required 
+                   pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+" 
+                   title="Solo letras" 
+                   maxlength="50">
 
+            <!-- DNI -->
             <label>DNI:</label>
-            <input type="text" name="dni" id="editarDni" required>
+            <input type="text" name="dni" id="editarDni" required 
+                   pattern="\d{8}" 
+                   maxlength="8" 
+                   title="Debe tener exactamente 8 dígitos" 
+                   oninput="this.value=this.value.replace(/[^0-9]/g,'');">
 
+            <!-- Teléfono -->
             <label>Teléfono:</label>
-            <input type="text" name="telefono" id="editarTelefono" required>
+            <input type="text" name="telefono" id="editarTelefono" required 
+                   pattern="\d{9}" 
+                   maxlength="9" 
+                   title="Debe tener exactamente 9 dígitos" 
+                   oninput="this.value=this.value.replace(/[^0-9]/g,'');">
 
+            <!-- Usuario -->
             <label>Usuario:</label>
             <input type="text" name="username" id="editarUsername" required>
 
+            <!-- Contraseña -->
             <label>Contraseña:</label>
             <input type="password" name="password" id="editarPassword" required>
 
+            <!-- Rol -->
             <label>Rol:</label>
             <select name="idRol" id="editarIdRol" required>
                 <option value="">Seleccione un rol</option>
@@ -40,6 +61,7 @@
                 <% } %>
             </select>
 
+            <!-- Estado -->
             <label>Estado:</label>
             <select name="estado" id="editarEstado">
                 <option value="1">ACTIVO</option>
@@ -53,3 +75,20 @@
         </form>
     </div>
 </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const soloLetras = /[^a-zA-ZÁÉÍÓÚáéíóúÑñ\s]/g;
+
+    const nombreInput = document.getElementById("editarNombre");
+    const apellidosInput = document.getElementById("editarApellidos");
+
+    nombreInput.addEventListener("input", () => {
+      nombreInput.value = nombreInput.value.replace(soloLetras, "");
+    });
+
+    apellidosInput.addEventListener("input", () => {
+      apellidosInput.value = apellidosInput.value.replace(soloLetras, "");
+    });
+  });
+</script>

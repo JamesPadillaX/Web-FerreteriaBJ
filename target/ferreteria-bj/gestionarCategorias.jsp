@@ -1,12 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%
-    Object usuario = session.getAttribute("usuario");
-    if (usuario == null) {
-        response.sendRedirect("loginUsuario.jsp");
-        return; // Termina la ejecución del JSP aquí
-    }
-%>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -14,7 +7,6 @@
     <meta charset="UTF-8">
     <title>Gestionar Categorías</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <link rel="stylesheet" href="WebContent/css/panel/panelPrincipal.css">
     <link rel="stylesheet" href="WebContent/css/panel/gestionarCategorias.css">
     <link rel="stylesheet" href="WebContent/css/panel/modalRegistroCategoria.css">
     <link rel="stylesheet" href="WebContent/css/panel/modalEditarCategoria.css">

@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Login de Usuario - FerreteríaBJ</title>
-    <link rel="stylesheet" href="WebContent/css/panel/loginUsuario.css"> <!-- Archivo CSS externo -->
+    <link rel="stylesheet" href="WebContent/css/panel/loginUsuario.css"> 
 </head>
 <body>
     <div class="login-container">
@@ -26,9 +26,9 @@
                 %>
                 <div class="error-msg"><%= error %></div>
                 <%
-        session.removeAttribute("errorLogin");
-    }
-%>
+                session.removeAttribute("errorLogin");
+            }
+            %>
 
 
             <button type="submit">Ingresar</button>

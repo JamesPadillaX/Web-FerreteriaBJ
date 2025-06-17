@@ -3,13 +3,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <%
-    // Verificar sesión (ajusta según tu lógica)
-    Object usuario = session.getAttribute("usuario");
-    if (usuario == null) {
-        response.sendRedirect("loginUsuario.jsp");
-        return;
-    }
-
     // Obtener lista de categorías activas para el filtro
     CategoriaDAO categoriaDAO = new CategoriaDAO();
     List<Categoria> listaCategoria = categoriaDAO.listarCategoriasActivas();
@@ -24,9 +17,6 @@
 
     <!-- FontAwesome para iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
-    <!-- Tus archivos CSS -->
-    <link rel="stylesheet" href="WebContent/css/panel/panelPrincipal.css" />
     <link rel="stylesheet" href="WebContent/css/panel/gestionarProductos.css" />
     <link rel="stylesheet" href="WebContent/css/panel/modalEditarProducto.css" />
 </head>

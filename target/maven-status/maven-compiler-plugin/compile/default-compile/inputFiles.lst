@@ -52,6 +52,7 @@ C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\modelo\Permiso.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\dao\CarritoDAO.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\ListarProductosPorCategoriaServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\LoginServlet.java
+C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\filtro\SeguridadFiltro.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\modelo\Cliente.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\ListarRolesServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\dao\ProductoDAO.java

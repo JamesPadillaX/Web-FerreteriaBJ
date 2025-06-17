@@ -40,6 +40,7 @@ dao\UsuarioDAO.class
 modelo\Carrito.class
 controlador\ListarProductosServlet.class
 modelo\Modulo.class
+filtro\SeguridadFiltro.class
 modelo\Rol.class
 controlador\AgregarRolServlet.class
 controlador\AgregarUsuarioServlet.class

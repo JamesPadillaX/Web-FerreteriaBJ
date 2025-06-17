@@ -1,12 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%
-    Object usuario = session.getAttribute("usuario");
-    if (usuario == null) {
-        response.sendRedirect("loginUsuario.jsp");
-        return;
-    }
-%>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -25,18 +19,19 @@
 
             <div class="card-grid">
                 <div class="card-grid">
-    
-                    <a href="ListarProductosServlet" class="stat-card purple">
-                        <i class="fas fa-boxes fa-2x"></i> 
-                        <h2>Productos Activos</h2>
-                        <p>${totalProductosActivos}</p>
-                    </a>
 
                     <a href="ListarUsuariosServlet" class="stat-card indigo">
                         <i class="fas fa-users fa-2x"></i> 
                         <h2>Usuarios Activos</h2>
                         <p>${totalUsuariosActivos}</p>
                     </a>
+                    
+                    <a href="ListarProductosServlet" class="stat-card purple">
+                        <i class="fas fa-boxes fa-2x"></i> 
+                        <h2>Productos Activos</h2>
+                        <p>${totalProductosActivos}</p>
+                    </a>
+
                     <a href="ListarCategoriasServlet" class="stat-card violet">
                         <i class="fas fa-tags fa-2x"></i> 
                         <h2>Categorías Activas</h2>

@@ -1,14 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%
-    // Verificar si usuario está en sesión
-    Object usuario = session.getAttribute("usuario");
-    if (usuario == null) {
-        // No hay usuario autenticado, redirigir a login
-        response.sendRedirect("loginUsuario.jsp");
-        return; // Termina la ejecución del JSP aquí
-    }
-%>
 <!DOCTYPE html>
 <html lang="es">
 <head>

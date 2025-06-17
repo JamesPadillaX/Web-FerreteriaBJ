@@ -1,88 +1,95 @@
-/* Estilo específico para la página de perfil de usuario */
+/* Contenedor principal del perfil */
 .content-perfil {
     flex-grow: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 40px;
-    background-color: #ffffff; /* fondo blanco */
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #f4f6fa, #e5ecf9);
+    font-family: 'Inter', 'Poppins', sans-serif;
 }
 
-/* Caja con los datos del usuario */
+/* Caja de información de usuario */
 .info-box {
-    background-color: #ffffff;
-    border: 2px solid #6600ff; /* azul marino */
+    background: #ffffff;
     border-radius: 20px;
-    padding: 40px 50px;
+    padding: 40px;
     max-width: 600px;
     width: 100%;
-    box-shadow: 0 12px 30px rgb(5, 94, 219); /* sombra amarilla suave */
-    text-align: left;
-    color: #0b1f40;
-    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    animation: bounceIn 0.8s ease forwards;
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
-    cursor: default;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+    position: relative;
+    animation: fadeIn 0.6s ease-in-out forwards;
+    border: 1px solid #e0e7ff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Animación para entrada */
-@keyframes bounceIn {
-    0% {
-        opacity: 0;
-        transform: translateY(-40px) scale(0.8);
-    }
-    60% {
-        opacity: 1;
-        transform: translateY(10px) scale(1.05);
-    }
-    80% {
-        transform: translateY(-5px) scale(0.98);
-    }
-    100% {
-        transform: translateY(0) scale(1);
-    }
-}
-
-/* Efecto hover para resaltar */
 .info-box:hover {
-    box-shadow: 0 20px 40px rgb(5, 94, 219);
-    transform: translateY(-10px) scale(1.03);
+    transform: translateY(-6px);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
 }
 
-/* Título */
+/* Encabezado */
 .info-box h2 {
-    font-size: 1.9rem;
-    margin-bottom: 25px;
+    font-size: 2rem;
     text-align: center;
-    color: #4400ff;
+    color: #4f46e5;
+    margin-bottom: 30px;
+    position: relative;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
 
-/* Datos del usuario */
+.info-box h2 i {
+    color: #a78bfa;
+    font-size: 1.8rem;
+}
+
+/* Información del usuario */
 .info-box p {
-    font-size: 1.1rem;
-    margin-bottom: 15px;
-    line-height: 1.6;
-    text-align: left;
+    font-size: 1.05rem;
+    color: #374151;
+    margin-bottom: 18px;
+    line-height: 1.7;
+    border-bottom: 1px solid #f1f5f9;
+    padding-bottom: 10px;
+}
+
+.info-box p:last-child {
+    border-bottom: none;
 }
 
 .info-box p strong {
-    color: #632cfc; 
-    font: bold;
-    font-weight: 700;
+    color: #6366f1;
+    font-weight: 600;
+}
+
+/* Animación de entrada */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-    .content-perfil {
-        padding: 20px;
-    }
     .info-box {
-        padding: 25px 30px;
+        padding: 30px 20px;
     }
+
     .info-box h2 {
-        font-size: 1.5rem;
+        font-size: 1.6rem;
     }
+
     .info-box p {
-        font-size: 1rem;
+        font-size: 0.98rem;
     }
 }
