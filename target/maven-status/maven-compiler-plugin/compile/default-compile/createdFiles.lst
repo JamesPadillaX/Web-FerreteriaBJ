@@ -15,14 +15,18 @@ controlador\ExportarUsuariosExcelServlet.class
 dao\ClienteDAO.class
 controlador\EliminarDelCarritoServlet.class
 controlador\LoginUsuarioServlet.class
+controlador\ListarDomiciliosServlet.class
 controlador\EditarRolServlet.class
 modelo\Categoria.class
 controlador\LogoutUsuarioServlet.class
 controlador\AgregarCategoriaServlet.class
+controlador\AgregarDomicilioServlet.class
 service\CategoriaService.class
+dao\DomicilioClienteDAO.class
 controlador\EliminarProductoServlet.class
 controlador\EliminarCategoriaServlet.class
 controlador\ActualizarCantidadServlet.class
+modelo\DomicilioCliente.class
 modelo\Usuario.class
 controlador\EditarCategoriaServlet.class
 dao\CarritoDAO.class
@@ -44,6 +48,7 @@ modelo\Modulo.class
 filtro\SeguridadFiltro.class
 modelo\Rol.class
 controlador\AgregarRolServlet.class
+controlador\MarcarPrincipalServlet.class
 controlador\AgregarUsuarioServlet.class
 util\TestLog.class
 controlador\ListarUsuariosServlet.class

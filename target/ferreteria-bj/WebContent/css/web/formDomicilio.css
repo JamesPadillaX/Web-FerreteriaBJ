@@ -1,0 +1,159 @@
+/* GLOBAL RESET Y FUENTES */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f5f5f5;
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* LAYOUT PRINCIPAL */
+.layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+    padding: 40px 20px;
+}
+
+/* CONTENEDOR FORMULARIO */
+.contenedor-formulario {
+    background: #fff;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.contenedor-formulario h1 {
+    text-align: center;
+    color: #002244;
+    margin-bottom: 30px;
+    font-size: 24px;
+}
+
+/* FORMULARIO */
+.formulario-domicilio label {
+    display: block;
+    margin-bottom: 16px;
+    color: #333;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.formulario-domicilio input[type="text"] {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+/* CHECKBOX */
+.checkbox {
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #333;
+}
+
+.checkbox input {
+    margin-right: 8px;
+    transform: scale(1.1);
+}
+
+/* BOTONES */
+.botones {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.btn-guardar,
+.btn-cancelar {
+    flex: 1 1 45%;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-size: 15px;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    transition: 
+        background-color 0.3s ease,
+        transform 0.2s ease,
+        box-shadow 0.3s ease;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* BOTÓN GUARDAR */
+.btn-guardar {
+    background-color: #003366;
+    color: white;
+}
+
+.btn-guardar:hover {
+    background-color: #001f4d;
+    transform: scale(1.03);
+    box-shadow: 0 5px 10px rgba(0, 51, 102, 0.3);
+}
+
+/* BOTÓN CANCELAR */
+.btn-cancelar {
+    background-color: #cc3300;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    line-height: normal;
+}
+
+.btn-cancelar:hover {
+    background-color: #a62800;
+    transform: scale(1.03);
+    box-shadow: 0 5px 10px rgba(204, 51, 0, 0.3);
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 600px) {
+    .contenedor-formulario {
+        padding: 25px 20px;
+    }
+
+    .formulario-domicilio label {
+        font-size: 14px;
+    }
+
+    .formulario-domicilio input[type="text"] {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .botones {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .btn-guardar,
+    .btn-cancelar {
+        width: 100%;
+        font-size: 14px;
+        display: block;
+    }
+
+    .contenedor-formulario h1 {
+        font-size: 20px;
+    }
+}

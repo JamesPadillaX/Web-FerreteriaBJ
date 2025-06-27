@@ -1,7 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="modelo.Cliente" %>
+<%@ page import="modelo.DomicilioCliente" %>
 <%@ page import="modelo.DetalleCarrito" %>
-<%@ page import="modelo.Producto" %>
+<%@ page import="dao.DomicilioClienteDAO" %>
 <%@ page import="dao.CarritoDAO" %>
 <%@ page import="java.util.List" %>
 
@@ -12,13 +13,21 @@
         return;
     }
 
+    // Obtener domicilio principal
+    DomicilioClienteDAO domicilioDAO = new DomicilioClienteDAO();
+    DomicilioCliente domicilioPrincipal = domicilioDAO.obtenerPrincipalPorCliente(cliente.getIdCliente());
+
+    // Obtener detalles del carrito
     CarritoDAO carritoDAO = new CarritoDAO();
     int idCarrito = carritoDAO.obtenerCarritoActivo(cliente.getIdCliente());
     List<DetalleCarrito> detalles = carritoDAO.listarDetallePorCarrito(idCarrito);
+
     double total = 0.0;
     for (DetalleCarrito dc : detalles) {
         total += dc.getProducto().getPrecio() * dc.getCantidad();
     }
+
+    boolean tieneDomicilio = (domicilioPrincipal != null);
 %>
 
 <!DOCTYPE html>
@@ -36,25 +45,28 @@
     <main>
         <form action="metodoPago.jsp" method="post">
             <div class="contenedor-envio">
-
-
                 <div class="columna-opciones">
                     <h1>Elige la forma de entrega</h1>
 
                     <label class="opcion-envio">
-                        <input type="radio" name="metodoEnvio" value="DOMICILIO" required>
+                        <input type="radio" name="metodoEnvio" value="DOMICILIO" <%= tieneDomicilio ? "" : "disabled" %> required>
                         <div class="info-envio">
                             <h2>Enviar a domicilio</h2>
-                            <p>Pasaje La cantuta 115 - cerropon 115 - dos piso - Chiclayo Residencial</p>
-                            <a href="#" class="modificar">Modificar domicilio o elegir otro</a>
+                            <% if (tieneDomicilio) { %>
+                                <p><%= domicilioPrincipal.getCalle() %> <%= domicilioPrincipal.getNumero() %>,
+                                   <%= domicilioPrincipal.getDistrito() %>, <%= domicilioPrincipal.getProvincia() %> - <%= domicilioPrincipal.getDepartamento() %></p>
+                            <% } else { %>
+                                <p style="color: red;">No tienes un domicilio principal asignado.</p>
+                            <% } %>
+                            <a href="domicilio.jsp" class="modificar">Modificar domicilio o elegir otro</a>
                         </div>
                         <span class="gratis">Gratis</span>
                     </label>
 
                     <label class="opcion-envio">
-                        <input type="radio" name="metodoEnvio" value="RECOJO">
+                        <input type="radio" name="metodoEnvio" value="RECOJO" required>
                         <div class="info-envio">
-                            <h2>Retirar en el domicilio del vendedor</h2>
+                            <h2>Retirar en tienda</h2>
                         </div>
                         <span class="gratis">Gratis</span>
                     </label>
@@ -71,9 +83,15 @@
                         <span><strong>S/. <%= String.format("%.2f", total) %></strong></span>
                     </div>
 
-                    <button type="submit" class="btn-continuar">Continuar</button>
+                    <button type="submit" class="btn-continuar" <%= tieneDomicilio ? "" : "disabled" %>>
+                        Continuar
+                    </button>
+                    <% if (!tieneDomicilio) { %>
+                        <p style="color: #cc0000; font-size: 14px; margin-top: 10px;">
+                            Debes registrar un domicilio principal antes de continuar.
+                        </p>
+                    <% } %>
                 </div>
-
             </div>
         </form>
     </main>
