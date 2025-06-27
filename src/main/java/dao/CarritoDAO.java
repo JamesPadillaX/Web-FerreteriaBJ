@@ -149,4 +149,38 @@ public class CarritoDAO {
             return false;
         }
     }
+
+    // 8. Obtener la cantidad actual de un producto en el carrito
+
+    public int obtenerCantidadProducto(int idCarrito, int idProducto) {
+        String sql = "SELECT cantidad FROM detalle_carrito WHERE idCarrito = ? AND idProducto = ?";
+        try (PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setInt(1, idCarrito);
+            ps.setInt(2, idProducto);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return rs.getInt("cantidad");
+            }
+        } catch (SQLException e) { 
+            logger.error("Error al obtener cantidad del producto {} en carrito {}: {}", idProducto, idCarrito, e.getMessage(), e);
+        }
+        return 0; // Si no existe, retorna 0
+    }
+
+
+    // 9. Actualizar la cantidad de un producto en el carrito
+
+    public boolean actualizarCantidadProducto(int idCarrito, int idProducto, int nuevaCantidad) {
+        String sql = "UPDATE detalle_carrito SET cantidad = ? WHERE idCarrito = ? AND idProducto = ?";
+        try (PreparedStatement ps = con.prepareStatement(sql)) { 
+            ps.setInt(1, nuevaCantidad);
+            ps.setInt(2, idCarrito);
+            ps.setInt(3, idProducto);
+            return ps.executeUpdate() > 0;
+        } catch (SQLException e) { 
+            logger.error("Error al actualizar cantidad del producto {} en carrito {}: {}", idProducto, idCarrito, e.getMessage(), e); 
+            return false;
+        }
+    }
+
 }

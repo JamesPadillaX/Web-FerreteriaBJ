@@ -6,6 +6,7 @@ C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\modelo\DetalleCarrito.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\util\Conexion.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\AgregarProductoServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\dao\UsuarioDAO.java
+C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\ActualizarCantidadServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\DashboardServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\AsignarPermisosServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\LoggerTestServlet.java

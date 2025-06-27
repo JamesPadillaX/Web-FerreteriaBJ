@@ -211,3 +211,51 @@ main {
   gap: 2rem;
   margin-top: 1rem;
 }
+.user-actions {
+  display: flex;
+  align-items: center;
+}
+
+/* Agrupa nombre + carrito */
+.user-panel {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Íconos generales */
+.icon {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  stroke-width: 2;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+/* Estilo nombre usuario */
+.user-name {
+  display: flex;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Ícono usuario blanco */
+.user-name .icon {
+  stroke: white;
+}
+
+/* Carrito */
+.carrito-icon {
+  display: flex;
+  align-items: center;
+  color: #f1c40f;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.carrito-icon .icon {
+  stroke: #f1c40f;
+}

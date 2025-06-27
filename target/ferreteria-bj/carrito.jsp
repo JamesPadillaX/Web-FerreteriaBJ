@@ -25,10 +25,10 @@
     <meta charset="UTF-8">
     <title>Carrito de Compras</title>
     <link rel="stylesheet" href="WebContent/css/web/carrito.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 <div class="layout">
-
     <%@ include file="header.jsp" %>
 
     <main class="contenido-principal">
@@ -49,10 +49,17 @@
                         <img src="<%=request.getContextPath()%>/<%=p.getImagen()%>" alt="Producto">
                     </div>
                     <div class="producto-info">
-                        <h2><%=p.getNombre()%></h2>
+                        <div class="producto-header">
+                            <h2><%=p.getNombre()%></h2>
+                            <form method="post" action="ActualizarCantidadServlet" class="control-cantidad">
+                                <input type="hidden" name="idProducto" value="<%=p.getIdProducto()%>">
+                                <button type="submit" name="accion" value="restar" <% if(dc.getCantidad() <= 1){ %>disabled<% } %>>−</button>
+                                <input type="text" name="cantidad" value="<%=dc.getCantidad()%>" readonly>
+                                <button type="submit" name="accion" value="sumar">+</button>
+                            </form>
+                            <span class="producto-subtotal">S/. <%=String.format("%.2f", subtotal)%></span>
+                        </div>
                         <p><strong>Precio Unitario:</strong> S/. <%=p.getPrecio()%></p>
-                        <p><strong>Cantidad:</strong> <%=dc.getCantidad()%></p>
-                        <p><strong>Subtotal:</strong> S/. <%=subtotal%></p>
                         <form method="post" action="EliminarDelCarritoServlet">
                             <input type="hidden" name="idProducto" value="<%=p.getIdProducto()%>">
                             <button type="submit" class="btn-eliminar">Eliminar</button>
@@ -70,7 +77,7 @@
                     <% for (DetalleCarrito dc : detalles) { %>
                         <div class="linea-producto">
                             <span><%=dc.getProducto().getNombre()%></span>
-                            <span>S/. <%=dc.getProducto().getPrecio() * dc.getCantidad()%></span>
+                            <span>S/. <%=String.format("%.2f", dc.getProducto().getPrecio() * dc.getCantidad())%></span>
                         </div>
                     <% } %>
                 </div>
@@ -79,8 +86,8 @@
                     <strong>Total:</strong>
                     <strong>S/. <%=String.format("%.2f", total)%></strong>
                 </div>
-                <form action="FinalizarCompraServlet" method="post">
-                    <button type="submit" class="btn-comprar">Comprar</button>
+                <form action="envio.jsp" method="post">
+                    <button type="submit" class="btn-comprar">Continuar compra</button>
                 </form>
                 <a href="productos.jsp" class="btn-volver">← Ver más productos</a>
             </div>
