@@ -21,6 +21,7 @@ modelo\Categoria.class
 controlador\LogoutUsuarioServlet.class
 controlador\AgregarCategoriaServlet.class
 controlador\AgregarDomicilioServlet.class
+controlador\DetalleProductoServlet.class
 service\CategoriaService.class
 dao\DomicilioClienteDAO.class
 controlador\EliminarProductoServlet.class

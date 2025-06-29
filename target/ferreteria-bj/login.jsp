@@ -13,7 +13,7 @@
     <jsp:include page="header.jsp" />
 
     <main>
-      <form action="LoginServlet" method="post" class="formulario">
+      <form action="LoginServlet" method="post" class="formulario" id="formLogin">
         <h2>Iniciar Sesión</h2>
 
         <label for="usuario">Correo Electrónico</label>
@@ -25,7 +25,6 @@
           <input type="password" id="contrasena" name="password" required>
           <i class="fa-solid fa-eye-slash toggle-password"></i>
         </div>
-
 
         <button type="submit">Ingresar</button>
 
@@ -47,7 +46,6 @@
 
     <jsp:include page="footer.jsp" />
   </div>
-
 
   <script src="WebContent/js/web/login.js"></script>
 </body>

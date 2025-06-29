@@ -7,11 +7,11 @@
   <title>Actualizar Contraseña - Ferretería BJ</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="WebContent/css/web/login.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
   <div class="contenedor-principal">
     <jsp:include page="header.jsp" />
-
     <main>
       <form action="ActualizarContrasenaServlet" method="post" class="formulario">
         <h2>Actualizar Contraseña</h2>
@@ -21,7 +21,6 @@
           <input type="password" id="nuevaPassword" name="nuevaPassword" required>
           <i class="fa-solid fa-eye-slash toggle-password" title="Mostrar/Ocultar contraseña"></i>
         </div>
-
 
         <button type="submit">Guardar Contraseña</button>
 
@@ -47,9 +46,9 @@
           }
         %>
 
-        <p class="volver-login">
+        <div class="volver-login">
           <a href="login.jsp">Volver al inicio de sesión</a>
-        </p>
+        </div>
       </form>
     </main>
     <jsp:include page="footer.jsp" />

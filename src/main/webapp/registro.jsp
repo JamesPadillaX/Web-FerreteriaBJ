@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="WebContent/css/web/styles.css">
   <link rel="stylesheet" href="WebContent/css/web/registro.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
   <div class="contenedor-principal">

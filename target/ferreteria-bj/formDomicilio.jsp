@@ -25,31 +25,43 @@
         <div class="contenedor-formulario">
             <h1>Registrar nuevo domicilio</h1>
 
-            <form action="AgregarDomicilioServlet" method="post" class="formulario-domicilio">
+            <form action="AgregarDomicilioServlet" method="post" class="formulario-domicilio" autocomplete="off">
                 <input type="hidden" name="idCliente" value="<%= cliente.getIdCliente() %>">
 
-                <label>Calle:
-                    <input type="text" name="calle" required placeholder="Ej. Av. Los Héroes">
+                <label for="calle">Calle:
+                    <input type="text" name="calle" id="calle" required 
+                           pattern="^[A-Za-zÁÉÍÓÚÑáéíóúñ0-9 ]{1,50}$" 
+                           title="Solo letras, números y espacios. Sin caracteres especiales.">
                 </label>
 
-                <label>Número:
-                    <input type="text" name="numero" required placeholder="Ej. 123">
+                <label for="numero">Número:
+                    <input type="text" name="numero" id="numero" required 
+                           pattern="^[A-Za-z0-9 ]{1,10}$" 
+                           title="Solo letras, números y espacios.">
                 </label>
 
-                <label>Referencia:
-                    <input type="text" name="referencia" placeholder="Ej. Cerca al parque o a la tienda X">
+                <label for="referencia">Referencia:
+                    <input type="text" name="referencia" id="referencia"
+                           pattern="^[A-Za-zÁÉÍÓÚÑáéíóúñ0-9 ,.]{0,100}$" 
+                           title="No se permiten símbolos como < > -">
                 </label>
 
-                <label>Distrito:
-                    <input type="text" name="distrito" required placeholder="Ej. San Miguel">
+                <label for="distrito">Distrito:
+                    <input type="text" name="distrito" id="distrito" required 
+                           pattern="^[A-Za-zÁÉÍÓÚÑáéíóúñ ]{1,30}$" 
+                           title="Solo letras y espacios.">
                 </label>
 
-                <label>Provincia:
-                    <input type="text" name="provincia" required placeholder="Ej. Lima">
+                <label for="provincia">Provincia:
+                    <input type="text" name="provincia" id="provincia" required 
+                           pattern="^[A-Za-zÁÉÍÓÚÑáéíóúñ ]{1,30}$" 
+                           title="Solo letras y espacios.">
                 </label>
 
-                <label>Departamento:
-                    <input type="text" name="departamento" required placeholder="Ej. Lima">
+                <label for="departamento">Departamento:
+                    <input type="text" name="departamento" id="departamento" required 
+                           pattern="^[A-Za-zÁÉÍÓÚÑáéíóúñ ]{1,30}$" 
+                           title="Solo letras y espacios.">
                 </label>
 
                 <label class="checkbox">

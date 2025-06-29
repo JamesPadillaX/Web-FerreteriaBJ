@@ -66,7 +66,7 @@
                     <label class="opcion-envio">
                         <input type="radio" name="metodoEnvio" value="RECOJO" required>
                         <div class="info-envio">
-                            <h2>Retirar en el domicilio del vendedor</h2>
+                            <h2>Retirar en tienda</h2>
                         </div>
                         <span class="gratis">Gratis</span>
                     </label>

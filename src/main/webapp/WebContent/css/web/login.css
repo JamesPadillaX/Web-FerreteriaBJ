@@ -159,3 +159,25 @@ main {
   font-size: 1rem; /* o incluso 0.9rem */
   line-height: 1;
 }
+.volver-login {
+  text-align: center;
+  margin-top: -0.5rem;
+}
+
+.volver-login a {
+  color: #001f3f;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.volver-login a:hover {
+  color: #f1c40f;
+}
+
+/* RESPONSIVE ajuste opcional */
+@media (max-width: 600px) {
+  .volver-login a {
+    font-size: 0.9rem;
+  }
+}

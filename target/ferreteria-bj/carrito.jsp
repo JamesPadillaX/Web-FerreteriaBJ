@@ -17,6 +17,7 @@
     int idCarrito = carritoDAO.obtenerCarritoActivo(cliente.getIdCliente());
     List<DetalleCarrito> detalles = carritoDAO.listarDetallePorCarrito(idCarrito);
     double total = 0.0;
+    boolean carritoVacio = (detalles == null || detalles.isEmpty());
 %>
 
 <!DOCTYPE html>
@@ -26,6 +27,18 @@
     <title>Carrito de Compras</title>
     <link rel="stylesheet" href="WebContent/css/web/carrito.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .columna-resumen.deshabilitado {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        .columna-resumen.deshabilitado .btn-comprar {
+            background-color: #ccc !important;
+            color: #888 !important;
+            cursor: not-allowed !important;
+        }
+    </style>
 </head>
 <body>
 <div class="layout">
@@ -36,7 +49,7 @@
             <div class="columna-productos">
                 <h1><i class="fas fa-shopping-cart"></i> Carrito de compras</h1>
 
-                <% if (detalles == null || detalles.isEmpty()) { %>
+                <% if (carritoVacio) { %>
                     <p class="empty">Tu carrito está vacío.</p>
                 <% } else {
                     for (DetalleCarrito dc : detalles) {
@@ -69,26 +82,45 @@
                 <% }} %>
             </div>
 
-            <div class="columna-resumen">
+            <!-- Resumen siempre visible pero desactivado si carrito está vacío -->
+            <div class="columna-resumen <%= carritoVacio ? "deshabilitado" : "" %>">
                 <h2>Resumen de compra</h2>
-                <p>Total de productos: <strong><%=detalles.size()%></strong></p>
-                <hr>
-                <div class="detalle-productos">
-                    <% for (DetalleCarrito dc : detalles) { %>
+
+                <% if (carritoVacio) { %>
+                    <p>No hay productos en el carrito.</p>
+                    <hr>
+                    <div class="detalle-productos">
                         <div class="linea-producto">
-                            <span><%=dc.getProducto().getNombre()%></span>
-                            <span>S/. <%=String.format("%.2f", dc.getProducto().getPrecio() * dc.getCantidad())%></span>
+                            <span>—</span><span>—</span>
                         </div>
-                    <% } %>
-                </div>
-                <hr>
-                <div class="total">
-                    <strong>Total:</strong>
-                    <strong>S/. <%=String.format("%.2f", total)%></strong>
-                </div>
-                <form action="envio.jsp" method="post">
-                    <button type="submit" class="btn-comprar">Continuar compra</button>
-                </form>
+                    </div>
+                    <hr>
+                    <div class="total">
+                        <strong>Total:</strong>
+                        <strong>S/. 0.00</strong>
+                    </div>
+                    <button type="button" class="btn-comprar" disabled>Continuar compra</button>
+                <% } else { %>
+                    <p>Total de productos: <strong><%=detalles.size()%></strong></p>
+                    <hr>
+                    <div class="detalle-productos">
+                        <% for (DetalleCarrito dc : detalles) { %>
+                            <div class="linea-producto">
+                                <span><%=dc.getProducto().getNombre()%></span>
+                                <span>S/. <%=String.format("%.2f", dc.getProducto().getPrecio() * dc.getCantidad())%></span>
+                            </div>
+                        <% } %>
+                    </div>
+                    <hr>
+                    <div class="total">
+                        <strong>Total:</strong>
+                        <strong>S/. <%=String.format("%.2f", total)%></strong>
+                    </div>
+                    <form action="envio.jsp" method="post">
+                        <button type="submit" class="btn-comprar">Continuar compra</button>
+                    </form>
+                <% } %>
+
                 <a href="productos.jsp" class="btn-volver">← Ver más productos</a>
             </div>
         </div>

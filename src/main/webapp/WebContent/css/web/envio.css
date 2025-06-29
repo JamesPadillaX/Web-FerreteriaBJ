@@ -1,14 +1,21 @@
-/* ESTRUCTURA BASE */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 html, body {
     margin: 0;
     padding: 0;
     height: 100%;
-    font-family: 'Segoe UI', sans-serif;
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
     background-color: #f4f4f4;
     width: 100%;
     overflow-x: hidden;
+    word-wrap: break-word; /* 💡 Evita desbordes por palabras largas */
 }
 
+/* LAYOUT PRINCIPAL */
 .layout {
     display: flex;
     flex-direction: column;
@@ -26,12 +33,10 @@ main {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    align-items: flex-start;
     gap: 30px;
     max-width: 1200px;
     margin: 40px auto;
     padding: 0 20px;
-    box-sizing: border-box;
 }
 
 /* COLUMNAS */
@@ -41,9 +46,9 @@ main {
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.08);
-    box-sizing: border-box;
     flex: 1 1 100%;
-    max-width: 100%;
+    min-width: 0; /* ⚠️ Evita desbordes en flex items */
+    overflow: hidden;
 }
 
 .columna-opciones {
@@ -60,6 +65,8 @@ main {
     font-size: 24px;
     margin-bottom: 20px;
     color: #002244;
+    line-height: 1.3;
+    word-break: break-word;
 }
 
 /* OPCIONES DE ENVÍO */
@@ -72,7 +79,8 @@ main {
     cursor: pointer;
     align-items: flex-start;
     transition: border 0.3s ease, background-color 0.3s ease;
-    box-sizing: border-box;
+    flex-wrap: wrap;
+    overflow: hidden;
 }
 
 .opcion-envio:hover {
@@ -89,44 +97,57 @@ main {
 /* INFORMACIÓN DE ENVÍO */
 .info-envio {
     flex: 1;
+    min-width: 0;
 }
 
 .info-envio h2 {
     margin: 0;
     font-size: 18px;
     color: #002244;
+    word-break: break-word;
 }
 
 .info-envio p {
     margin: 5px 0 0;
     font-size: 14px;
     color: #555;
+    word-break: break-word;
 }
 
-.gratis {
-    color: green;
-    font-weight: bold;
-}
-
+/* ENLACE MODIFICAR CON ANIMACIÓN MINIMALISTA */
 .modificar {
-    display: block;
-    margin-top: 5px;
+    display: inline-block;
+    margin-top: 6px;
     color: #0066cc;
     font-size: 14px;
+    font-weight: 500;
     text-decoration: none;
+    transition: color 0.3s ease, transform 0.2s ease;
 }
 
 .modificar:hover {
-    text-decoration: underline;
+    color: #004a99;
+    transform: translateX(2px);
 }
 
-/* RESUMEN */
+/* ETIQUETA GRATIS */
+.gratis {
+    color: green;
+    font-weight: bold;
+    font-size: 14px;
+    margin-left: auto;
+    word-break: keep-all;
+}
+
+/* RESUMEN DE COMPRA */
 .resumen-linea {
     display: flex;
     justify-content: space-between;
     padding: 10px 0;
     font-size: 15px;
     border-bottom: 1px solid #eee;
+    flex-wrap: wrap;
+    word-break: break-word;
 }
 
 .resumen-linea:last-child {
@@ -138,7 +159,7 @@ main {
     color: #001f3f;
 }
 
-/* BOTÓN */
+/* BOTÓN CONTINUAR */
 .btn-continuar {
     margin-top: 25px;
     width: 100%;
@@ -149,11 +170,19 @@ main {
     border: none;
     border-radius: 6px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .btn-continuar:hover {
     background-color: #001f4d;
+    transform: scale(1.02);
+}
+
+/* MENSAJE DE ERROR */
+.error-msg {
+    color: #cc0000;
+    font-size: 14px;
+    margin-top: 10px;
 }
 
 /* FOOTER */
@@ -166,8 +195,8 @@ footer {
     margin-top: auto;
 }
 
-/* RESPONSIVE */
-@media screen and (max-width: 768px) {
+/* RESPONSIVE ADAPTATIVO */
+@media screen and (max-width: 1024px) {
     .contenedor-envio {
         flex-direction: column;
         padding: 20px;
@@ -176,12 +205,12 @@ footer {
 
     .columna-opciones,
     .columna-resumen {
-        flex: none;
         width: 100%;
-        max-width: 100%;
         padding: 20px;
     }
+}
 
+@media screen and (max-width: 768px) {
     .opcion-envio {
         flex-direction: column;
         gap: 10px;
@@ -212,5 +241,32 @@ footer {
     .columna-opciones h1,
     .columna-resumen h2 {
         font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .info-envio h2 {
+        font-size: 15px;
+    }
+
+    .gratis {
+        font-size: 13px;
+    }
+
+    .btn-continuar {
+        font-size: 14px;
+    }
+
+    .modificar {
+        font-size: 13px;
+    }
+
+    .contenedor-envio {
+        padding: 10px;
+    }
+
+    .columna-opciones,
+    .columna-resumen {
+        padding: 15px;
     }
 }

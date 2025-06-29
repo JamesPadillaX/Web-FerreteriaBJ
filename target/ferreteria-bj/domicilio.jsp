@@ -63,13 +63,16 @@
                                     <% if (d.isPrincipal()) { %>
                                         <span class="badge-principal">Principal</span>
                                     <% } %>
-                                    <a href="editarDomicilio.jsp?id=<%= d.getIdDomicilio() %>" class="btn-editar">Editar</a>
+                                    <div class="acciones-domicilio">
+                                        <a href="editarDomicilio.jsp?id=<%= d.getIdDomicilio() %>" class="btn-editar">Editar</a>
+                                        <a href="EliminarDomicilioServlet?id=<%= d.getIdDomicilio() %>" class="btn-eliminar" onclick="return confirm('¿Estás seguro de eliminar este domicilio?');">Eliminar</a>
+                                    </div>
                                 </div>
                             </label>
                     <%  } %>
 
                     <div class="botones-acciones">
-                        <button type="submit" class="btn-base">Guardar selección como principal</button>
+                        <button type="submit" class="btn-base">Guardar como domicilio principal</button>
                         <a href="formDomicilio.jsp" class="btn-base">Agregar nuevo domicilio</a>
                     </div>
 

@@ -8,22 +8,19 @@
   }
 %>
 
-<!-- Enlaces CSS -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="WebContent/css/web/categorias.css">
 <link rel="stylesheet" href="WebContent/css/web/styles.css">
-
-<!-- Lucide Icons CDN -->
 <script src="https://unpkg.com/lucide@latest"></script>
-
-<!-- Enlaces JS -->
 <script src="WebContent/js/web/categorias.js" defer></script>
 <script src="WebContent/js/web/header.js" defer></script>
 
-<!-- Header -->
+
 <header class="main-header">
   <div class="logo">
     <h1>Ferretería <span>BJ</span></h1>
   </div>
+
 
   <nav class="nav-bar">
     <ul>
@@ -52,13 +49,13 @@
 
 </header>
 
-<!-- Overlay y dropdown -->
+
 <div id="blur-overlay" class="blur-overlay" style="display: none;"></div>
 <div id="categoriasDropdown" class="dropdown-categorias" style="display: none;">
   <div id="categorias-container"></div>
 </div>
 
-<!-- Modal usuario -->
+
 <% if (c != null) { %>
   <div id="userModal" class="modal">
     <div class="modal-content">
@@ -71,7 +68,7 @@
   </div>
 <% } %>
 
-<!-- Lucide Init -->
+
 <script>
   lucide.createIcons();
 </script>

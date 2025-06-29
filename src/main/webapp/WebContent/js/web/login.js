@@ -10,7 +10,7 @@ window.addEventListener('load', () => {
   }
 });
 
-// Funcionalidad del ícono para mostrar/ocultar contraseña
+// Mostrar/ocultar contraseña
 document.addEventListener("DOMContentLoaded", function () {
   const toggleIcons = document.querySelectorAll(".toggle-password");
 
@@ -24,5 +24,33 @@ document.addEventListener("DOMContentLoaded", function () {
       this.classList.toggle("fa-eye-slash");
     });
   });
-});
 
+  const form = document.getElementById("formLogin");
+  const passwordInput = document.getElementById("contrasena");
+  const correoInput = document.getElementById("usuario");
+
+  // Bloquear caracteres peligrosos al escribir en contraseña y correo
+  [passwordInput, correoInput].forEach(input => {
+    input.addEventListener("input", function () {
+      this.value = this.value.replace(/[<>'"]/g, "");
+    });
+  });
+
+  // Validación extra al enviar formulario (por seguridad)
+  form.addEventListener("submit", function (e) {
+    const password = passwordInput.value;
+    const correo = correoInput.value;
+
+    if (/[<>'"]/.test(password)) {
+      e.preventDefault();
+      alert("La contraseña contiene caracteres no permitidos.");
+      return;
+    }
+
+    if (/[<>'"]/.test(correo)) {
+      e.preventDefault();
+      alert("El correo contiene caracteres no permitidos.");
+      return;
+    }
+  });
+});

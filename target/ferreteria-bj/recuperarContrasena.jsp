@@ -4,13 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <title>Recuperar Contraseña - Ferretería BJ</title>
-  <link rel="stylesheet" href="WebContent/css/web/styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="WebContent/css/web/login.css">
 </head>
 <body>
   <div class="contenedor-principal">
     <jsp:include page="header.jsp" />
-
     <main>
       <form action="EnviarCodigoServlet" method="post" class="formulario">
         <h2>Recuperar Contraseña</h2>
@@ -31,12 +30,11 @@
           <p class="exito">Código enviado. Revisa tu correo electrónico.</p>
         <% } %>
 
-        <p class="volver-login">
+        <div class="volver-login">
           <a href="login.jsp">Volver al inicio de sesión</a>
-        </p>
+        </div>
       </form>
     </main>
-
     <jsp:include page="footer.jsp" />
   </div>
 </body>

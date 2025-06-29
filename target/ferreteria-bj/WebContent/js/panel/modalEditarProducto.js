@@ -24,13 +24,6 @@ document.addEventListener("DOMContentLoaded", function() {
   // Cerrar modal con botón "Cancelar"
   document.getElementById("cancelarEditarProducto").addEventListener("click", cerrarModalEditar);
 
-  // Cerrar modal si clic afuera del contenido
-  const modal = document.getElementById("modalEditarProducto");
-  modal.addEventListener("click", function(event) {
-    if (event.target === modal) {
-      cerrarModalEditar();
-    }
-  });
 });
 function abrirModalEditar(producto) {
   // Resetear input file para eliminar imagen previa seleccionada

@@ -1,77 +1,68 @@
 <style>
-  #overlay-eliminado {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0,0,0,0.4);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-  }
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 
   #toast-eliminado {
-    background: #e74c3c; /* rojo alerta */
-    color: white;
-    padding: 25px 40px;
-    border-radius: 15px;
-    box-shadow: 0 8px 15px rgba(231, 76, 60, 0.5);
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    animation: fadeInScale 0.5s ease forwards;
-    max-width: 400px;
-    font-size: 22px;
-    font-weight: 600;
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background-color: #00264d; /* Azul marino */
+    color: #fff;
+    padding: 12px 20px;
+    max-width: 90%;
+    width: max-content;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 9999;
+    animation: slideUpFade 0.5s ease-out forwards;
+    text-align: center;
+    word-break: break-word;
   }
 
-  /* Ícono de check */
-  #toast-eliminado svg {
-    width: 40px;
-    height: 40px;
-    fill: white;
-    flex-shrink: 0;
-  }
-
-  /* Animación */
-  @keyframes fadeInScale {
-    0% {
-      opacity: 0;
-      transform: scale(0.7);
-    }
-    100% {
+  @keyframes slideUpFade {
+    to {
       opacity: 1;
-      transform: scale(1);
+      transform: translateX(-50%) translateY(0);
+      pointer-events: auto;
+    }
+  }
+
+  @keyframes fadeOutDown {
+    to {
+      opacity: 0;
+      transform: translateX(-50%) translateY(100px);
+      pointer-events: none;
+    }
+  }
+
+  @media (max-width: 480px) {
+    #toast-eliminado {
+      font-size: 14px;
+      padding: 10px 16px;
     }
   }
 </style>
 
-<!-- Contenedor de alerta -->
-<div id="overlay-eliminado">
-  <div id="toast-eliminado" role="alert" aria-live="assertive" aria-atomic="true">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <!-- Ícono de check (puedes cambiar por ícono de papelera si prefieres) -->
-      <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-    </svg>
-    Producto eliminado correctamente
-  </div>
-</div>
+<div id="toast-eliminado">Listo, eliminaste el producto</div>
 
 <script>
-  // Ocultar después de 2s
-  setTimeout(() => {
-    const overlay = document.getElementById('overlay-eliminado');
-    overlay.style.opacity = '0';
-    overlay.style.transition = 'opacity 0.5s ease';
-    setTimeout(() => overlay.style.display = 'none', 400);
-  }, 1400);
+  const toast = document.getElementById("toast-eliminado");
+  if (toast) {
+    // Ocultar automáticamente después de 2.5 segundos
+    setTimeout(() => {
+      toast.style.animation = "fadeOutDown 0.5s ease forwards";
+    }, 2500);
 
-  // Limpiar ?msg=eliminado de la URL
-  if (window.history.replaceState) {
-    const url = new URL(window.location);
-    url.searchParams.delete("msg");
-    window.history.replaceState({}, document.title, url.pathname + url.search);
+    // Eliminar parámetro "msg" de la URL
+    if (window.history.replaceState) {
+      const url = new URL(window.location);
+      url.searchParams.delete("msg");
+      window.history.replaceState({}, document.title, url.pathname + url.search);
+    }
   }
 </script>

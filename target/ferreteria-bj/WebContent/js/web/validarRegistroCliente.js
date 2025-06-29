@@ -23,12 +23,25 @@ document.addEventListener("DOMContentLoaded", function () {
     telefono.value = telefono.value.replace(/\D/g, "").slice(0, 9);
   });
 
-  // Validación al enviar
+  // Bloquear caracteres peligrosos en contraseñas al escribir
+  [password, confirmar].forEach(input => {
+    input.addEventListener("input", () => {
+      input.value = input.value.replace(/[<>'"]/g, "");
+    });
+  });
+
+  // Validación final al enviar
   form.addEventListener("submit", function (e) {
     if (password.value !== confirmar.value) {
       e.preventDefault();
       alert("Las contraseñas no coinciden.");
       confirmar.focus();
+      return;
+    }
+
+    if (/[<>'"]/.test(password.value) || /[<>'"]/.test(confirmar.value)) {
+      e.preventDefault();
+      alert("Las contraseñas no deben contener <, >, ', \".");
       return;
     }
 

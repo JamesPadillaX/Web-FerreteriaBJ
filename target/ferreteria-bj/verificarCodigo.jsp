@@ -4,8 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <title>Verificar Código - Ferretería BJ</title>
-  <link rel="stylesheet" href="WebContent/css/web/styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="WebContent/css/web/login.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="contenedor-principal">
@@ -13,10 +14,10 @@
 
     <main>
       <form action="VerificarCodigoServlet" method="post" class="formulario">
-        <h2>Verificar Código</h2>
+        <h2>● ● ● ●</h2>
 
         <label for="codigo">Código recibido:</label>
-        <input type="text" id="codigo" name="codigo" required>
+        <input type="text" id="codigo" name="codigo" required maxlength="6" pattern="\d{4}" title="Debe ingresar 4 números">
 
         <button type="submit">Verificar</button>
 
@@ -28,10 +29,6 @@
         <% 
           } 
         %>
-
-        <p class="volver-login">
-          <a href="login.jsp">Volver al inicio de sesión</a>
-        </p>
       </form>
     </main>
 

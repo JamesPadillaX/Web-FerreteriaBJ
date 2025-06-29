@@ -1,246 +1,302 @@
-/* RESET GENERAL Y FUENTE */
+/* RESET Y FUENTE BASE */
 *, *::before, *::after {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html, body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background-color: #f5f5f5;
-    height: 100%;
-    width: 100%;
-    overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f4f4;
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
 }
 
-/* LAYOUT PRINCIPAL */
+/* LAYOUT GENERAL */
 .layout {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 main {
-    flex: 1;
-    padding: 40px 20px;
-    box-sizing: border-box;
+  flex: 1;
+  padding: 30px 15px;
+  box-sizing: border-box;
 }
 
-/* CONTENEDOR DE ENVÍO */
+/* CONTENEDOR PRINCIPAL */
 .contenedor-envio {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: flex-start;
-    max-width: 1200px;
-    margin: 40px auto;
-    gap: 30px;
-    padding: 0 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
 }
 
 /* COLUMNAS */
 .columna-opciones,
 .columna-resumen {
-    background: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.08);
-    flex: 1 1 100%;
-    max-width: 100%;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.05);
+  padding: 25px;
+  flex: 1 1 100%;
+  box-sizing: border-box;
 }
 
 .columna-opciones {
-    flex: 1 1 60%;
+  flex: 1 1 60%;
 }
 
 .columna-resumen {
-    flex: 1 1 35%;
+  flex: 1 1 35%;
 }
 
-/* TARJETAS DE DOMICILIO */
+/* TÍTULOS */
+.columna-opciones h1,
+.columna-resumen h2 {
+  font-size: 22px;
+  margin-bottom: 20px;
+  color: #002244;
+}
+
+/* TARJETA DE DOMICILIO */
 .domicilio-card {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    justify-content: space-between;
-    align-items: flex-start;
-    border: 2px solid #ccc;
-    padding: 15px;
-    border-radius: 10px;
-    margin-bottom: 15px;
-    background-color: #fff;
-    transition: all 0.3s ease;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 15px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  background: #fff;
+  transition: 0.3s;
 }
 
 .domicilio-card.principal {
-    border-color: #006600;
-    background-color: #eaffea;
+  border-color: #006600;
+  background-color: #eaffea;
 }
 
 .domicilio-card:hover {
-    border-color: #003366;
-    background-color: #f0f8ff;
+  border-color: #003366;
+  background-color: #f0f8ff;
 }
 
+/* INPUT RADIO */
 .domicilio-card input[type="radio"] {
-    accent-color: #003366;
-    transform: scale(1.3);
-    margin-top: 5px;
+  accent-color: #003366;
+  transform: scale(1.2);
+  margin-top: 5px;
 }
 
-/* INFO DE DOMICILIO */
+/* INFO DEL DOMICILIO */
 .domicilio-info {
-    flex: 1 1 60%;
-    min-width: 200px;
+  flex: 1 1 60%;
+  min-width: 200px;
+}
+
+.domicilio-info p {
+  margin: 4px 0;
+  font-size: 15px;
+  color: #333;
 }
 
 /* DERECHA DE LA TARJETA */
 .domicilio-derecha {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-end;
+  flex: 1;
 }
 
-/* BADGE PRINCIPAL */
+/* ACCIONES DE LA TARJETA */
+.acciones-domicilio {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+/* BADGE */
 .badge-principal {
-    background-color: green;
-    color: white;
-    padding: 4px 10px;
-    border-radius: 20px;
-    font-size: 12px;
-    display: inline-block;
+  background-color: #28a745;
+  color: white;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 20px;
 }
 
-/* BOTÓN EDITAR */
+/* BOTONES ACCIÓN */
+.btn-editar,
+.btn-eliminar {
+  padding: 6px 10px;
+  font-size: 13px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
 .btn-editar {
-    background-color: #f5b700;
-    color: #000;
-    border: none;
-    padding: 6px 12px;
-    font-size: 14px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+  background-color: #f5b700;
+  color: #000;
 }
 
 .btn-editar:hover {
-    background-color: #e0a800;
-    transform: scale(1.05);
+  background-color: #e0a800;
 }
 
-/* BOTÓN BASE (UNIFICADO) */
-.btn-base,
-.btn-continuar {
-    background-color: #003366;
-    color: #fff;
-    border: none;
-    padding: 12px 20px;
-    font-size: 15px;
-    border-radius: 6px;
-    cursor: pointer;
-    text-decoration: none;
-    text-align: center;
-    display: inline-block;
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-    width: 100%;
+.btn-eliminar {
+  background-color: #cc0000;
+  color: white;
 }
 
-/* Hover animado */
-.btn-base:hover,
-.btn-continuar:hover {
-    background-color: #001f4d;
-    transform: scale(1.03);
-    box-shadow: 0 5px 10px rgba(0, 51, 102, 0.3);
+.btn-eliminar:hover {
+  background-color: #a80000;
 }
 
-/* BOTONES AGRUPADOS */
+/* BOTONES BASE */
+.btn-base {
+  background-color: #003366;
+  color: white;
+  padding: 10px 15px;
+  font-size: 15px;
+  border: none;
+  border-radius: 6px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  flex: 1 1 45%;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-base:hover {
+  background-color: #001f4d;
+  transform: scale(1.02);
+}
+
+/* AGRUPACIÓN DE BOTONES */
 .botones-acciones {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    justify-content: center;
-    margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 20px;
 }
 
-.botones-acciones button,
-.botones-acciones a {
-    flex: 1 1 45%;
-    min-width: 180px;
-    max-width: 250px;
-}
-
-/* MENSAJE SIN DOMICILIOS */
+/* MENSAJE */
 .sin-domicilios {
-    font-size: 16px;
-    color: #444;
-    margin-bottom: 20px;
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 20px;
 }
 
-/* RESUMEN DE COMPRA */
-.columna-resumen h2 {
-    font-size: 20px;
-    margin-bottom: 15px;
-    color: #002244;
+/* BOTÓN CONTINUAR */
+.btn-continuar {
+  width: 100%;
+  background-color: #003366;
+  color: #fff;
+  padding: 14px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 25px;
+  transition: background-color 0.3s ease;
 }
 
+.btn-continuar:hover {
+  background-color: #001f4d;
+}
+
+/* RESUMEN */
 .resumen-linea {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 0;
-    font-size: 15px;
-    border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
 }
 
 .resumen-linea:last-child {
-    border: none;
+  border: none;
 }
 
 .resumen-linea span:last-child {
-    font-weight: bold;
-    color: #001f3f;
+  font-weight: bold;
+  color: #001f3f;
 }
 
-/* RESPONSIVE PARA MÓVILES */
-@media screen and (max-width: 768px) {
-    .contenedor-envio {
-        flex-direction: column;
-        padding: 20px;
-        gap: 20px;
-    }
+/* FOOTER */
+footer {
+  background-color: #002244;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 14px;
+  margin-top: auto;
+}
 
-    .columna-opciones,
-    .columna-resumen {
-        width: 100%;
-        padding: 20px;
-    }
+/* RESPONSIVE */
+@media screen and (max-width: 1024px) {
+  .contenedor-envio {
+    flex-direction: column;
+  }
 
-    .botones-acciones {
-        flex-direction: column;
-        align-items: stretch;
-    }
+  .columna-opciones,
+  .columna-resumen {
+    flex: none;
+    width: 100%;
+    padding: 20px;
+  }
 
-    .btn-base,
-    .btn-continuar {
-        width: 100%;
-        font-size: 14px;
-    }
+  .botones-acciones .btn-base {
+    min-width: 150px;
+    flex: 1 1 100%;
+  }
 
-    .domicilio-card {
-        flex-direction: column;
-    }
+  .domicilio-card {
+    flex-direction: column;
+    gap: 10px;
+  }
 
-    .domicilio-derecha {
-        align-items: flex-start;
-    }
+  .domicilio-derecha {
+    align-items: flex-start;
+  }
+}
 
-    .columna-resumen h2 {
-        font-size: 18px;
-    }
+@media screen and (max-width: 480px) {
+  .columna-opciones h1,
+  .columna-resumen h2 {
+    font-size: 18px;
+  }
 
-    .resumen-linea {
-        font-size: 14px;
-    }
+  .btn-base,
+  .btn-continuar {
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  .domicilio-info p {
+    font-size: 14px;
+  }
+
+  .badge-principal {
+    font-size: 11px;
+    padding: 3px 8px;
+  }
+
+  .btn-editar,
+  .btn-eliminar {
+    font-size: 12px;
+    padding: 5px 8px;
+  }
 }
