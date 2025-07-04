@@ -1,7 +1,9 @@
 package controlador;
 
 import dao.ProductoDAO;
+import dao.ImagenProductoDAO;
 import modelo.Producto;
+import modelo.ImagenProducto;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -24,7 +26,12 @@ public class DetalleProductoServlet extends HttpServlet {
                 Producto producto = dao.obtenerProductoPorId(idProducto);
 
                 if (producto != null) {
-                    // ✅ Aquí cargamos productos relacionados
+                    // ✅ Cargar imágenes secundarias
+                    ImagenProductoDAO imagenDAO = new ImagenProductoDAO();
+                    List<ImagenProducto> imagenesSecundarias = imagenDAO.listarPorProducto(idProducto);
+                    producto.setImagenes(imagenesSecundarias);
+
+                    // ✅ Cargar productos relacionados
                     List<Producto> relacionados = dao.listarProductosPorCategoriaWeb(producto.getIdCategoria());
 
                     request.setAttribute("producto", producto);

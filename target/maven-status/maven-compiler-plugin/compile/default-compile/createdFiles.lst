@@ -1,5 +1,6 @@
 service\ClienteService.class
 controlador\ListarRolesServlet.class
+dao\ImagenProductoDAO.class
 controlador\EnviarCodigoServlet.class
 controlador\ListarCategoriasServlet.class
 controlador\ListarRolesPServlet.class
@@ -46,6 +47,7 @@ dao\UsuarioDAO.class
 modelo\Carrito.class
 controlador\ListarProductosServlet.class
 modelo\Modulo.class
+modelo\ImagenProducto.class
 filtro\SeguridadFiltro.class
 modelo\Rol.class
 controlador\AgregarRolServlet.class
@@ -58,6 +60,7 @@ controlador\LoggerTestServlet.class
 dao\CategoriaDAO.class
 dao\PermisoDAO.class
 modelo\DetalleCarrito.class
+controlador\SubirImagenesServlet.class
 modelo\Cliente.class
 controlador\VerificarCodigoServlet.class
 modelo\Producto.class

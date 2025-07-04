@@ -1,5 +1,7 @@
 package modelo;
 
+import java.util.List;
+
 public class Producto {
 
     private int idProducto;
@@ -9,8 +11,9 @@ public class Producto {
     private double precio;
     private int cantidad;
     private int estado;
-    private String categoria; // nombre de la categoría
-    private String imagen;    // nombre o ruta de la imagen
+    private String categoria;
+    private String imagen;   
+    private List<ImagenProducto> imagenes;
 
     public Producto() {}
 
@@ -97,6 +100,7 @@ public class Producto {
         this.imagen = imagen;
     }
 
+    
     public String getEstadoTexto() {
         switch (estado) {
             case 1:
@@ -113,5 +117,13 @@ public class Producto {
     @Override
     public String toString() {
         return nombre;
+    }
+
+    public List<ImagenProducto> getImagenes() {
+        return imagenes;
+    }
+
+    public void setImagenes(List<ImagenProducto> imagenes) {
+        this.imagenes = imagenes;
     }
 }

@@ -39,10 +39,12 @@ C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\EliminarDelCarrito
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\modelo\Usuario.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\EditarUsuarioServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\util\TestLog.java
+C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\dao\ImagenProductoDAO.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\AgregarUsuarioServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\EliminarCategoriaServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\ListarDomiciliosServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\modelo\DomicilioCliente.java
+C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\modelo\ImagenProducto.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\modelo\Modulo.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\service\UsuarioService.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\modelo\Carrito.java
@@ -63,6 +65,7 @@ C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\filtro\SeguridadFiltro.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\modelo\Cliente.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\ListarRolesServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\dao\ProductoDAO.java
+C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\SubirImagenesServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\AgregarRolServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\LoginUsuarioServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\modelo\Producto.java

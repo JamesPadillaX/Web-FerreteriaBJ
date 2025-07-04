@@ -17,7 +17,7 @@
         <h2>● ● ● ●</h2>
 
         <label for="codigo">Código recibido:</label>
-        <input type="text" id="codigo" name="codigo" required maxlength="6" pattern="\d{4}" title="Debe ingresar 4 números">
+        <input type="text" id="codigo" name="codigo" required maxlength="6" pattern="\d{6}" title="Debe ingresar 6 números">
 
         <button type="submit">Verificar</button>
 
