@@ -18,7 +18,7 @@ import java.io.IOException;
 )
 public class EditarProductoServlet extends HttpServlet {
 
-    private static final String UPLOAD_DIR = "imagenes"; // carpeta relativa en webapp
+    private static final String UPLOAD_DIR = "imagenes";
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -27,7 +27,7 @@ public class EditarProductoServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
 
         try {
-            // Obtener parámetros del formulario
+            // Parámetros del producto
             int idProducto = Integer.parseInt(request.getParameter("idProducto"));
             int idCategoria = Integer.parseInt(request.getParameter("idCategoria"));
             String nombre = request.getParameter("nombre");
@@ -35,15 +35,18 @@ public class EditarProductoServlet extends HttpServlet {
             double precio = Double.parseDouble(request.getParameter("precio"));
             int cantidad = Integer.parseInt(request.getParameter("cantidad"));
             int estado = Integer.parseInt(request.getParameter("estado"));
-            String imagenActual = request.getParameter("imagenActual"); // nombre de imagen actual
+            String imagenActual = request.getParameter("imagenActual");
 
-            // Procesar imagen nueva (si hay)
+            // Filtros anteriores (si existen)
+            String nombreFiltro = request.getParameter("nombreFiltro");
+            String idCategoriaFiltro = request.getParameter("idCategoriaFiltro");
+
+            // Procesar imagen
             Part filePart = request.getPart("imagen");
             String fileName = getFileName(filePart);
             String nuevaRutaImagen;
 
             if (fileName != null && !fileName.isEmpty() && filePart.getSize() > 0) {
-                // Nueva imagen seleccionada
                 String appPath = request.getServletContext().getRealPath("");
                 String uploadPath = appPath + File.separator + UPLOAD_DIR;
 
@@ -52,15 +55,13 @@ public class EditarProductoServlet extends HttpServlet {
                     uploadDir.mkdir();
                 }
 
-                // Guardar nueva imagen
                 filePart.write(uploadPath + File.separator + fileName);
                 nuevaRutaImagen = UPLOAD_DIR + "/" + fileName;
             } else {
-                // No se seleccionó nueva imagen
                 nuevaRutaImagen = imagenActual;
             }
 
-            // Crear objeto producto actualizado
+            // Actualizar producto
             Producto producto = new Producto();
             producto.setIdProducto(idProducto);
             producto.setIdCategoria(idCategoria);
@@ -71,15 +72,20 @@ public class EditarProductoServlet extends HttpServlet {
             producto.setEstado(estado);
             producto.setImagen(nuevaRutaImagen);
 
-            // Actualizar en base de datos
             ProductoDAO productoDAO = new ProductoDAO();
             boolean actualizado = productoDAO.editarProducto(producto);
 
-            if (actualizado) {
-                response.sendRedirect("ListarProductosServlet?msg=editado");
-            } else {
-                response.sendRedirect("ListarProductosServlet?msg=errorEditar");
+            // Redirigir con los filtros aplicados
+            String redirectURL = "ListarProductosServlet?msg=" + (actualizado ? "editado" : "errorEditar");
+
+            if (nombreFiltro != null && !nombreFiltro.isEmpty()) {
+                redirectURL += "&nombre=" + nombreFiltro;
             }
+            if (idCategoriaFiltro != null && !idCategoriaFiltro.isEmpty()) {
+                redirectURL += "&idCategoria=" + idCategoriaFiltro;
+            }
+
+            response.sendRedirect(redirectURL);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -87,7 +93,6 @@ public class EditarProductoServlet extends HttpServlet {
         }
     }
 
-    // Método auxiliar para obtener nombre del archivo
     private String getFileName(Part part) {
         String contentDisp = part.getHeader("content-disposition");
         for (String token : contentDisp.split(";")) {

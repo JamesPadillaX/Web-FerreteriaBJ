@@ -2,10 +2,12 @@ service\ClienteService.class
 controlador\ListarRolesServlet.class
 dao\ImagenProductoDAO.class
 controlador\EnviarCodigoServlet.class
+controlador\EditarCarruselServlet.class
 controlador\ListarCategoriasServlet.class
 controlador\ListarRolesPServlet.class
 controlador\AsignarPermisosServlet.class
 controlador\ListarProductosPorCategoriaServlet.class
+dao\CarruselDAO.class
 controlador\EditarUsuarioServlet.class
 util\Conexion.class
 controlador\DashboardServlet.class
@@ -13,6 +15,7 @@ service\UsuarioService.class
 controlador\ActualizarContrasenaServlet.class
 controlador\CarritoServlet.class
 controlador\ExportarUsuariosExcelServlet.class
+controlador\AgregarCarruselServlet.class
 dao\ClienteDAO.class
 controlador\EliminarDelCarritoServlet.class
 controlador\LoginUsuarioServlet.class
@@ -26,10 +29,12 @@ controlador\DetalleProductoServlet.class
 service\CategoriaService.class
 dao\DomicilioClienteDAO.class
 controlador\EliminarProductoServlet.class
+modelo\Carrusel.class
 controlador\EliminarCategoriaServlet.class
 controlador\ActualizarCantidadServlet.class
 modelo\DomicilioCliente.class
 modelo\Usuario.class
+controlador\EliminarCarruselServlet.class
 controlador\EditarCategoriaServlet.class
 dao\CarritoDAO.class
 controlador\AgregarCarritoServlet.class
@@ -50,9 +55,11 @@ modelo\Modulo.class
 modelo\ImagenProducto.class
 filtro\SeguridadFiltro.class
 modelo\Rol.class
+controlador\ListarCarruselPublicoServlet.class
 controlador\AgregarRolServlet.class
 controlador\MarcarPrincipalServlet.class
 controlador\AgregarUsuarioServlet.class
+controlador\ListarCarruselServlet.class
 util\TestLog.class
 controlador\ListarUsuariosServlet.class
 controlador\EliminarUsuarioServlet.class

@@ -1,0 +1,246 @@
+/* RESET Y BODY */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #ffffff; /* Fondo general blanco */
+  color: #333;
+  overflow-x: hidden;
+}
+
+/* CONTENEDOR PRINCIPAL */
+.contenedor-principal {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #ffffff; /* Fondo blanco */
+}
+
+main {
+  flex: 1;
+  background-color: #ffffff;
+}
+
+/* CARRUSEL */
+.hero {
+  margin: 0;
+  padding: 0;
+}
+
+.carrusel {
+  position: relative;
+  width: 100%;
+  height: 520px;
+  overflow: hidden;
+  background-color: #000; /* Previene fondo blanco visible al cargar */
+}
+
+.slide {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.slide.active {
+  display: block;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  filter: brightness(0.7);
+  transition: opacity 0.8s ease-in-out;
+}
+
+/* TEXTO EN CARRUSEL – POSICIÓN INFERIOR CENTRADO */
+.carrusel-texto {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px 30px;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 500px;
+}
+
+.carrusel-texto h2 {
+  font-size: clamp(1.5rem, 2vw, 2.2rem);
+  font-weight: bold;
+  color: #ffc107;
+  margin-bottom: 10px;
+}
+
+.carrusel-texto p {
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  color: #fff;
+}
+
+/* FLECHAS DEL CARRUSEL */
+.flecha {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+  border: none;
+  padding: 12px;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  z-index: 10;
+  transition: background-color 0.3s ease;
+}
+
+.flecha:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.flecha.izquierda {
+  left: 20px;
+}
+
+.flecha.derecha {
+  right: 20px;
+}
+
+/* SECCIÓN FONDO AZUL CON CONTENIDO CENTRADO */
+.fondo-azul {
+  text-align: center;
+  padding: 30px 0 60px 0;
+  background-color: #ffffff;
+}
+
+/* BLOQUE DE BIENVENIDA */
+.bienvenida {
+  display: inline-block;
+  background-color: #002b5c;
+  color: white;
+  padding: 40px 50px;
+  border-radius: 15px;
+  max-width: 800px;
+  width: 90%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  word-wrap: break-word;
+}
+
+/* TEXTO BIENVENIDA */
+.bienvenida h1 {
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+.bienvenida h1 span {
+  color: #ffc107;
+}
+
+.bienvenida p {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+}
+
+/* SECCIÓN OFERTAS */
+.ofertas {
+  background-color: #ffffff;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.ofertas h2 {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.productos-contenedor {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.producto {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 20px;
+  width: 220px;
+  transition: transform 0.3s ease;
+}
+
+.producto:hover {
+  transform: translateY(-5px);
+}
+
+.producto img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.producto p {
+  font-weight: bold;
+  color: #333;
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* FOOTER */
+footer {
+  background-color: #002b5c;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.95rem;
+}
+
+/* RESPONSIVO EXTRA */
+@media (max-width: 768px) {
+  .bienvenida {
+    padding: 30px 20px;
+  }
+
+  .producto {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .carrusel {
+    height: 400px;
+  }
+
+  .carrusel-texto {
+    padding: 10px 15px;
+    bottom: 20px;
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .carrusel {
+    height: 300px;
+  }
+
+  .bienvenida h1 {
+    font-size: 1.8rem;
+  }
+
+  .bienvenida p {
+    font-size: 1rem;
+  }
+
+  .ofertas h2 {
+    font-size: 1.5rem;
+  }
+}

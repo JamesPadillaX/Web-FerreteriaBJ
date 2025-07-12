@@ -1,12 +1,12 @@
 package controlador;
 
 import modelo.Usuario;
+import service.UsuarioService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
-import service.UsuarioService;
 
 @WebServlet("/EditarUsuarioServlet")
 public class EditarUsuarioServlet extends HttpServlet {
@@ -20,6 +20,7 @@ public class EditarUsuarioServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
 
         int idUsuario = Integer.parseInt(request.getParameter("idUsuario"));
         String nombre = request.getParameter("nombre");
@@ -31,7 +32,6 @@ public class EditarUsuarioServlet extends HttpServlet {
         int idRol = Integer.parseInt(request.getParameter("idRol"));
         int estado = Integer.parseInt(request.getParameter("estado"));
 
-        // Obtener el usuario original
         Usuario usuarioOriginal = usuarioService.obtenerUsuarioPorId(idUsuario);
 
         if (usuarioOriginal != null && usuarioOriginal.getIdRol() == 1) {
@@ -41,20 +41,20 @@ public class EditarUsuarioServlet extends HttpServlet {
             }
         }
 
-        // Crear objeto actualizado
-        Usuario usuario = new Usuario();
-        usuario.setIdUsuario(idUsuario);
-        usuario.setNombre(nombre);
-        usuario.setApellidos(apellidos);
-        usuario.setDni(dni);
-        usuario.setTelefono(telefono);
-        usuario.setUsername(username);
-        usuario.setPassword(password);
-        usuario.setIdRol(idRol);
-        usuario.setEstado(estado);
+        // Crear objeto con los datos actualizados
+        Usuario usuarioActualizado = new Usuario();
+        usuarioActualizado.setIdUsuario(idUsuario);
+        usuarioActualizado.setNombre(nombre);
+        usuarioActualizado.setApellidos(apellidos);
+        usuarioActualizado.setDni(dni);
+        usuarioActualizado.setTelefono(telefono);
+        usuarioActualizado.setUsername(username);
+        usuarioActualizado.setPassword(password); // Será hasheada dentro del servicio
+        usuarioActualizado.setIdRol(idRol);
+        usuarioActualizado.setEstado(estado);
 
-        // Validar duplicados desde el servicio
-        String validacion = usuarioService.validarDuplicados(usuario);
+        // Validar duplicados
+        String validacion = usuarioService.validarDuplicados(usuarioActualizado);
         if ("dni".equals(validacion)) {
             response.sendRedirect(request.getContextPath() + "/ListarUsuariosServlet?msg=errorDuplicadoDni");
             return;
@@ -64,7 +64,8 @@ public class EditarUsuarioServlet extends HttpServlet {
             return;
         }
 
-        boolean actualizado = usuarioService.actualizarUsuario(usuario);
+        // Intentar actualizar
+        boolean actualizado = usuarioService.actualizarUsuario(usuarioActualizado);
         if (actualizado) {
             response.sendRedirect(request.getContextPath() + "/ListarUsuariosServlet?msg=editado");
         } else {

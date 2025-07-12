@@ -18,9 +18,9 @@
 <body>
     <div class="sidebar">
         <nav class="sidebar">
-            <div class="sidebar-header">
-                <h2>Ferretería BJ</h2>
-            </div>
+           <div class="sidebar-header">
+            <i class="fas fa-tools"></i>  Ferretería BJ
+        </div>
             <ul class="menu">
                 <%
                     List<String> modulosPermitidos = (List<String>) session.getAttribute("modulosPermitidos");
@@ -28,9 +28,11 @@
                         modulosPermitidos = java.util.Collections.emptyList();
                     }
                 %>
+
                 <% if (modulosPermitidos.contains("Dashboard")) { %>
-                <li><a href="dashboard"><i class="fas fa-chart-line"></i> Dashboard</a></li>
+                    <li><a href="dashboard"><i class="fas fa-chart-line"></i> Dashboard</a></li>
                 <% } %>
+
                 <li><a href="perfilUsuario.jsp"><i class="fas fa-user"></i> Perfil</a></li>
 
                 <% if (modulosPermitidos.contains("Usuarios")) { %>
@@ -63,6 +65,14 @@
 
                 <% if (modulosPermitidos.contains("Reportes")) { %>
                     <li><a href="errorFuncionalidades.jsp"><i class="fas fa-chart-line"></i> Reportes</a></li>
+                <% } %>
+
+                <% if (modulosPermitidos.contains("Carrusel")) { %>
+                    <li><a href="gestionarCarrusel"><i class="fas fa-image"></i> Carrusel</a></li>
+                <% } %>
+
+                <% if (modulosPermitidos.contains("Métodos de Pago")) { %>
+                    <li><a href="gestionarMetodosPago"><i class="fas fa-credit-card"></i> Métodos de Pago</a></li>
                 <% } %>
 
                 <li><a href="LogoutUsuarioServlet"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a></li>

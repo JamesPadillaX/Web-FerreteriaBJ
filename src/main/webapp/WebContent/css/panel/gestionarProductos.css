@@ -26,7 +26,7 @@
 }
 
 .btn-agregar {
-    background-color: #6c63ff;
+    background-color: #4da3ff;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -47,7 +47,7 @@
 }
 
 .btn-agregar:hover {
-    background-color: #574fd6;
+    background-color: #4da3ff;
     transform: scale(1.05);
 }
 
@@ -181,18 +181,18 @@ table img {
 }
 /* --- Botón editar --- */
 .btnEditarProducto {
-    background-color: #6c63ff;
+    background-color: #4da3ff;
 }
 .btnEditarProducto:hover {
-    background-color: #4f46e5;
+    background-color: #4da3ff;
 }
 
 /* --- Botón eliminar --- */
 .action-btn.delete {
-    background-color: #ff4d4f;
+    background-color: #ff142b;
 }
 .action-btn.delete:hover {
-    background-color: #d9363e;
+    background-color: #ff142b;
 }
 
 /* --- Botón agregar imágenes --- */
@@ -206,10 +206,10 @@ table img {
 
 /* --- Botón ver imágenes --- */
 .action-btn.view-images {
-    background-color: #a78bfa; /* morado */
+    background-color: #00d0ff; /* morado */
 }
 .action-btn.view-images:hover {
-    background-color: #8b5cf6;
+    background-color: #00d0ff;
 }
 /* Estilo común para botones de exportar */
 .btn-exportar {
@@ -230,11 +230,11 @@ table img {
 
 
 .btn-pdf {
-    background-color: #ff6b81; /* rojo claro con tono rosado */
+    background-color: #ff142b; /* rojo claro con tono rosado */
 }
 
 .btn-pdf:hover {
-    background-color: #e2556c;
+    background-color: #ff142b;
     transform: scale(1.05);
 }
 
@@ -259,4 +259,64 @@ table img {
         width: 100%;
         justify-content: center;
     }
+}
+.btn-limpiar {
+    background-color: #ff4d4f;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    font-size: 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-limpiar:hover {
+    background-color: #d9363e;
+    transform: scale(1.03);
+}
+
+.btn-limpiar i {
+    font-size: 14px;
+}
+.buscador-wrapper {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 6px 12px;
+    background-color: #fff;
+    gap: 10px;
+    width: 100%;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.buscador-wrapper i {
+    color: #888;
+    font-size: 16px;
+}
+
+.buscador-wrapper input[type="text"] {
+    border: none;
+    outline: none;
+    flex: 1;
+    font-size: 14px;
+    padding: 8px 0;
+    background-color: transparent;
+}
+.form-filtro {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+}
+
+.filtro-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }

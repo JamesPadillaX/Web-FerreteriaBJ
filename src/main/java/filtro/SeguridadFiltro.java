@@ -23,6 +23,7 @@ public class SeguridadFiltro implements Filter {
         rutaModuloMap.put("/ventas.jsp", "Ventas");
         rutaModuloMap.put("/reportes.jsp", "Reportes");
         rutaModuloMap.put("/clientes.jsp", "Clientes");
+        rutaModuloMap.put("/gestionarCarrusel", "Carrusel");
         // Puedes agregar más rutas protegidas si es necesario
     }
 

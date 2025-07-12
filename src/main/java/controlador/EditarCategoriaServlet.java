@@ -19,6 +19,7 @@ public class EditarCategoriaServlet extends HttpServlet {
             int idCategoria = Integer.parseInt(request.getParameter("idCategoria"));
             String nombre = request.getParameter("nombre");
             int estado = Integer.parseInt(request.getParameter("estado"));
+            String nombreFiltro = request.getParameter("nombreFiltro"); // <-- filtro
 
             Categoria categoria = new Categoria();
             categoria.setIdCategoria(idCategoria);
@@ -29,9 +30,11 @@ public class EditarCategoriaServlet extends HttpServlet {
             boolean modificado = categoriaDAO.modificarCategoria(categoria);
 
             if (modificado) {
-                response.sendRedirect("ListarCategoriasServlet?msg=editado");
+                response.sendRedirect("ListarCategoriasServlet?msg=editado"
+                    + (nombreFiltro != null && !nombreFiltro.trim().isEmpty() ? "&nombre=" + nombreFiltro : ""));
             } else {
-                response.sendRedirect("ListarCategoriasServlet?msg=categoriaDuplicada");
+                response.sendRedirect("ListarCategoriasServlet?msg=categoriaDuplicada"
+                    + (nombreFiltro != null && !nombreFiltro.trim().isEmpty() ? "&nombre=" + nombreFiltro : ""));
             }
         } catch (NumberFormatException e) {
             e.printStackTrace();

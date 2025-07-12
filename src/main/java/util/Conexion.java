@@ -14,7 +14,6 @@ public class Conexion {
     private final String USER = "root";
     private final String PASSWORD = "Zercopadilla17";
 
-    // Logger
     private static final Logger logger = Logger.getLogger(Conexion.class.getName());
 
     private Conexion() {
@@ -25,7 +24,7 @@ public class Conexion {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             conexion = DriverManager.getConnection(URL, USER, PASSWORD);
-            logger.info("✅ Conexión exitosa a la base de datos.");
+            logger.info("Conexión exitosa a la base de datos.");
         } catch (ClassNotFoundException e) {
             logger.log(Level.SEVERE, "Error: No se encontró el driver JDBC de MySQL.", e);
         } catch (SQLException e) {
@@ -37,7 +36,7 @@ public class Conexion {
         if (instancia == null) {
             synchronized (Conexion.class) {
                 if (instancia == null) {
-                    logger.info("🆕 Creando nueva instancia de conexión...");
+                    logger.info("Creando nueva instancia de conexión...");
                     instancia = new Conexion();
                 }
             }
@@ -48,7 +47,7 @@ public class Conexion {
     public Connection getConexion() {
         try {
             if (conexion == null || conexion.isClosed()) {
-                logger.warning("🔄 La conexión estaba cerrada o nula. Intentando reconectar...");
+                logger.warning("La conexión estaba cerrada o nula. Intentando reconectar...");
                 conectar();
             }
         } catch (SQLException e) {

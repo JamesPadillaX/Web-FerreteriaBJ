@@ -1,124 +1,195 @@
+/* General layout */
 .main-content {
     margin-left: 250px;
-    padding: 30px;
+    padding: 20px;
     background-color: #f1f5f8;
     min-height: 100vh;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    overflow-x: auto;
+    overflow-x: hidden;
 }
 
-.main-content h1 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: #2c3e50;
+/* Título reducido y armónico */
+.content h1 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #0b1f40;
+    font-weight: 600;
+    line-height: 1.2;
 }
 
 /* Botón Agregar */
 .btn-agregar {
-    background-color: #6c63ff;
-    color: white;
+    background-color: #4da3ff;
+    color: #fff;
     border: none;
-    padding: 10px 20px;
+    padding: 8px 16px;
     font-weight: 600;
-    font-size: 15px;
-    border-radius: 8px;
+    font-size: 13px;
+    border-radius: 6px;
     cursor: pointer;
-    margin-bottom: 20px;
+    margin-bottom: 14px;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-}
-
-.btn-agregar i {
-    font-size: 16px;
+    gap: 6px;
 }
 
 .btn-agregar:hover {
-    background-color: #574fd6;
+    background-color: #3792f6;
     transform: scale(1.05);
 }
+
+/* Export buttons container */
+.export-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+/* Botón base de exportación */
+.btn-exportar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-exportar i {
+    margin-right: 6px;
+    font-size: 14px;
+}
+
+/* PDF - rojo */
+.btn-pdf {
+    background-color: #ff142b;
+}
+
+.btn-pdf:hover {
+    background-color: #ff142b;
+    transform: scale(1.05);
+}
+
+/* Excel - verde */
+.btn-excel {
+    background-color: #31de56;
+}
+
+.btn-excel:hover {
+    background-color: #31de56;
+    transform: scale(1.05);
+}
+
 /* Tabla */
+.table-container {
+    overflow-x: auto;
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 12px;
-    color: #4a4a4a;
-    table-layout: auto;
+    font-size: 13px;
+    color: #0b1f40;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.03);
 }
 
-/* Cabecera */
+/* Encabezado */
 thead {
-    background-color: #f8f9fa;
-    color: #495057;
+    background-color: #0b1f40;
+    color: white;
     text-transform: uppercase;
-    font-size: 12px;
-    letter-spacing: 0.5px;
+    font-size: 12.5px;
+    letter-spacing: 0.4px;
 }
 
 th, td {
-    padding: 11px 14px;
+    padding: 10px 12px;
     white-space: nowrap;
     text-align: center;
     border-bottom: 1px solid #f1f3f5;
     vertical-align: middle;
 }
 
-/* Zebra striping */
-tbody tr:nth-child(even) td {
-    background-color: #f9f9fb;
-}
-
-/* Hover en filas */
+/* Hover fila */
 tbody tr:hover td {
-    background-color: #eef2f7;
+    background-color: #eaf2fc;
 }
 
 /* Botones de acción */
 .action-btn {
-    background-color: #6c63ff;
-    color: white;
-    border: none;
-    padding: 6px 10px;
-    margin: 0 2px;
-    border-radius: 8px;
+    background-color: transparent;
+    border: 2px solid #0b1f40;
+    color: #0b1f40;
+    padding: 5px 10px;
+    margin: 0 3px;
+    border-radius: 6px;
     cursor: pointer;
     font-size: 12px;
     display: inline-flex;
     align-items: center;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    font-weight: 600;
 }
 
 .action-btn i {
     margin-right: 4px;
 }
 
-/* Animación al pasar el mouse */
 .action-btn:hover {
-    background-color: #574fd6;
+    background-color: #0b1f40;
+    color: white;
     transform: scale(1.05);
 }
 
-/* Botón eliminar */
+/* Botón eliminar personalizado */
 .action-btn.delete {
-    background-color: #ff4d4f;
+    border-color: #ffc107;
+    color: #ffc107;
 }
 
 .action-btn.delete:hover {
-    background-color: #d9363e;
+    background-color: #ffc107;
+    color: #0b1f40;
+}
+
+/* Ocultar columnas ID y Contraseña */
+th:nth-child(1),  /* ID */
+td:nth-child(1),
+th:nth-child(7),  /* Contraseña */
+td:nth-child(7) {
+    display: none;
 }
 
 /* Responsivo */
 @media screen and (max-width: 768px) {
+    .main-content {
+        margin-left: 0;
+        padding: 15px;
+    }
+
     .btn-agregar {
         width: 100%;
         justify-content: center;
     }
 
+    .btn-exportar {
+        width: 100%;
+        justify-content: center;
+    }
+
     table {
-        font-size: 11px;
+        font-size: 12px;
     }
 
     th, td {
@@ -126,43 +197,7 @@ tbody tr:hover td {
     }
 
     .action-btn {
-        padding: 5px 8px;
+        padding: 4px 9px;
         font-size: 11px;
     }
-}
-/* Estilo común para botones de exportar */
-.btn-exportar {
-    border: none;
-    padding: 10px 16px;
-    font-weight: 600;
-    font-size: 14px;
-    border-radius: 8px;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    transition: all 0.3s ease;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-    text-decoration: none;
-    color: white;
-}
-
-/* Botón PDF: rojo claro combinando con morado */
-.btn-pdf {
-    background-color: #ff6b81; /* rojo claro con tono rosado */
-}
-
-.btn-pdf:hover {
-    background-color: #e2556c;
-    transform: scale(1.05);
-}
-
-/* Botón Excel: verde claro suave */
-.btn-excel {
-    background-color: #63d471; /* verde claro pastel */
-}
-
-.btn-excel:hover {
-    background-color: #4cbc5d;
-    transform: scale(1.05);
 }

@@ -9,52 +9,52 @@
 %>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="WebContent/css/web/header.css">
 <link rel="stylesheet" href="WebContent/css/web/categorias.css">
-<link rel="stylesheet" href="WebContent/css/web/styles.css">
 <script src="https://unpkg.com/lucide@latest"></script>
-<script src="WebContent/js/web/categorias.js" defer></script>
-<script src="WebContent/js/web/header.js" defer></script>
-
-
+<script defer src="WebContent/js/web/header.js"></script>
+<script defer src="WebContent/js/web/categorias.js"></script>
 <header class="main-header">
-  <div class="logo">
-    <h1>Ferretería <span>BJ</span></h1>
-  </div>
-
-
-  <nav class="nav-bar">
-    <ul>
-      <li><a href="index.jsp">Inicio</a></li>
-      <li><a href="#" id="toggle-categorias">Categorías</a></li>
-      <li><a href="#">Ofertas</a></li>
-      <li><a href="ayuda.jsp">Ayuda</a></li>
-    </ul>
-  </nav>
-
-<div class="user-actions">
-  <% if (c != null) { %>
-    <div class="user-panel">
-      <span id="userMenuBtn" class="user-name">
-        <i data-lucide="user" class="icon"></i> Hola, <%= c.getNombre() %>
-      </span>
-      <a href="carrito.jsp" class="carrito-icon">
-        <i data-lucide="shopping-cart" class="icon"></i>
-      </a>
+  <div class="header-container">
+    <div class="logo">
+      <h1>Ferretería <span>BJ</span></h1>
     </div>
-  <% } else { %>
-    <a href="login.jsp">Iniciar Sesión</a>
-    <a href="registro.jsp">Crear Cuenta</a>
-  <% } %>
-</div>
 
+    <button class="hamburger" id="hamburgerBtn">
+      <i data-lucide="menu"></i>
+    </button>
+
+    <nav class="nav-bar" id="navMenu">
+      <ul>
+        <li><a href="inicio">Inicio</a></li>
+        <li><a href="#" id="toggle-categorias">Categorías</a></li>
+        <li><a href="#">Ofertas</a></li>
+        <li><a href="ayuda.jsp">Ayuda</a></li>
+      </ul>
+    </nav>
+
+    <div class="user-actions">
+      <% if (c != null) { %>
+        <div class="user-panel">
+          <span id="userMenuBtn" class="user-name">
+            <i data-lucide="user" class="icon"></i> <%= c.getNombre() %>
+          </span>
+          <a href="carrito.jsp" class="carrito-icon" title="Carrito">
+            <i data-lucide="shopping-cart" class="icon"></i>
+          </a>
+        </div>
+      <% } else { %>
+        <a href="login.jsp" class="btn-login">Iniciar Sesión</a>
+        <a href="registro.jsp" class="btn-registro">Crear Cuenta</a>
+      <% } %>
+    </div>
+  </div>
 </header>
 
 
-<div id="blur-overlay" class="blur-overlay" style="display: none;"></div>
 <div id="categoriasDropdown" class="dropdown-categorias" style="display: none;">
   <div id="categorias-container"></div>
 </div>
-
 
 <% if (c != null) { %>
   <div id="userModal" class="modal">
@@ -67,7 +67,6 @@
     </div>
   </div>
 <% } %>
-
 
 <script>
   lucide.createIcons();

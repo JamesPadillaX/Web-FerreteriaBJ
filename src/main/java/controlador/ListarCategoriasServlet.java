@@ -10,15 +10,23 @@ import modelo.Categoria;
 
 public class ListarCategoriasServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
+    private CategoriaDAO categoriaDAO = new CategoriaDAO();
 
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        CategoriaDAO categoriaDAO = new CategoriaDAO();
-        List<Categoria> listaCategorias = categoriaDAO.listarCategorias();
+        String nombreFiltro = request.getParameter("nombre");
+        List<Categoria> listaCategorias;
+
+        if (nombreFiltro != null && !nombreFiltro.trim().isEmpty()) {
+            listaCategorias = categoriaDAO.buscarPorNombre(nombreFiltro.trim());
+            request.setAttribute("nombreBuscado", nombreFiltro); 
+        } else {
+            listaCategorias = categoriaDAO.listarCategorias();
+        }
 
         request.setAttribute("categorias", listaCategorias);
-
         request.getRequestDispatcher("gestionarCategorias.jsp").forward(request, response);
     }
 }

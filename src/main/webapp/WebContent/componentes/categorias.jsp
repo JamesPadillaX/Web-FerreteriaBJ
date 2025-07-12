@@ -10,6 +10,6 @@
 
 <ul class="lista-categorias">
     <% for (Categoria cat : categorias) { %>
-        <li><a href="ListarProductosPorCategoriaServlet?id=<%= cat.getIdCategoria() %>"><%= cat.getNombre() %></a></li>
+        <li><a href="Categoria?id=<%= cat.getIdCategoria() %>"><%= cat.getNombre() %></a></li>
     <% } %>
 </ul>

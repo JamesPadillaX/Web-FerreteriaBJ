@@ -4,25 +4,22 @@
     CategoriaDAO categoriaDAO = new CategoriaDAO();
     List<Categoria> categoriasActivas = categoriaDAO.listarCategoriasActivas();
 %>
+
 <div id="modalEditarProducto" class="modal">
     <div class="modal-content">
         <span class="close" id="cerrarModalEditarProducto">&times;</span>
         <h2>Editar Producto</h2>
 
-        <!-- Formulario para editar producto -->
-        <form action="EditarProductoServlet" method="post" enctype="multipart/form-data">
-            <!-- ID oculto -->
+        <form id="formEditarProducto" action="EditarProductoServlet" method="post" enctype="multipart/form-data">
             <input type="hidden" name="idProducto" id="edit_idProducto">
 
-            <!-- Nombre -->
             <label for="edit_nombre">Nombre:</label>
             <input type="text" name="nombre" id="edit_nombre" required>
 
-            <!-- Descripción -->
             <label for="edit_descripcion">Descripción:</label>
             <textarea name="descripcion" id="edit_descripcion" rows="3" required></textarea>
 
-            <!-- Precio -->
+
             <label for="edit_precio">Precio:</label>
             <input type="number" name="precio" id="edit_precio" min="0" step="0.01" required>
 
@@ -56,6 +53,10 @@
                 <option value="1">Activo</option>
                 <option value="0">Inactivo</option>
             </select>
+
+            <!-- ⬇️ NUEVO: Filtros actuales -->
+            <input type="hidden" name="nombreFiltro" id="edit_nombreFiltro">
+            <input type="hidden" name="idCategoriaFiltro" id="edit_idCategoriaFiltro">
 
             <!-- Botones -->
             <div class="botones">

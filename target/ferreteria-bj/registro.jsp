@@ -4,7 +4,6 @@
 <head>
   <meta charset="UTF-8">
   <title>Registro - Ferretería BJ</title>
-  <link rel="stylesheet" href="WebContent/css/web/styles.css">
   <link rel="stylesheet" href="WebContent/css/web/registro.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,45 +20,60 @@
           <% 
             String msg = request.getParameter("msg");
             if ("errorDni".equals(msg)) {
+          %><p class="error-msg">El DNI ya está registrado.</p><%
+            } else if ("errorTelefono".equals(msg)) {
+          %><p class="error-msg">El teléfono ya está registrado.</p><%
+            } else if ("errorCorreo".equals(msg)) {
+          %><p class="error-msg">El correo ya está registrado.</p><%
+            } else if ("errorPassword".equals(msg)) {
+          %><p class="error-msg">Las contraseñas no coinciden.</p><%
+            } else if ("error".equals(msg)) {
+          %><p class="error-msg">Ocurrió un error al registrar. Inténtalo nuevamente.</p><%
+            } else if ("exito".equals(msg)) {
+          %><p class="success-msg">¡Registro exitoso! Ahora puedes iniciar sesión.</p><%
+            }
           %>
-              <p class="error-msg">El DNI ya está registrado.</p>
-          <% } else if ("errorTelefono".equals(msg)) { %>
-              <p class="error-msg">El teléfono ya está registrado.</p>
-          <% } else if ("errorCorreo".equals(msg)) { %>
-              <p class="error-msg">El correo ya está registrado.</p>
-          <% } else if ("errorPassword".equals(msg)) { %>
-              <p class="error-msg">Las contraseñas no coinciden.</p>
-          <% } else if ("error".equals(msg)) { %>
-              <p class="error-msg">Ocurrió un error al registrar. Inténtalo nuevamente.</p>
-          <% } else if ("exito".equals(msg)) { %>
-              <p class="success-msg">¡Registro exitoso! Ahora puedes iniciar sesión.</p>
-          <% } %>
 
-          <label for="nombre">Nombre</label>
-          <input type="text" id="nombre" name="nombre" required pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ ]+" title="Solo letras y espacios">
 
-          <label for="apellidos">Apellidos</label>
-          <input type="text" id="apellidos" name="apellidos" required pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ ]+" title="Solo letras y espacios">
 
-          <label for="dni">DNI</label>
-          <input type="text" id="dni" name="dni" required pattern="[0-9]{8}" maxlength="8" title="Debe contener exactamente 8 dígitos numéricos">
+          <div class="campo-con-icono">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" required pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ ]+" title="Solo letras y espacios">
+          </div>
 
-          <label for="telefono">Teléfono</label>
-          <input type="text" id="telefono" name="telefono" required pattern="[0-9]{9}" maxlength="9" title="Debe contener exactamente 9 dígitos numéricos">
+          <div class="campo-con-icono">
+            <label for="apellidos">Apellidos</label>
+            <input type="text" id="apellidos" name="apellidos" required pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ ]+" title="Solo letras y espacios">
+          </div>
+
+          <div class="campo-con-icono">
+            <label for="dni">DNI</label>
+            <input type="text" id="dni" name="dni" required pattern="[0-9]{8}" maxlength="8" title="Debe contener exactamente 8 dígitos numéricos">
+          </div>
+
+          <div class="campo-con-icono">
+            <label for="telefono">Teléfono</label>
+            <input type="text" id="telefono" name="telefono" required pattern="[0-9]{9}" maxlength="9" title="Debe contener exactamente 9 dígitos numéricos">
+          </div>
 
           <label for="correo">Correo Electrónico</label>
-          <input type="email" id="correo" name="correo" required>
+          <div class="campo-con-icono">
+            <i class="fa-solid fa-envelope icono-izquierdo"></i>
+            <input type="email" id="correo" name="correo" required>
+          </div>
 
           <label for="password">Contraseña</label>
-          <div class="campo-password">
+          <div class="campo-con-icono">
+            <i class="fa-solid fa-lock icono-izquierdo"></i>
             <input type="password" id="password" name="password" required minlength="6">
-            <i class="fa-solid fa-eye-slash toggle-password" onclick="togglePassword('password', this)" title="Mostrar/Ocultar contraseña"></i>
+            <i class="fa-solid fa-eye-slash toggle-password" onclick="togglePassword('password', this)"></i>
           </div>
 
           <label for="confirmar">Confirmar Contraseña</label>
-          <div class="campo-password">
+          <div class="campo-con-icono">
+            <i class="fa-solid fa-lock icono-izquierdo"></i>
             <input type="password" id="confirmar" name="confirmar" required minlength="6">
-            <i class="fa-solid fa-eye-slash toggle-password" onclick="togglePassword('confirmar', this)" title="Mostrar/Ocultar contraseña"></i>
+            <i class="fa-solid fa-eye-slash toggle-password" onclick="togglePassword('confirmar', this)"></i>
           </div>
 
           <button type="submit">Registrarse</button>
@@ -73,6 +87,7 @@
 
     <jsp:include page="footer.jsp" />
   </div>
+
   <script src="WebContent/js/web/validarRegistroCliente.js"></script>
 </body>
 </html>

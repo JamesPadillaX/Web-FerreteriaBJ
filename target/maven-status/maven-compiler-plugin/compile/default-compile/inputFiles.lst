@@ -1,4 +1,5 @@
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\EditarProductoServlet.java
+C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\ListarCarruselServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\util\Seguridad.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\AgregarCategoriaServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\ExportarUsuariosExcelServlet.java
@@ -24,11 +25,13 @@ C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\ExportarProductosP
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\ListarCategoriasServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\EliminarProductoServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\CarritoServlet.java
+C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\AgregarCarruselServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\modelo\Categoria.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\util\CorreoUtil.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\DetalleProductoServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\EliminarRolServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\service\ClienteService.java
+C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\ListarCarruselPublicoServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\service\RolService.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\dao\DomicilioClienteDAO.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\VerificarCodigoServlet.java
@@ -47,9 +50,11 @@ C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\modelo\DomicilioCliente.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\modelo\ImagenProducto.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\modelo\Modulo.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\service\UsuarioService.java
+C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\EliminarCarruselServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\modelo\Carrito.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\RegistrarServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\EditarCategoriaServlet.java
+C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\EditarCarruselServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\LogoutServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\service\CategoriaService.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\LogoutUsuarioServlet.java
@@ -58,6 +63,7 @@ C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\EliminarUsuarioSer
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\ListarRolesPServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\dao\ClienteDAO.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\modelo\Permiso.java
+C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\modelo\Carrusel.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\dao\CarritoDAO.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\ListarProductosPorCategoriaServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\LoginServlet.java
@@ -68,4 +74,5 @@ C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\dao\ProductoDAO.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\SubirImagenesServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\AgregarRolServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\LoginUsuarioServlet.java
+C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\dao\CarruselDAO.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\modelo\Producto.java

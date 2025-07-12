@@ -83,16 +83,12 @@
         <jsp:include page="WebContent/componentes/errorRol.jsp" />
     </c:if>
 
-
-    
-
-
     <jsp:include page="WebContent/componentes/modalRegistroRol.jsp" />
     <jsp:include page="WebContent/componentes/modalEditarRol.jsp" />
 
     <script src="WebContent/js/panel/modalRegistroRol.js"></script>
     <script src="js/panel/eliminarRol.js"></script>
-    <script src="WebContent/js/panel/modalEditarRol.js"></script>>
+    <script src="WebContent/js/panel/modalEditarRol.js"></script>
 
 </body>
 </html>

@@ -6,9 +6,10 @@ import dao.UsuarioDAO;
 import modelo.Usuario;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import util.Seguridad;
 
 public class UsuarioService {
-    
+
     private static final Logger logger = LoggerFactory.getLogger(UsuarioService.class);
     private final UsuarioDAO usuarioDAO;
 
@@ -16,23 +17,26 @@ public class UsuarioService {
         this.usuarioDAO = new UsuarioDAO();
     }
 
-    // Constructor para pruebas (inyecta el mock)
     public UsuarioService(UsuarioDAO usuarioDAO) {
         this.usuarioDAO = usuarioDAO;
     }
+
 
     public Optional<Usuario> autenticarUsuario(String username, String password) {
         username = Strings.nullToEmpty(username).trim();
         password = Strings.nullToEmpty(password).trim();
 
         try {
+            String passwordHasheada = Seguridad.hashSHA256(password);
+
             Usuario usuario = usuarioDAO.obtenerUsuarioPorUsernameEstado(0, username);
-            if (usuario != null && usuario.getPassword().equals(password)) {
+            if (usuario != null && usuario.getPassword().equals(passwordHasheada)) {
                 return Optional.of(usuario);
             }
 
+        
             usuario = usuarioDAO.obtenerUsuarioPorUsernameEstado(1, username);
-            if (usuario != null && usuario.getPassword().equals(password)) {
+            if (usuario != null && usuario.getPassword().equals(passwordHasheada)) {
                 return Optional.of(usuario);
             }
 
@@ -40,9 +44,10 @@ public class UsuarioService {
         } catch (Exception e) {
             logger.error("Error durante la autenticación del usuario: {}", username, e);
         }
-
         return Optional.absent();
     }
+
+
 
     public String validarDuplicados(Usuario usuario) {
         try {
@@ -61,8 +66,60 @@ public class UsuarioService {
         return "";
     }
 
+    /**
+     * Registrar un nuevo usuario con validación y contraseña hasheada
+     */
+    public boolean registrarUsuario(Usuario usuario) {
+        try {
+            if (usuarioDAO.existeDni(usuario.getDni())) {
+                logger.warn("Registro fallido: DNI ya existe -> {}", usuario.getDni());
+                return false;
+            }
+
+            if (usuarioDAO.existeUsername(usuario.getUsername())) {
+                logger.warn("Registro fallido: Username ya existe -> {}", usuario.getUsername());
+                return false;
+            }
+
+            // Hashear la contraseña antes de guardar
+            String password = usuario.getPassword();
+            if (password != null && !password.isEmpty()) {
+                usuario.setPassword(Seguridad.hashSHA256(password));
+            } else {
+                logger.warn("No se proporcionó una contraseña válida para registrar");
+                return false;
+            }
+
+            boolean registrado = usuarioDAO.guardarUsuario(usuario);
+            if (!registrado) {
+                logger.warn("No se pudo registrar el usuario: {}", usuario.getUsername());
+            }
+            return registrado;
+        } catch (Exception e) {
+            logger.error("Error al registrar usuario: {}", usuario.getUsername(), e);
+            return false;
+        }
+    }
+
+    /**
+     * Actualizar datos del usuario, hasheando contraseña solo si fue modificada
+     */
     public boolean actualizarUsuario(Usuario usuario) {
         try {
+            Usuario usuarioBD = usuarioDAO.obtenerUsuarioPorId(usuario.getIdUsuario());
+            if (usuarioBD == null) {
+                logger.warn("Usuario no encontrado para actualizar: ID {}", usuario.getIdUsuario());
+                return false;
+            }
+
+            String nuevaContra = usuario.getPassword();
+            String actualContra = usuarioBD.getPassword();
+
+            // Hashear solo si la contraseña fue cambiada (compara con hash actual)
+            if (!nuevaContra.equals(actualContra)) {
+                usuario.setPassword(Seguridad.hashSHA256(nuevaContra));
+            }
+
             boolean actualizado = usuarioDAO.modificarUsuario(usuario);
             if (!actualizado) {
                 logger.warn("No se pudo actualizar el usuario: {}", usuario.getUsername());
@@ -74,6 +131,9 @@ public class UsuarioService {
         }
     }
 
+    /**
+     * Obtener un usuario por ID
+     */
     public Usuario obtenerUsuarioPorId(int id) {
         try {
             Usuario usuario = usuarioDAO.obtenerUsuarioPorId(id);

@@ -150,4 +150,25 @@ public class CategoriaDAO {
         return 0;
     }
 
+    public List<Categoria> buscarPorNombre(String nombre) {
+         List<Categoria> lista = new ArrayList<>();
+         String sql = "SELECT * FROM categorias WHERE nombre LIKE ? AND estado <> 2 ORDER BY idCategoria";
+
+    try (PreparedStatement ps = con.prepareStatement(sql)) {
+        ps.setString(1, "%" + nombre + "%");
+        try (ResultSet rs = ps.executeQuery()) {
+            while (rs.next()) {
+                Categoria categoria = new Categoria();
+                categoria.setIdCategoria(rs.getInt("idCategoria"));
+                categoria.setNombre(rs.getString("nombre"));
+                categoria.setEstado(rs.getInt("estado"));
+                lista.add(categoria);
+            }
+        }
+    } catch (SQLException e) {
+        logger.error("Error al buscar categorías por nombre", e);
+    }
+    return lista;
+}
+
 }

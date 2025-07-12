@@ -1,75 +1,99 @@
-/* Contenedor del dropdown */
+/* CONTENEDOR DEL DROPDOWN */
 .dropdown-categorias {
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: #fff;
-  border: 2px solid #001f3f;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  padding: 16px;
-  min-width: 240px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  padding: 18px 20px;
+  min-width: 260px;
   z-index: 1000;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  animation: slideDown 0.3s ease forwards;
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
+/* ANIMACIÓN DE APARICIÓN */
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
+/* LISTA SIN ESTILOS POR DEFECTO */
 .lista-categorias {
   list-style: none;
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-/* Ítems */
+/* ELEMENTOS DE LA LISTA */
 .lista-categorias li {
-  margin: 8px 0;
+  width: 100%;
 }
 
-/* Enlaces */
+/* ENLACES DE CATEGORÍAS */
 .lista-categorias a {
   text-decoration: none;
-  color: #001f3f;
-  background-color: #FFD700;
-  padding: 10px 16px;
-  border-radius: 8px;
-  display: block;
-  font-size: 15px;
-  font-weight: 500;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  color: #1c1c1c;
+  background: linear-gradient(90deg, #FFD700 0%, #FFEA70 100%);
+  padding: 12px 16px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  font-size: 15.5px;
+  font-weight: 600;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  transition: all 0.25s ease;
+  cursor: pointer;
 }
 
-/* Hover */
+/* EFECTO HOVER MODERNO */
 .lista-categorias a:hover {
-  background-color: #ffc400;
-  transform: translateX(6px);
+  background: linear-gradient(90deg, #ffc400 0%, #ffde59 100%);
+  transform: translateX(8px) scale(1.02);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  color: #0f172a;
 }
 
-/* Responsive: adapta dropdown a pantallas pequeñas */
+/* CAPA DE FONDO DIFUMINADA */
+.blur-overlay {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  width: 100vw;
+  height: calc(100vh - 70px);
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(3px);
+  z-index: 900;
+  transition: opacity 0.3s ease;
+}
+
+/* RESPONSIVE: PARA PANTALLAS PEQUEÑAS */
 @media (max-width: 768px) {
   .dropdown-categorias {
     position: static;
     width: 100%;
     border-radius: 0;
-    border-left: none;
-    border-right: none;
     box-shadow: none;
-    padding: 12px;
+    padding: 16px;
   }
 
   .lista-categorias a {
-    padding: 10px;
     font-size: 14px;
+    padding: 10px 14px;
   }
-}
-.blur-overlay {
-  position: fixed;
-  top: 70px; /* Empieza justo debajo del header */
-  left: 0;
-  width: 100vw;
-  height: calc(100vh - 70px);
-  background: rgba(0, 0, 0, 0.1); /* Menos oscuro */
-  backdrop-filter: blur(2px);     /* Difuminado leve */
-  z-index: 900;
-  transition: opacity 0.3s ease;
+
+  .lista-categorias {
+    gap: 10px;
+  }
 }

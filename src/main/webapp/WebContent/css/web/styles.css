@@ -1,7 +1,8 @@
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+body, html {
   margin: 0;
-  background: #f4f4f4;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f4f4;
   color: #333;
 }
 
@@ -47,51 +48,17 @@ body {
   font-weight: bold;
 }
 
-.hero {
-  background: linear-gradient(to right, #001f3f, #003366);
+.user-name {
+  cursor: pointer;
   color: white;
-  padding: 2rem;
-  text-align: center;
+  margin-right: 10px;
 }
 
-.hero h1 {
-  font-size: 2.5rem;
-}
-
-section {
-  padding: 2rem;
-}
-
-.producto {
-  background: white;
-  padding: 1rem;
-  margin: 1rem 0;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  display: inline-block;
-  width: 200px;
-}
-
-.producto img {
-  max-width: 100%;
-  height: auto;
-}
-
-.categorias ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.categorias li {
-  background: #f1c40f;
-  color: #001f3f;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  font-weight: bold;
+.carrito-icon {
+  margin-left: 15px;
+  font-size: 1.4rem;
+  text-decoration: none;
+  color: white;
 }
 
 .main-footer {
@@ -115,48 +82,9 @@ section {
   .user-actions {
     margin-top: 1rem;
   }
-}html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f4f4f4;
 }
 
-.contenedor-principal {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-main {
-  flex: 1;
-  padding: 2rem;
-}
-
-/* Ya tienes esto */
-.main-footer {
-  text-align: center;
-  flex-direction: column;
-  gap: 0.5rem;
-  padding: 1rem 2rem;
-  background: #001f3f;
-  color: white;
-}
-.user-name {
-  cursor: pointer;
-  color: white;
-  margin-right: 10px;
-}
-
-.carrito-icon {
-  margin-left: 15px;
-  font-size: 1.4rem;
-  text-decoration: none;
-  color: white;
-}
-
-/* Modal */
+/* MODAL PERFIL */
 .modal {
   display: none;
   position: absolute;
@@ -190,72 +118,4 @@ main {
   float: right;
   cursor: pointer;
   font-weight: bold;
-}
-html, body {
-  height: 100%;
-}
-
-.contenedor-principal {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-main {
-  flex: 1;
-}
-.productos-contenedor {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 2rem;
-  margin-top: 1rem;
-}
-.user-actions {
-  display: flex;
-  align-items: center;
-}
-
-/* Agrupa nombre + carrito */
-.user-panel {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-/* Íconos generales */
-.icon {
-  width: 20px;
-  height: 20px;
-  vertical-align: middle;
-  stroke-width: 2;
-  display: inline-block;
-  margin-right: 6px;
-}
-
-/* Estilo nombre usuario */
-.user-name {
-  display: flex;
-  align-items: center;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-/* Ícono usuario blanco */
-.user-name .icon {
-  stroke: white;
-}
-
-/* Carrito */
-.carrito-icon {
-  display: flex;
-  align-items: center;
-  color: #f1c40f;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.carrito-icon .icon {
-  stroke: #f1c40f;
 }

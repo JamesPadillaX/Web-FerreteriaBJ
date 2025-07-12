@@ -207,5 +207,66 @@ public class ProductoDAO {
                     logger.log(Level.SEVERE, "Error al listar productos con bajo stock", e);
                 }
                 return lista;
+            
+    }
+    
+    public List<Producto> buscarPorNombre(String nombre) {
+    List<Producto> lista = new ArrayList<>();
+    String sql = "SELECT p.*, c.nombre AS categoria " +
+                 "FROM productos p " +
+                 "LEFT JOIN categorias c ON p.idCategoria = c.idCategoria " +
+                 "WHERE p.estado IN (0, 1) AND p.nombre LIKE ?";
+    try (PreparedStatement ps = con.prepareStatement(sql)) {
+        ps.setString(1, "%" + nombre + "%");
+        try (ResultSet rs = ps.executeQuery()) {
+            while (rs.next()) {
+                Producto p = new Producto();
+                p.setIdProducto(rs.getInt("idProducto"));
+                p.setIdCategoria(rs.getInt("idCategoria"));
+                p.setNombre(rs.getString("nombre"));
+                p.setDescripcion(rs.getString("descripcion"));
+                p.setPrecio(rs.getDouble("precio"));
+                p.setCantidad(rs.getInt("cantidad"));
+                p.setEstado(rs.getInt("estado"));
+                p.setCategoria(rs.getString("categoria"));
+                p.setImagen(rs.getString("imagen"));
+                lista.add(p);
             }
+        }
+    } catch (SQLException e) {
+        logger.log(Level.SEVERE, "Error al buscar productos por nombre", e);
+    }
+    return lista;
+   }
+
+   public List<Producto> buscarPorNombreYCategoria(String nombre, int idCategoria) {
+    List<Producto> lista = new ArrayList<>();
+    String sql = "SELECT p.*, c.nombre AS categoria " +
+                 "FROM productos p " +
+                 "LEFT JOIN categorias c ON p.idCategoria = c.idCategoria " +
+                 "WHERE p.estado IN (0, 1) AND LOWER(p.nombre) LIKE ? AND p.idCategoria = ?";
+    try (PreparedStatement ps = con.prepareStatement(sql)) {
+        ps.setString(1, "%" + nombre.toLowerCase() + "%");
+        ps.setInt(2, idCategoria);
+        try (ResultSet rs = ps.executeQuery()) {
+            while (rs.next()) {
+                Producto p = new Producto();
+                p.setIdProducto(rs.getInt("idProducto"));
+                p.setIdCategoria(rs.getInt("idCategoria"));
+                p.setNombre(rs.getString("nombre"));
+                p.setDescripcion(rs.getString("descripcion"));
+                p.setPrecio(rs.getDouble("precio"));
+                p.setCantidad(rs.getInt("cantidad"));
+                p.setEstado(rs.getInt("estado"));
+                p.setCategoria(rs.getString("categoria"));
+                p.setImagen(rs.getString("imagen"));
+                lista.add(p);
+            }
+        }
+    } catch (SQLException e) {
+        logger.log(Level.SEVERE, "Error al buscar productos por nombre y categoría", e);
+    }
+    return lista;
+}
+
 }

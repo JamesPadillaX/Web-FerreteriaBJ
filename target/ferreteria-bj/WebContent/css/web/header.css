@@ -1,0 +1,307 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-header {
+  background-color: #001f3f;
+  color: white;
+  padding: 0.8rem 1.2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  isolation: isolate;           
+  mix-blend-mode: normal;       
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: auto;
+  width: 100%;
+}
+
+/* === LOGO === */
+.logo h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.logo span {
+  color: #f1c40f;
+}
+
+/* === BOTÓN HAMBURGUESA === */
+.hamburger {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: white;
+  display: none;
+  cursor: pointer;
+}
+
+/* === NAVBAR === */
+.nav-bar {
+  display: flex;
+}
+.nav-bar ul {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+.nav-bar a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.4rem 0.6rem;
+  border-radius: 4px;
+}
+.nav-bar a:hover {
+  background-color: #140a3c;
+}
+
+/* === ACCIONES DE USUARIO === */
+.user-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Agrupa nombre + carrito */
+.user-panel {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+/* Texto del usuario */
+.user-name {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: white;
+}
+
+/* Ícono del carrito */
+.carrito-icon {
+  color: #f1c40f;
+  font-size: 1.5rem;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+/* === BOTONES DE SESIÓN (para no logueados) === */
+.btn-login,
+.btn-registro {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  border: 1px solid white;
+  padding: 0.3rem 0.7rem;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+.btn-login:hover,
+.btn-registro:hover {
+  background-color: #f1c40f;
+  color: #001f3f;
+}
+
+/* === MODAL DE PERFIL DE USUARIO === */
+header .modal {
+  position: absolute !important;
+  top: calc(100% + 8px) !important; /* pequeña separación del botón */
+  right: 0 !important;
+  background-color: #ffffff !important;
+  border-radius: 12px !important;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15) !important;
+  width: 240px !important;
+  z-index: 9999 !important;
+  padding: 0.8rem 1rem !important;
+  display: none !important;
+  transition: all 0.3s ease !important;
+}
+
+
+header .modal-content ul {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+header .modal-content li {
+  margin: 10px 0 !important;
+}
+
+header .modal-content a {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  color: #333 !important;
+  text-decoration: none !important;
+  padding: 0.5rem 0.4rem !important;
+  border-radius: 6px !important;
+  font-weight: 500 !important;
+  transition: background 0.2s ease !important;
+}
+
+header .modal-content a:hover {
+  background-color: #f1f1f1 !important;
+  color: #001f3f !important;
+}
+
+header .modal-content i.icon {
+  color: #001f3f !important;
+  font-size: 1.2rem !important;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-bar {
+    display: none;
+    width: 100%;
+    margin-top: 0.8rem;
+  }
+
+  .nav-bar.active {
+    display: flex;
+    flex-direction: column;
+    background-color: #001f3f;
+  }
+
+  .nav-bar ul {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem 0;
+  }
+
+  .user-actions {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  .user-panel {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  header .modal {
+    top: 130px !important;
+    right: 1rem !important;
+    width: 90% !important;
+    max-width: 260px !important;
+  }
+}
+
+/* === FOOTER (si usas uno) === */
+.main-footer {
+  background: #001f3f;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  margin-top: auto;
+  font-size: 0.9rem;
+}
+/* === MODAL PERFIL DE USUARIO === */
+.modal {
+  position: absolute;
+  top: 60px;
+  right: 6rem;
+  width: 220px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+  display: none;
+  transition: opacity 0.25s ease;
+  padding: 0.5rem 0;
+}
+
+.modal-content ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.modal-content li a {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #333;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.modal-content li a:hover {
+  background-color: #f2f2f2;
+  color: #001f3f;
+}
+
+.modal-content li a:hover {
+  background-color: #d0e7ff; /* azul claro visible */
+  color: #001f3f;
+  box-shadow: 0 3px 8px rgba(0, 31, 63, 0.25); /* sombra azul más marcada */
+}
+
+/* RESPONSIVE MODAL - CELULAR */
+@media (max-width: 768px) {
+  .modal {
+    right: 1rem;
+    left: 1rem;
+    width: auto;
+    top: 110px;
+  }
+
+  .modal-content li a {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+
+  .modal-content i.icon {
+    font-size: 1.3rem;
+  }
+}
+@media (max-width: 768px) {
+  .user-actions {
+    flex-direction: row !important;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  .btn-login,
+  .btn-registro {
+    flex: 1;
+    text-align: center;
+    padding: 0.5rem 0.6rem;
+    font-size: 0.9rem;
+  }
+}
+#userMenuBtn {
+  position: relative;
+}

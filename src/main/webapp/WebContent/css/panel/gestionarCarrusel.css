@@ -1,0 +1,254 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+html, body {
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f6f9;
+  overflow-x: hidden;
+}
+
+/* LAYOUT */
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.content {
+  padding: 30px;
+  flex-grow: 1;
+  background-color: #f4f6f9;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* TITULO */
+h1 {
+  color: #0b1f40;
+  margin-bottom: 20px;
+}
+
+/* BOTÓN AGREGAR */
+.btn-agregar {
+  background-color: #ffc107;
+  color: #0b1f40;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-agregar:hover {
+  background-color: #e0a800;
+}
+
+/* CARDS CONTENEDOR */
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* CARD INDIVIDUAL */
+.card-carrusel {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  animation: slideUp 0.5s ease forwards;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+}
+
+.card-carrusel:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+}
+
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* IMAGENES */
+.card-carrusel img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+/* INFORMACIÓN */
+.card-info {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* TEXTO */
+.card-info h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #0b1f40;
+}
+
+.card-info p {
+  font-size: 14px;
+  color: #333;
+}
+
+/* ESTADO */
+.estado {
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-weight: bold;
+  width: fit-content;
+}
+
+/* ACTIVO DESTACADO */
+.estado.activo {
+  background-color: #fff3cd;
+  color: #664d03;
+  border: 1px solid #ffeeba;
+}
+
+/* INACTIVO */
+.estado.inactivo {
+  background-color: #f8d7da;
+  color: #842029;
+  border: 1px solid #f5c2c7;
+}
+
+/* ACCIONES */
+.acciones {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* BOTONES */
+.btn-editar,
+.btn-eliminar {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.btn-editar {
+  background-color: #0b1f40;
+  color: white;
+}
+
+.btn-editar:hover {
+  transform: scale(1.05);
+}
+
+.btn-eliminar {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btn-eliminar:hover {
+  transform: scale(1.05);
+}
+
+/* MODAL OVERLAY */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+/* MODAL CONTENIDO */
+.modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+  animation: fadeIn 0.5s ease;
+}
+
+/* CERRAR MODAL */
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+  font-size: 20px;
+  color: #999;
+}
+
+/* FORMULARIOS */
+.form-carrusel label {
+  margin-top: 12px;
+  font-weight: bold;
+  display: block;
+}
+
+.form-carrusel input[type="text"],
+.form-carrusel textarea,
+.form-carrusel select,
+.form-carrusel input[type="file"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-top: 5px;
+}
+
+.form-carrusel button {
+  margin-top: 20px;
+  background-color: #ffc107;
+  color: #0b1f40;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.form-carrusel button:hover {
+  background-color: #e0a800;
+}
+ 

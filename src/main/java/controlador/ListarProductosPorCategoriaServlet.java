@@ -1,13 +1,16 @@
 package controlador;
 
+import dao.CategoriaDAO;
 import dao.ProductoDAO;
+import modelo.Categoria;
 import modelo.Producto;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
 import java.util.List;
-
+@WebServlet("/Categoria")
 public class ListarProductosPorCategoriaServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
@@ -18,14 +21,17 @@ public class ListarProductosPorCategoriaServlet extends HttpServlet {
         String idCategoriaStr = request.getParameter("id");
         String orden = request.getParameter("orden");
         ProductoDAO productoDAO = new ProductoDAO();
-        List<Producto> productos = null;
+        CategoriaDAO categoriaDAO = new CategoriaDAO();
 
         try {
-            if (idCategoriaStr != null && !idCategoriaStr.isEmpty()) {
+            if (idCategoriaStr != null && !idCategoriaStr.trim().isEmpty()) {
                 int idCategoria = Integer.parseInt(idCategoriaStr);
-                productos = productoDAO.listarProductosPorCategoriaWeb(idCategoria);
 
-                // Ordenar si corresponde
+                List<Producto> productos = productoDAO.listarProductosPorCategoriaWeb(idCategoria);
+
+                Categoria categoria = categoriaDAO.obtenerCategoriaPorId(idCategoria);
+                String nombreCategoria = (categoria != null) ? categoria.getNombre() : "Categoría";
+
                 if (orden != null) {
                     switch (orden) {
                         case "precio_asc":
@@ -35,7 +41,6 @@ public class ListarProductosPorCategoriaServlet extends HttpServlet {
                             productos.sort((p1, p2) -> Double.compare(p2.getPrecio(), p1.getPrecio()));
                             break;
                         case "recomendado":
-                            // Lógica futura
                             break;
                     }
                 }
@@ -43,9 +48,14 @@ public class ListarProductosPorCategoriaServlet extends HttpServlet {
                 request.setAttribute("productos", productos);
                 request.setAttribute("idCategoria", idCategoria);
                 request.setAttribute("orden", orden);
+                request.setAttribute("nombreCategoria", nombreCategoria);
+
+            } else {
+                request.setAttribute("error", "Categoría no válida.");
             }
+
         } catch (NumberFormatException e) {
-            request.setAttribute("error", "Categoría inválida");
+            request.setAttribute("error", "Error: El ID de categoría no es válido.");
         }
 
         request.getRequestDispatcher("productosPorCategoria.jsp").forward(request, response);

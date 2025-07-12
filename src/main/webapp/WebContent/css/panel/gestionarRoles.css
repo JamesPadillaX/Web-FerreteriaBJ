@@ -17,7 +17,7 @@
 
 /* Botón Agregar Nuevo Rol */
 .btn-agregar {
-    background-color: #6c63ff;
+    background-color: #3792f6;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -38,7 +38,7 @@
 }
 
 .btn-agregar:hover {
-    background-color: #574fd6;
+    background-color: #3792f6;
     transform: scale(1.05);
 }
 
@@ -77,10 +77,6 @@ td {
     transition: background-color 0.2s ease-in-out;
 }
 
-/* Zebra striping */
-tbody tr:nth-child(even) td {
-    background-color: #f9f9fb;
-}
 
 /* Hover en filas */
 tbody tr:hover td {
@@ -89,7 +85,7 @@ tbody tr:hover td {
 
 /* Botones de acción */
 .action-btn {
-    background-color: #6c63ff;
+    background-color: #3792f6;
     color: white;
     border: none;
     padding: 8px 12px;
@@ -109,14 +105,18 @@ tbody tr:hover td {
 
 /* Botón eliminar */
 .action-btn.delete {
-    background-color: #ff4d4f;
+    background-color: #ff0004;
 }
 
 .action-btn:hover {
-    background-color: #4e47d6;
+    background-color: #3792f6;
     transform: scale(1.05);
 }
 
 .action-btn.delete:hover {
-    background-color: #d9363e;
+    background-color: #ff000d;
+}
+th:nth-child(1),
+td:nth-child(1) {
+    display: none;
 }

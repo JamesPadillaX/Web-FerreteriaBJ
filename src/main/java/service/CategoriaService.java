@@ -27,7 +27,7 @@ public class CategoriaService {
         try {
             Categoria categoria = new Categoria();
             categoria.setNombre(nombre);
-            categoria.setEstado(1); // Activo por defecto
+            categoria.setEstado(1);
 
             boolean guardado = categoriaDAO.guardarCategoria(categoria);
             if (!guardado) {

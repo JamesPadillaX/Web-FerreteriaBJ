@@ -1,5 +1,3 @@
-
-
 * {
     margin: 0;
     padding: 0;
@@ -13,16 +11,15 @@ body, html {
     color: #0b1f40;
 }
 
-
 .container {
     display: flex;
     min-height: 100vh;
     background-color: #f9fafb;
 }
 
-
+/* Sidebar principal */
 .sidebar {
-    background-color: #0b1f40; /* Azul marino */
+    background-color: #0f1e45;
     width: 260px;
     min-width: 260px;
     color: #fff;
@@ -34,117 +31,149 @@ body, html {
 
 /* Encabezado del sidebar */
 .sidebar-header {
-    padding: 20px;
-    font-size: 24px;
-    font-weight: 700;
+    padding: 15px;
+    font-size: 17px; /* igual que los enlaces del menú */
+    font-weight: 600;
     text-align: center;
+    color: #cbd5e1; /* gris claro, como el texto del menú */
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    letter-spacing: 2px;
-    color: #ffc107; /* Amarillo */
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
 }
 
+/* Ícono del título */
+.sidebar-header i {
+    font-size: 18px;
+    color: #ffc107;
+}
 
-/* Lista del menú */
+/* Lista de navegación */
 .menu {
     list-style: none;
     flex-grow: 1;
     overflow-y: auto;
+    padding: 0;
 }
 
-/* Elementos del menú */
+/* Enlaces del menú */
 .menu li a {
-    display: block;
-    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    padding: 14px 30px;
+    font-size: 14px; /* ligeramente más grande */
     font-weight: 600;
     text-decoration: none;
-    color: #cbd5e1; /* gris claro */
+    color: #cbd5e1;
     border-left: 4px solid transparent;
     transition: all 0.3s ease;
-    cursor: pointer;
     user-select: none;
 }
 
-/* Estado hover y activo */
+/* Icono al lado del texto */
+.menu li a i {
+    margin-right: 12px;
+    width: 18px;
+    text-align: center;
+    font-size: 17px;
+    vertical-align: middle;
+}
+
+/* Hover y activo */
 .menu li a:hover,
 .menu li a.active {
-    background-color: #ffc107; /* amarillo */
+    background-color: #ffc107;
     color: #0b1f40;
     border-left-color: #ffc107;
+}
+
+/* Estilo más diferencial para “Cerrar sesión” */
+.menu li:last-child a {
+    margin-top: 25px;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: #ffc107;
+    color: #0f1e45;
+    border-left: none;
+    padding: 14px 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.menu li:last-child a:hover {
+    background-color: #e5b100;
+    color: #ffffff;
 }
 
 /* Contenido principal */
 .content {
     flex-grow: 1;
     padding: 40px;
-    background-color: #fff;
+    background-color: #ffffff;
     overflow-y: auto;
-    box-shadow: inset 0 0 15px rgb(0 0 0 / 0.05);
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.05);
     border-radius: 0 8px 8px 0;
 }
 
-/* Títulos */
+/* Título dentro del contenido */
 .content h1 {
     font-size: 2.2rem;
     margin-bottom: 20px;
     font-weight: 700;
 }
 
-/* Responsive: Sidebar horizontal en pantallas chicas */
+/* Responsive */
 @media (max-width: 768px) {
     .container {
         flex-direction: column;
     }
+
     .sidebar {
         width: 100%;
         height: 60px;
         flex-direction: row;
         align-items: center;
-        box-shadow: none;
-        border-radius: 0 0 8px 8px;
         overflow-x: auto;
+        border-radius: 0 0 8px 8px;
+        box-shadow: none;
     }
+
     .sidebar-header {
         display: none;
     }
+
     .menu {
         display: flex;
         flex-direction: row;
         width: 100%;
         overflow-x: auto;
-        scrollbar-width: none; /* Firefox */
+        scrollbar-width: none;
     }
+
     .menu::-webkit-scrollbar {
-        display: none; /* Chrome, Safari, Opera */
+        display: none;
     }
+
     .menu li a {
         padding: 10px 15px;
+        font-size: 13px;
+        white-space: nowrap;
         border-left: none;
         border-bottom: 3px solid transparent;
-        font-size: 14px;
-        white-space: nowrap;
         flex-shrink: 0;
     }
+
     .menu li a:hover,
     .menu li a.active {
         border-bottom-color: #ffc107;
         background-color: transparent;
         color: #ffc107;
     }
+
     .content {
         padding: 20px 15px;
         border-radius: 0;
     }
-}
-.menu li a i {
-    margin-right: 12px;  /* espacio entre icono y texto */
-    width: 18px;         /* ancho fijo para alinear */
-    text-align: center;  /* centrar icono */
-    font-size: 18px;     /* tamaño adecuado */
-    vertical-align: middle;
-}
-
-/* Opcional: para que el texto quede verticalmente centrado junto al icono */
-.menu li a {
-    display: flex;
-    align-items: center;
 }

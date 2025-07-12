@@ -22,7 +22,7 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>ID</th>
+                            <th class="oculto">ID</th> <!-- Clase para ocultar -->
                             <th>Rol</th>
                             <th>Estado</th>
                             <th>Permisos</th>
@@ -31,7 +31,7 @@
                     <tbody>
                         <c:forEach var="rol" items="${roles}">
                             <tr>
-                                <td>${rol.idRol}</td>
+                                <td class="oculto">${rol.idRol}</td> <!-- También oculta en body -->
                                 <td>${rol.nombre}</td>
                                 <td>
                                     <c:choose>
@@ -63,10 +63,9 @@
         <jsp:include page="WebContent/componentes/permisosActualizados.jsp" />
     </c:if>
  
-<!-- Modal vacío. El contenido se cargará dinámicamente con JavaScript -->
+
 <div id="modalPermisos" class="modal">
     <div class="modal-content">
-        <!-- Aquí se insertará el HTML desde el servlet -->
     </div>
 </div>
 

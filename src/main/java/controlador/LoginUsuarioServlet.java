@@ -28,7 +28,6 @@ public class LoginUsuarioServlet extends HttpServlet {
                 HttpSession session = request.getSession();
                 session.setAttribute("usuario", usuario);
 
-                // Obtener módulos por rol
                 PermisoDAO permisoDAO = new PermisoDAO();
                 List<String> modulosPermitidos = permisoDAO.obtenerModulosPermitidosPorRol(usuario.getIdRol());
                 session.setAttribute("modulosPermitidos", modulosPermitidos);

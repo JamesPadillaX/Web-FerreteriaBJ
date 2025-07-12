@@ -34,7 +34,7 @@ body {
 
 /* Botón Agregar */
 .btn-agregar {
-    background-color: #6c63ff;
+    background-color: #4da3ff;
     color: white;
     font-weight: bold;
     padding: 10px 20px;
@@ -50,7 +50,7 @@ body {
 }
 
 .btn-agregar:hover {
-    background-color: #574fd6;
+    background-color: #4da3ff;
     transform: scale(1.05);
 }
 
@@ -89,10 +89,6 @@ td {
     transition: background-color 0.2s ease-in-out;
 }
 
-/* Zebra striping */
-tbody tr:nth-child(even) td {
-    background-color: #f9f9fb;
-}
 
 /* Hover en filas */
 tbody tr:hover td {
@@ -116,23 +112,23 @@ tbody tr:hover td {
 
 /* Botón Editar */
 .btnEditarCategoria {
-    background-color: #6c63ff;
+    background-color: #4da3ff;
     color: white;
 }
 
 .btnEditarCategoria:hover {
-    background-color: #574fd6;
+    background-color: #4da3ff;
     transform: scale(1.05);
 }
 
 /* Botón Eliminar */
 .delete {
-    background-color: #ff4d4f;
+    background-color: #ff0004;
     color: white;
 }
 
 .delete:hover {
-    background-color: #d9363e;
+    background-color: #ff000d;
     transform: scale(1.05);
 }
 
@@ -295,4 +291,60 @@ tbody tr:hover td {
         color: #666;
         font-size: 12px;
     }
+}
+/* Buscador moderno */
+.buscador-categorias {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.buscador-wrapper {
+    position: relative;
+    flex: 1;
+}
+
+.buscador-wrapper i {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    color: #999;
+}
+
+#inputBuscarCategoria {
+    width: 100%;
+    padding: 10px 14px 10px 36px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    outline: none;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+#inputBuscarCategoria:focus {
+    border-color: #6c63ff;
+    box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.2);
+}
+
+.btn-limpiar {
+    background-color: #ff4d4f;
+    color: white;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.btn-limpiar:hover {
+    background-color: #d9363e;
+}
+
+/* Ocultar columna de ID visualmente */
+td.oculto, th.oculto {
+    display: none;
 }

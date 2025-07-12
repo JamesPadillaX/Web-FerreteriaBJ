@@ -1,15 +1,36 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("header.js cargado");
+
+  const hamburgerBtn = document.getElementById("hamburgerBtn");
+  const navMenu = document.getElementById("navMenu");
+
+  if (hamburgerBtn && navMenu) {
+    hamburgerBtn.addEventListener("click", () => {
+      navMenu.classList.toggle("active");
+    });
+  }
+
   const userMenuBtn = document.getElementById("userMenuBtn");
   const userModal = document.getElementById("userModal");
-  const modalContent = userModal.querySelector(".modal-content");
 
-  if (userMenuBtn && userModal && modalContent) {
-    userMenuBtn.addEventListener("click", function () {
-      userModal.style.display = "block";
+  if (userMenuBtn && userModal) {
+    userMenuBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+
+      const isVisible = userModal.style.display === "block";
+
+
+      userModal.style.display = isVisible ? "none" : "block";
+
+      if (!isVisible && navMenu && navMenu.classList.contains("active")) {
+        navMenu.classList.remove("active");
+      }
     });
 
-    window.addEventListener("click", function (event) {
-      if (userModal.style.display === "block" && !modalContent.contains(event.target) && event.target !== userMenuBtn) {
+
+    window.addEventListener("click", (e) => {
+      const clickedOutside = !userModal.contains(e.target) && !userMenuBtn.contains(e.target);
+      if (userModal.style.display === "block" && clickedOutside) {
         userModal.style.display = "none";
       }
     });

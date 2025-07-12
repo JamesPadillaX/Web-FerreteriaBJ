@@ -29,9 +29,8 @@ public class LoginServlet extends HttpServlet {
         if (cliente != null) {
             HttpSession session = request.getSession();
             session.setAttribute("clienteLogueado", cliente);
-            response.sendRedirect("index.jsp");
+            response.sendRedirect("inicio");
         } else {
-            // En lugar de forward, redireccionamos con parámetros para que el JSP lea y muestre el error
             String correoEncoded = URLEncoder.encode(correo, "UTF-8");
             response.sendRedirect(request.getContextPath() + "/login.jsp?error=1&correo=" + correoEncoded);
         }

@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <span class="close" onclick="cerrarModal()">&times;</span>
-<h2>Permisos: <strong>${nombreRol}</strong> (ID: ${idRol})</h2>
+<h2>Permisos para el rol: <strong>${nombreRol}</strong></h2>
 
 <form id="formPermisos" method="post" action="AsignarPermisosServlet">
     <input type="hidden" name="idRol" value="${idRol}" />
@@ -21,4 +21,3 @@
 
     <button type="submit">Guardar Permisos</button>
 </form>
-

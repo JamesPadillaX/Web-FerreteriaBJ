@@ -16,14 +16,23 @@
       <form action="LoginServlet" method="post" class="formulario" id="formLogin">
         <h2>Iniciar Sesión</h2>
 
-        <label for="usuario">Correo Electrónico</label>
-        <input type="email" id="usuario" name="correo"
-          value="<%= request.getParameter("correo") != null ? request.getParameter("correo") : "" %>" required>
+<div class="campo-con-icono">
+  <label for="usuario">Correo Electrónico</label>
+  <div class="input-con-icono">
+    <i class="fa-solid fa-envelope icono-izquierdo"></i>
+    <input type="email" id="usuario" name="correo"
+      value="<%= request.getParameter("correo") != null ? request.getParameter("correo") : "" %>" required>
+  </div>
+</div>
 
-        <label for="contrasena">Contraseña</label>
-        <div class="input-contrasena">
-          <input type="password" id="contrasena" name="password" required>
-          <i class="fa-solid fa-eye-slash toggle-password"></i>
+        <div class="campo-con-icono">
+          <label for="contrasena">Contraseña</label>
+         <div class="input-con-icono input-contrasena">
+  <i class="fa-solid fa-lock icono-izquierdo"></i>
+  <input type="password" id="contrasena" name="password" required>
+  <i class="fa-solid fa-eye-slash toggle-password"></i>
+</div>
+
         </div>
 
         <button type="submit">Ingresar</button>
@@ -33,20 +42,15 @@
         </p>
       </form>
 
-      <%-- Mostrar alerta si hay error --%>
-      <%
-        String error = request.getParameter("error");
-        if ("1".equals(error)) {
-      %>
+      <% String error = request.getParameter("error");
+         if ("1".equals(error)) { %>
         <jsp:include page="WebContent/componentes/alertaInicioSeccion.jsp" />
-      <%
-        }
-      %>
+      <% } %>
     </main>
 
     <jsp:include page="footer.jsp" />
   </div>
 
-  <script src="WebContent/js/web/login.js"></script>
+  <script src="WebContent/js/web/login.js"></script> <!-- ya tienes el toggle ahí -->
 </body>
 </html>
