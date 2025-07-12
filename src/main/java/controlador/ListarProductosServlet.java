@@ -17,28 +17,29 @@ public class ListarProductosServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        // Obtener parámetros de filtro
+    
         String idCategoriaStr = request.getParameter("idCategoria");
         String nombreFiltro = request.getParameter("nombre");
 
-        ProductoDAO productoDAO = new ProductoDAO();
-        ImagenProductoDAO imagenDAO = new ImagenProductoDAO();
+        nombreFiltro = (nombreFiltro != null) ? nombreFiltro.trim() : "";
+        boolean tieneNombre = !nombreFiltro.isEmpty();
 
-        List<Producto> listaProductos;
-
-        boolean tieneNombre = nombreFiltro != null && !nombreFiltro.trim().isEmpty();
         boolean tieneCategoria = idCategoriaStr != null && !idCategoriaStr.trim().isEmpty();
 
-        // Para mantener seleccionados los filtros en el JSP
+
         request.setAttribute("nombreBuscado", nombreFiltro);
         request.setAttribute("idCategoria", idCategoriaStr);
+
+        ProductoDAO productoDAO = new ProductoDAO();
+        ImagenProductoDAO imagenDAO = new ImagenProductoDAO();
+        List<Producto> listaProductos;
 
         try {
             if (tieneNombre && tieneCategoria) {
                 int idCategoria = Integer.parseInt(idCategoriaStr);
-                listaProductos = productoDAO.buscarPorNombreYCategoria(nombreFiltro.trim(), idCategoria);
+                listaProductos = productoDAO.buscarPorNombreYCategoria(nombreFiltro, idCategoria);
             } else if (tieneNombre) {
-                listaProductos = productoDAO.buscarPorNombre(nombreFiltro.trim());
+                listaProductos = productoDAO.buscarPorNombre(nombreFiltro);
             } else if (tieneCategoria) {
                 int idCategoria = Integer.parseInt(idCategoriaStr);
                 listaProductos = productoDAO.listarProductosPorCategoria(idCategoria);
@@ -46,15 +47,16 @@ public class ListarProductosServlet extends HttpServlet {
                 listaProductos = productoDAO.listarProductos();
             }
         } catch (NumberFormatException e) {
-            // Si la categoría no es válida, mostramos todos
+
             listaProductos = productoDAO.listarProductos();
         }
 
-        // Cargar imágenes secundarias por producto
+
         for (Producto producto : listaProductos) {
             List<ImagenProducto> imagenes = imagenDAO.listarPorProducto(producto.getIdProducto());
             producto.setImagenes(imagenes);
         }
+
 
         request.setAttribute("productos", listaProductos);
         request.getRequestDispatcher("gestionarProductos.jsp").forward(request, response);

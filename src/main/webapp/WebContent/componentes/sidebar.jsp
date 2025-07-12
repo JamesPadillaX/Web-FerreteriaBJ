@@ -72,7 +72,7 @@
                 <% } %>
 
                 <% if (modulosPermitidos.contains("Métodos de Pago")) { %>
-                    <li><a href="gestionarMetodosPago"><i class="fas fa-credit-card"></i> Métodos de Pago</a></li>
+                    <li><a href="gestionarMetodoPago"><i class="fas fa-credit-card"></i> Métodos de Pago</a></li>
                 <% } %>
 
                 <li><a href="LogoutUsuarioServlet"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a></li>

@@ -1,5 +1,6 @@
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\EditarProductoServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\ListarCarruselServlet.java
+C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\EditarMetodoPagoServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\util\Seguridad.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\AgregarCategoriaServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\ExportarUsuariosExcelServlet.java
@@ -23,8 +24,10 @@ C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\ListarProductosSer
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\AgregarDomicilioServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\ExportarProductosPdfServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\ListarCategoriasServlet.java
+C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\AgregarMetodoPagoServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\EliminarProductoServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\CarritoServlet.java
+C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\ListarMetodoPagoServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\AgregarCarruselServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\modelo\Categoria.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\util\CorreoUtil.java
@@ -38,6 +41,7 @@ C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\VerificarCodigoSer
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\EnviarCodigoServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\EditarRolServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\ExportarUsuariosPdfServlet.java
+C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\dao\MetodoPagoDAO.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\EliminarDelCarritoServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\modelo\Usuario.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\EditarUsuarioServlet.java
@@ -66,8 +70,10 @@ C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\modelo\Permiso.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\modelo\Carrusel.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\dao\CarritoDAO.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\ListarProductosPorCategoriaServlet.java
+C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\EliminarMetodoPagoServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\LoginServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\filtro\SeguridadFiltro.java
+C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\modelo\MetodoPago.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\modelo\Cliente.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\ListarRolesServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\dao\ProductoDAO.java

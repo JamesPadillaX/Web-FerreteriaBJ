@@ -67,112 +67,100 @@
                 </div>
             </form>
         </div>
+        <div class="cards-container">
+            <c:forEach var="producto" items="${productos}">
+            <div class="product-card ${producto.cantidad < 10 ? 'low-stock-card' : ''}"data-idproducto="${producto.idProducto}"
+            data-nombre="${fn:toLowerCase(producto.nombre)}"
+            data-categoria="${producto.idCategoria}">
 
-        <div class="table-container">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Imagen</th>
-                        <th>Categoría</th>
-                        <th>Nombre</th>
-                        <th>Descripción</th>
-                        <th>Precio</th>
-                        <th>Cantidad</th>
-                        <th>Estado</th>
-                        <th>Otros</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                <c:forEach var="producto" items="${productos}">
-                    <tr 
-                        data-idproducto="${producto.idProducto}"
-                        data-nombre="${fn:toLowerCase(producto.nombre)}"
-                        data-categoria="${producto.idCategoria}">
-                        <td>
-                            <c:if test="${not empty producto.imagen}">
-                                <img src="${pageContext.request.contextPath}/${producto.imagen}" alt="${producto.nombre}" width="100" />
-                            </c:if>
-                            <c:if test="${empty producto.imagen}">Sin imagen</c:if>
-                        </td>
-                        <td>${producto.categoria}</td>
-                        <td>${producto.nombre}</td>
-                        <td>${producto.descripcion}</td>
-                        <td>S/${producto.precio}</td>
-                        <td>${producto.cantidad}</td>
-                        <td>
-                            <c:choose>
-                                <c:when test="${producto.estado == 1}">ACTIVO</c:when>
-                                <c:when test="${producto.estado == 0}">INACTIVO</c:when>
-                                <c:otherwise>Desconocido</c:otherwise>
-                            </c:choose>
-                        </td>
-                        <td>
-                            <button class="action-btn add-images"
-                                    data-id="${producto.idProducto}"
-                                    data-categoria="${producto.nombre}">
-                                <i class="fas fa-plus"></i> Agregar Imágenes
-                            </button>
+       
+            <c:choose>
+                <c:when test="${producto.estado == 1}">
+                    <span class="badge badge-activo">Activo</span>
+                </c:when>
+                <c:otherwise>
+                    <span class="badge badge-inactivo">Inactivo</span>
+                </c:otherwise>
+            </c:choose>
 
-                            <c:set var="imagenesJson" value="[]" />
-                            <c:if test="${not empty producto.imagenes}">
-                                <c:set var="imagenesJson">
-                                    [
-                                    <c:forEach var="img" items="${producto.imagenes}" varStatus="st">
-                                        "${pageContext.request.contextPath}/${fn:escapeXml(img.rutaImagen)}"<c:if test="${!st.last}">,</c:if>
-                                    </c:forEach>
-                                    ]
-                                </c:set>
-                            </c:if>
+   
+            <div class="card-img">
+                <c:choose>
+                    <c:when test="${not empty producto.imagen}">
+                        <img src="${pageContext.request.contextPath}/${producto.imagen}"
+                             alt="${producto.nombre}">
+                    </c:when>
+                    <c:otherwise>
+                        <span class="no-img">Sin imagen</span>
+                    </c:otherwise>
+                </c:choose>
+            </div>
 
-                            <button type="button" class="action-btn btnVerImagenes view-images"
-                                    data-nombre="${producto.nombre}"
-                                    data-imagenes='${imagenesJson}'>
-                                <i class="fas fa-images"></i> Ver Imágenes
-                            </button>
-                        </td>
-                        <td>
-                            <button type="button" class="action-btn btnEditarProducto"
-                                    data-id="${producto.idProducto}"
-                                    data-nombre="${producto.nombre}"
-                                    data-descripcion="${producto.descripcion}"
-                                    data-precio="${producto.precio}"
-                                    data-cantidad="${producto.cantidad}"
-                                    data-idcategoria="${producto.idCategoria}"
-                                    data-estado="${producto.estado}"
-                                    data-imagen="${producto.imagen}">
-                                <i class="fas fa-edit"></i> Editar
-                            </button>
+  
+            <div class="card-body">
+                <h3 class="card-title">${producto.nombre}</h3>
+                <p class="card-category">${producto.categoria}</p>
 
-                            <form action="EliminarProductoServlet" method="get" style="display:inline;" class="form-eliminar">
-                                <input type="hidden" name="idProducto" value="${producto.idProducto}" />
-                                <button class="action-btn delete" type="submit">
-                                    <i class="fas fa-trash-alt"></i> Eliminar
-                                </button>
-                            </form>
-                        </td>
-                    </tr>
-                </c:forEach>
+   
+                <p class="card-price">S/. ${producto.precio}</p>
+                
+                <p class="card-stock">
+                    Stock: ${producto.cantidad}
+                </p>
 
-                <!-- Fila para cuando no hay resultados -->
+            </div>
 
-                <c:if test="${empty productos}"> 
-                <tr>
-                    <td colspan="9" style="text-align: center; color: gray;">No se encontraron productos.</td>
-                </tr>
-            </c:if>
-                </tbody>
-            </table>
+
+            <div class="card-actions">
+                <button class="action-btn add-images"
+                        data-id="${producto.idProducto}"
+                        data-categoria="${producto.nombre}">
+                    <i class="fas fa-plus"></i>
+                </button>
+
+                <button class="action-btn btnVerImagenes view-images"
+                        data-nombre="${producto.nombre}"
+                        data-imagenes='
+                        <c:out value="["/><c:forEach var="img" items="${producto.imagenes}" varStatus="st">
+                            "<c:out value='${pageContext.request.contextPath}/${fn:escapeXml(img.rutaImagen)}'/>"<c:if test='${!st.last}'>,</c:if>
+                        </c:forEach><c:out value="]"/>'
+                >
+                    <i class="fas fa-images"></i>
+                </button>
+
+                <button class="action-btn btnEditarProducto"
+                        data-id="${producto.idProducto}"
+                        data-nombre="${producto.nombre}"
+                        data-descripcion="${producto.descripcion}"
+                        data-precio="${producto.precio}"
+                        data-cantidad="${producto.cantidad}"
+                        data-idcategoria="${producto.idCategoria}"
+                        data-estado="${producto.estado}"
+                        data-imagen="${producto.imagen}">
+                    <i class="fas fa-edit"></i>
+                </button>
+
+                <form action="EliminarProductoServlet" method="get" class="form-eliminar">
+                    <input type="hidden" name="idProducto" value="${producto.idProducto}" />
+                    <button class="action-btn delete" type="submit">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </form>
+            </div>
         </div>
-    </div>
+    </c:forEach>
+
+
+    <c:if test="${empty productos}">
+        <p class="no-products">No se encontraron productos.</p>
+    </c:if>
 </div>
 
-<!-- Modales -->
 <jsp:include page="WebContent/componentes/modalRegistroProducto.jsp" />
 <jsp:include page="WebContent/componentes/modalEditarProducto.jsp" />
 <jsp:include page="WebContent/componentes/modalAgregarImagenes.jsp" />
 
-<!-- Modal Ver Imágenes -->
+
 <div id="modalVerImagenes" class="modal-overlay" style="display: none;">
     <div class="modal-content-ver">
         <span class="close-modal" id="btnCerrarModalVerImagenes">
@@ -189,14 +177,14 @@
     </div>
 </div>
 
-<!-- Scripts -->
+
 <script src="WebContent/js/panel/modalAgregarProduto.js"></script>
 <script src="WebContent/js/panel/eliminarProducto.js"></script>
 <script src="WebContent/js/panel/modalEditarProducto.js"></script>
 <script src="WebContent/js/panel/verImagenes.js"></script>
 <script src="WebContent/js/panel/buscarProducto.js"></script>
 
-<!-- Alertas -->
+
 <c:if test="${param.msg == 'exito'}"><jsp:include page="WebContent/componentes/alerta.jsp" /></c:if>
 <c:if test="${param.msg == 'eliminado'}"><jsp:include page="WebContent/componentes/alertaEliminado.jsp" /></c:if>
 <c:if test="${param.msg == 'editado'}"><jsp:include page="WebContent/componentes/alertaEditado.jsp" /></c:if>

@@ -4,10 +4,12 @@ dao\ImagenProductoDAO.class
 controlador\EnviarCodigoServlet.class
 controlador\EditarCarruselServlet.class
 controlador\ListarCategoriasServlet.class
+controlador\ListarMetodoPagoServlet.class
 controlador\ListarRolesPServlet.class
 controlador\AsignarPermisosServlet.class
 controlador\ListarProductosPorCategoriaServlet.class
 dao\CarruselDAO.class
+controlador\EditarMetodoPagoServlet.class
 controlador\EditarUsuarioServlet.class
 util\Conexion.class
 controlador\DashboardServlet.class
@@ -15,6 +17,7 @@ service\UsuarioService.class
 controlador\ActualizarContrasenaServlet.class
 controlador\CarritoServlet.class
 controlador\ExportarUsuariosExcelServlet.class
+modelo\MetodoPago.class
 controlador\AgregarCarruselServlet.class
 dao\ClienteDAO.class
 controlador\EliminarDelCarritoServlet.class
@@ -43,6 +46,8 @@ modelo\Permiso.class
 controlador\EditarProductoServlet.class
 controlador\ExportarProductosPdfServlet.class
 controlador\LogoutServlet.class
+dao\MetodoPagoDAO.class
+controlador\AgregarMetodoPagoServlet.class
 controlador\CargarPermisosRolServlet.class
 controlador\RegistrarServlet.class
 util\CorreoUtil.class
@@ -53,6 +58,7 @@ modelo\Carrito.class
 controlador\ListarProductosServlet.class
 modelo\Modulo.class
 modelo\ImagenProducto.class
+controlador\EliminarMetodoPagoServlet.class
 filtro\SeguridadFiltro.class
 modelo\Rol.class
 controlador\ListarCarruselPublicoServlet.class
