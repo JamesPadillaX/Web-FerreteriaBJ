@@ -103,7 +103,7 @@
     background-color: #d9363e;
 }
 
-/* === GRID CONTENEDOR === */
+
 .cards-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -116,7 +116,7 @@
 .product-card {
     position: relative;
     width: 260px;
-    height: 390px;
+    height: 415px;
     background: #fff;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, .08);

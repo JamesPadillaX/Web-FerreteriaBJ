@@ -8,37 +8,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="WebContent/css/web/detalleProducto.css" />
     <link rel="stylesheet" href="WebContent/css/web/carruselImagenes.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+
 </head>
 <body class="pagina-productos">
 <jsp:include page="header.jsp" />
 
 <main class="contenedor-productos">
     <div class="detalle-producto">
-        <div class="detalle-imagen">
-            <div class="carrusel-container">
-                <div class="vertical-carrusel">
-                    <button class="flecha-miniatura" id="flechaArriba"><i class="fas fa-chevron-up"></i></button>
-                    <div class="galeria-carrusel" id="contenedorMiniaturas">
-                        <img src="${pageContext.request.contextPath}/${producto.imagen}" 
-                             class="miniatura activa"
-                             onclick="cambiarImagenCarrusel(this)"
-                             onmouseover="cambiarImagenCarrusel(this)" />
+<div class="detalle-imagen">
+    <div class="carrusel-container" style="display: flex; flex-direction: row; gap: 16px; align-items: flex-start;">
+        <!-- MINIATURAS A LA IZQUIERDA -->
+        <div class="vertical-carrusel">
+            <button class="flecha-miniatura" id="flechaArriba"><i class="fas fa-chevron-up"></i></button>
+            <div class="galeria-carrusel" id="contenedorMiniaturas">
+                <img src="${pageContext.request.contextPath}/${producto.imagen}" 
+                     class="miniatura activa"
+                     onclick="cambiarImagenCarrusel(this)"
+                     onmouseover="cambiarImagenCarrusel(this)" />
 
-                        <c:forEach var="img" items="${producto.imagenes}">
-                            <img src="${pageContext.request.contextPath}/${img.rutaImagen}" 
-                                 class="miniatura"
-                                 onclick="cambiarImagenCarrusel(this)"
-                                 onmouseover="cambiarImagenCarrusel(this)" />
-                        </c:forEach>
-                    </div>
-                    <button class="flecha-miniatura" id="flechaAbajo"><i class="fas fa-chevron-down"></i></button>
-                </div>
-                <div class="imagen-principal">
-                    <img id="imagenCarrusel" src="${pageContext.request.contextPath}/${producto.imagen}" alt="${producto.nombre}" />
-                </div>
+                <c:forEach var="img" items="${producto.imagenes}">
+                    <img src="${pageContext.request.contextPath}/${img.rutaImagen}" 
+                         class="miniatura"
+                         onclick="cambiarImagenCarrusel(this)"
+                         onmouseover="cambiarImagenCarrusel(this)" />
+                </c:forEach>
             </div>
+            <button class="flecha-miniatura" id="flechaAbajo"><i class="fas fa-chevron-down"></i></button>
         </div>
+
+        <!-- IMAGEN PRINCIPAL A LA DERECHA -->
+        <div class="imagen-principal">
+            <img id="imagenCarrusel" src="${pageContext.request.contextPath}/${producto.imagen}" alt="${producto.nombre}" />
+        </div>
+    </div>
+</div>
 
         <div class="detalle-info">
             <h2 class="nombre-prod">${producto.nombre}</h2>
@@ -53,11 +57,11 @@
                     <button type="button" class="btn-cantidad" onclick="modificarCantidad(1)">+</button>
                 </div>
                 <button type="submit" class="btn-agregar">
-                    <i class="fas fa-cart-plus"></i> Agregar al carrito
+                    <i class="fa-solid fa-cart-shopping"></i>Agregar al carrito
                 </button>
             </form>
-            <a href="Categoria?id=${producto.idCategoria}" class="btn-detalle">
-                <i class="fas fa-arrow-left"></i> Volver a la categoría
+            <a href="ListarProductosPorCategoriaServlet?id=${producto.idCategoria}" class="btn-detalle">
+                <i class="fas fa-arrow-left"></i> Volver
             </a>
         </div>
     </div>
