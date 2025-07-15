@@ -46,7 +46,7 @@
                 <form action="MarcarPrincipalServlet" method="post">
                     <% if (domicilios.isEmpty()) { %>
                         <p class="sin-domicilios">No tienes domicilios registrados aún.</p>
-                        <a href="formDomicilio.jsp" class="btn-agregar">Agregar domicilio</a>
+                        <a href="formDomicilio.jsp" class="btn-agregar-rojo">Agregar domicilio</a>
                     <% } else {
                         for (DomicilioCliente d : domicilios) { %>
                             <label class="domicilio-card <%= d.isPrincipal() ? "principal" : "" %>">

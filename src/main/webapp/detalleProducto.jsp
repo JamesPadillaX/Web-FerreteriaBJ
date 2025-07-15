@@ -13,13 +13,17 @@
 </head>
 <body class="pagina-productos">
 <jsp:include page="header.jsp" />
-
 <main class="contenedor-productos">
+    <div class="breadcrumb">
+        <a href="inicio">Inicio</a> /
+        <a href="ListarProductosPorCategoriaServlet?id=${producto.idCategoria}">${nombreCategoria}</a> /
+        <span>${producto.nombre}</span>
+    </div>
+
     <div class="detalle-producto">
-<div class="detalle-imagen">
-    <div class="carrusel-container" style="display: flex; flex-direction: row; gap: 16px; align-items: flex-start;">
-        <!-- MINIATURAS A LA IZQUIERDA -->
-        <div class="vertical-carrusel">
+        <div class="detalle-imagen">
+            <div class="carrusel-container" style="display: flex; flex-direction: row; gap: 16px; align-items: flex-start;">
+                <div class="vertical-carrusel">
             <button class="flecha-miniatura" id="flechaArriba"><i class="fas fa-chevron-up"></i></button>
             <div class="galeria-carrusel" id="contenedorMiniaturas">
                 <img src="${pageContext.request.contextPath}/${producto.imagen}" 
@@ -37,7 +41,6 @@
             <button class="flecha-miniatura" id="flechaAbajo"><i class="fas fa-chevron-down"></i></button>
         </div>
 
-        <!-- IMAGEN PRINCIPAL A LA DERECHA -->
         <div class="imagen-principal">
             <img id="imagenCarrusel" src="${pageContext.request.contextPath}/${producto.imagen}" alt="${producto.nombre}" />
         </div>

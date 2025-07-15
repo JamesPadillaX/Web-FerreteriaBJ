@@ -8,22 +8,19 @@
 html, body {
   height: 100%;
   font-family: 'Segoe UI', sans-serif;
-  background-color: #ffffff; /* Fondo general blanco */
+  background-color: #ffffff;
   color: #333;
   overflow-x: hidden;
 }
 
-/* CONTENEDOR PRINCIPAL */
 .contenedor-principal {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: #ffffff; /* Fondo blanco */
 }
 
 main {
   flex: 1;
-  background-color: #ffffff;
 }
 
 /* CARRUSEL */
@@ -37,18 +34,20 @@ main {
   width: 100%;
   height: 520px;
   overflow: hidden;
-  background-color: #000; /* Previene fondo blanco visible al cargar */
+  background-color: #000;
 }
 
 .slide {
-  display: none;
   position: absolute;
   width: 100%;
   height: 100%;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
 }
 
 .slide.active {
-  display: block;
+  opacity: 1;
+  z-index: 1;
 }
 
 .slide img {
@@ -56,85 +55,83 @@ main {
   height: 100%;
   object-fit: cover;
   object-position: center top;
-  filter: brightness(0.7);
-  transition: opacity 0.8s ease-in-out;
+  filter: brightness(0.6);
 }
 
-/* TEXTO EN CARRUSEL – POSICIÓN INFERIOR CENTRADO */
+/* TEXTO DEL CARRUSEL */
 .carrusel-texto {
   position: absolute;
-  bottom: 40px;
+  bottom: 60px;
   left: 50%;
   transform: translateX(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 20px 30px;
-  border-radius: 12px;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  padding: 30px 40px;
+  border-radius: 16px;
   text-align: center;
-  max-width: 500px;
+  max-width: 600px;
+  color: #fff;
+  animation: fadeUp 0.8s ease-in-out;
 }
 
 .carrusel-texto h2 {
-  font-size: clamp(1.5rem, 2vw, 2.2rem);
-  font-weight: bold;
+  font-size: clamp(2rem, 2.8vw, 2.5rem);
+  font-weight: 700;
   color: #ffc107;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .carrusel-texto p {
-  font-size: clamp(1rem, 1.5vw, 1.2rem);
-  color: #fff;
+  font-size: clamp(1.1rem, 1.5vw, 1.3rem);
+  font-weight: 300;
 }
 
-/* FLECHAS DEL CARRUSEL */
-.flecha {
+/* INDICADORES */
+.carrusel-indicadores {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.4);
-  color: white;
-  border: none;
-  padding: 12px;
-  cursor: pointer;
-  border-radius: 50%;
-  font-size: 1.2rem;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
   z-index: 10;
+}
+
+.carrusel-indicadores .indicador {
+  width: 12px;
+  height: 12px;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-.flecha:hover {
-  background-color: rgba(0, 0, 0, 0.7);
+.carrusel-indicadores .indicador.activo {
+  background-color: #ffc107;
 }
 
-.flecha.izquierda {
-  left: 20px;
-}
-
-.flecha.derecha {
-  right: 20px;
-}
-
-/* SECCIÓN FONDO AZUL CON CONTENIDO CENTRADO */
+/* BIENVENIDA */
 .fondo-azul {
   text-align: center;
   padding: 30px 0 60px 0;
   background-color: #ffffff;
 }
 
-/* BLOQUE DE BIENVENIDA */
 .bienvenida {
   display: inline-block;
-  background-color: #002b5c;
+  background-color: #002851;
   color: white;
-  padding: 40px 50px;
-  border-radius: 15px;
-  max-width: 800px;
-  width: 90%;
+  padding: 50px 60px;
+  border-radius: 5px;
+  max-width: 1300px;
+  width: 95%;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   margin: 0 auto;
   word-wrap: break-word;
+  transition: all 0.3s ease;
 }
 
-/* TEXTO BIENVENIDA */
+
 .bienvenida h1 {
   font-size: clamp(2rem, 4vw, 2.5rem);
   margin-bottom: 10px;
@@ -149,7 +146,7 @@ main {
   font-size: clamp(1rem, 2vw, 1.2rem);
 }
 
-/* SECCIÓN OFERTAS */
+/* OFERTAS */
 .ofertas {
   background-color: #ffffff;
   padding: 60px 20px;
@@ -205,7 +202,19 @@ footer {
   font-size: 0.95rem;
 }
 
-/* RESPONSIVO EXTRA */
+/* ANIMACIÓN */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* RESPONSIVO */
 @media (max-width: 768px) {
   .bienvenida {
     padding: 30px 20px;
@@ -221,8 +230,8 @@ footer {
   }
 
   .carrusel-texto {
-    padding: 10px 15px;
-    bottom: 20px;
+    padding: 20px 25px;
+    bottom: 30px;
     max-width: 90%;
   }
 }
@@ -232,9 +241,13 @@ footer {
     height: 300px;
   }
 
+@media (max-width: 480px) {
   .bienvenida h1 {
-    font-size: 1.8rem;
+    font-size: 1.5rem; /* Tamaño más pequeño para móviles */
+    line-height: 1.3;
   }
+}
+
 
   .bienvenida p {
     font-size: 1rem;
@@ -243,4 +256,28 @@ footer {
   .ofertas h2 {
     font-size: 1.5rem;
   }
+}
+
+/* Scroll personalizado (para navegadores WebKit) */
+body::-webkit-scrollbar {
+  width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Fondo de la barra */
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #888; /* Color del scroll */
+  border-radius: 6px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Firefox */
+body {
+  scrollbar-width: thin;
+  scrollbar-color: #888 #f1f1f1;
 }

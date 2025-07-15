@@ -37,7 +37,6 @@ main {
   padding: 20px;
 }
 
-/* COLUMNAS */
 .columna-opciones,
 .columna-resumen {
   background: #fff;
@@ -56,7 +55,6 @@ main {
   flex: 1 1 35%;
 }
 
-/* TÍTULOS */
 .columna-opciones h1,
 .columna-resumen h2 {
   font-size: 22px;
@@ -64,7 +62,7 @@ main {
   color: #002244;
 }
 
-/* TARJETA DE DOMICILIO */
+/* TARJETAS */
 .domicilio-card {
   display: flex;
   flex-wrap: wrap;
@@ -88,14 +86,12 @@ main {
   background-color: #f0f8ff;
 }
 
-/* INPUT RADIO */
 .domicilio-card input[type="radio"] {
   accent-color: #003366;
   transform: scale(1.2);
   margin-top: 5px;
 }
 
-/* INFO DEL DOMICILIO */
 .domicilio-info {
   flex: 1 1 60%;
   min-width: 200px;
@@ -107,7 +103,6 @@ main {
   color: #333;
 }
 
-/* DERECHA DE LA TARJETA */
 .domicilio-derecha {
   display: flex;
   flex-direction: column;
@@ -116,7 +111,6 @@ main {
   flex: 1;
 }
 
-/* ACCIONES DE LA TARJETA */
 .acciones-domicilio {
   display: flex;
   flex-wrap: wrap;
@@ -124,7 +118,6 @@ main {
   justify-content: flex-end;
 }
 
-/* BADGE */
 .badge-principal {
   background-color: #28a745;
   color: white;
@@ -133,7 +126,7 @@ main {
   border-radius: 20px;
 }
 
-/* BOTONES ACCIÓN */
+/* BOTONES */
 .btn-editar,
 .btn-eliminar {
   padding: 6px 10px;
@@ -163,7 +156,6 @@ main {
   background-color: #a80000;
 }
 
-/* BOTONES BASE */
 .btn-base {
   background-color: #003366;
   color: white;
@@ -183,7 +175,6 @@ main {
   transform: scale(1.02);
 }
 
-/* AGRUPACIÓN DE BOTONES */
 .botones-acciones {
   display: flex;
   flex-wrap: wrap;
@@ -192,14 +183,12 @@ main {
   margin-top: 20px;
 }
 
-/* MENSAJE */
 .sin-domicilios {
   font-size: 16px;
   color: #555;
   margin-bottom: 20px;
 }
 
-/* BOTÓN CONTINUAR */
 .btn-continuar {
   width: 100%;
   background-color: #003366;
@@ -217,7 +206,27 @@ main {
   background-color: #001f4d;
 }
 
-/* RESUMEN */
+/* BOTÓN ROJO */
+.btn-agregar-rojo {
+  width: 100%;
+  background-color: #c62828;
+  color: #fff;
+  padding: 14px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 25px;
+  text-align: center;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+.btn-agregar-rojo:hover {
+  background-color: #b71c1c;
+}
+
 .resumen-linea {
   display: flex;
   justify-content: space-between;
@@ -235,7 +244,6 @@ main {
   color: #001f3f;
 }
 
-/* FOOTER */
 footer {
   background-color: #002244;
   color: white;
@@ -245,7 +253,7 @@ footer {
   margin-top: auto;
 }
 
-/* RESPONSIVE */
+/* RESPONSIVE TOTAL (Desde 1024px hasta 0px) */
 @media screen and (max-width: 1024px) {
   .contenedor-envio {
     flex-direction: column;
@@ -273,14 +281,15 @@ footer {
   }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 600px) {
   .columna-opciones h1,
   .columna-resumen h2 {
     font-size: 18px;
   }
 
   .btn-base,
-  .btn-continuar {
+  .btn-continuar,
+  .btn-agregar-rojo {
     font-size: 14px;
     padding: 12px;
   }
@@ -298,5 +307,23 @@ footer {
   .btn-eliminar {
     font-size: 12px;
     padding: 5px 8px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .columna-opciones h1,
+  .columna-resumen h2 {
+    font-size: 16px;
+  }
+
+  .btn-base,
+  .btn-continuar,
+  .btn-agregar-rojo {
+    font-size: 13px;
+    padding: 10px;
+  }
+
+  .domicilio-info p {
+    font-size: 13px;
   }
 }

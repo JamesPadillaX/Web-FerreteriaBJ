@@ -60,7 +60,7 @@
                 <% } %>
 
                 <% if (modulosPermitidos.contains("Ventas")) { %>
-                    <li><a href="gestionarVentas.jsp"><i class="fas fa-shopping-cart"></i> Ventas</a></li>
+                    <li><a href="Ventas"><i class="fas fa-shopping-cart"></i> Ventas</a></li>
                 <% } %>
 
                 <% if (modulosPermitidos.contains("Reportes")) { %>

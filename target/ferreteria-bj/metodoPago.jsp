@@ -4,6 +4,7 @@
 <%@ page import="modelo.DetalleCarrito" %>
 <%@ page import="dao.CarritoDAO" %>
 <%@ page import="java.util.List" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <%
     Cliente cliente = (Cliente) session.getAttribute("clienteLogueado");
@@ -41,44 +42,31 @@
     <%@ include file="header.jsp" %>
 
     <main>
-        <form action="FinalizarCompraServlet" method="post">
+        <form action="SeleccionarMetodoPagoServlet" method="post">
             <input type="hidden" name="metodoEnvio" value="<%= metodoEnvio %>">
             <input type="hidden" name="total" value="<%= total %>">
             <input type="hidden" name="idCarrito" value="<%= idCarrito %>">
 
             <div class="contenedor-pago-envio">
-                <!-- Columna izquierda: Métodos de pago -->
                 <div class="columna-opciones">
                     <h1>Elige la forma de pago</h1>
 
-                    <label class="opcion-envio">
-                        <input type="radio" name="metodoPago" value="TARJETA" required>
-                        <div class="info-envio">
-                            <h2>Tarjeta de crédito o débito</h2>
-                            <p>Visa, MasterCard, etc.</p>
-                        </div>
-                    </label>
-
-                    <label class="opcion-envio">
-                        <input type="radio" name="metodoPago" value="YAPE">
-                        <div class="info-envio">
-                            <h2>Yape</h2>
-                            <p>Paga desde tu app del banco</p>
-                        </div>
-                    </label>
-
-                    <label class="opcion-envio">
-                        <input type="radio" name="metodoPago" value="PLIN">
-                        <div class="info-envio">
-                            <h2>Plin</h2>
-                            <p>Transferencia rápida</p>
-                        </div>
-                    </label>
+                    <c:forEach var="m" items="${metodosPago}">
+                        <label class="opcion-envio">
+                            <input type="radio" name="idMetodoPago" value="${m.idMetodoPago}" required>
+                            <div class="info-envio">
+                                <h2>${m.nombre}</h2>
+                                <p>${m.descripcion}</p>
+                                <c:if test="${not empty m.imagen}">
+                                    <img src="${m.imagen}" alt="${m.nombre}" class="icono-pago">
+                                </c:if>
+                            </div>
+                        </label>
+                    </c:forEach>
 
                     <button type="submit" class="btn-continuar">Continuar</button>
                 </div>
 
-                <!-- Columna derecha: Resumen -->
                 <div class="columna-resumen">
                     <h2>Resumen de compra</h2>
 
@@ -87,7 +75,7 @@
                             Producto p = dc.getProducto();
                     %>
                     <div class="resumen-linea">
-                        <span><%= p.getNombre() %> x<%= dc.getCantidad() %></span>
+                        <span title="<%= p.getNombre() %>"><%= p.getNombre() %> x<%= dc.getCantidad() %></span>
                         <span>S/. <%= String.format("%.2f", p.getPrecio() * dc.getCantidad()) %></span>
                     </div>
                     <% }} %>

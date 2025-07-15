@@ -23,6 +23,10 @@ dao\ClienteDAO.class
 controlador\EliminarDelCarritoServlet.class
 controlador\LoginUsuarioServlet.class
 controlador\ListarDomiciliosServlet.class
+dao\VentaDAO.class
+controlador\ConfirmarPagoYapeServlet.class
+controlador\ListarMetodosPagoServlet.class
+controlador\SeleccionarMetodoPagoServlet.class
 controlador\EditarRolServlet.class
 modelo\Categoria.class
 controlador\LogoutUsuarioServlet.class
@@ -32,6 +36,7 @@ controlador\DetalleProductoServlet.class
 service\CategoriaService.class
 dao\DomicilioClienteDAO.class
 controlador\EliminarProductoServlet.class
+controlador\ListarVentasServlet.class
 modelo\Carrusel.class
 controlador\EliminarCategoriaServlet.class
 controlador\ActualizarCantidadServlet.class
@@ -53,6 +58,7 @@ controlador\RegistrarServlet.class
 util\CorreoUtil.class
 controlador\AgregarProductoServlet.class
 service\RolService.class
+controlador\DetalleVentaServlet.class
 dao\UsuarioDAO.class
 modelo\Carrito.class
 controlador\ListarProductosServlet.class
@@ -64,6 +70,8 @@ modelo\Rol.class
 controlador\ListarCarruselPublicoServlet.class
 controlador\AgregarRolServlet.class
 controlador\MarcarPrincipalServlet.class
+modelo\Venta.class
+modelo\DetalleVenta.class
 controlador\AgregarUsuarioServlet.class
 controlador\ListarCarruselServlet.class
 util\TestLog.class

@@ -120,8 +120,6 @@
                         <button type="submit" class="btn-comprar">Continuar compra</button>
                     </form>
                 <% } %>
-
-                <a href="productos.jsp" class="btn-volver">← Ver más productos</a>
             </div>
         </div>
     </main>

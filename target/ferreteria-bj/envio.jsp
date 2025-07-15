@@ -43,7 +43,7 @@
     <%@ include file="header.jsp" %>
 
     <main>
-        <form action="metodoPago.jsp" method="post">
+        <form action="MetodosPago" method="post">
             <div class="contenedor-envio">
                 <div class="columna-opciones">
                     <h1>Elige la forma de entrega</h1>
@@ -56,7 +56,7 @@
                                 <p><%= domicilioPrincipal.getCalle() %> <%= domicilioPrincipal.getNumero() %>,
                                    <%= domicilioPrincipal.getDistrito() %>, <%= domicilioPrincipal.getProvincia() %> - <%= domicilioPrincipal.getDepartamento() %></p>
                             <% } else { %>
-                                <p style="color: red;">No tienes un domicilio principal asignado.</p>
+                                <p style="color: red;">No tienes un domicilio asignado.</p>
                             <% } %>
                             <a href="domicilio.jsp" class="modificar">Modificar domicilio o elegir otro</a>
                         </div>
@@ -83,14 +83,9 @@
                         <span><strong>S/. <%= String.format("%.2f", total) %></strong></span>
                     </div>
 
-                    <button type="submit" class="btn-continuar" <%= tieneDomicilio ? "" : "disabled" %>>
+                    <button type="submit" class="btn-continuar">
                         Continuar
                     </button>
-                    <% if (!tieneDomicilio) { %>
-                        <p style="color: #cc0000; font-size: 14px; margin-top: 10px;">
-                            Debes registrar un domicilio principal antes de continuar.
-                        </p>
-                    <% } %>
                 </div>
             </div>
         </form>

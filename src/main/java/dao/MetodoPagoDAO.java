@@ -15,7 +15,7 @@ public class MetodoPagoDAO {
         con = Conexion.getInstancia().getConexion();
     }
 
-    // Listar todos los métodos (estado 0 y 1)
+ 
     public List<MetodoPago> listarMetodosPago() {
         List<MetodoPago> lista = new ArrayList<>();
         String sql = "SELECT * FROM metodos_pago WHERE estado <> 2 ORDER BY idMetodoPago";
@@ -38,7 +38,7 @@ public class MetodoPagoDAO {
         return lista;
     }
 
-    // Listar solo métodos activos
+ 
     public List<MetodoPago> listarMetodosPagoActivos() {
         List<MetodoPago> lista = new ArrayList<>();
         String sql = "SELECT * FROM metodos_pago WHERE estado = 1 ORDER BY idMetodoPago";
@@ -78,7 +78,7 @@ public class MetodoPagoDAO {
         return false;
     }
 
-    // Obtener uno por ID
+
     public MetodoPago obtenerMetodoPagoPorId(int idMetodoPago) {
         MetodoPago metodo = null;
         String sql = "SELECT * FROM metodos_pago WHERE idMetodoPago = ? AND estado <> 2";
@@ -101,7 +101,7 @@ public class MetodoPagoDAO {
         return metodo;
     }
 
-    // Modificar
+
     public boolean modificarMetodoPago(MetodoPago metodo) {
         String sql = "UPDATE metodos_pago SET nombre = ?, descripcion = ?, imagen = ?, estado = ? WHERE idMetodoPago = ?";
 
@@ -119,7 +119,7 @@ public class MetodoPagoDAO {
         return false;
     }
 
-    // Cambiar estado
+
     public boolean cambiarEstadoMetodoPago(int idMetodoPago, int nuevoEstado) {
         String sql = "UPDATE metodos_pago SET estado = ? WHERE idMetodoPago = ?";
 
@@ -134,7 +134,6 @@ public class MetodoPagoDAO {
         return false;
     }
 
-    // Eliminar (cambiar estado a 2)
     public boolean eliminarMetodoPago(int idMetodoPago) {
         return cambiarEstadoMetodoPago(idMetodoPago, 2);
     }

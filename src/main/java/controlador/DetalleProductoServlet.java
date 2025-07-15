@@ -1,8 +1,10 @@
 package controlador;
 
 import dao.ProductoDAO;
+import dao.CategoriaDAO;
 import dao.ImagenProductoDAO;
 import modelo.Producto;
+import modelo.Categoria;
 import modelo.ImagenProducto;
 
 import javax.servlet.ServletException;
@@ -30,9 +32,16 @@ public class DetalleProductoServlet extends HttpServlet {
                     List<ImagenProducto> imagenesSecundarias = imagenDAO.listarPorProducto(idProducto);
                     producto.setImagenes(imagenesSecundarias);
 
-                    List<Producto> relacionados = dao.listarProductosPorCategoriaWeb(producto.getIdCategoria());
 
-                    // Remover el mismo producto de la lista de relacionados
+                    CategoriaDAO categoriaDAO = new CategoriaDAO();
+                    Categoria categoria = categoriaDAO.obtenerCategoriaPorId(producto.getIdCategoria());
+                    if (categoria != null) {
+                        request.setAttribute("nombreCategoria", categoria.getNombre());
+                    }
+
+
+
+                    List<Producto> relacionados = dao.listarProductosPorCategoriaWeb(producto.getIdCategoria());
                     relacionados.removeIf(p -> p.getIdProducto() == producto.getIdProducto());
 
                     request.setAttribute("producto", producto);

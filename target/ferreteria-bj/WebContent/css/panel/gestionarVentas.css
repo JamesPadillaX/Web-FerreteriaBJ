@@ -1,161 +1,303 @@
-/* Estilo para el contenido principal */
-.main-content {
-    margin-left: 250px;
-    padding: 30px;
-    background-color: #f1f5f8;
-    min-height: 100vh;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    overflow-x: auto;
+/* ==== BASE ==== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
 }
 
-.main-content h1 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: #2c3e50;
+body {
+  background-color: #f4f6f9;
+  color: #333;
+  font-size: 13px;
 }
 
-/* Tabla de ventas */
-.table-container {
-    overflow-x: auto;
-    background: #fff;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+.container {
+  display: flex;
+  min-height: 100vh;
 }
 
-/* Tabla general */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 13px;
-    color: #4a4a4a;
-    table-layout: auto;
+.content {
+  flex-grow: 1;
+  padding: 30px;
+  background-color: #f9f9f9;
 }
 
-/* Cabecera */
-thead {
-    background-color: #f8f9fa;
-    color: #495057;
-    text-transform: uppercase;
+.content h1 {
+  font-size: 26px;
+  color: #1b1f3b;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+/* ==== FILTRO ==== */
+.filtro-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.filtro-container div {
+  display: flex;
+  flex-direction: column;
+}
+
+.filtro-container label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  font-size: 13px;
+}
+
+.filtro-container input[type="date"] {
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 160px;
+}
+
+.btn-filtrar,
+.btn-limpiar {
+  background-color: #fff;
+  color: #007bff;
+  border: 1px solid #007bff;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-filtrar:hover,
+.btn-limpiar:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+/* ==== TABLA ==== */
+.tabla-ventas {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.tabla-ventas table {
+  width: 100%;
+  min-width: 960px;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  font-size: 13px;
+}
+
+.tabla-ventas thead {
+  background-color: #eaeff5;
+  color: #444;
+  text-transform: uppercase;
+}
+
+.tabla-ventas th,
+.tabla-ventas td {
+  padding: 10px 12px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+  white-space: nowrap;
+}
+
+.tabla-ventas tbody tr:hover {
+  background-color: #f4faff;
+}
+
+/* Oculta visualmente la columna ID */
+.tabla-ventas td.oculto,
+.tabla-ventas th.oculto {
+  display: none;
+}
+
+/* ==== ICONOS Y ACCIONES ==== */
+.acciones {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+
+.btn-ver-detalle {
+  background-color: #17a2b8;
+  color: white;
+  padding: 6px 8px;
+  border-radius: 5px;
+  font-size: 13px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-ver-detalle i {
+  font-size: 14px;
+}
+
+.btn-ver-detalle:hover {
+  background-color: #117a8b;
+}
+
+/* Botón editar estado */
+.btn-abrir-modal {
+  background-color: #6c757d;
+  color: white;
+  padding: 6px 8px;
+  border-radius: 5px;
+  border: none;
+  margin-left: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-abrir-modal:hover {
+  background-color: #5a6268;
+}
+
+/* ==== MÉTODO PAGO en círculo ==== */
+.metodo-yape,
+.metodo-plin,
+.metodo-bcp {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-weight: bold;
+  color: white;
+  font-size: 12px;
+}
+
+.metodo-yape { background-color: #9c27b0; }
+.metodo-plin { background-color: #4caf50; }
+.metodo-bcp { background-color: #03a9f4; }
+
+/* ==== ESTADOS en círculo ==== */
+.estado-label {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 20px;
+  color: white;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.estado-pendiente { background-color: #ff9800; }
+.estado-pagado    { background-color: #28a745; }
+.estado-enviado   { background-color: #2196f3; }
+.estado-entregado { background-color: #673ab7; }
+.estado-cancelado { background-color: #f44336; }
+
+/* ==== MODAL CAMBIAR ESTADO ==== */
+#modalEstado {
+  display: none; /* Esto evita que se muestre por defecto */
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+#modalEstado .modal-content {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  width: 340px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0,0,0,0.15);
+}
+
+#modalEstado h2 {
+  margin-bottom: 16px;
+  font-size: 20px;
+  color: #333;
+}
+
+#modalEstado label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  display: block;
+  text-align: left;
+}
+
+#modalEstado select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.btn-cancelar,
+.btn-confirmar {
+  flex: 1;
+  padding: 10px 0;
+  border: none;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn-cancelar {
+  background-color: #ccc;
+  color: #333;
+}
+
+.btn-confirmar {
+  background-color: #007bff;
+  color: white;
+}
+
+.btn-cancelar:hover {
+  background-color: #bbb;
+}
+
+.btn-confirmar:hover {
+  background-color: #0056b3;
+}
+
+/* ==== FILA VACÍA ==== */
+.fila-vacia {
+  text-align: center;
+  padding: 25px;
+  font-style: italic;
+  color: #888;
+  font-size: 14px;
+}
+
+/* ==== RESPONSIVE ==== */
+@media (max-width: 768px) {
+  .tabla-ventas table {
+    min-width: 100%;
     font-size: 12px;
-    letter-spacing: 0.5px;
+  }
+
+  .acciones {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .filtro-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
-
-th, td {
-    padding: 12px 15px;
-    white-space: nowrap;
-    text-align: center;
-    border-bottom: 1px solid #f1f3f5;
-    vertical-align: middle;
-}
-
-/* Zebra striping */
-tbody tr:nth-child(even) td {
-    background-color: #f9f9fb;
-}
-
-/* Hover */
-tbody tr:hover td {
-    background-color: #eef2f7;
-}
-
-/* Botones de acción */
-.action-btn {
-    background-color: #6c63ff;
-    color: white;
-    border: none;
-    padding: 6px 12px;
-    margin: 0 3px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 12px;
-    display: inline-flex;
-    align-items: center;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.action-btn i {
-    margin-right: 5px;
-}
-
-/* Hover efecto */
-.action-btn:hover {
-    background-color: #574fd6;
-    transform: scale(1.05);
-}
-
-/* Botón eliminar o cancelar */
-.action-btn.delete {
-    background-color: #ff4d4f;
-}
-
-.action-btn.delete:hover {
-    background-color: #d9363e;
-}
-
-/* Botones de exportación */
-.btn-exportar {
-    border: none;
-    padding: 10px 16px;
-    font-weight: 600;
-    font-size: 14px;
-    border-radius: 8px;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    transition: all 0.3s ease;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-    text-decoration: none;
-    color: white;
-    margin-right: 10px;
-}
-
-/* Botón PDF: rojo claro */
-.btn-pdf {
-    background-color: #ff6b81;
-}
-
-.btn-pdf:hover {
-    background-color: #e2556c;
-    transform: scale(1.05);
-}
-
-/* Botón Excel: verde pastel */
-.btn-excel {
-    background-color: #63d471;
-}
-
-.btn-excel:hover {
-    background-color: #4cbc5d;
-    transform: scale(1.05);
-}
-
-/* Responsive para pantallas pequeñas */
-@media screen and (max-width: 768px) {
-    .main-content {
-        padding: 20px;
-    }
-
-    table {
-        font-size: 11px;
-    }
-
-    th, td {
-        padding: 8px 10px;
-    }
-
-    .action-btn {
-        padding: 5px 9px;
-        font-size: 11px;
-    }
-
-    .btn-exportar {
-        width: 100%;
-        justify-content: center;
-        font-size: 13px;
-        padding: 8px;
-        margin-bottom: 10px;
-    }
+.tabla-ventas table tr > *:first-child {
+  display: none;
 }

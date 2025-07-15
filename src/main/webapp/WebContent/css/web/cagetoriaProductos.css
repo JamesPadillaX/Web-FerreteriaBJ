@@ -271,22 +271,29 @@ main.contenedor-productos {
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center; 
+    align-items: center;
     justify-content: center;
   }
 
   .form-orden label {
     margin-bottom: 6px;
-    font-size: 0.9rem;
+    font-size: 0.85rem; 
     text-align: center;
   }
 
   .form-orden select {
     width: 100%;
-    max-width: 180px; 
-    margin: 0 auto;  
-    font-size: 0.9rem;
-    background-position: right 12px center;
-    background-size: 14px;
+    max-width: 170px;  
+    margin: 0 auto;
+    font-size: 0.8rem;  
+    padding: 6px 8px;   
+    background-position: right 10px center;
+    background-size: 12px;
+    line-height: 1.2;
+  }
+
+  .form-orden select option {
+    font-size: 0.7rem; 
+    padding: 4px;
   }
 }

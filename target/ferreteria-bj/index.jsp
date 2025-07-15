@@ -7,6 +7,7 @@
   <meta charset="UTF-8">
   <title>Ferretería BJ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="WebContent/css/web/header.css" />
   <link rel="stylesheet" href="WebContent/css/web/index.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <script defer src="WebContent/js/web/carrusel.js"></script>
@@ -16,28 +17,19 @@
     <jsp:include page="header.jsp" />
 
     <main>
-      <!-- CARRUSEL -->
       <section class="hero">
         <div class="carrusel" id="carrusel">
           <c:forEach var="item" items="${carruseles}" varStatus="st">
             <div class="slide ${st.index == 0 ? 'active' : ''}">
               <img src="${pageContext.request.contextPath}/${item.rutaImagen}" alt="${item.titulo}" />
-              <div class="carrusel-texto">
-                <h2>${item.titulo}</h2>
-                <p>${item.descripcion}</p>
-              </div>
             </div>
           </c:forEach>
-
-          <!-- Solo muestra las flechas si hay más de una imagen -->
           <c:if test="${fn:length(carruseles) > 1}">
-            <button class="flecha izquierda" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
-            <button class="flecha derecha" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+            <div class="carrusel-indicadores" id="indicadoresCarrusel"></div>
           </c:if>
         </div>
       </section>
 
-      <!-- BIENVENIDA -->
       <section class="fondo-azul">
         <div class="bienvenida">
           <h1>Bienvenido a <span>Ferretería BJ</span></h1>
@@ -45,7 +37,6 @@
         </div>
       </section>
 
-      <!-- OFERTAS DESTACADAS -->
       <section class="ofertas">
         <h2>Ofertas Destacadas</h2>
         <div class="productos-contenedor">
@@ -60,7 +51,6 @@
         </div>
       </section>
 
-      <!-- LO MÁS VENDIDO -->
       <section class="ofertas">
         <h2>Lo más vendido</h2>
         <div class="productos-contenedor">
@@ -76,6 +66,39 @@
       </section>
     </main>
 
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+  const slides = document.querySelectorAll(".slide");
+  const contenedorIndicadores = document.getElementById("indicadoresCarrusel");
+  let index = 0;
+
+  function mostrarSlide(i) {
+    slides.forEach((slide, idx) => {
+      slide.classList.toggle("active", idx === i);
+      contenedorIndicadores?.children[idx]?.classList.toggle("activo", idx === i);
+    });
+  }
+
+  if (contenedorIndicadores) {
+    slides.forEach((_, i) => {
+      const indicador = document.createElement("div");
+      indicador.classList.add("indicador");
+      if (i === 0) indicador.classList.add("activo");
+      indicador.addEventListener("click", () => {
+        index = i;
+        mostrarSlide(index);
+      });
+      contenedorIndicadores.appendChild(indicador);
+    });
+  }
+
+  setInterval(() => {
+    index = (index + 1) % slides.length;
+    mostrarSlide(index);
+  }, 5000);
+});
+
+</script>
     <jsp:include page="footer.jsp" />
   </div>
 </body>
