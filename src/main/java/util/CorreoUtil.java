@@ -62,7 +62,7 @@ public static boolean enviarConfirmacionCompra(String destino, String nombreClie
             .append("<div style=\"max-width: 600px; margin: auto; background-color: white; padding: 20px;")
             .append("box-shadow: 0 4px 12px rgba(0,0,0,0.1);\">")
             
-            .append("<div style=\"background-color: #ffcc00ff; color: #b6b6b6ff; font-size: 22px; font-weight: bold; text-align: center; padding: 20px 10px; margin: 0;\">")
+            .append("<div style=\"background-color: #ffcc00ff; color: #dededeff; font-size: 22px; font-weight: bold; text-align: center; padding: 20px 10px; margin: 0;\">")
             .append("¡Gracias por tu compra en Ferretería BJ!")
             .append("</div>")
 

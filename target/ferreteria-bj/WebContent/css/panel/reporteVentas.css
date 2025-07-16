@@ -1,0 +1,123 @@
+
+body {
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f7fa;
+    color: #2e3a59;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+
+.sidebar {
+    width: 240px;
+    background-color: #1e2a45;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* CONTENIDO PRINCIPAL */
+.content {
+    flex: 1;
+    padding: 30px 40px;
+    background-color: #fff;
+    box-shadow: 0 0 25px rgba(0,0,0,0.08);
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    overflow-x: hidden;
+}
+
+/* TÍTULO */
+.content h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 25px;
+}
+
+/* FILTRO DE AÑO Y BOTONES */
+.filtro-container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.filtro-container label {
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.filtro-container select {
+    padding: 10px 15px;
+    font-size: 14px;
+    border-radius: 10px;
+    background-color: #fefefe;
+    border: 1px solid #ccc;
+}
+
+.filtro-container select:hover {
+    border-color: #007bff;
+}
+
+/* BOTÓN FILTRAR */
+.btn-filtrar {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: transparent;
+    color: #007bff;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 20px;
+    border: 2px solid #007bff;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+}
+
+.btn-filtrar:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+/* BOTÓN PDF */
+.btn-exportar {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #e53935;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(255, 4, 0, 0.3);
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn-exportar:hover {
+    background-color: #d32f2f;
+    transform: translateY(-2px) scale(1.02);
+}
+
+#graficaVentas {
+    width: 100% !important;
+    max-width: 950px;
+    height: auto;
+    margin: 0 auto;
+    background: #fff;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+}

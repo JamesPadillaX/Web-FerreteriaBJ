@@ -1,0 +1,164 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.compras-contenido {
+  flex: 1;
+  padding: 0 12px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.compras-contenido h1 {
+  text-align: center;
+  font-size: 28px;
+  color: #1e3a5f;
+  margin: 40px auto 20px;
+}
+
+.mensaje-vacio {
+  text-align: center;
+  color: #888;
+  font-size: 18px;
+  margin-top: 60px;
+}
+
+.grupo-fecha {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 40px auto;
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px 16px;
+  border: 1px solid #e0e0e0;
+  box-sizing: border-box;
+}
+
+.titulo-fecha {
+  font-size: 18px;
+  font-weight: 600;
+  color: #555;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 6px;
+  margin-bottom: 20px;
+}
+
+.grupo-productos {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.tarjeta-producto {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #e0e0e0;
+  padding: 12px 0;
+  width: 100%;
+  box-sizing: border-box;
+  flex-wrap: nowrap;
+  gap: 12px;
+  overflow: hidden;
+}
+
+.imagen-producto {
+  width: 80px;
+  height: 80px;
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #dcdcdc;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.imagen-producto img {
+  max-width: 85%;
+  max-height: 85%;
+  object-fit: contain;
+}
+
+.info-producto {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  word-wrap: break-word;
+}
+
+.info-producto h3 {
+  font-size: 15px;
+  font-weight: 500;
+  color: #222;
+  white-space: normal;
+  word-break: break-word;
+}
+
+.estado {
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.estado-pagado,
+.estado-entregado {
+  color: #3fca46;
+}
+
+.estado-pendiente {
+  color: #555;
+}
+
+/* Responsive total */
+@media (max-width: 768px) {
+  .tarjeta-producto {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .imagen-producto {
+    width: 70px;
+    height: 70px;
+  }
+
+  .info-producto h3 {
+    font-size: 14px;
+  }
+
+  .estado {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .grupo-fecha {
+    padding: 14px;
+  }
+
+  .titulo-fecha {
+    font-size: 16px;
+  }
+
+  .imagen-producto {
+    width: 60px;
+    height: 60px;
+  }
+
+  .info-producto h3 {
+    font-size: 13.5px;
+  }
+
+  .estado {
+    font-size: 12.5px;
+  }
+}

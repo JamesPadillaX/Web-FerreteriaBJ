@@ -55,7 +55,6 @@ public class ExportarProductosPdfServlet extends HttpServlet {
             PdfWriter.getInstance(document, response.getOutputStream());
             document.open();
 
-            // Colores y fuentes
             BaseColor azul = new BaseColor(40, 75, 99);
             Font tituloFont = FontFactory.getFont(FontFactory.HELVETICA_BOLD, 16, azul);
             Font infoFont = FontFactory.getFont(FontFactory.HELVETICA, 10);
@@ -83,7 +82,7 @@ public class ExportarProductosPdfServlet extends HttpServlet {
             encabezado.addCell(reporteCell);
             document.add(encabezado);
 
-            // Fecha, usuario y categoría
+            // Fecha y usuario
             String fecha = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(new Date());
             HttpSession session = request.getSession(false);
             Usuario u = (session != null) ? (Usuario) session.getAttribute("usuario") : null;
@@ -104,7 +103,6 @@ public class ExportarProductosPdfServlet extends HttpServlet {
             table.setWidths(new float[]{2.2f, 2.5f, 2.5f, 2.2f, 1.2f, 1.5f, 2.5f});
             table.setSpacingBefore(10f);
 
-            // Encabezados
             addHeaderCell(table, "Nombre", headerFont, azul);
             addHeaderCell(table, "Descripción", headerFont, azul);
             addHeaderCell(table, "Categoría", headerFont, azul);
@@ -119,6 +117,7 @@ public class ExportarProductosPdfServlet extends HttpServlet {
                 table.addCell(createCell(p.getCategoria(), bodyFont));
                 table.addCell(createCell(String.format("S/ %.2f", p.getPrecio()), bodyFont));
                 table.addCell(createCell(String.valueOf(p.getCantidad()), bodyFont));
+
                 String estado = switch (p.getEstado()) {
                     case 1 -> "Activo";
                     case 0 -> "Inactivo";
@@ -126,11 +125,10 @@ public class ExportarProductosPdfServlet extends HttpServlet {
                 };
                 table.addCell(createCell(estado, bodyFont));
 
-                // Imagen con tamaño fijo
                 try {
                     String imgPath = getServletContext().getRealPath("/" + p.getImagen().trim());
                     Image img = Image.getInstance(imgPath);
-                    img.scaleToFit(30, 30); // tamaño pequeño
+                    img.scaleToFit(30, 30);
                     PdfPCell imgCell = new PdfPCell(img, true);
                     imgCell.setHorizontalAlignment(Element.ALIGN_CENTER);
                     imgCell.setPadding(3);
@@ -141,6 +139,17 @@ public class ExportarProductosPdfServlet extends HttpServlet {
             }
 
             document.add(table);
+            document.add(new Paragraph(" "));
+
+            // Total productos diferentes
+            int totalProductosDiferentes = productos.size();
+            Font totalFont = FontFactory.getFont(FontFactory.HELVETICA_BOLD, 12, BaseColor.BLACK);
+            Paragraph totalProductosParrafo = new Paragraph(
+                "Total de Productos: " + totalProductosDiferentes, totalFont
+            );
+            totalProductosParrafo.setAlignment(Element.ALIGN_RIGHT);
+            document.add(totalProductosParrafo);
+
             document.close();
 
         } catch (Exception e) {

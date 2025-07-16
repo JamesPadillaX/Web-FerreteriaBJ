@@ -61,7 +61,7 @@
     <div class="modal-content">
       <ul>
         <li><a href="perfilCliente.jsp"><i data-lucide="user-circle" class="icon"></i> Mi Perfil</a></li>
-        <li><a href="pedidos.jsp"><i data-lucide="package" class="icon"></i> Mis Pedidos</a></li>
+        <li><a href="Compras"><i data-lucide="package" class="icon"></i> Mis Compras</a></li>
         <li><a href="LogoutServlet"><i data-lucide="log-out" class="icon"></i> Cerrar Sesión</a></li>
       </ul>
     </div>

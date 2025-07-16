@@ -3,18 +3,21 @@ package modelo;
 public class DetalleVenta {
 
     private int idDetalleVenta;
-    private int idVenta;           // Importante para saber a qué venta pertenece
+    private int idVenta;          
     private int idProducto;
     private String nombreProducto;
     private int cantidad;
     private double precioUnitario;
+    private String imagenProducto;   
+    private String fechaCompra;
+    private String estado;      
 
-    // Subtotal calculado directamente desde cantidad y precioUnitario
+
     public double getSubtotal() {
         return cantidad * precioUnitario;
     }
 
-    // Getters y Setters
+
     public int getIdDetalleVenta() {
         return idDetalleVenta;
     }
@@ -62,4 +65,29 @@ public class DetalleVenta {
     public void setPrecioUnitario(double precioUnitario) {
         this.precioUnitario = precioUnitario;
     }
+
+    public String getImagenProducto() {
+        return imagenProducto;
+    }
+
+    public void setImagenProducto(String imagenProducto) {
+        this.imagenProducto = imagenProducto;
+    }
+
+    public String getFechaCompra() {
+        return fechaCompra;
+    }
+
+    public void setFechaCompra(String fechaCompra) {
+        this.fechaCompra = fechaCompra;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+    
 }

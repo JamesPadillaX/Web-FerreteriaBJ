@@ -10,10 +10,9 @@ public class Seguridad {
             MessageDigest md = MessageDigest.getInstance("SHA-256");
             byte[] hashBytes = md.digest(input.getBytes());
 
-            // Convertir a hexadecimal
             StringBuilder sb = new StringBuilder();
             for (byte b : hashBytes) {
-                sb.append(String.format("%02x", b));  // convierte byte a hex
+                sb.append(String.format("%02x", b)); 
             }
             return sb.toString();
         } catch (NoSuchAlgorithmException e) {

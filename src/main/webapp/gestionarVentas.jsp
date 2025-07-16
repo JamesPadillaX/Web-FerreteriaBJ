@@ -16,23 +16,32 @@
 
     <div class="content">
         <h1>Gestión de Ventas</h1>
+        <div class="contenedor-acciones">
+            <form action="Ventas" method="get" class="filtro-container">
+                <div>
+                    <label for="fechaInicio">Desde</label>
+                    <input type="date" name="fechaInicio" id="fechaInicio" value="${param.fechaInicio}">
+                </div>
+                <div>
+                    <label for="fechaFin">Hasta</label>
+                    <input type="date" name="fechaFin" id="fechaFin" value="${param.fechaFin}">
+                </div>
+                <button type="submit" class="btn-filtrar">
+                    <i class="fas fa-filter"></i> Filtrar
+                </button>
+                <a href="Ventas" class="btn-limpiar">
+                    <i class="fas fa-eraser"></i> Limpiar
+                </a>
+            </form>
 
-        <form action="Ventas" method="get" class="filtro-container">
-            <div>
-                <label for="fechaInicio">Desde</label>
-                <input type="date" name="fechaInicio" id="fechaInicio" value="${param.fechaInicio}">
-            </div>
-            <div>
-                <label for="fechaFin">Hasta</label>
-                <input type="date" name="fechaFin" id="fechaFin" value="${param.fechaFin}">
-            </div>
-            <button type="submit" class="btn-filtrar">
-                <i class="fas fa-filter"></i> Filtrar
-            </button>
-               <a href="Ventas" class="btn-limpiar">
-                <i class="fas fa-eraser"></i> Limpiar
-            </a>
-        </form>
+            <form action="ExportarVentasPdfServlet" method="get" class="form-exportar">
+                <input type="hidden" name="fechaInicio" value="${param.fechaInicio}">
+                <input type="hidden" name="fechaFin" value="${param.fechaFin}">
+                <button type="submit" class="btn-exportar-pdf">
+                    <i class="fas fa-file-pdf"></i> Exportar PDF
+                </button>
+            </form>
+        </div>
 
         <div class="tabla-ventas">
             <table>
@@ -73,7 +82,7 @@
                             </td>
                             <td>${v.metodoEnvio}</td>
                             <td>S/. ${v.total}</td>
-                            <td>${fn:split(v.fecha, " ")[0]}</td>
+                            <td>${v.fecha}</td>
                             <td>
                                 <span class="estado-label estado-${fn:toLowerCase(v.estado)}">${v.estado}</span>
                                 <button class="btn-abrir-modal" onclick="abrirModalEstado('${v.idVenta}', '${v.estado}')">
@@ -92,9 +101,9 @@
                                 </c:if>
                             </td>
                             <td>
-<a href="DetalleVentaServlet?idVenta=${v.idVenta}" class="btn-ver-detalle" title="Ver Detalle">
-    <i class="fa-solid fa-magnifying-glass"></i> 
-</a>
+                                <a href="DetalleVentaServlet?idVenta=${v.idVenta}" class="btn-ver-detalle" title="Ver Detalle">
+                                    <i class="fa-solid fa-magnifying-glass"></i> 
+                                </a>
 
                             </td>
                         </tr>

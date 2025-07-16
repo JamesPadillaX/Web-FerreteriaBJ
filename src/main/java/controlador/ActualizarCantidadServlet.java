@@ -38,7 +38,7 @@ public class ActualizarCantidadServlet extends HttpServlet {
         int idCarrito = carritoDAO.obtenerCarritoActivo(idCliente);
 
         String idProductoStr = request.getParameter("idProducto");
-        String accion = request.getParameter("accion"); // "sumar" o "restar"
+        String accion = request.getParameter("accion"); 
 
         if (idProductoStr != null && accion != null) {
             try {
@@ -57,7 +57,6 @@ public class ActualizarCantidadServlet extends HttpServlet {
                 carritoDAO.actualizarCantidadProducto(idCarrito, idProducto, nuevaCantidad);
 
             } catch (NumberFormatException e) {
-                // puedes registrar el error si deseas
             }
         }
 

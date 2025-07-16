@@ -52,7 +52,7 @@
     transform: scale(1.05);
 }
 
-/* Filtros */
+
 .filtros-container {
     background-color: #ffffff;
     padding: 20px;
@@ -131,14 +131,14 @@
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
 }
 
-/* Card con poco stock */
+
 .low-stock-card {
     border: 2px solid #dc3545;
     background-color: #fff5f5;
     box-shadow: 0 0 12px rgba(220, 53, 69, 0.3);
 }
 
-/* Estado */
+
 .badge {
     position: absolute;
     top: 10px;
@@ -174,10 +174,10 @@
     color: #888;
 }
 
-/* Cuerpo */
+
 .card-body {
     flex: 1;
-    padding: 10px 15px 4px; /* menor padding abajo */
+    padding: 10px 15px 4px; 
     text-align: center;
 }
 .card-title {

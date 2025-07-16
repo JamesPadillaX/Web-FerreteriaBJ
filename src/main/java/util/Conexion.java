@@ -9,8 +9,7 @@ import java.util.logging.Logger;
 public class Conexion {
     private static Conexion instancia;
     private Connection conexion;
-
-    private final String URL = "jdbc:mysql://localhost:3306/FerreteriaBJ?useSSL=false&serverTimezone=UTC";
+    private final String URL = "jdbc:mysql://localhost:3306/FerreteriaBJ?useSSL=false&serverTimezone=America/Lima";
     private final String USER = "root";
     private final String PASSWORD = "Zercopadilla17";
 

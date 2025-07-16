@@ -34,7 +34,7 @@ public class AgregarCarritoServlet extends HttpServlet {
             return;
         }
 
-        int idCliente = cliente.getIdCliente();  // Ajusta según el nombre del getter
+        int idCliente = cliente.getIdCliente(); 
 
         int idCarrito = carritoDAO.crearCarritoSiNoExiste(idCliente);
 
@@ -50,7 +50,6 @@ public class AgregarCarritoServlet extends HttpServlet {
                     carritoDAO.agregarProductoAlCarrito(idCarrito, idProducto, cantidad);
                 }
             } catch (NumberFormatException e) {
-                // manejar error si quieres
             }
         }
         String referer = request.getHeader("Referer");

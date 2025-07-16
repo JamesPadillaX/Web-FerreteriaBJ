@@ -1,4 +1,4 @@
-/* ==== BASE ==== */
+
 * {
   margin: 0;
   padding: 0;
@@ -30,13 +30,21 @@ body {
   font-weight: bold;
 }
 
-/* ==== FILTRO ==== */
+/* ==== CONTENEDOR DE FILTROS Y EXPORTAR ==== */
+.contenedor-acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: flex-end;
+  margin-bottom: 24px;
+}
+
+/* ==== FORMULARIO FILTRO ==== */
 .filtro-container {
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-end;
   gap: 12px;
-  margin-bottom: 24px;
+  align-items: flex-end;
 }
 
 .filtro-container div {
@@ -54,27 +62,64 @@ body {
   padding: 8px 10px;
   border-radius: 6px;
   border: 1px solid #ccc;
-  width: 160px;
+  width: 180px;
+  font-size: 13px;
 }
 
-.btn-filtrar,
-.btn-limpiar {
-  background-color: #fff;
-  color: #007bff;
-  border: 1px solid #007bff;
-  padding: 8px 12px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: 0.2s;
+/* ==== FORMULARIO EXPORTAR PDF ==== */
+.form-exportar {
   display: flex;
-  align-items: center;
-  gap: 6px;
+  align-items: flex-end;
 }
 
-.btn-filtrar:hover,
-.btn-limpiar:hover {
+/* ==== BOTONES FILTRAR / LIMPIAR / EXPORTAR PDF ==== */
+.btn-filtrar,
+.btn-limpiar,
+.btn-exportar-pdf {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 6px;
+  border: 1px solid;
+  cursor: pointer;
+  transition: 0.2s;
+  text-decoration: none;
+  gap: 6px;
+  background-color: #fff;
+  color: var(--color-principal);
+  border-color: var(--color-principal);
+}
+
+/* Botón Filtrar */
+.btn-filtrar {
+  --color-principal: #007bff;
+}
+
+.btn-filtrar:hover {
   background-color: #007bff;
+  color: white;
+}
+
+/* Botón Limpiar */
+.btn-limpiar {
+  --color-principal: #6c757d;
+}
+
+.btn-limpiar:hover {
+  background-color: #6c757d;
+  color: white;
+}
+
+/* Botón Exportar PDF */
+.btn-exportar-pdf {
+  --color-principal: #dc3545;
+}
+
+.btn-exportar-pdf:hover {
+  background-color: #dc3545;
   color: white;
 }
 
@@ -86,12 +131,11 @@ body {
 
 .tabla-ventas table {
   width: 100%;
-  min-width: 960px;
   border-collapse: collapse;
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-  font-size: 13px;
+  font-size: 11px;
 }
 
 .tabla-ventas thead {
@@ -102,7 +146,8 @@ body {
 
 .tabla-ventas th,
 .tabla-ventas td {
-  padding: 10px 12px;
+  padding: 8px 10px;
+  font-size: 11px;  
   text-align: center;
   border-bottom: 1px solid #eee;
   white-space: nowrap;
@@ -112,7 +157,6 @@ body {
   background-color: #f4faff;
 }
 
-/* Oculta visualmente la columna ID */
 .tabla-ventas td.oculto,
 .tabla-ventas th.oculto {
   display: none;
@@ -145,7 +189,6 @@ body {
   background-color: #117a8b;
 }
 
-/* Botón editar estado */
 .btn-abrir-modal {
   background-color: #6c757d;
   color: white;
@@ -161,7 +204,7 @@ body {
   background-color: #5a6268;
 }
 
-/* ==== MÉTODO PAGO en círculo ==== */
+/* ==== MÉTODO PAGO ==== */
 .metodo-yape,
 .metodo-plin,
 .metodo-bcp {
@@ -177,7 +220,7 @@ body {
 .metodo-plin { background-color: #4caf50; }
 .metodo-bcp { background-color: #03a9f4; }
 
-/* ==== ESTADOS en círculo ==== */
+/* ==== ESTADOS ==== */
 .estado-label {
   display: inline-block;
   padding: 6px 10px;
@@ -195,12 +238,11 @@ body {
 
 /* ==== MODAL CAMBIAR ESTADO ==== */
 #modalEstado {
-  display: none; /* Esto evita que se muestre por defecto */
+  display: none;
   position: fixed;
   top: 0; left: 0;
   width: 100%; height: 100%;
   background-color: rgba(0, 0, 0, 0.4);
-  display: none;
   justify-content: center;
   align-items: center;
   z-index: 999;
@@ -293,11 +335,33 @@ body {
     gap: 4px;
   }
 
-  .filtro-container {
+  .contenedor-acciones {
     flex-direction: column;
     align-items: flex-start;
   }
+
+  .filtro-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .form-exportar {
+    width: 100%;
+  }
 }
+
 .tabla-ventas table tr > *:first-child {
   display: none;
+}
+.tabla-ventas td, .tabla-ventas th {
+    word-break: break-word;
+    white-space: normal;
+}
+
+.tabla-ventas td:nth-child(7) {
+    white-space: nowrap;
+}
+.tabla-ventas td:nth-child(4) {
+    white-space: nowrap;
 }

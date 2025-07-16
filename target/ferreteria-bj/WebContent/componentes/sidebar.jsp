@@ -64,7 +64,7 @@
                 <% } %>
 
                 <% if (modulosPermitidos.contains("Reportes")) { %>
-                    <li><a href="errorFuncionalidades.jsp"><i class="fas fa-chart-line"></i> Reportes</a></li>
+                    <li><a href="ReporteVentas"><i class="fas fa-chart-line"></i> Reportes</a></li>
                 <% } %>
 
                 <% if (modulosPermitidos.contains("Carrusel")) { %>
