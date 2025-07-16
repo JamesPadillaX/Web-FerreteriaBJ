@@ -13,43 +13,43 @@
   <div class="contenedor-principal">
     <jsp:include page="header.jsp" />
     <main>
-      <form action="ActualizarContrasenaServlet" method="post" class="formulario">
-        <h2>Actualizar Contraseña</h2>
+     <form action="ActualizarContrasenaServlet" method="post" class="formulario">
+  <h2>Actualizar Contraseña</h2>
 
-        <label for="nuevaPassword">Nueva Contraseña:</label>
-        <div class="input-contrasena">
-          <input type="password" id="nuevaPassword" name="nuevaPassword" required>
-          <i class="fa-solid fa-eye-slash toggle-password" title="Mostrar/Ocultar contraseña"></i>
-        </div>
+  <div class="campo-con-icono">
+    <label for="nuevaPassword">Nueva Contraseña:</label>
+    <div class="input-con-icono input-contrasena">
+      <i class="fa-solid fa-lock icono-izquierdo"></i>
+      <input type="password"
+       id="nuevaPassword"
+       name="nuevaPassword"
+       required
+       pattern=".{8,}"
+       title="La contraseña debe tener al menos 8 caracteres.">
+      <i class="fa-solid fa-eye-slash toggle-password" onclick="togglePassword(this, 'nuevaPassword')"></i>
+    </div>
+  </div>
 
-        <button type="submit">Guardar Contraseña</button>
+  <button type="submit">Guardar Contraseña</button>
 
-        <%
-          HttpSession sesion = request.getSession(false);
-          if (sesion != null) {
-              String mensajeExito = (String) sesion.getAttribute("mensajeExito");
-              String mensajeError = (String) sesion.getAttribute("mensajeError");
+  <% 
+    HttpSession sesion = request.getSession(false);
+    if (sesion != null) {
+        String mensajeExito = (String) sesion.getAttribute("mensajeExito");
+        String mensajeError = (String) sesion.getAttribute("mensajeError");
 
-              if (mensajeExito != null) {
-        %>
-                <p class="exito"><%= mensajeExito %></p>
-        <%
-                sesion.removeAttribute("mensajeExito");
-              }
+        if (mensajeExito != null) { %>
+            <p class="exito"><%= mensajeExito %></p>
+  <%        sesion.removeAttribute("mensajeExito");
+        }
+        if (mensajeError != null) { %>
+            <p class="error"><%= mensajeError %></p>
+  <%        sesion.removeAttribute("mensajeError");
+        }
+    }
+  %>
+</form>
 
-              if (mensajeError != null) {
-        %>
-                <p class="error"><%= mensajeError %></p>
-        <%
-                sesion.removeAttribute("mensajeError");
-              }
-          }
-        %>
-
-        <div class="volver-login">
-          <a href="login.jsp">Volver al inicio de sesión</a>
-        </div>
-      </form>
     </main>
     <jsp:include page="footer.jsp" />
   </div>

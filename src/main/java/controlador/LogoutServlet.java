@@ -14,9 +14,9 @@ public class LogoutServlet extends HttpServlet {
         HttpSession session = request.getSession(false);
 
         if (session != null) {
-            session.invalidate(); 
+            session.removeAttribute("clienteLogueado");  
         }
 
-        response.sendRedirect("inicio"); 
+        response.sendRedirect("inicio");  
     }
 }

@@ -15,11 +15,11 @@
     <link rel="stylesheet" href="WebContent/css/web/perfil.css">
  
 </head>
-<body>
+<body class="body-flex">
     <jsp:include page="header.jsp" />
 
     <div class="contenedor-principal">
-        <main>
+        <main class="contenido">
             <div class="perfil-contenedor">
                 <h2>DATOS PERSONALES</h2>
                 <div class="perfil-info">
@@ -35,4 +35,5 @@
 
     <jsp:include page="footer.jsp" />
 </body>
+
 </html>

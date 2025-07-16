@@ -227,7 +227,7 @@ header .modal-content i.icon {
 /* === MODAL PERFIL DE USUARIO === */
 .modal {
   position: absolute;
-  top: 60px;
+  top: 51px;
   right: 6rem;
   width: 220px;
   background-color: #ffffff;
@@ -273,7 +273,7 @@ header .modal-content i.icon {
     right: 1rem;
     left: 1rem;
     width: auto;
-    top: 110px;
+    top: 85px;
   }
 
   .modal-content li a {

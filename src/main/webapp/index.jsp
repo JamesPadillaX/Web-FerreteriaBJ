@@ -37,37 +37,35 @@
         </div>
       </section>
 
-      <section class="ofertas">
-        <h2>Ofertas Destacadas</h2>
-        <div class="productos-contenedor">
-          <div class="producto">
-            <img src="WebContent/images/Herramientas.png" alt="Taladro">
-            <p>Taladro Eléctrico - S/ 199</p>
-          </div>
-          <div class="producto">
-            <img src="WebContent/images/Taladro.png" alt="Martillo">
-            <p>Martillo Profesional - S/ 49</p>
-          </div>
-        </div>
-      </section>
+<section class="ofertas">
+    <h2>Si buscas <span>herramientas</span> de todo tipo...</h2>
+    <div class="productos-contenedor">
+        <c:forEach var="producto" items="${productosCategoria1}">
+            <a href="DetalleProducto?id=${producto.idProducto}" class="producto">
+                <img src="${pageContext.request.contextPath}/${producto.imagen}" alt="${producto.nombre}">
+                <p class="nombre">${producto.nombre}</p>
+                <p class="precio">S/ ${producto.precio}</p>
+            </a>
+        </c:forEach>
+    </div>
+</section>
 
-      <section class="ofertas">
-        <h2>Lo más vendido</h2>
-        <div class="productos-contenedor">
-          <div class="producto">
-            <img src="images/destornillador.jpg" alt="Destornillador">
-            <p>Set de Destornilladores - S/ 39</p>
-          </div>
-          <div class="producto">
-            <img src="images/llave.jpg" alt="Llave">
-            <p>Llave Stilson - S/ 59</p>
-          </div>
-        </div>
-      </section>
-    </main>
+<section class="ofertas">
+    <h2>Para la <span>construcción</span> lo mejor para tu obra...</h2>
+    <div class="productos-contenedor">
+        <c:forEach var="producto" items="${productosCategoria2}">
+            <a href="DetalleProducto?id=${producto.idProducto}" class="producto">
+                <img src="${pageContext.request.contextPath}/${producto.imagen}" alt="${producto.nombre}">
+                <p class="nombre">${producto.nombre}</p>
+                <p class="precio">S/ ${producto.precio}</p>
+            </a>
+        </c:forEach>
+    </div>
+</section>
+
 
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
   const slides = document.querySelectorAll(".slide");
   const contenedorIndicadores = document.getElementById("indicadoresCarrusel");
   let index = 0;
@@ -96,9 +94,43 @@
     index = (index + 1) % slides.length;
     mostrarSlide(index);
   }, 5000);
-});
 
+
+  const todasSecciones = document.querySelectorAll('.ofertas');
+
+  todasSecciones.forEach(seccion => {
+    const contenedorProductos = seccion.querySelector('.productos-contenedor');
+    const productos = seccion.querySelectorAll('.producto');
+
+    if (productos.length > 0) {
+      const indicadores = document.createElement('div');
+      indicadores.className = 'productos-indicadores';
+
+      const cantidadPaginas = Math.ceil(productos.length / 5);
+
+      for (let i = 0; i < cantidadPaginas; i++) {
+        const punto = document.createElement('div');
+        punto.classList.add('indicador');
+        if (i === 0) punto.classList.add('activo');
+
+        punto.addEventListener('click', () => {
+          const anchoProducto = productos[0].offsetWidth + 20; 
+          contenedorProductos.scrollLeft = i * anchoProducto * 5;
+
+          indicadores.querySelectorAll('.indicador').forEach(p => p.classList.remove('activo'));
+          punto.classList.add('activo');
+        });
+
+        indicadores.appendChild(punto);
+      }
+
+      seccion.appendChild(indicadores);
+    }
+  });
+
+});
 </script>
+
     <jsp:include page="footer.jsp" />
   </div>
 </body>

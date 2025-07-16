@@ -6,6 +6,7 @@
   <title>Verificar Código - Ferretería BJ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="WebContent/css/web/login.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -16,8 +17,13 @@
       <form action="VerificarCodigoServlet" method="post" class="formulario">
         <h2>● ● ● ●</h2>
 
-        <label for="codigo">Código recibido:</label>
-        <input type="text" id="codigo" name="codigo" required maxlength="6" pattern="\d{6}" title="Debe ingresar 6 números">
+<div class="campo-con-icono">
+  <label for="codigo">Código recibido:</label>
+  <div class="input-con-icono">
+    <i class="fa-solid fa-lock icono-izquierdo"></i>
+    <input type="text" id="codigo" name="codigo" required maxlength="6" pattern="\d{6}" title="Debe ingresar 6 números">
+  </div>
+</div>
 
         <button type="submit">Verificar</button>
 

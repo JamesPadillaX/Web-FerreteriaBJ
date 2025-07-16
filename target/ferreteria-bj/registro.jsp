@@ -34,46 +34,52 @@
             }
           %>
 
-
-
-          <div class="campo-con-icono">
-            <label for="nombre">Nombre</label>
-            <input type="text" id="nombre" name="nombre" required pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ ]+" title="Solo letras y espacios">
+          <!-- Nombre y Apellidos -->
+          <div class="fila-doble">
+            <div class="campo-con-icono">
+              <label for="nombre">Nombre</label>
+              <input type="text" id="nombre" name="nombre" required pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ ]+" title="Solo letras y espacios">
+            </div>
+            <div class="campo-con-icono">
+              <label for="apellidos">Apellidos</label>
+              <input type="text" id="apellidos" name="apellidos" required pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ ]+" title="Solo letras y espacios">
+            </div>
           </div>
 
-          <div class="campo-con-icono">
-            <label for="apellidos">Apellidos</label>
-            <input type="text" id="apellidos" name="apellidos" required pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ ]+" title="Solo letras y espacios">
+          <!-- DNI y Teléfono -->
+          <div class="fila-doble">
+            <div class="campo-con-icono">
+              <label for="dni">DNI</label>
+              <input type="text" id="dni" name="dni" required pattern="[0-9]{8}" maxlength="8" title="Debe contener exactamente 8 dígitos numéricos">
+            </div>
+            <div class="campo-con-icono">
+              <label for="telefono">Teléfono</label>
+              <input type="text" id="telefono" name="telefono" required pattern="[0-9]{9}" maxlength="9" title="Debe contener exactamente 9 dígitos numéricos">
+            </div>
           </div>
 
-          <div class="campo-con-icono">
-            <label for="dni">DNI</label>
-            <input type="text" id="dni" name="dni" required pattern="[0-9]{8}" maxlength="8" title="Debe contener exactamente 8 dígitos numéricos">
-          </div>
-
-          <div class="campo-con-icono">
-            <label for="telefono">Teléfono</label>
-            <input type="text" id="telefono" name="telefono" required pattern="[0-9]{9}" maxlength="9" title="Debe contener exactamente 9 dígitos numéricos">
-          </div>
-
+          <!-- Correo -->
           <label for="correo">Correo Electrónico</label>
           <div class="campo-con-icono">
             <i class="fa-solid fa-envelope icono-izquierdo"></i>
             <input type="email" id="correo" name="correo" required>
           </div>
 
-          <label for="password">Contraseña</label>
-          <div class="campo-con-icono">
-            <i class="fa-solid fa-lock icono-izquierdo"></i>
-            <input type="password" id="password" name="password" required minlength="6">
-            <i class="fa-solid fa-eye-slash toggle-password" onclick="togglePassword('password', this)"></i>
-          </div>
+          <!-- Contraseña y Confirmar Contraseña -->
+          <div class="fila-doble">
+            <div class="campo-con-icono">
+              <label for="password">Contraseña</label>
+              <i class="fa-solid fa-lock icono-izquierdo"></i>
+              <input type="password" id="password" name="password" required minlength="8">
+              <i class="fa-solid fa-eye-slash toggle-password" onclick="togglePassword('password', this)"></i>
+            </div>
 
-          <label for="confirmar">Confirmar Contraseña</label>
-          <div class="campo-con-icono">
-            <i class="fa-solid fa-lock icono-izquierdo"></i>
-            <input type="password" id="confirmar" name="confirmar" required minlength="6">
-            <i class="fa-solid fa-eye-slash toggle-password" onclick="togglePassword('confirmar', this)"></i>
+            <div class="campo-con-icono">
+              <label for="confirmar">Confirmar Contraseña</label>
+              <i class="fa-solid fa-lock icono-izquierdo"></i>
+              <input type="password" id="confirmar" name="confirmar" required minlength="8">
+              <i class="fa-solid fa-eye-slash toggle-password" onclick="togglePassword('confirmar', this)"></i>
+            </div>
           </div>
 
           <button type="submit">Registrarse</button>

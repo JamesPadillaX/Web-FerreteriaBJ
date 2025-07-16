@@ -31,7 +31,6 @@ public class EnviarCodigoServlet extends HttpServlet {
 
             boolean enviado = CorreoUtil.enviarCodigo(correo, codigo);
             if (enviado) {
-                sesion.setAttribute("mensajeExito", "Código enviado. Revisa tu correo.");
                 response.sendRedirect("verificarCodigo.jsp");
             } else {
                 sesion.setAttribute("mensajeError", "No se pudo enviar el código. Intenta más tarde.");

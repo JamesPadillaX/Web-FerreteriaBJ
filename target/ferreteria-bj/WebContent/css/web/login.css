@@ -157,3 +157,19 @@ main {
     font-size: 0.95rem;
   }
 }
+.volver-login {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.volver-login a {
+  color: #001f3f;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.volver-login a:hover {
+  color: #f1c40f;
+}

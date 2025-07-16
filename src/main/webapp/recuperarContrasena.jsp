@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <title>Recuperar Contraseña - Ferretería BJ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="WebContent/css/web/login.css">
 </head>
 <body>
@@ -14,9 +15,14 @@
       <form action="EnviarCodigoServlet" method="post" class="formulario">
         <h2>Recuperar Contraseña</h2>
 
-        <label for="correo">Correo Electrónico</label>
-        <input type="email" id="correo" name="correo" required>
-
+        <div class="campo-con-icono">
+          <label for="correo">Correo Electrónico</label>
+          <div class="input-con-icono">
+            <i class="fa-solid fa-envelope icono-izquierdo"></i>
+            <input type="email" id="correo" name="correo"
+            value="<%= request.getParameter("correo") != null ? request.getParameter("correo") : "" %>" required>
+          </div>
+        </div>
         <button type="submit">Enviar código</button>
 
         <% String error = request.getParameter("error"); %>
