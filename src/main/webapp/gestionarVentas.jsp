@@ -126,39 +126,42 @@
         <h2>Cambiar Estado</h2>
         <form id="formActualizarEstado" action="ActualizarEstadoVentaServlet" method="post">
             <input type="hidden" name="idVenta" id="modal-idVenta">
-            <label for="modal-estado">Selecciona nuevo estado:</label>
-            <select name="estado" id="modal-estado" class="select-estado">
-                <option value="PENDIENTE">PENDIENTE</option>
-                <option value="PAGADO">PAGADO</option>
-                <option value="ENVIADO">ENVIADO</option>
-                <option value="ENTREGADO">ENTREGADO</option>
-                <option value="CANCELADO">CANCELADO</option>
-            </select>
+
+            <div class="estado-steps">
+                <label><input type="radio" name="estado" value="PENDIENTE" id="radio-pendiente"> PENDIENTE</label>
+                <label><input type="radio" name="estado" value="PAGADO" id="radio-pagado"> PAGADO</label>
+                <label><input type="radio" name="estado" value="ENVIADO" id="radio-enviado"> ENVIADO</label>
+                <label><input type="radio" name="estado" value="ENTREGADO" id="radio-entregado"> ENTREGADO</label>
+                <label><input type="radio" name="estado" value="CANCELADO" id="radio-cancelado"> CANCELADO</label>
+            </div>
+
             <div class="modal-actions">
                 <button type="button" onclick="cerrarModal()" class="btn-cancelar">Cancelar</button>
                 <button type="submit" class="btn-confirmar">Actualizar</button>
             </div>
-        </form>
+        </form> 
     </div>
 </div>
 
 <script>
-    function abrirModalEstado(idVenta, estadoActual) {
-        document.getElementById("modal-idVenta").value = idVenta;
-        document.getElementById("modal-estado").value = estadoActual;
-        document.getElementById("modalEstado").style.display = "flex";
-    }
+function abrirModalEstado(idVenta, estadoActual) {
+    document.getElementById("modal-idVenta").value = idVenta;
 
-    function cerrarModal() {
-        document.getElementById("modalEstado").style.display = "none";
-    }
+    document.querySelectorAll('.estado-steps input[type="radio"]').forEach(radio => {
+        radio.checked = (radio.value === estadoActual);
 
-    window.addEventListener("click", function(e) {
-        const modal = document.getElementById("modalEstado");
-        if (e.target === modal) {
-            cerrarModal();
-        }
+        if (estadoActual === "PAGADO" && radio.value === "PENDIENTE") radio.disabled = true;
+        if (estadoActual === "ENVIADO" && (radio.value === "PENDIENTE" || radio.value === "PAGADO")) radio.disabled = true;
+        if (estadoActual === "ENTREGADO" && (radio.value !== "ENTREGADO" && radio.value !== "CANCELADO")) radio.disabled = true;
     });
+
+    document.getElementById("modalEstado").style.display = "flex";
+}
+
+function cerrarModal() {
+    document.getElementById("modalEstado").style.display = "none";
+}
 </script>
+
 </body>
 </html>

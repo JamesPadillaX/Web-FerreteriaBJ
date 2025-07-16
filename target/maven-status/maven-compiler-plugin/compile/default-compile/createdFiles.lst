@@ -33,6 +33,7 @@ modelo\Carrito.class
 controlador\ListarProductosServlet.class
 filtro\SeguridadFiltro.class
 modelo\Rol.class
+controlador\EliminarDomicilioServlet.class
 modelo\DetalleVenta.class
 controlador\AgregarUsuarioServlet.class
 controlador\ListarUsuariosServlet.class

@@ -37,11 +37,14 @@
                                             ${producto.estado != null ? producto.estado : "Pendiente"}
                                         </p>
                                         <h3>
-                                            ${producto.nombreProducto}
+                                            <a href="DetalleProducto?id=${producto.idProducto}" class="nombre-producto-link">
+                                                ${producto.nombreProducto}
+                                            </a>
                                             <c:if test="${producto.cantidad > 1}">
-                                                ×${producto.cantidad}
-                                            </c:if>
-                                        </h3>
+                                            ×${producto.cantidad}
+                                        </c:if>
+                                    </h3>
+
                                     </div>
                                 </div>
                             </c:forEach>

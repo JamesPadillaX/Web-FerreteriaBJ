@@ -38,10 +38,10 @@
                         <p>${totalCategoriasActivas}</p>
                     </a>
 
-                    <div class="stat-card emerald">
+                    <div href="Ventas" class="stat-card emerald">
                         <i class="fas fa-dollar-sign fa-2x"></i> 
-                        <h2>Ganancias Mensuales</h2>
-                        <p>${gananciasMensuales}</p>
+                        <h2>Ganancias de los ultimos 28 dias</h2>
+                        <p>S/ ${totalGanancias28Dias}</p>
                     </div>
 
                     <div class="card bajo-stock">

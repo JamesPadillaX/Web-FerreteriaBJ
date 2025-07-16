@@ -18,7 +18,8 @@ html, body {
   z-index: 1000;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   isolation: isolate;           
-  mix-blend-mode: normal;       
+  mix-blend-mode: normal;
+  position: relative;  /* 🔥 importante */       
 }
 
 .header-container {
@@ -29,6 +30,7 @@ html, body {
   max-width: 1200px;
   margin: auto;
   width: 100%;
+  position: relative;  /* 🔥 Esto sí es clave */
 }
 
 /* === LOGO === */
@@ -125,7 +127,6 @@ html, body {
 /* === MODAL DE PERFIL DE USUARIO === */
 header .modal {
   position: absolute !important;
-  top: calc(100% + 8px) !important; /* pequeña separación del botón */
   right: 0 !important;
   background-color: #ffffff !important;
   border-radius: 12px !important;

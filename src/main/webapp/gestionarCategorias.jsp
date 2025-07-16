@@ -6,12 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Gestionar Categorías</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
-    <!-- Estilos CSS -->
     <link rel="stylesheet" href="WebContent/css/panel/gestionarCategorias.css">
     <link rel="stylesheet" href="WebContent/css/panel/modalRegistroCategoria.css">
     <link rel="stylesheet" href="WebContent/css/panel/modalEditarCategoria.css">

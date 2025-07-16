@@ -16,22 +16,23 @@
       <form action="LoginServlet" method="post" class="formulario" id="formLogin">
         <h2>Iniciar Sesión</h2>
 
-<div class="campo-con-icono">
-  <label for="usuario">Correo Electrónico</label>
-  <div class="input-con-icono">
-    <i class="fa-solid fa-envelope icono-izquierdo"></i>
-    <input type="email" id="usuario" name="correo"
-      value="<%= request.getParameter("correo") != null ? request.getParameter("correo") : "" %>" required>
-  </div>
-</div>
+        <div class="campo-con-icono">
+          <label for="usuario">Correo Electrónico</label>
+          <div class="input-con-icono">
+            <i class="fa-solid fa-envelope icono-izquierdo"></i>
+            <input type="email" id="usuario" name="correo"
+            value="<%= request.getParameter("correo") != null ? request.getParameter("correo") : "" %>" required>
+          </div>
+        </div>
 
         <div class="campo-con-icono">
           <label for="contrasena">Contraseña</label>
          <div class="input-con-icono input-contrasena">
-  <i class="fa-solid fa-lock icono-izquierdo"></i>
-  <input type="password" id="contrasena" name="password" required>
-  <i class="fa-solid fa-eye-slash toggle-password"></i>
-</div>
+          <i class="fa-solid fa-lock icono-izquierdo"></i>
+          <input type="password" id="contrasena" name="password" required>
+          <i class="fa-solid fa-eye-slash toggle-password"></i>
+
+        </div>
 
         </div>
 
@@ -51,6 +52,6 @@
     <jsp:include page="footer.jsp" />
   </div>
 
-  <script src="WebContent/js/web/login.js"></script> <!-- ya tienes el toggle ahí -->
+  <script src="WebContent/js/web/login.js"></script> 
 </body>
 </html>

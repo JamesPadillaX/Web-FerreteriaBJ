@@ -73,17 +73,7 @@ public class VentaDAO {
         return idVentaGenerada;
     }
 
-    public boolean actualizarEstadoVenta(int idVenta, String nuevoEstado) {
-        String sql = "UPDATE ventas SET estado = ? WHERE idVenta = ?";
-        try (PreparedStatement ps = con.prepareStatement(sql)) {
-            ps.setString(1, nuevoEstado);
-            ps.setInt(2, idVenta);
-            return ps.executeUpdate() > 0;
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
+
 
     public List<Venta> obtenerTodasLasVentas() {
         List<Venta> lista = new ArrayList<>();
@@ -262,5 +252,68 @@ public List<DetalleVenta> obtenerProductosCompradosPorCliente(int idCliente) {
 
     return lista;
 }
+public boolean actualizarEstadoVenta(int idVenta, String nuevoEstado) {
+    String sql = "UPDATE ventas SET estado = ? WHERE idVenta = ?";
+    boolean exito = false;
+    try (PreparedStatement ps = con.prepareStatement(sql)) {
+        ps.setString(1, nuevoEstado);
+        ps.setInt(2, idVenta);
+        exito = ps.executeUpdate() > 0;
+
+        if (exito) {
+            List<DetalleVenta> detalles = obtenerDetalleVenta(idVenta);
+
+            if ("PAGADO".equalsIgnoreCase(nuevoEstado)) {
+                for (DetalleVenta d : detalles) {
+                    reducirStock(d.getIdProducto(), d.getCantidad());
+                }
+            } else if ("CANCELADO".equalsIgnoreCase(nuevoEstado)) {
+                for (DetalleVenta d : detalles) {
+                    aumentarStock(d.getIdProducto(), d.getCantidad());
+                }
+            }
+        }
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+    return exito;
+}
+
+private void reducirStock(int idProducto, int cantidadVendida) throws SQLException {
+    String sql = "UPDATE productos SET cantidad = cantidad - ? WHERE idProducto = ?";
+    try (PreparedStatement ps = con.prepareStatement(sql)) {
+        ps.setInt(1, cantidadVendida);
+        ps.setInt(2, idProducto);
+        ps.executeUpdate();
+    }
+}
+private void aumentarStock(int idProducto, int cantidadDevuelta) throws SQLException {
+    String sql = "UPDATE productos SET cantidad = cantidad + ? WHERE idProducto = ?";
+    try (PreparedStatement ps = con.prepareStatement(sql)) {
+        ps.setInt(1, cantidadDevuelta);
+        ps.setInt(2, idProducto);
+        ps.executeUpdate();
+    }
+}
+public double obtenerTotalVentasCompletadasUltimos28Dias() {
+    double total = 0;
+    String sql = "SELECT SUM(total) AS totalVentas " +
+                 "FROM ventas " +
+                 "WHERE estado IN ('PAGADO', 'ENVIADO', 'ENTREGADO') " +
+                 "AND fecha >= DATE_SUB(NOW(), INTERVAL 28 DAY)";
+
+    try (PreparedStatement ps = con.prepareStatement(sql)) {
+        ResultSet rs = ps.executeQuery();
+        if (rs.next()) {
+            total = rs.getDouble("totalVentas");
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+
+    return total;
+}
+
 
 }

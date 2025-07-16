@@ -24,6 +24,7 @@ C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\service\ClienteService.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\ListarCarruselPublicoServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\EditarRolServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\ExportarUsuariosPdfServlet.java
+C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\EliminarDomicilioServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\dao\ImagenProductoDAO.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\EliminarCategoriaServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\ListarDomiciliosServlet.java

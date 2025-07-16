@@ -40,7 +40,6 @@
 
     <main>
         <div class="contenedor-envio">
-            <!-- Columna de opciones de domicilio -->
             <div class="columna-opciones">
                 <h1>Mis domicilios</h1>
                 <form action="MarcarPrincipalServlet" method="post">
@@ -65,7 +64,7 @@
                                     <% } %>
                                     <div class="acciones-domicilio">
                                         <a href="editarDomicilio.jsp?id=<%= d.getIdDomicilio() %>" class="btn-editar">Editar</a>
-                                        <a href="EliminarDomicilioServlet?id=<%= d.getIdDomicilio() %>" class="btn-eliminar" onclick="return confirm('¿Estás seguro de eliminar este domicilio?');">Eliminar</a>
+                                        <a href="eliminarDomicilio?id=<%= d.getIdDomicilio() %>" class="btn-eliminar" onclick="return confirm('¿Estás seguro de eliminar este domicilio?');">Eliminar</a>
                                     </div>
                                 </div>
                             </label>
@@ -80,7 +79,6 @@
                 </form>
             </div>
 
-            <!-- Columna de resumen de compra -->
             <div class="columna-resumen">
                 <h2>Resumen de compra</h2>
                 <div class="resumen-linea">

@@ -110,14 +110,12 @@ public class DomicilioClienteDAO {
         try {
             con.setAutoCommit(false);
 
-            // Primero desmarcar todos
             String desmarcar = "UPDATE domicilios_cliente SET principal = 0 WHERE idCliente = ?";
             try (PreparedStatement ps = con.prepareStatement(desmarcar)) {
                 ps.setInt(1, idCliente);
                 ps.executeUpdate();
             }
 
-            // Luego marcar el seleccionado
             String marcar = "UPDATE domicilios_cliente SET principal = 1 WHERE idDomicilio = ?";
             try (PreparedStatement ps = con.prepareStatement(marcar)) {
                 ps.setInt(1, idDomicilio);
@@ -165,6 +163,16 @@ public class DomicilioClienteDAO {
         e.printStackTrace();
     }
     return null;
+}
+public boolean eliminarDomicilio(int idDomicilio) {
+    String sql = "DELETE FROM domicilios_cliente WHERE idDomicilio = ?";
+    try (PreparedStatement ps = con.prepareStatement(sql)) {
+        ps.setInt(1, idDomicilio);
+        return ps.executeUpdate() > 0;
+    } catch (SQLException e) {
+        logger.error("Error al eliminar domicilio", e);
+    }
+    return false;
 }
 
 }

@@ -41,6 +41,7 @@ public class LoginUsuarioServlet extends HttpServlet {
 
             HttpSession session = request.getSession();
             session.setAttribute("errorLogin", "Usuario o contraseña incorrectos");
+            session.setAttribute("usernameGuardado", username); 
             response.sendRedirect(request.getContextPath() + "/loginUsuario.jsp");
         }
     }

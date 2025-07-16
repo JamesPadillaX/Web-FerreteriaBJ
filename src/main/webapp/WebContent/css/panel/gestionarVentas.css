@@ -365,3 +365,24 @@ body {
 .tabla-ventas td:nth-child(4) {
     white-space: nowrap;
 }
+.estado-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.estado-steps label {
+    font-weight: 600;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.estado-steps input[type="radio"] {
+    accent-color: #007bff;
+    width: 18px;
+    height: 18px;
+}

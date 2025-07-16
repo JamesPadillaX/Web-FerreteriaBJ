@@ -103,6 +103,15 @@ html, body {
   white-space: normal;
   word-break: break-word;
 }
+.info-producto h3 a {
+  text-decoration: none;
+  color: inherit; 
+}
+
+.info-producto h3 a:hover {
+  color: #656565; /* o el color que prefieras al pasar el mouse */
+  text-decoration: none; /* evita el subrayado al hacer hover */
+}
 
 .estado {
   font-size: 14px;

@@ -11,7 +11,6 @@ public class DomicilioCliente {
     private String referencia;
     private boolean principal;
 
-    // Getters y Setters
     public int getIdDomicilio() {
         return idDomicilio;
     }

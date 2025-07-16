@@ -66,7 +66,6 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-  // Carrusel principal
   const slides = document.querySelectorAll(".slide");
   const contenedorIndicadores = document.getElementById("indicadoresCarrusel");
   let index = 0;
@@ -97,7 +96,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }, 5000);
 
 
-  // --- Indicadores de Productos (por cada sección) ---
   const todasSecciones = document.querySelectorAll('.ofertas');
 
   todasSecciones.forEach(seccion => {
