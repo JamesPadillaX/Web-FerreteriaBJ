@@ -10,18 +10,16 @@ public class ClienteService {
     public ClienteService() {
         this.clienteDAO = new ClienteDAO();
     }
-
- 
-    public boolean registrarCliente(Cliente cliente, String passwordPlano) {
-        if (clienteDAO.existeDni(cliente.getDni())) return false;
-        if (clienteDAO.existeCorreo(cliente.getCorreo())) return false;
-        if (clienteDAO.existeTelefono(cliente.getTelefono())) return false;
-
-      
+    
+    public String registrarCliente(Cliente cliente, String passwordPlano) {
+        if (clienteDAO.existeDni(cliente.getDni())) return "DNI_DUPLICADO";
+        if (clienteDAO.existeCorreo(cliente.getCorreo())) return "CORREO_DUPLICADO";
+        if (clienteDAO.existeTelefono(cliente.getTelefono())) return "TELEFONO_DUPLICADO";
+    
         String passwordHash = Seguridad.hashSHA256(passwordPlano);
         cliente.setPassword(passwordHash);
-
-        return clienteDAO.registrarCliente(cliente);
+        boolean registrado = clienteDAO.registrarCliente(cliente);
+        return registrado ? "EXITO" : "ERROR";
     }
 
 }

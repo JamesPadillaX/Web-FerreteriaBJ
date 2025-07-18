@@ -17,13 +17,15 @@
       <form action="VerificarCodigoServlet" method="post" class="formulario">
         <h2>● ● ● ●</h2>
 
-<div class="campo-con-icono">
-  <label for="codigo">Código recibido:</label>
-  <div class="input-con-icono">
-    <i class="fa-solid fa-lock icono-izquierdo"></i>
-    <input type="text" id="codigo" name="codigo" required maxlength="6" pattern="\d{6}" title="Debe ingresar 6 números">
-  </div>
-</div>
+        <div class="campo-con-icono">
+          <label for="codigo">Código recibido:</label>
+          <div class="input-con-icono">
+            <i class="fa-solid fa-lock icono-izquierdo"></i>
+            <input type="text" id="codigo" name="codigo" required maxlength="6" pattern="\d{6}"
+                   title="Debe ingresar 6 números"
+                   oninput="filtrarCodigo(this)">
+          </div>
+        </div>
 
         <button type="submit">Verificar</button>
 
@@ -40,5 +42,11 @@
 
     <jsp:include page="footer.jsp" />
   </div>
+
+  <script>
+    function filtrarCodigo(input) {
+      input.value = input.value.replace(/[^\d]/g, '').replace(/[<>]/g, '');
+    }
+  </script>
 </body>
 </html>

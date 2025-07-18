@@ -62,10 +62,6 @@
                                     <% if (d.isPrincipal()) { %>
                                         <span class="badge-principal">Principal</span>
                                     <% } %>
-                                    <div class="acciones-domicilio">
-                                        <a href="editarDomicilio.jsp?id=<%= d.getIdDomicilio() %>" class="btn-editar">Editar</a>
-                                        <a href="eliminarDomicilio?id=<%= d.getIdDomicilio() %>" class="btn-eliminar" onclick="return confirm('¿Estás seguro de eliminar este domicilio?');">Eliminar</a>
-                                    </div>
                                 </div>
                             </label>
                     <%  } %>

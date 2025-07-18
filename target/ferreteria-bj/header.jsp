@@ -17,7 +17,9 @@
 <header class="main-header">
   <div class="header-container">
     <div class="logo">
-      <h1>Ferretería <span>BJ</span></h1>
+      <a href="inicio" class="logo-link">
+        <h1>Ferretería <span>BJ</span></h1>
+      </a>
     </div>
 
     <button class="hamburger" id="hamburgerBtn">

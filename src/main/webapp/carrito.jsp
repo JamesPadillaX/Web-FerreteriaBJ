@@ -81,8 +81,7 @@
                 </div>
                 <% }} %>
             </div>
-
-            <!-- Resumen siempre visible pero desactivado si carrito está vacío -->
+            
             <div class="columna-resumen <%= carritoVacio ? "deshabilitado" : "" %>">
                 <h2>Resumen de compra</h2>
 

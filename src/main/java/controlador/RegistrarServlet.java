@@ -2,6 +2,7 @@ package controlador;
 
 import modelo.Cliente;
 import service.ClienteService;
+import util.CorreoUtil;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,6 +18,7 @@ public class RegistrarServlet extends HttpServlet {
         clienteService = new ClienteService();
     }
 
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
 
@@ -28,12 +30,37 @@ public class RegistrarServlet extends HttpServlet {
         cliente.setCorreo(request.getParameter("correo"));
         String passwordPlano = request.getParameter("password");
 
-        boolean registrado = clienteService.registrarCliente(cliente, passwordPlano);
+        String resultado = clienteService.registrarCliente(cliente, passwordPlano);
 
-        if (registrado) {
-            response.sendRedirect("login.jsp?msg=registroExitoso");
-        } else {
-            response.sendRedirect("registro.jsp?msg=errorRegistro");
+        switch (resultado) {
+            case "DNI_DUPLICADO":
+                request.setAttribute("msg", "errorDni");
+                break;
+
+            case "CORREO_DUPLICADO":
+                request.setAttribute("msg", "errorCorreo");
+                break;
+
+            case "TELEFONO_DUPLICADO":
+                request.setAttribute("msg", "errorTelefono");
+                break;
+
+            case "EXITO":
+                boolean enviado = CorreoUtil.enviarCorreoBienvenida(cliente.getCorreo(), cliente.getNombre());
+                if (enviado) {
+                    System.out.println("Correo de bienvenida enviado correctamente a: " + cliente.getCorreo());
+                } else {
+                    System.err.println("ERROR al enviar correo de bienvenida a: " + cliente.getCorreo());
+                }
+
+                response.sendRedirect("registroExitoso.jsp");
+                return;  
+
+            default:
+                request.setAttribute("msg", "errorRegistro");
+                break;
         }
+        request.setAttribute("cliente", cliente);
+        request.getRequestDispatcher("registro.jsp").forward(request, response);
     }
 }

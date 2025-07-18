@@ -22,13 +22,18 @@
             <div class="input-box">
                 <i class="fas fa-user"></i>
                 <input type="text" name="username" placeholder="Usuario"
+                       pattern="[A-Za-z0-9]+"
+                       title="Solo letras y números, sin espacios ni caracteres especiales"
                        value="<%= session.getAttribute("usernameGuardado") != null ? session.getAttribute("usernameGuardado") : "" %>"
                        required>
             </div>
 
             <div class="input-box">
                 <i class="fas fa-lock"></i>
-                <input type="password" name="password" placeholder="Contraseña" required>
+                <input type="password" name="password" placeholder="Contraseña"
+                       pattern="[A-Za-z0-9]+"
+                       title="Solo letras y números, sin espacios ni caracteres especiales"
+                       required>
             </div>
 
             <%
@@ -39,12 +44,24 @@
             <%
                     session.removeAttribute("errorLogin");
                 }
-                session.removeAttribute("usernameGuardado"); // Limpiar el username una vez mostrado
+                session.removeAttribute("usernameGuardado");
             %>
 
             <button type="submit">Ingresar</button>
         </form>
     </div>
+
+    <script>
+        const usernameInput = document.querySelector('input[name="username"]');
+        const passwordInput = document.querySelector('input[name="password"]');
+
+        function limpiarEspeciales(input) {
+            input.value = input.value.replace(/[^A-Za-z0-9]/g, '');
+        }
+
+        usernameInput.addEventListener('input', () => limpiarEspeciales(usernameInput));
+        passwordInput.addEventListener('input', () => limpiarEspeciales(passwordInput));
+    </script>
 
     <script src="WebContent/js/panel/loginUsuario.js"></script>
 </body>

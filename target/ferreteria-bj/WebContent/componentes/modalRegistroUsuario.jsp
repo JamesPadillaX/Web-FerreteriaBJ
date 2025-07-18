@@ -36,8 +36,11 @@
             <label>Usuario:</label>
             <input type="text" name="username" required>
 
-            <label>Contraseña:</label>
-            <input type="password" name="password" required>
+<label>Contraseña:</label>
+<input type="password" name="password" id="passwordInput" required
+       pattern="^(?=.*\d)[A-Za-z\d]{8,}$"
+       title="Mínimo 8 caracteres, solo letras y números, y al menos un número">
+
 
             <label>Rol:</label>
             <select name="idRol" required>
@@ -104,5 +107,24 @@
         if (telefonoInput) limitarNumeros(telefonoInput, 9);
         if (nombreInput) limitarLetras(nombreInput);
         if (apellidosInput) limitarLetras(apellidosInput);
+    });
+</script>
+<script>
+    const passwordInput = document.getElementById('passwordInput');
+
+    passwordInput.addEventListener('input', function () {
+        // Elimina cualquier carácter que no sea letra o número
+        this.value = this.value.replace(/[^A-Za-z0-9]/g, '');
+    });
+
+    const form = document.getElementById('formRegistroUsuario');
+    form.addEventListener('submit', function (e) {
+        const value = passwordInput.value;
+        const regex = /^(?=.*\d)[A-Za-z\d]{8,}$/;
+
+        if (!regex.test(value)) {
+            alert('La contraseña debe tener mínimo 8 caracteres, solo letras y números, y al menos un número.');
+            e.preventDefault();
+        }
     });
 </script>

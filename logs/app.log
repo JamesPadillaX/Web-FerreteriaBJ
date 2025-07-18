@@ -386,3 +386,119 @@
 2025-07-16 17:14:59 WARN  service.UsuarioService - DNI duplicado detectado: 12345678
 2025-07-16 17:14:59 WARN  service.UsuarioService - Username duplicado detectado: usuario5
 2025-07-16 17:14:59 WARN  service.UsuarioService - Fallo en autenticación para usuario: admin
+2025-07-16 23:52:32 WARN  service.UsuarioService - No se encontró usuario con ID: 999
+2025-07-16 23:52:32 WARN  service.UsuarioService - DNI duplicado detectado: 12345678
+2025-07-16 23:52:32 WARN  service.UsuarioService - Username duplicado detectado: usuario5
+2025-07-16 23:52:32 WARN  service.UsuarioService - Fallo en autenticación para usuario: admin
+2025-07-17 00:06:32 WARN  service.UsuarioService - No se encontró usuario con ID: 999
+2025-07-17 00:06:32 WARN  service.UsuarioService - DNI duplicado detectado: 12345678
+2025-07-17 00:06:32 WARN  service.UsuarioService - Username duplicado detectado: usuario5
+2025-07-17 00:06:32 WARN  service.UsuarioService - Fallo en autenticación para usuario: admin
+2025-07-17 00:26:10 WARN  service.UsuarioService - No se encontró usuario con ID: 999
+2025-07-17 00:26:10 WARN  service.UsuarioService - DNI duplicado detectado: 12345678
+2025-07-17 00:26:10 WARN  service.UsuarioService - Username duplicado detectado: usuario5
+2025-07-17 00:26:10 WARN  service.UsuarioService - Fallo en autenticación para usuario: admin
+2025-07-17 00:31:54 WARN  service.UsuarioService - No se encontró usuario con ID: 999
+2025-07-17 00:31:54 WARN  service.UsuarioService - DNI duplicado detectado: 12345678
+2025-07-17 00:31:54 WARN  service.UsuarioService - Username duplicado detectado: usuario5
+2025-07-17 00:31:54 WARN  service.UsuarioService - Fallo en autenticación para usuario: admin
+2025-07-17 00:36:01 WARN  service.UsuarioService - No se encontró usuario con ID: 999
+2025-07-17 00:36:01 WARN  service.UsuarioService - DNI duplicado detectado: 12345678
+2025-07-17 00:36:01 WARN  service.UsuarioService - Username duplicado detectado: usuario5
+2025-07-17 00:36:01 WARN  service.UsuarioService - Fallo en autenticación para usuario: admin
+2025-07-17 00:38:27 WARN  service.UsuarioService - No se encontró usuario con ID: 999
+2025-07-17 00:38:27 WARN  service.UsuarioService - DNI duplicado detectado: 12345678
+2025-07-17 00:38:27 WARN  service.UsuarioService - Username duplicado detectado: usuario5
+2025-07-17 00:38:27 WARN  service.UsuarioService - Fallo en autenticación para usuario: admin
+2025-07-17 00:42:32 WARN  service.UsuarioService - No se encontró usuario con ID: 999
+2025-07-17 00:42:32 WARN  service.UsuarioService - DNI duplicado detectado: 12345678
+2025-07-17 00:42:32 WARN  service.UsuarioService - Username duplicado detectado: usuario5
+2025-07-17 00:42:32 WARN  service.UsuarioService - Fallo en autenticación para usuario: admin
+2025-07-17 00:53:32 WARN  service.UsuarioService - No se encontró usuario con ID: 999
+2025-07-17 00:53:32 WARN  service.UsuarioService - DNI duplicado detectado: 12345678
+2025-07-17 00:53:32 WARN  service.UsuarioService - Username duplicado detectado: usuario5
+2025-07-17 00:53:32 WARN  service.UsuarioService - Fallo en autenticación para usuario: admin
+2025-07-17 00:59:45 WARN  service.UsuarioService - No se encontró usuario con ID: 999
+2025-07-17 00:59:45 WARN  service.UsuarioService - DNI duplicado detectado: 12345678
+2025-07-17 00:59:45 WARN  service.UsuarioService - Username duplicado detectado: usuario5
+2025-07-17 00:59:45 WARN  service.UsuarioService - Fallo en autenticación para usuario: admin
+2025-07-17 01:08:16 WARN  service.UsuarioService - No se encontró usuario con ID: 999
+2025-07-17 01:08:16 WARN  service.UsuarioService - DNI duplicado detectado: 12345678
+2025-07-17 01:08:16 WARN  service.UsuarioService - Username duplicado detectado: usuario5
+2025-07-17 01:08:16 WARN  service.UsuarioService - Fallo en autenticación para usuario: admin
+2025-07-17 01:10:09 WARN  service.UsuarioService - No se encontró usuario con ID: 999
+2025-07-17 01:10:09 WARN  service.UsuarioService - DNI duplicado detectado: 12345678
+2025-07-17 01:10:09 WARN  service.UsuarioService - Username duplicado detectado: usuario5
+2025-07-17 01:10:09 WARN  service.UsuarioService - Fallo en autenticación para usuario: admin
+2025-07-17 01:25:50 WARN  service.UsuarioService - No se encontró usuario con ID: 999
+2025-07-17 01:25:50 WARN  service.UsuarioService - DNI duplicado detectado: 12345678
+2025-07-17 01:25:50 WARN  service.UsuarioService - Username duplicado detectado: usuario5
+2025-07-17 01:25:50 WARN  service.UsuarioService - Fallo en autenticación para usuario: admin
+2025-07-17 01:32:51 WARN  service.UsuarioService - No se encontró usuario con ID: 999
+2025-07-17 01:32:51 WARN  service.UsuarioService - DNI duplicado detectado: 12345678
+2025-07-17 01:32:51 WARN  service.UsuarioService - Username duplicado detectado: usuario5
+2025-07-17 01:32:51 WARN  service.UsuarioService - Fallo en autenticación para usuario: admin
+2025-07-17 01:43:01 WARN  service.UsuarioService - No se encontró usuario con ID: 999
+2025-07-17 01:43:01 WARN  service.UsuarioService - DNI duplicado detectado: 12345678
+2025-07-17 01:43:01 WARN  service.UsuarioService - Username duplicado detectado: usuario5
+2025-07-17 01:43:01 WARN  service.UsuarioService - Fallo en autenticación para usuario: admin
+2025-07-17 03:05:57 WARN  service.UsuarioService - No se encontró usuario con ID: 999
+2025-07-17 03:05:57 WARN  service.UsuarioService - DNI duplicado detectado: 12345678
+2025-07-17 03:05:57 WARN  service.UsuarioService - Username duplicado detectado: usuario5
+2025-07-17 03:05:57 WARN  service.UsuarioService - Fallo en autenticación para usuario: admin
+2025-07-17 03:08:49 WARN  service.UsuarioService - No se encontró usuario con ID: 999
+2025-07-17 03:08:49 WARN  service.UsuarioService - DNI duplicado detectado: 12345678
+2025-07-17 03:08:49 WARN  service.UsuarioService - Username duplicado detectado: usuario5
+2025-07-17 03:08:49 WARN  service.UsuarioService - Fallo en autenticación para usuario: admin
+2025-07-17 03:12:28 WARN  service.UsuarioService - No se encontró usuario con ID: 999
+2025-07-17 03:12:28 WARN  service.UsuarioService - DNI duplicado detectado: 12345678
+2025-07-17 03:12:28 WARN  service.UsuarioService - Username duplicado detectado: usuario5
+2025-07-17 03:12:28 WARN  service.UsuarioService - Fallo en autenticación para usuario: admin
+2025-07-17 05:44:59 WARN  service.UsuarioService - No se encontró usuario con ID: 999
+2025-07-17 05:44:59 WARN  service.UsuarioService - DNI duplicado detectado: 12345678
+2025-07-17 05:44:59 WARN  service.UsuarioService - Username duplicado detectado: usuario5
+2025-07-17 05:44:59 WARN  service.UsuarioService - Fallo en autenticación para usuario: admin
+2025-07-17 05:53:04 WARN  service.UsuarioService - No se encontró usuario con ID: 999
+2025-07-17 05:53:04 WARN  service.UsuarioService - DNI duplicado detectado: 12345678
+2025-07-17 05:53:04 WARN  service.UsuarioService - Username duplicado detectado: usuario5
+2025-07-17 05:53:04 WARN  service.UsuarioService - Fallo en autenticación para usuario: admin
+2025-07-17 05:55:14 WARN  service.UsuarioService - No se encontró usuario con ID: 999
+2025-07-17 05:55:14 WARN  service.UsuarioService - DNI duplicado detectado: 12345678
+2025-07-17 05:55:14 WARN  service.UsuarioService - Username duplicado detectado: usuario5
+2025-07-17 05:55:14 WARN  service.UsuarioService - Fallo en autenticación para usuario: admin
+2025-07-17 13:21:20 WARN  service.UsuarioService - No se encontró usuario con ID: 999
+2025-07-17 13:21:20 WARN  service.UsuarioService - DNI duplicado detectado: 12345678
+2025-07-17 13:21:20 WARN  service.UsuarioService - Username duplicado detectado: usuario5
+2025-07-17 13:21:20 WARN  service.UsuarioService - Fallo en autenticación para usuario: admin
+2025-07-17 13:23:35 WARN  service.UsuarioService - No se encontró usuario con ID: 999
+2025-07-17 13:23:35 WARN  service.UsuarioService - DNI duplicado detectado: 12345678
+2025-07-17 13:23:35 WARN  service.UsuarioService - Username duplicado detectado: usuario5
+2025-07-17 13:23:35 WARN  service.UsuarioService - Fallo en autenticación para usuario: admin
+2025-07-17 13:42:40 WARN  service.UsuarioService - No se encontró usuario con ID: 999
+2025-07-17 13:42:40 WARN  service.UsuarioService - DNI duplicado detectado: 12345678
+2025-07-17 13:42:40 WARN  service.UsuarioService - Username duplicado detectado: usuario5
+2025-07-17 13:42:40 WARN  service.UsuarioService - Fallo en autenticación para usuario: admin
+2025-07-17 13:53:05 WARN  service.UsuarioService - No se encontró usuario con ID: 999
+2025-07-17 13:53:05 WARN  service.UsuarioService - DNI duplicado detectado: 12345678
+2025-07-17 13:53:05 WARN  service.UsuarioService - Username duplicado detectado: usuario5
+2025-07-17 13:53:05 WARN  service.UsuarioService - Fallo en autenticación para usuario: admin
+2025-07-17 14:04:14 WARN  service.UsuarioService - No se encontró usuario con ID: 999
+2025-07-17 14:04:14 WARN  service.UsuarioService - DNI duplicado detectado: 12345678
+2025-07-17 14:04:14 WARN  service.UsuarioService - Username duplicado detectado: usuario5
+2025-07-17 14:04:14 WARN  service.UsuarioService - Fallo en autenticación para usuario: admin
+2025-07-17 18:59:33 WARN  service.UsuarioService - No se encontró usuario con ID: 999
+2025-07-17 18:59:33 WARN  service.UsuarioService - DNI duplicado detectado: 12345678
+2025-07-17 18:59:33 WARN  service.UsuarioService - Username duplicado detectado: usuario5
+2025-07-17 18:59:33 WARN  service.UsuarioService - Fallo en autenticación para usuario: admin
+2025-07-17 19:32:44 WARN  service.UsuarioService - No se encontró usuario con ID: 999
+2025-07-17 19:32:44 WARN  service.UsuarioService - DNI duplicado detectado: 12345678
+2025-07-17 19:32:44 WARN  service.UsuarioService - Username duplicado detectado: usuario5
+2025-07-17 19:32:44 WARN  service.UsuarioService - Fallo en autenticación para usuario: admin
+2025-07-17 20:06:53 WARN  service.UsuarioService - No se encontró usuario con ID: 999
+2025-07-17 20:06:53 WARN  service.UsuarioService - DNI duplicado detectado: 12345678
+2025-07-17 20:06:53 WARN  service.UsuarioService - Username duplicado detectado: usuario5
+2025-07-17 20:06:53 WARN  service.UsuarioService - Fallo en autenticación para usuario: admin
+2025-07-17 20:12:38 WARN  service.UsuarioService - No se encontró usuario con ID: 999
+2025-07-17 20:12:38 WARN  service.UsuarioService - DNI duplicado detectado: 12345678
+2025-07-17 20:12:38 WARN  service.UsuarioService - Username duplicado detectado: usuario5
+2025-07-17 20:12:38 WARN  service.UsuarioService - Fallo en autenticación para usuario: admin

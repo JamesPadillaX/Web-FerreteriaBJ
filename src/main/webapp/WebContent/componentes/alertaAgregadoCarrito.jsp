@@ -1,13 +1,13 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 
-  #toast-eliminado {
+  #toast-agregado {
     position: fixed;
     bottom: 24px;
     left: 50%;
     transform: translateX(-50%) translateY(100px);
-    background-color: #00264d; /* Azul marino */
-    color: #fff;
+    background-color: #FFC107; /* Amarillo */
+    color: #000; 
     padding: 12px 20px;
     max-width: 90%;
     width: max-content;
@@ -41,24 +41,22 @@
   }
 
   @media (max-width: 480px) {
-    #toast-eliminado {
+    #toast-agregado {
       font-size: 14px;
       padding: 10px 16px;
     }
   }
 </style>
 
-<div id="toast-eliminado">Listo, agregado correctamente</div>
+<div id="toast-agregado">Producto agregado al carrito correctamente</div>
 
 <script>
-  const toast = document.getElementById("toast-eliminado");
+  const toast = document.getElementById("toast-agregado");
   if (toast) {
-    // Ocultar automáticamente después de 2.5 segundos
     setTimeout(() => {
       toast.style.animation = "fadeOutDown 0.5s ease forwards";
     }, 2500);
 
-    // Eliminar parámetro "msg" de la URL
     if (window.history.replaceState) {
       const url = new URL(window.location);
       url.searchParams.delete("msg");

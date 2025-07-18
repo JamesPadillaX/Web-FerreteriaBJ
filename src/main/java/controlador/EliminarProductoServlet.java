@@ -16,14 +16,12 @@ public class EliminarProductoServlet extends HttpServlet {
             throws ServletException, IOException {
 
         try {
-            // Obtener el idProducto desde el parámetro
+
             int idProducto = Integer.parseInt(request.getParameter("idProducto"));
 
-            // Instanciar DAO y eliminar producto (actualiza estado a 2)
             ProductoDAO productoDAO = new ProductoDAO();
             boolean eliminado = productoDAO.eliminarProducto(idProducto);
 
-            // Redirigir a listado con mensaje según resultado
             if (eliminado) {
                 response.sendRedirect("ListarProductosServlet?msg=eliminado");
             } else {

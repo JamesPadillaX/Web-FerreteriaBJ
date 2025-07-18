@@ -123,7 +123,111 @@ public static boolean enviarConfirmacionCompra(String destino, String nombreClie
         return false;
     }
 }
+public static boolean enviarCorreoBienvenida(String destino, String nombreCliente) {
+    try {
+        HtmlEmail email = new HtmlEmail();
+        email.setHostName("smtp.gmail.com");
+        email.setSmtpPort(587);
+        email.setAuthentication("eltonpadillayt@gmail.com", "guqfvfcvkatmgmjb");
+        email.setStartTLSEnabled(true);
+        email.setFrom("eltonpadillayt@gmail.com", "Ferretería BJ");
+        email.setSubject("🎉 ¡Bienvenido a Ferretería BJ!");
 
+        StringBuilder mensajeHtml = new StringBuilder();
+        mensajeHtml.append("<html><body style=\"font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px;\">")
+            .append("<div style=\"max-width: 600px; margin: auto; background-color: white; padding: 20px;")
+            .append("box-shadow: 0 4px 12px rgba(0,0,0,0.1); text-align: center;\">")
+            .append("<h1 style=\"color: #0B1D51;\">¡Bienvenido, ").append(nombreCliente).append("!</h1>")
+            .append("<p style=\"font-size: 16px; color: #333;\">")
+            .append("Gracias por registrarte en <strong>Ferretería BJ</strong>.<br>")
+            .append("Ya puedes explorar nuestros productos y realizar tus compras.")
+            .append("</p>")
+            .append("<p style=\"margin: 20px 0;\">")
+            .append("<a href=\"http://localhost:8080/ferreteria-bj/login.jsp\" style=\"background-color: #FFC107; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;\">")
+            .append("Ir a la tienda")
+            .append("</a>")
+            .append("</p>")
+            .append("<p style=\"font-size: 13px; color: #999;\">Si tienes dudas, contáctanos.</p>")
+            .append("</div></body></html>");
+        email.setHtmlMsg(mensajeHtml.toString());
+        email.addTo(destino);
+        email.send();
 
+        return true;
+    } catch (EmailException e) {
+        e.printStackTrace();
+        return false;
+    }
+}
 
+public static boolean enviarConfirmacionCambioPassword(String destino, String nombreCliente) {
+    try {
+        HtmlEmail email = new HtmlEmail();
+        email.setHostName("smtp.gmail.com");
+        email.setSmtpPort(587);
+        email.setAuthentication("eltonpadillayt@gmail.com", "guqfvfcvkatmgmjb");
+        email.setStartTLSEnabled(true);
+        email.setFrom("eltonpadillayt@gmail.com", "Ferretería BJ");
+        email.setSubject("🔑 Confirmación de cambio de contraseña");
+
+        StringBuilder mensajeHtml = new StringBuilder();
+        mensajeHtml.append("<html><body style=\"font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 40px;\">")
+            .append("<div style=\"max-width: 500px; margin: auto; background-color: white; padding: 30px; border-radius: 10px; ")
+            .append("box-shadow: 0 0 10px rgba(0,0,0,0.1); text-align: center;\">")
+            .append("<h1 style=\"color: #0B1D51; margin-bottom: 10px;\">Ferretería <span style=\"color: #FFC107;\">BJ</span></h1>")
+            .append("<p style=\"font-size: 18px; color: #333;\">Hola, ").append(nombreCliente).append(".</p>")
+            .append("<p style=\"font-size: 16px; color: #333;\">Te informamos que tu contraseña ha sido cambiada correctamente.</p>")
+            .append("<p style=\"color: #555;\">Si no realizaste este cambio, por favor contacta con nuestro soporte inmediatamente.</p>")
+            .append("<hr style=\"margin: 30px 0;\">")
+            .append("<small style=\"color: #888;\">Gracias por confiar en Ferretería BJ.</small>")
+            .append("</div></body></html>");
+
+        email.setHtmlMsg(mensajeHtml.toString());
+        email.setTextMsg("Tu contraseña ha sido cambiada exitosamente. Si no fuiste tú, contacta con soporte.");
+        email.addTo(destino);
+        email.send();
+
+        return true;
+    } catch (EmailException e) {
+        e.printStackTrace();
+        return false;
+    }
+}
+
+public static boolean enviarCodigoCambioPassword(String destino, String codigo) {
+    try {
+        HtmlEmail email = new HtmlEmail();
+        email.setHostName("smtp.gmail.com");
+        email.setSmtpPort(587);
+        email.setAuthentication("eltonpadillayt@gmail.com", "guqfvfcvkatmgmjb");
+        email.setStartTLSEnabled(true);
+        email.setFrom("eltonpadillayt@gmail.com", "Ferretería BJ");
+        email.setSubject("🔑 Código para cambiar tu contraseña");
+
+        StringBuilder mensajeHtml = new StringBuilder();
+        mensajeHtml.append("<html><body style=\"font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 40px;\">")
+            .append("<div style=\"max-width: 500px; margin: auto; background-color: white; padding: 30px; border-radius: 10px; ")
+            .append("box-shadow: 0 0 10px rgba(0,0,0,0.1); text-align: center;\">")
+            .append("<h1 style=\"color: #0B1D51; margin-bottom: 10px;\">Ferretería <span style=\"color: #FFC107;\">BJ</span></h1>")
+            .append("<p style=\"font-size: 18px; color: #333;\">Has solicitado cambiar tu contraseña desde tu perfil.</p>")
+            .append("<p style=\"font-size: 16px; color: #333;\">Tu código de verificación es:</p>")
+            .append("<div style=\"font-size: 36px; font-weight: bold; color: #0B1D51; margin: 20px 0;\">")
+            .append(codigo)
+            .append("</div>")
+            .append("<p style=\"color: #555;\">Ingresa este código en el formulario para continuar con el cambio.</p>")
+            .append("<hr style=\"margin: 30px 0;\">")
+            .append("<small style=\"color: #888;\">Si no realizaste esta solicitud, puedes ignorar este mensaje.</small>")
+            .append("</div></body></html>");
+
+        email.setHtmlMsg(mensajeHtml.toString());
+        email.setTextMsg("Tu código para cambiar la contraseña es: " + codigo);
+        email.addTo(destino);
+        email.send();
+
+        return true;
+    } catch (EmailException e) {
+        e.printStackTrace();
+        return false;
+    }
+}
 }

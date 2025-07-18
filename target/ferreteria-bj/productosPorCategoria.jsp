@@ -73,6 +73,10 @@
         </c:choose>
     </div>
 </main>
+<c:if test="${param.msg == 'agregado'}">
+    <jsp:include page="WebContent/componentes/alertaAgregadoCarrito.jsp" />
+</c:if>
+
 
 <%@ include file="footer.jsp" %>
 </body>

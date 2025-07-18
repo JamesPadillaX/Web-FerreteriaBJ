@@ -44,7 +44,7 @@ public class EliminarDelCarritoServlet extends HttpServlet {
                 int idProducto = Integer.parseInt(idProductoStr);
                 carritoDAO.eliminarProductoDelCarrito(idCarrito, idProducto);
             } catch (NumberFormatException e) {
-                e.printStackTrace(); // Manejo opcional de errores
+                e.printStackTrace(); 
             }
         }
 

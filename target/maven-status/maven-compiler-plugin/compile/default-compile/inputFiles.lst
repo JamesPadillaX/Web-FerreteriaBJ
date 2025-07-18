@@ -31,6 +31,7 @@ C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\ListarDomiciliosSe
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\modelo\ImagenProducto.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\EliminarCarruselServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\modelo\Carrito.java
+C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\EnviarCodigoCambioPasswordServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\RegistrarServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\EditarCategoriaServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\LogoutUsuarioServlet.java
@@ -49,6 +50,7 @@ C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\modelo\Producto.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\EditarProductoServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\ListarCarruselServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\AgregarCategoriaServlet.java
+C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\VerificarCodigoCambioPasswordServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\ConfirmarPagoYapeServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\util\Conexion.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\AgregarProductoServlet.java
@@ -90,6 +92,7 @@ C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\ListarRolesPServle
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\ExportarReporteVentasGraficoPdfServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\ListarProductosPorCategoriaServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\filtro\SeguridadFiltro.java
+C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\ActualizarPasswordPerfilServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\modelo\Cliente.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\controlador\ListarRolesServlet.java
 C:\Users\JAMES\Desktop\FERRETERIABJ\src\main\java\modelo\DetalleVenta.java

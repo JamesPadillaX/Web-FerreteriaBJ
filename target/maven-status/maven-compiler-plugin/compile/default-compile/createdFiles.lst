@@ -5,6 +5,7 @@ controlador\ListarRolesPServlet.class
 controlador\EditarUsuarioServlet.class
 service\UsuarioService.class
 controlador\ExportarUsuariosExcelServlet.class
+controlador\VerificarCodigoCambioPasswordServlet.class
 controlador\AgregarCarruselServlet.class
 controlador\EliminarDelCarritoServlet.class
 dao\VentaDAO.class
@@ -66,6 +67,7 @@ controlador\ConfirmarPagoYapeServlet.class
 controlador\ListarMetodosPagoServlet.class
 controlador\LogoutUsuarioServlet.class
 controlador\AgregarCategoriaServlet.class
+controlador\EnviarCodigoCambioPasswordServlet.class
 controlador\DetalleProductoServlet.class
 service\CategoriaService.class
 controlador\ProductosCompradosClienteServlet.class
@@ -88,6 +90,7 @@ controlador\ListarCarruselPublicoServlet.class
 controlador\AgregarRolServlet.class
 controlador\MarcarPrincipalServlet.class
 modelo\Venta.class
+controlador\ActualizarPasswordPerfilServlet.class
 controlador\ListarCarruselServlet.class
 util\TestLog.class
 dao\CategoriaDAO.class

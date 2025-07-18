@@ -2,9 +2,11 @@ package util;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 
 public class Seguridad {
 
+    private static final SecureRandom random = new SecureRandom();
     public static String hashSHA256(String input) {
         try {
             MessageDigest md = MessageDigest.getInstance("SHA-256");
@@ -18,5 +20,10 @@ public class Seguridad {
         } catch (NoSuchAlgorithmException e) {
             throw new RuntimeException("Error al hashear", e);
         }
+    }
+    
+    public static String generarCodigo() {
+        int codigo = 100000 + random.nextInt(900000);  
+        return String.valueOf(codigo);
     }
 }

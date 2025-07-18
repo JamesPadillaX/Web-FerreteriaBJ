@@ -19,7 +19,7 @@ html, body {
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   isolation: isolate;           
   mix-blend-mode: normal;
-  position: relative;  /* 🔥 importante */       
+  position: relative;  
 }
 
 .header-container {
@@ -305,4 +305,10 @@ header .modal-content i.icon {
 }
 #userMenuBtn {
   position: relative;
+}
+/* Elimina subrayado y mantiene herencia de color en todo el header */
+header a,
+header .modal-content a {
+  text-decoration: none;
+  color: inherit;
 }

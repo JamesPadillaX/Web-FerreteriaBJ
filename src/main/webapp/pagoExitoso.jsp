@@ -117,7 +117,6 @@
 <body>
 
 <div class="contenedor">
-    <!-- SVG animado con círculo completo y check -->
     <svg class="checkmark" viewBox="0 0 100 100">
         <circle class="circle" cx="50" cy="50" r="45"/>
         <polyline class="check" points="30,55 45,70 75,40" />

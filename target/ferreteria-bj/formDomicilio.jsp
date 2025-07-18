@@ -29,39 +29,45 @@
                 <input type="hidden" name="idCliente" value="<%= cliente.getIdCliente() %>">
 
                 <label for="calle">Calle:
-                    <input type="text" name="calle" id="calle" required 
-                           pattern="^[A-Za-zÁÉÍÓÚÑáéíóúñ0-9 ]{1,50}$" 
-                           title="Solo letras, números y espacios. Sin caracteres especiales.">
+                    <input type="text" name="calle" id="calle" required
+                           pattern="^[A-Za-zÁÉÍÓÚÑáéíóúñ ]{1,50}$"
+                           title="Solo letras y espacios."
+                           oninput="permitirSoloLetras(this)">
                 </label>
 
                 <label for="numero">Número:
-                    <input type="text" name="numero" id="numero" required 
-                           pattern="^[A-Za-z0-9 ]{1,10}$" 
-                           title="Solo letras, números y espacios.">
+                    <input type="text" name="numero" id="numero" required
+                           pattern="^[A-Za-z0-9 ]{1,10}$"
+                           title="Solo letras, números y espacios."
+                           oninput="permitirLetrasNumeros(this)">
                 </label>
 
                 <label for="referencia">Referencia:
                     <input type="text" name="referencia" id="referencia"
-                           pattern="^[A-Za-zÁÉÍÓÚÑáéíóúñ0-9 ,.]{0,100}$" 
-                           title="No se permiten símbolos como < > -">
+                           pattern="^[A-Za-zÁÉÍÓÚÑáéíóúñ ]{0,100}$"
+                           title="Solo letras y espacios."
+                           oninput="permitirSoloLetras(this)">
                 </label>
 
                 <label for="distrito">Distrito:
-                    <input type="text" name="distrito" id="distrito" required 
-                           pattern="^[A-Za-zÁÉÍÓÚÑáéíóúñ ]{1,30}$" 
-                           title="Solo letras y espacios.">
+                    <input type="text" name="distrito" id="distrito" required
+                           pattern="^[A-Za-zÁÉÍÓÚÑáéíóúñ ]{1,30}$"
+                           title="Solo letras y espacios."
+                           oninput="permitirSoloLetras(this)">
                 </label>
 
                 <label for="provincia">Provincia:
-                    <input type="text" name="provincia" id="provincia" required 
-                           pattern="^[A-Za-zÁÉÍÓÚÑáéíóúñ ]{1,30}$" 
-                           title="Solo letras y espacios.">
+                    <input type="text" name="provincia" id="provincia" required
+                           pattern="^[A-Za-zÁÉÍÓÚÑáéíóúñ ]{1,30}$"
+                           title="Solo letras y espacios."
+                           oninput="permitirSoloLetras(this)">
                 </label>
 
                 <label for="departamento">Departamento:
-                    <input type="text" name="departamento" id="departamento" required 
-                           pattern="^[A-Za-zÁÉÍÓÚÑáéíóúñ ]{1,30}$" 
-                           title="Solo letras y espacios.">
+                    <input type="text" name="departamento" id="departamento" required
+                           pattern="^[A-Za-zÁÉÍÓÚÑáéíóúñ ]{1,30}$"
+                           title="Solo letras y espacios."
+                           oninput="permitirSoloLetras(this)">
                 </label>
 
                 <label class="checkbox">
@@ -79,5 +85,16 @@
 
     <%@ include file="footer.jsp" %>
 </div>
+
+<script>
+    function permitirSoloLetras(input) {
+        input.value = input.value.replace(/[^A-Za-zÁÉÍÓÚÑáéíóúñ ]/g, '');
+    }
+
+    function permitirLetrasNumeros(input) {
+        input.value = input.value.replace(/[^A-Za-z0-9 ]/g, '');
+    }
+</script>
+
 </body>
 </html>

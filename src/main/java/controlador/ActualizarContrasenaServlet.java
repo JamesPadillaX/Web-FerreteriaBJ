@@ -2,6 +2,7 @@ package controlador;
 
 import dao.ClienteDAO;
 import modelo.Cliente;
+import util.CorreoUtil;
 import util.Seguridad;
 
 import javax.servlet.ServletException;
@@ -36,7 +37,7 @@ public class ActualizarContrasenaServlet extends HttpServlet {
             boolean actualizado = clienteDAO.actualizarCliente(cliente);
 
             if (actualizado) {
-                // Limpiar sesión
+                CorreoUtil.enviarConfirmacionCambioPassword(cliente.getCorreo(), cliente.getNombre());
                 sesion.removeAttribute("codigoRecuperacion");
                 sesion.removeAttribute("correoRecuperacion");
 

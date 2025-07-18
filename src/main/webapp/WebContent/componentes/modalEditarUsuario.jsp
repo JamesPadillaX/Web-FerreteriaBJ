@@ -14,21 +14,21 @@
 
             <input type="hidden" name="idUsuario" id="editarIdUsuario" value="">
 
-            <!-- Nombre -->
+
             <label>Nombre:</label>
             <input type="text" name="nombre" id="editarNombre" required 
                    pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+" 
                    title="Solo letras" 
                    maxlength="50">
 
-            <!-- Apellidos -->
+
             <label>Apellidos:</label>
             <input type="text" name="apellidos" id="editarApellidos" required 
                    pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+" 
                    title="Solo letras" 
                    maxlength="50">
 
-            <!-- DNI -->
+
             <label>DNI:</label>
             <input type="text" name="dni" id="editarDni" required 
                    pattern="\d{8}" 
@@ -36,7 +36,7 @@
                    title="Debe tener exactamente 8 dígitos" 
                    oninput="this.value=this.value.replace(/[^0-9]/g,'');">
 
-            <!-- Teléfono -->
+
             <label>Teléfono:</label>
             <input type="text" name="telefono" id="editarTelefono" required 
                    pattern="\d{9}" 
@@ -44,15 +44,18 @@
                    title="Debe tener exactamente 9 dígitos" 
                    oninput="this.value=this.value.replace(/[^0-9]/g,'');">
 
-            <!-- Usuario -->
+
             <label>Usuario:</label>
             <input type="text" name="username" id="editarUsername" required>
 
-            <!-- Contraseña -->
-            <label>Contraseña:</label>
-            <input type="password" name="password" id="editarPassword" required>
 
-            <!-- Rol -->
+<label>Contraseña:</label>
+<input type="password" name="password" id="editarPassword" required>
+<small id="mensajePassword" style="color: red; display: none;">
+  La contraseña debe tener mínimo 8 caracteres, solo letras y números, y al menos un número.
+</small>
+
+
             <label>Rol:</label>
             <select name="idRol" id="editarIdRol" required>
                 <option value="">Seleccione un rol</option>
@@ -61,7 +64,7 @@
                 <% } %>
             </select>
 
-            <!-- Estado -->
+  
             <label>Estado:</label>
             <select name="estado" id="editarEstado">
                 <option value="1">ACTIVO</option>
@@ -91,4 +94,23 @@
       apellidosInput.value = apellidosInput.value.replace(soloLetras, "");
     });
   });
+  document.addEventListener("DOMContentLoaded", () => {
+    const passwordInput = document.getElementById("editarPassword");
+    const formulario = document.querySelector('form');
+
+    formulario.addEventListener("submit", (e) => {
+        const valor = passwordInput.value;
+
+        const soloLetrasNumeros = /^[A-Za-z0-9]+$/.test(valor);
+        const minimoOcho = valor.length >= 8;
+        const contieneNumero = /[0-9]/.test(valor);
+
+        const esValida = soloLetrasNumeros && minimoOcho && contieneNumero;
+
+        if (!esValida) {
+            e.preventDefault();
+        }
+    });
+});
+
 </script>
