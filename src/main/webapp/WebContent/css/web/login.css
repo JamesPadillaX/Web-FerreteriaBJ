@@ -1,9 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
 html, body {
   margin: 0;
   padding: 0;
-  height: 100%;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #ffffff;
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+  background-color: #f5f5f5;
   overflow-x: hidden;
 }
 
@@ -23,27 +24,30 @@ main {
   width: 100%;
 }
 
+/* === FORMULARIO === */
 .formulario {
-  background: rgba(255, 255, 255, 0.88);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(8px);
   padding: clamp(1rem, 5vw, 2rem);
   border-radius: 16px;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 25px rgba(0, 123, 255, 0.15);
   width: 100%;
   max-width: 420px;
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
   box-sizing: border-box;
+  border: 1px solid #b3d9ff;
 }
 
 .formulario h2 {
   text-align: center;
-  color: #001f3f;
-  font-size: clamp(1.3rem, 5vw, 2rem);
+  color: #007bff;
+  font-size: clamp(1.4rem, 5vw, 2rem);
   margin-bottom: 0.5rem;
 }
 
+/* === CAMPOS CON ÍCONOS === */
 .campo-con-icono label {
   font-weight: 600;
   color: #333;
@@ -57,7 +61,7 @@ main {
   width: 100%;
 }
 
-/* Ícono izquierdo (correo y candado) */
+/* Ícono izquierdo */
 .icono-izquierdo {
   position: absolute;
   top: 50%;
@@ -68,7 +72,7 @@ main {
   pointer-events: none;
 }
 
-/* Campo input general con padding izquierdo */
+/* Campo input */
 .input-con-icono input {
   width: 100%;
   padding: 0.75rem 2.5rem 0.75rem 2.5rem;
@@ -76,15 +80,16 @@ main {
   border-radius: 10px;
   font-size: clamp(0.9rem, 2.5vw, 1rem);
   box-sizing: border-box;
-  transition: border-color 0.3s;
+  transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 .input-con-icono input:focus {
   outline: none;
-  border-color: #001f3f;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
 }
 
-/* Campo contraseña con ojito a la derecha */
+/* Campo contraseña con ojito */
 .input-contrasena {
   position: relative;
 }
@@ -98,47 +103,67 @@ main {
   font-size: 1.05rem;
   cursor: pointer;
   pointer-events: auto;
+  transition: color 0.3s;
 }
 
 .toggle-password:hover {
-  color: #001f3f;
+  color: #007bff;
 }
 
-/* Botón */
+/* === BOTÓN === */
 .formulario button {
-  background-color: #001f3f;
-  color: #f1c40f;
+  background-color: #007bff;
+  color: #ffffff;
   padding: 0.75rem;
   border: none;
   border-radius: 10px;
-  font-weight: bold;
+  font-weight: 600;
   font-size: clamp(0.95rem, 2.5vw, 1rem);
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s;
 }
 
 .formulario button:hover {
-  background-color: #002b5c;
+  background-color: #0069d9;
+  transform: translateY(-2px);
 }
 
-/* Link "¿Olvidaste tu contraseña?" */
+/* === LINK "¿Olvidaste tu contraseña?" === */
 .olvide-contrasena {
   text-align: center;
   margin-top: 0.5rem;
 }
 
 .olvide-contrasena a {
-  color: #001f3f;
+  color: #007bff;
   text-decoration: none;
   font-size: clamp(0.85rem, 2.2vw, 0.95rem);
   transition: color 0.3s;
 }
 
 .olvide-contrasena a:hover {
-  color: #f1c40f;
+  color: #0056b3;
 }
 
-/* RESPONSIVE adicional para pantallas ultra pequeñas */
+/* === LINK VOLVER === */
+.volver-login {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.volver-login a {
+  color: #007bff;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.volver-login a:hover {
+  color: #0056b3;
+}
+
+/* === RESPONSIVE === */
 @media (max-width: 320px) {
   .formulario {
     padding: 1rem;
@@ -156,20 +181,4 @@ main {
   .toggle-password {
     font-size: 0.95rem;
   }
-}
-.volver-login {
-  text-align: center;
-  margin-top: 1rem;
-}
-
-.volver-login a {
-  color: #001f3f;
-  text-decoration: none;
-  font-size: 0.95rem;
-  font-weight: 600;
-  transition: color 0.3s;
-}
-
-.volver-login a:hover {
-  color: #f1c40f;
 }

@@ -1,13 +1,14 @@
-/* RESET Y BODY */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* GENERAL */
 html, body {
-  height: 100%;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
   background-color: #ffffff;
   color: #333;
   overflow-x: hidden;
@@ -23,7 +24,9 @@ main {
   flex: 1;
 }
 
-/* CARRUSEL PRINCIPAL */
+/* ===============================
+   CARRUSEL PRINCIPAL
+================================= */
 .hero {
   margin: 0;
   padding: 0;
@@ -54,8 +57,8 @@ main {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center top;
-  filter: brightness(0.6);
+  object-position: center;
+  filter: brightness(0.8);
 }
 
 /* INDICADORES DEL CARRUSEL */
@@ -82,41 +85,47 @@ main {
   background-color: #ffc107;
 }
 
-/* BIENVENIDA */
+/* ===============================
+   BIENVENIDA
+================================= */
 .fondo-azul {
   text-align: center;
-  padding: 30px 0 30px 0;
-  background-color: #ffffff;
+  padding: 40px 0;
+  background-color: #f8f9fa;
 }
 
 .bienvenida {
   display: inline-block;
-  background-color: #002851;
-  color: white;
+  background-color: #ffffff;
+  color: #333;
   padding: 50px 60px;
-  border-radius: 5px;
+  border-radius: 10px;
+  border: 1px solid #e0e0e0;
   max-width: 1300px;
   width: 95%;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   margin: 0 auto;
-  word-wrap: break-word;
 }
 
 .bienvenida h1 {
   font-size: clamp(2rem, 4vw, 2.5rem);
   margin-bottom: 10px;
   line-height: 1.2;
+  color: #333;
 }
 
 .bienvenida h1 span {
-  color: #ffc107;
+  color: #007bff;
 }
 
 .bienvenida p {
   font-size: clamp(1rem, 2vw, 1.2rem);
+  color: #555;
 }
 
-/* SECCIÓN OFERTAS */
+/* ===============================
+   SECCIÓN OFERTAS
+================================= */
 .ofertas {
   background-color: #ffffff;
   padding: 30px 20px 40px;
@@ -125,12 +134,17 @@ main {
 
 .ofertas h2 {
   font-size: clamp(1.5rem, 2.5vw, 2rem);
-  margin-bottom: 20px;
-  color: #333;
-  margin-top: 20px;
+  margin: 30px 0 20px;
+  color: #007bff;
 }
 
-/* CONTENEDOR PRODUCTOS */
+.ofertas h2 span {
+  color: #333;
+}
+
+/* ===============================
+   PRODUCTOS
+================================= */
 .productos-contenedor {
   display: flex;
   flex-wrap: nowrap;
@@ -141,17 +155,16 @@ main {
   padding-bottom: 8px;
 }
 
-/* Ocultar scroll barra (todos los dispositivos) */
+/* Ocultar scroll horizontal */
 .productos-contenedor::-webkit-scrollbar {
   display: none;
 }
-
 .productos-contenedor {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
 
-/* CARD DE PRODUCTO */
+/* CARD PRODUCTO */
 .producto {
   background: #ffffff;
   border: 1px solid #e0e0e0;
@@ -169,7 +182,6 @@ main {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
-/* IMAGEN */
 .producto img {
   width: 100%;
   height: 160px;
@@ -189,28 +201,28 @@ main {
   }
 }
 
-/* NOMBRE */
 .producto .nombre {
   font-weight: 600;
   font-size: 0.95rem;
-  color: #4a4a4a;
+  color: #444;
   text-align: center;
   margin: 10px 0 6px 0;
   line-height: 1.2;
   flex-grow: 1;
 }
 
-/* PRECIO */
 .producto .precio {
   font-size: 1.2rem;
   font-weight: bold;
-  color: #4a4a4a;
+  color: #007bff;
   text-align: center;
   margin-top: auto;
   padding-top: 10px;
 }
 
-/* INDICADORES DE PRODUCTOS (PUNTITOS) */
+/* ===============================
+   INDICADORES DE PRODUCTOS
+================================= */
 .productos-indicadores {
   display: flex;
   justify-content: center;
@@ -230,17 +242,9 @@ main {
 .productos-indicadores .indicador.activo {
   background-color: #ffc107;
 }
-
-/* FOOTER */
-footer {
-  background-color: #002b5c;
-  color: white;
-  text-align: center;
-  padding: 20px;
-  font-size: 0.95rem;
-}
-
-/* RESPONSIVO */
+/* ===============================
+   RESPONSIVO
+================================= */
 @media (max-width: 768px) {
   .producto {
     width: 160px;
@@ -253,27 +257,4 @@ footer {
     width: 140px;
     min-width: 140px;
   }
-}
-
-/* SCROLL GENERAL DEL BODY */
-body::-webkit-scrollbar {
-  width: 10px;
-}
-
-body::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-body::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 6px;
-}
-
-body::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
-
-body {
-  scrollbar-width: thin;
-  scrollbar-color: #888 #f1f1f1;
 }

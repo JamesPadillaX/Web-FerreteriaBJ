@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="modelo.Cliente" %>
+<%@ include file="header.jsp" %>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -22,7 +23,6 @@
 </head>
 <body>
 <div class="contenedor-principal">
-    <jsp:include page="header.jsp" />
 
     <main>
         <section>
@@ -128,7 +128,8 @@
             </form>
         </section>
     </main>
-    <jsp:include page="footer.jsp" />
+
+    <%@ include file="footer.jsp" %>
 </div>
 <script src="WebContent/js/web/validarRegistroCliente.js"></script>
 </body>

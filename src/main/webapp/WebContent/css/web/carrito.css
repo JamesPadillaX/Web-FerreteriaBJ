@@ -11,8 +11,8 @@ html, body {
   margin: 0;
   padding: 0;
   font-family: 'Poppins', 'Segoe UI', sans-serif;
-  background-color: #f5f5f5;
-  color: #333;
+  background-color: #ffffff;
+  color: #001f3f;
   overflow-x: hidden;
 }
 
@@ -40,23 +40,24 @@ html, body {
 .columna-productos {
   flex: 2;
   min-width: 300px;
-  background: #fff;
+  background: #ffffff;
   padding: 24px;
   border-radius: 12px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.15);
+  border: 1px solid #b3d1ff;
 }
 
 .columna-resumen {
   flex: 1;
   min-width: 260px;
-  background: #f7f7f7;
+  background: #f0f7ff;
   padding: 24px;
   border-radius: 12px;
   height: fit-content;
   position: sticky;
   top: 100px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.05);
-  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.15);
+  border: 1px solid #b3d1ff;
   transition: opacity 0.3s ease;
 }
 
@@ -71,12 +72,18 @@ html, body {
   display: flex;
   gap: 20px;
   padding: 20px;
-  background: white;
+  background: #ffffff;
   border-radius: 12px;
-  border-bottom: 1px solid #e0e0e0;
+  border: 1px solid #b3d1ff;
   margin-bottom: 16px;
   position: relative;
   flex-wrap: wrap;
+  transition: background-color 0.3s ease, border 0.3s ease;
+}
+
+.producto-card:hover {
+  background-color: #e6f0ff;
+  border-color: #007bff;
 }
 
 .producto-img {
@@ -86,8 +93,8 @@ html, body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #fff;
-  border: 1px solid #ccc;
+  background-color: #ffffff;
+  border: 1px solid #cce0ff;
   border-radius: 8px;
   padding: 6px;
 }
@@ -116,7 +123,7 @@ html, body {
 
 .producto-header h2 {
   font-size: 17px;
-  color: #222;
+  color: #003366;
   margin: 0;
   flex: 1;
 }
@@ -129,75 +136,90 @@ html, body {
 }
 
 .control-cantidad button {
-  background-color: #002147;
+  background-color: #007bff;
   color: white;
   border: none;
   padding: 6px 12px;
   border-radius: 6px;
   font-size: 16px;
   cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.control-cantidad button:hover {
+  background-color: #0069d9;
+  transform: scale(1.05);
 }
 
 .control-cantidad input {
   width: 40px;
   text-align: center;
-  border: 1px solid #ccc;
+  border: 1px solid #b3d1ff;
   border-radius: 6px;
   padding: 4px;
-  background: #f9f9f9;
+  background: #f9fbff;
 }
 
 .producto-subtotal {
   font-weight: bold;
   font-size: 16px;
+  color: #003366;
 }
 
 /* ==== BOTÓN ELIMINAR ==== */
 .btn-eliminar {
-  background: #f1c40f;
-  color: #ffffff;
+  background: #ffc107;
+  color: #001f3f;
   border: none;
   padding: 8px 16px;
   border-radius: 8px;
-  font-weight: bold;
+  font-weight: 600;
   font-size: 13px;
   cursor: pointer;
   position: absolute;
   bottom: 16px;
   right: 16px;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .btn-eliminar:hover {
-  background: #f39c12;
+  background: #e0a800;
+  transform: scale(1.05);
 }
 
 /* ==== BOTÓN COMPRAR ==== */
 .btn-comprar {
   width: 100%;
   padding: 14px;
-  background: #002147;
+  background: #007bff;
   color: white;
   border: none;
   border-radius: 10px;
   margin-top: 20px;
   font-size: 16px;
   cursor: pointer;
-  font-weight: bold;
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .btn-comprar:hover {
-  background: #003366;
+  background: #0069d9;
+  transform: scale(1.02);
 }
 
 .btn-volver {
   display: block;
   text-align: center;
   margin-top: 15px;
-  color: #002147;
+  color: #007bff;
   text-decoration: none;
   font-weight: bold;
   font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.btn-volver:hover {
+  color: #0056b3;
 }
 
 /* ==== RESUMEN ==== */
@@ -206,6 +228,7 @@ html, body {
   justify-content: space-between;
   padding: 6px 0;
   font-size: 14px;
+  color: #003366;
 }
 
 .total {
@@ -214,12 +237,13 @@ html, body {
   font-size: 18px;
   margin-top: 10px;
   font-weight: bold;
+  color: #002147;
 }
 
 .empty {
   text-align: center;
   font-size: 18px;
-  color: #777;
+  color: #666;
   margin-top: 30px;
 }
 

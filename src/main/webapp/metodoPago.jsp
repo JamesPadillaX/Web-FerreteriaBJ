@@ -5,6 +5,7 @@
 <%@ page import="dao.CarritoDAO" %>
 <%@ page import="java.util.List" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ include file="header.jsp" %>
 
 <%
     Cliente cliente = (Cliente) session.getAttribute("clienteLogueado");
@@ -39,7 +40,6 @@
 </head>
 <body>
 <div class="layout">
-    <%@ include file="header.jsp" %>
 
     <main>
         <form action="SeleccionarMetodoPagoServlet" method="post">

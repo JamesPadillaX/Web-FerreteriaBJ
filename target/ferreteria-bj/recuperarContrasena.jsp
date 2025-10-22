@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ include file="header.jsp" %>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -10,7 +11,6 @@
 </head>
 <body>
   <div class="contenedor-principal">
-    <jsp:include page="header.jsp" />
     <main>
       <form action="EnviarCodigoServlet" method="post" class="formulario">
         <h2>Recuperar Contraseña</h2>

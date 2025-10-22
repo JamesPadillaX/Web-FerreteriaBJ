@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+/* === FOOTER === */
+.main-footer {
+  background: linear-gradient(135deg, #007bff, #00bfff);
+  color: #fff;
+  padding: 40px 20px 15px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.footer-contenido {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 30px;
+}
+
+/* === LOGO === */
+.footer-logo h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.footer-logo h2 span {
+  color: #f1c40f;
+}
+
+.footer-logo p {
+  margin-top: 10px;
+  font-size: 0.95rem;
+  color: #f0f0f0;
+  max-width: 280px;
+}
+
+/* === CONTACTO === */
+.footer-contacto h3,
+.footer-redes h3 {
+  color: #f1c40f;
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+}
+
+.footer-contacto ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-contacto li {
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  color: #f0f0f0;
+}
+
+.footer-contacto i {
+  color: #f1c40f;
+}
+
+/* === REDES === */
+.footer-redes .redes-iconos {
+  display: flex;
+  gap: 15px;
+  margin-top: 8px;
+}
+
+.footer-redes .redes-iconos a {
+  color: #fff;
+  font-size: 1.3rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.footer-redes .redes-iconos a:hover {
+  background: #f1c40f;
+  color: #001f3f;
+  transform: translateY(-3px);
+}
+
+/* === COPYRIGHT === */
+.footer-copy {
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  margin-top: 25px;
+  text-align: center;
+  padding-top: 10px;
+  font-size: 0.9rem;
+  color: #e0e0e0;
+}
+
+/* === ESPACIADO PARA EVITAR TAPAR CONTENIDO === */
+body {
+  padding-bottom: 180px; /* altura del footer para que no tape contenido */
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .footer-contenido {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-logo p {
+    max-width: 100%;
+  }
+
+  .footer-redes .redes-iconos {
+    justify-content: center;
+  }
+}

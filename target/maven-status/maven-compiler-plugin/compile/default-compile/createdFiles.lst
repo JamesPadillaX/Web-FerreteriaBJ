@@ -32,9 +32,12 @@ controlador\AgregarProductoServlet.class
 controlador\DetalleVentaServlet.class
 modelo\Carrito.class
 controlador\ListarProductosServlet.class
+modelo\ProductoWeb.class
+controlador\Reportes.class
 filtro\SeguridadFiltro.class
 modelo\Rol.class
 controlador\EliminarDomicilioServlet.class
+util\CategoriaFilter.class
 modelo\DetalleVenta.class
 controlador\AgregarUsuarioServlet.class
 controlador\ListarUsuariosServlet.class
@@ -66,6 +69,7 @@ controlador\ListarDomiciliosServlet.class
 controlador\ConfirmarPagoYapeServlet.class
 controlador\ListarMetodosPagoServlet.class
 controlador\LogoutUsuarioServlet.class
+dao\ProductoWebDAO.class
 controlador\AgregarCategoriaServlet.class
 controlador\EnviarCodigoCambioPasswordServlet.class
 controlador\DetalleProductoServlet.class
@@ -86,6 +90,8 @@ dao\UsuarioDAO.class
 modelo\Modulo.class
 modelo\ImagenProducto.class
 controlador\EliminarMetodoPagoServlet.class
+modelo\ProductoMasVendido.class
+dao\ReporteDAO.class
 controlador\ListarCarruselPublicoServlet.class
 controlador\AgregarRolServlet.class
 controlador\MarcarPrincipalServlet.class
@@ -93,6 +99,7 @@ modelo\Venta.class
 controlador\ActualizarPasswordPerfilServlet.class
 controlador\ListarCarruselServlet.class
 util\TestLog.class
+controlador\ProductosWebServlet.class
 dao\CategoriaDAO.class
 dao\PermisoDAO.class
 controlador\SubirImagenesServlet.class

@@ -2,6 +2,7 @@
 <%@ page import="modelo.Cliente, modelo.Producto, modelo.DetalleCarrito" %>
 <%@ page import="dao.CarritoDAO" %>
 <%@ page import="java.util.List" %>
+<%@ include file="header.jsp" %>
 
 <%
     Cliente cliente = (Cliente) session.getAttribute("clienteLogueado");
@@ -37,7 +38,6 @@
 </head>
 <body>
 <div class="layout">
-    <%@ include file="header.jsp" %>
 
     <main>
         <div class="contenedor-pago">

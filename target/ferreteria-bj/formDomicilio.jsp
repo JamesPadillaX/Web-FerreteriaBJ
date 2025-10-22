@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="modelo.Cliente" %>
-
+<%@ include file="header.jsp" %>
 <%
     Cliente cliente = (Cliente) session.getAttribute("clienteLogueado");
     if (cliente == null) {
@@ -19,7 +19,7 @@
 </head>
 <body>
 <div class="layout">
-    <%@ include file="header.jsp" %>
+
 
     <main>
         <div class="contenedor-formulario">

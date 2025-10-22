@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ include file="header.jsp" %>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -12,7 +13,6 @@
 </head>
 
 <body class="pagina-productos">
-<%@ include file="header.jsp" %>
 
 <main class="contenedor-productos">
 
@@ -77,7 +77,7 @@
     <jsp:include page="WebContent/componentes/alertaAgregadoCarrito.jsp" />
 </c:if>
 
-
 <%@ include file="footer.jsp" %>
+<%@ include file="asistente.jsp" %>
 </body>
 </html>

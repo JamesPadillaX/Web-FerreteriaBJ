@@ -1,21 +1,21 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ include file="header.jsp" %>
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <title>Ferretería BJ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="WebContent/css/web/header.css" />
   <link rel="stylesheet" href="WebContent/css/web/index.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <script defer src="WebContent/js/web/carrusel.js"></script>
 </head>
 <body>
+  
   <div class="contenedor-principal">
-    <jsp:include page="header.jsp" />
-
+    
     <main>
       <section class="hero">
         <div class="carrusel" id="carrusel">
@@ -131,7 +131,8 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
-    <jsp:include page="footer.jsp" />
+    <%@ include file="footer.jsp" %>
   </div>
+  <%@ include file="asistente.jsp" %>
 </body>
 </html>

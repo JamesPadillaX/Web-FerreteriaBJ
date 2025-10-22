@@ -9,7 +9,7 @@
   padding: 18px 20px;
   min-width: 260px;
   z-index: 1000;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
   animation: slideDown 0.3s ease forwards;
   transition: opacity 0.3s ease, transform 0.3s ease;
 }

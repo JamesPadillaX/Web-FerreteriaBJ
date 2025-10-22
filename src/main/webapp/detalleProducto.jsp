@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ include file="header.jsp" %>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -12,7 +13,6 @@
 
 </head>
 <body class="pagina-productos">
-<jsp:include page="header.jsp" />
 <main class="contenedor-productos">
     <div class="breadcrumb">
         <a href="inicio">Inicio</a> /
@@ -91,8 +91,7 @@
         </div>
     </div>
 </main>
-
-<jsp:include page="footer.jsp" />
+    <%@ include file="footer.jsp" %>
 
 <script>
     function cambiarImagenCarrusel(img) {
@@ -122,5 +121,6 @@
         document.getElementById('listaRelacionados').scrollBy({ left: 220, behavior: 'smooth' });
     });
 </script>
+<%@ include file="asistente.jsp" %>
 </body>
 </html>

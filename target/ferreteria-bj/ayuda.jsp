@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ include file="header.jsp" %>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,8 +8,6 @@
     <link rel="stylesheet" href="WebContent/css/web/ayuda.css"><%-- Asegúrate que la ruta sea correcta según tu estructura --%>
 </head>
 <body>
-    <jsp:include page="header.jsp" />
-
     <div class="contenedor-principal">
         <div class="banner-ayuda">
             <h1>CONTACTANOS</h1>
@@ -40,8 +39,8 @@
                 </div>
             </div>
         </main>
+            <%@ include file="footer.jsp" %>
     </div>
 
-    <jsp:include page="footer.jsp" />
 </body>
 </html>

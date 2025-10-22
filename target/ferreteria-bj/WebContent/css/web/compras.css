@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 html, body {
   height: 100%;
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+  background-color: #ffffff;
   margin: 0;
   padding: 0;
 }
@@ -121,7 +124,7 @@ html, body {
 
 .estado-pagado,
 .estado-entregado {
-  color: #3fca46;
+  color: #00ff0d;
 }
 
 .estado-pendiente {

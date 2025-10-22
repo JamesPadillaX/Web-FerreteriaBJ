@@ -1,4 +1,4 @@
-/* GLOBAL RESET Y FUENTES */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 *,
 *::before,
 *::after {
@@ -8,8 +8,8 @@
 html, body {
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background-color: #f5f5f5;
+      font-family: 'Poppins', 'Segoe UI', sans-serif;
+    background-color: #ffffff;
     height: 100%;
     width: 100%;
     overflow-x: hidden;
@@ -101,19 +101,19 @@ main {
 
 /* BOTÓN GUARDAR */
 .btn-guardar {
-    background-color: #003366;
+    background-color: #3d9bff;
     color: white;
 }
 
 .btn-guardar:hover {
-    background-color: #001f4d;
+    background-color: #007bff;
     transform: scale(1.03);
     box-shadow: 0 5px 10px rgba(0, 51, 102, 0.3);
 }
 
 /* BOTÓN CANCELAR */
 .btn-cancelar {
-    background-color: #cc3300;
+    background-color: #ff2f2f;
     color: white;
     text-decoration: none;
     display: inline-block;
@@ -123,7 +123,7 @@ main {
 .btn-cancelar:hover {
     background-color: #a62800;
     transform: scale(1.03);
-    box-shadow: 0 5px 10px rgba(204, 51, 0, 0.3);
+    box-shadow: 0 5px 10px rgb(255, 0, 0);
 }
 
 /* RESPONSIVE */

@@ -1,0 +1,261 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body, html {
+    font-family: 'Poppins', sans-serif;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+    color: #5c5c5c;
+}
+
+/* === CONTENEDOR PRINCIPAL === */
+.contenedor-productos {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 30px 24px;
+}
+
+/* === BUSCADOR === */
+.seccion-busqueda {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 35px;
+}
+
+.form-busqueda {
+    display: flex;
+    width: 100%;
+    max-width: 600px;
+    background: #fff;
+    border: 2px solid #2ea1ff;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.form-busqueda input {
+    flex: 1;
+    border: none;
+    padding: 14px 18px;
+    font-size: 1rem;
+    outline: none;
+    color: #555;
+}
+
+.form-busqueda button {
+    background: #2ea1ff;
+    color: #fff;
+    border: none;
+    padding: 0 20px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.form-busqueda button:hover {
+    background: #0077cc;
+}
+
+/* === SECCIÓN MÁS VENDIDOS === */
+.seccion-mas-vendidos {
+    background: #ffffff;
+    margin-bottom: 50px;
+}
+
+.seccion-mas-vendidos h2 {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #5c5c5c;
+    margin-bottom: 25px;
+}
+
+/* === CONTENEDOR DE PRODUCTOS MÁS VENDIDOS === */
+.productos-contenedor {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 20px;
+    scroll-behavior: smooth;
+    padding-bottom: 10px;
+}
+
+.productos-contenedor::-webkit-scrollbar {
+    height: 8px;
+}
+.productos-contenedor::-webkit-scrollbar-thumb {
+    background: #2ea1ff;
+    border-radius: 4px;
+}
+
+/* === TARJETAS DE PRODUCTOS MÁS VENDIDOS === */
+.producto {
+    flex: 0 0 calc(33.333% - 20px);
+    scroll-snap-align: start;
+    background: #fff;
+    border: 2px solid #ffd35c;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    text-decoration: none;
+    color: #333;
+    padding: 15px;
+    position: relative;
+    transition: box-shadow 0.25s ease;
+}
+
+.producto:hover {
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.producto img {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+/* etiqueta PRECIAZO */
+.etiqueta-preciazo {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background: linear-gradient(90deg, #ff4b2b, #ffbb00);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+/* texto */
+.producto .nombre {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #4e4e4e;
+    margin-top: 10px;
+    min-height: 40px;
+}
+
+.producto .precio {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #111;
+}
+
+/* === INDICADORES (CIRCULITOS) === */
+.productos-indicadores {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.productos-indicadores .indicador {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: #ccc;
+    border-radius: 50%;
+    margin: 0 5px;
+    transition: background-color 0.25s;
+    cursor: pointer;
+}
+
+.productos-indicadores .indicador.activo {
+    background: #2ea1ff;
+}
+
+/* === SECCIÓN TODOS LOS PRODUCTOS === */
+.seccion-todos {
+    margin-top: 20px;
+}
+
+.seccion-todos h2 {
+    font-size: 1.7rem;
+    color: #5c5c5c;
+    font-weight: 700;
+    margin-bottom: 25px;
+    text-align: left;
+    border-bottom: 2px solid #606060;
+    display: inline-block;
+    padding-bottom: 6px;
+}
+
+.grid-productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 22px;
+}
+
+/* === TARJETAS DE PRODUCTOS GENERALES === */
+.tarjeta-prod {
+    display: block;
+    background: #ffffff;
+    border: 1px solid #d3d3d3;
+    border-radius: 10px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+    padding: 16px;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.tarjeta-prod:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transform: translateY(-4px);
+}
+
+.tarjeta-prod img {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+    margin-bottom: 10px;
+    transition: transform 0.4s ease;
+}
+
+.tarjeta-prod:hover img {
+    transform: scale(1.1);
+}
+
+.tarjeta-prod h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #4e4e4e;
+    margin-bottom: 8px;
+    min-height: 45px;
+}
+
+.tarjeta-prod .precio {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #111;
+}
+
+/* === SIN PRODUCTOS === */
+.sin-productos {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 50px 0;
+    color: #666;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 1024px) {
+    .producto {
+        flex: 0 0 calc(50% - 20px);
+    }
+}
+
+@media (max-width: 768px) {
+    .producto {
+        flex: 0 0 100%;
+    }
+
+    .productos-contenedor {
+        gap: 15px;
+    }
+
+    .producto img {
+        height: 200px;
+    }
+}

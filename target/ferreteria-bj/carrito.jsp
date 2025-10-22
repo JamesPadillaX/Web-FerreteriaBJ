@@ -4,6 +4,7 @@
 <%@ page import="modelo.Cliente" %>
 <%@ page import="dao.CarritoDAO" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ include file="header.jsp" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%
@@ -42,8 +43,6 @@
 </head>
 <body>
 <div class="layout">
-    <%@ include file="header.jsp" %>
-
     <main class="contenido-principal">
         <div class="contenedor-carrito">
             <div class="columna-productos">
@@ -129,5 +128,6 @@
 
     <%@ include file="footer.jsp" %>
 </div>
+<%@ include file="asistente.jsp" %>
 </body>
 </html>

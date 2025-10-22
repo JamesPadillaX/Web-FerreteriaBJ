@@ -1,4 +1,4 @@
-/* Reset */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 * {
   margin: 0;
   padding: 0;
@@ -6,8 +6,8 @@
 }
 
 body, html {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #f4f6f9;
+        font-family: 'Poppins', 'Segoe UI', sans-serif;
+  background-color: #ffffff;
   color: #333;
   min-height: 100vh;
   overflow-x: hidden;

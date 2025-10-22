@@ -1,7 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 body {
   margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background-color: #f4f6f8;
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+  background-color: #ffffff;
   color: #333;
 }
 
@@ -10,7 +11,7 @@ body {
 }
 
 .banner-ayuda {
-  background-color: #002b5c; /* azul marino */
+  background-color: #007bff; /* azul marino */
   color: white;
   text-align: center;
   padding: 60px 20px;
@@ -41,7 +42,7 @@ body {
 
 .ayuda-contenedor h2 {
   text-align: center;
-  color: #003366;
+  color: #007bff;
   margin-bottom: 20px;
 }
 
@@ -72,7 +73,7 @@ body {
 .whatsapp-contacto a {
   display: inline-flex;
   align-items: center;
-  background-color: #002b5c; /* azul marino */
+  background-color: #007bff; /* azul marino */
   color: white;
   padding: 12px 20px;
   border-radius: 8px;
@@ -83,7 +84,7 @@ body {
 }
 
 .whatsapp-contacto a:hover {
-  background-color: #001f47;
+  background-color: #007bff;
 }
 
 .whatsapp-contacto img {

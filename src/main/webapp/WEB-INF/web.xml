@@ -4,46 +4,60 @@
          http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
 
-         <servlet>
-            <servlet-name>ListarCategoriasServlet</servlet-name>
-            <servlet-class>controlador.ListarCategoriasServlet</servlet-class>
-        </servlet>
-        <servlet-mapping>
-            <servlet-name>ListarCategoriasServlet</servlet-name>
-            <url-pattern>/ListarCategoriasServlet</url-pattern>
-        </servlet-mapping>
+    <!-- ===== SERVLETS REGISTRADOS ===== -->
+    <servlet>
+        <servlet-name>ListarCategoriasServlet</servlet-name>
+        <servlet-class>controlador.ListarCategoriasServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ListarCategoriasServlet</servlet-name>
+        <url-pattern>/ListarCategoriasServlet</url-pattern>
+    </servlet-mapping>
 
-         <servlet>
-            <servlet-name>ListarProductosServlet</servlet-name>
-            <servlet-class>controlador.ListarProductosServlet</servlet-class>
-        </servlet>
-        <servlet-mapping>
-            <servlet-name>ListarProductosServlet</servlet-name>
-            <url-pattern>/ListarProductosServlet</url-pattern>
-        </servlet-mapping>
+    <servlet>
+        <servlet-name>ListarProductosServlet</servlet-name>
+        <servlet-class>controlador.ListarProductosServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ListarProductosServlet</servlet-name>
+        <url-pattern>/ListarProductosServlet</url-pattern>
+    </servlet-mapping>
 
-         <servlet>
-            <servlet-name>LoginUsuarioServlet</servlet-name>
-            <servlet-class>controlador.LoginUsuarioServlet</servlet-class>
-        </servlet>
-        <servlet-mapping>
-            <servlet-name>LoginUsuarioServlet</servlet-name>
-            <url-pattern>/LoginUsuarioServlet</url-pattern>
-        </servlet-mapping>
+    <servlet>
+        <servlet-name>LoginUsuarioServlet</servlet-name>
+        <servlet-class>controlador.LoginUsuarioServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginUsuarioServlet</servlet-name>
+        <url-pattern>/LoginUsuarioServlet</url-pattern>
+    </servlet-mapping>
 
-         <servlet>
-            <servlet-name>ListarProductosPorCategoriaServlet</servlet-name>
-            <servlet-class>controlador.ListarProductosPorCategoriaServlet</servlet-class>
-        </servlet>
+    <servlet>
+        <servlet-name>ListarProductosPorCategoriaServlet</servlet-name>
+        <servlet-class>controlador.ListarProductosPorCategoriaServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ListarProductosPorCategoriaServlet</servlet-name>
+        <url-pattern>/ListarProductosPorCategoriaServlet</url-pattern>
+    </servlet-mapping>
 
-        <servlet-mapping>
-            <servlet-name>ListarProductosPorCategoriaServlet</servlet-name>
-            <url-pattern>/ListarProductosPorCategoriaServlet</url-pattern>
-        </servlet-mapping>
+    <!-- ===== FILTRO DE CODIFICACIÓN UTF-8 ===== -->
+    <filter>
+        <filter-name>CharacterEncodingFilter</filter-name>
+        <filter-class>org.apache.catalina.filters.SetCharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+        <init-param>
+            <param-name>forceEncoding</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
 
-       
-        
-
-        
+    <filter-mapping>
+        <filter-name>CharacterEncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 
 </web-app>

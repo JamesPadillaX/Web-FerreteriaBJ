@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="modelo.Cliente" %>
+<%@ include file="header.jsp" %>
 <%
     Cliente cliente = (Cliente) session.getAttribute("clienteLogueado");
     if (cliente == null) {
@@ -127,8 +128,6 @@
 </head>
 <body class="body-flex">
 
-<jsp:include page="header.jsp" />
-
 <div class="contenedor-principal">
     <main class="contenido">
         <div class="perfil-contenedor">
@@ -151,8 +150,7 @@
     </main>
 </div>
 
-<jsp:include page="footer.jsp" />
-
+<%@ include file="footer.jsp" %>
 <!-- Modal Código -->
 <div id="modalVerificarCodigo" class="modal-perfil">
     <div class="contenedorCliente">
